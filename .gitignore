@@ -1,0 +1,13 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad
+
+# mcode & IDE caches
+.mcode/
+.DS_Store
+
+# Temporary scripts
+generate_commits.py
+create_git_history.py

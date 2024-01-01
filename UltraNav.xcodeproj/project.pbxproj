@@ -1,0 +1,775 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */; };
+		799B57A40E30254FC3D5023C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD58B1FF781346EB0A467756 /* Foundation.framework */; };
+		9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */; };
+		A10000000000000000000001 /* UltraNavApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* UltraNavApp.swift */; };
+		A10000000000000000000002 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* NavigationModel.swift */; };
+		A10000000000000000000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* ContentView.swift */; };
+		A10000000000000000000004 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000007 /* LoadingView.swift */; };
+		A10000000000000000000005 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* EmptyStateView.swift */; };
+		A10000000000000000000006 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* ErrorStateView.swift */; };
+		A10000000000000000000007 /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000A /* RetryButton.swift */; };
+		A10000000000000000000008 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000B /* ScreenState.swift */; };
+		A10000000000000000000009 /* AppCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000C /* AppCache.swift */; };
+		A1000000000000000000000A /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* SyncCoordinator.swift */; };
+		A1000000000000000000000B /* AppLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000E /* AppLaunchView.swift */; };
+		A1000000000000000000000C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* OnboardingView.swift */; };
+		A1000000000000000000000D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* SettingsView.swift */; };
+		B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000002 /* TimelineProvider.swift */; };
+		BE84DC91B6A9403BAE269B46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD58B1FF781346EB0A467756 /* Foundation.framework */; };
+		C22000000000000000000001 /* AppleWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000001 /* AppleWatchWidget.swift */; };
+		C22000000000000000000002 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000002 /* TimelineProvider.swift */; };
+		C22000000000000000000003 /* NavigationAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000003 /* NavigationAppIntent.swift */; };
+		C22000000000000000000004 /* UltraNavWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C20000000000000000000001 /* UltraNavWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D20000000000000000000001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000000000000000000001 /* NotificationManager.swift */; };
+		D20000000000000000000002 /* BackgroundRefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000000000000000000002 /* BackgroundRefreshManager.swift */; };
+		D20000000000000000000003 /* AccessibilitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000000000000000000003 /* AccessibilitySupport.swift */; };
+		D967E8DA6D3D0B8A08A4BB64 /* UltraNavJourneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E377FD5CC36F4C716B6181E /* UltraNavJourneyUITests.swift */; };
+		E20000000000000000000001 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000001 /* AppLogger.swift */; };
+		E20000000000000000000002 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000002 /* PrivacyInfo.xcprivacy */; };
+		E20000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E10000000000000000000003 /* PrivacyInfo.xcprivacy */; };
+		F100000000000000000001 /* MKDirectionsTransportType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */; };
+		F00000000000000000000001 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000001 /* GPXRoute.swift */; };
+		F00000000000000000000002 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000002 /* GPXParser.swift */; };
+		F00000000000000000000003 /* RouteLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000003 /* RouteLibraryManager.swift */; };
+		F00000000000000000000004 /* BluetoothSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000004 /* BluetoothSensorManager.swift */; };
+		F00000000000000000000005 /* WorkoutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000005 /* WorkoutSessionManager.swift */; };
+		F00000000000000000000006 /* CyclingRideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000006 /* CyclingRideEngine.swift */; };
+		F00000000000000000000007 /* MetricsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000007 /* MetricsGridView.swift */; };
+		F00000000000000000000008 /* OfflineBreadcrumbMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */; };
+		F00000000000000000000009 /* ClimbProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000009 /* ClimbProView.swift */; };
+		F0000000000000000000000A /* CueSheetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000A /* CueSheetListView.swift */; };
+		F0000000000000000000000B /* LapMetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000B /* LapMetricsView.swift */; };
+		F0000000000000000000000C /* RoutePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000C /* RoutePickerView.swift */; };
+		F0000000000000000000000D /* CyclingComputerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000D /* CyclingComputerContainerView.swift */; };
+		F0000000000000000000000E /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000E /* GPXParserTests.swift */; };
+		F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000F /* CyclingRideEngineTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		068FB4C4B500F2A8F58BA6B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A80000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A50000000000000000000001;
+			remoteInfo = UltraNav;
+		};
+		14C14D2AF051A61AC12ED1B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A80000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A50000000000000000000001;
+			remoteInfo = UltraNav;
+		};
+		C50000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A80000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C10000000000000000000001;
+			remoteInfo = UltraNavWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C40000000000000000000004 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C22000000000000000000004 /* UltraNavWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UltraNavCoreTests.swift; path = UltraNavTests/UltraNavCoreTests.swift; sourceTree = "<group>"; };
+		2F788BBBB4DCECC2ED285C42 /* UltraNavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltraNavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BCEB636EA57A1DB93126A3A /* UltraNavTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltraNavTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WidgetTimelineTests.swift; path = UltraNavTests/WidgetTimelineTests.swift; sourceTree = "<group>"; };
+		7E377FD5CC36F4C716B6181E /* UltraNavJourneyUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UltraNavJourneyUITests.swift; path = UltraNavUITests/UltraNavJourneyUITests.swift; sourceTree = "<group>"; };
+		A20000000000000000000001 /* UltraNavApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A20000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000000000000000000005 /* UltraNav.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UltraNav.entitlements; sourceTree = "<group>"; };
+		A20000000000000000000006 /* UltraNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltraNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000007 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/LoadingView.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/EmptyStateView.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/ErrorStateView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000A /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/RetryButton.swift; sourceTree = "<group>"; };
+		A2000000000000000000000B /* ScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ScreenState.swift; sourceTree = "<group>"; };
+		A2000000000000000000000C /* AppCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/AppCache.swift; sourceTree = "<group>"; };
+		A2000000000000000000000D /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/SyncCoordinator.swift; sourceTree = "<group>"; };
+		A2000000000000000000000E /* AppLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AppLaunchView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/OnboardingView.swift; sourceTree = "<group>"; };
+		A20000000000000000000010 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Views/SettingsView.swift; sourceTree = SOURCE_ROOT; };
+		AD58B1FF781346EB0A467756 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C20000000000000000000001 /* UltraNavWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UltraNavWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21000000000000000000001 /* AppleWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchWidget.swift; sourceTree = "<group>"; };
+		C21000000000000000000002 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
+		C21000000000000000000003 /* NavigationAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppIntent.swift; sourceTree = "<group>"; };
+		C21000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D10000000000000000000001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D10000000000000000000002 /* BackgroundRefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshManager.swift; sourceTree = "<group>"; };
+		D10000000000000000000003 /* AccessibilitySupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/AccessibilitySupport.swift; sourceTree = "<group>"; };
+		E10000000000000000000001 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
+		E10000000000000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E10000000000000000000003 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions/MKDirectionsTransportType+Extensions.swift"; sourceTree = "<group>"; };
+		F01000000000000000000001 /* GPXRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/GPXRoute.swift; sourceTree = "<group>"; };
+		F01000000000000000000002 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/GPXParser.swift; sourceTree = "<group>"; };
+		F01000000000000000000003 /* RouteLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/RouteLibraryManager.swift; sourceTree = "<group>"; };
+		F01000000000000000000004 /* BluetoothSensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/BluetoothSensorManager.swift; sourceTree = "<group>"; };
+		F01000000000000000000005 /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/WorkoutSessionManager.swift; sourceTree = "<group>"; };
+		F01000000000000000000006 /* CyclingRideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/CyclingRideEngine.swift; sourceTree = "<group>"; };
+		F01000000000000000000007 /* MetricsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/MetricsGridView.swift; sourceTree = "<group>"; };
+		F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/OfflineBreadcrumbMapView.swift; sourceTree = "<group>"; };
+		F01000000000000000000009 /* ClimbProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/ClimbProView.swift; sourceTree = "<group>"; };
+		F0100000000000000000000A /* CueSheetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/CueSheetListView.swift; sourceTree = "<group>"; };
+		F0100000000000000000000B /* LapMetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/LapMetricsView.swift; sourceTree = "<group>"; };
+		F0100000000000000000000C /* RoutePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/RoutePickerView.swift; sourceTree = "<group>"; };
+		F0100000000000000000000D /* CyclingComputerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/CyclingComputerContainerView.swift; sourceTree = "<group>"; };
+		F0100000000000000000000E /* GPXParserTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParserTests.swift; path = UltraNavTests/GPXParserTests.swift; sourceTree = "<group>"; };
+		F0100000000000000000000F /* CyclingRideEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CyclingRideEngineTests.swift; path = UltraNavTests/CyclingRideEngineTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A43B79B5E1C38AA1E5884CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				799B57A40E30254FC3D5023C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		930C57EA82AA1B31F488374C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE84DC91B6A9403BAE269B46 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A30000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A34815CD9CE406FDDAC35E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EBBB977F0537BEB1CBE44A3 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
+				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
+				F0100000000000000000000E /* GPXParserTests.swift */,
+				F0100000000000000000000F /* CyclingRideEngineTests.swift */,
+			);
+			name = UltraNavTests;
+			sourceTree = "<group>";
+		};
+		2242E0BA39EE2339706E6DFD /* UltraNavUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E377FD5CC36F4C716B6181E /* UltraNavJourneyUITests.swift */,
+			);
+			name = UltraNavUITests;
+			sourceTree = "<group>";
+		};
+		4EBBB977F0537BEB1CBE44A3 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				AD58B1FF781346EB0A467756 /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		A40000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A40000000000000000000002 /* UltraNav */,
+				C30000000000000000000001 /* UltraNavWidget */,
+				A40000000000000000000003 /* Products */,
+				0E5EE99007A87DDC42679279 /* UltraNavTests */,
+				2242E0BA39EE2339706E6DFD /* UltraNavUITests */,
+				0A34815CD9CE406FDDAC35E9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A40000000000000000000002 /* UltraNav */ = {
+			isa = PBXGroup;
+			children = (
+				D30000000000000000000001 /* Services */,
+				A20000000000000000000001 /* UltraNavApp.swift */,
+				A20000000000000000000002 /* NavigationModel.swift */,
+				F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */,
+				A20000000000000000000003 /* ContentView.swift */,
+				A20000000000000000000007 /* LoadingView.swift */,
+				A20000000000000000000008 /* EmptyStateView.swift */,
+				A20000000000000000000009 /* ErrorStateView.swift */,
+				A2000000000000000000000A /* RetryButton.swift */,
+				D10000000000000000000003 /* AccessibilitySupport.swift */,
+				A2000000000000000000000B /* ScreenState.swift */,
+				A2000000000000000000000C /* AppCache.swift */,
+				A2000000000000000000000D /* SyncCoordinator.swift */,
+				A2000000000000000000000E /* AppLaunchView.swift */,
+				A2000000000000000000000F /* OnboardingView.swift */,
+				F01000000000000000000001 /* GPXRoute.swift */,
+				F01000000000000000000002 /* GPXParser.swift */,
+				F01000000000000000000003 /* RouteLibraryManager.swift */,
+				F01000000000000000000004 /* BluetoothSensorManager.swift */,
+				F01000000000000000000005 /* WorkoutSessionManager.swift */,
+				F01000000000000000000006 /* CyclingRideEngine.swift */,
+				F01000000000000000000007 /* MetricsGridView.swift */,
+				F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */,
+				F01000000000000000000009 /* ClimbProView.swift */,
+				F0100000000000000000000A /* CueSheetListView.swift */,
+				F0100000000000000000000B /* LapMetricsView.swift */,
+				F0100000000000000000000C /* RoutePickerView.swift */,
+				F0100000000000000000000D /* CyclingComputerContainerView.swift */,
+				A20000000000000000000004 /* Info.plist */,
+				E10000000000000000000002 /* PrivacyInfo.xcprivacy */,
+				A20000000000000000000005 /* UltraNav.entitlements */,
+			);
+			path = UltraNav;
+			sourceTree = "<group>";
+		};
+		A40000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000006 /* UltraNav.app */,
+				C20000000000000000000001 /* UltraNavWidget.appex */,
+				5BCEB636EA57A1DB93126A3A /* UltraNavTests.xctest */,
+				2F788BBBB4DCECC2ED285C42 /* UltraNavUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C30000000000000000000001 /* UltraNavWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C21000000000000000000001 /* AppleWatchWidget.swift */,
+				C21000000000000000000002 /* TimelineProvider.swift */,
+				C21000000000000000000003 /* NavigationAppIntent.swift */,
+				C21000000000000000000004 /* Info.plist */,
+				E10000000000000000000003 /* PrivacyInfo.xcprivacy */,
+			);
+			path = UltraNavWidget;
+			sourceTree = "<group>";
+		};
+		D30000000000000000000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000001 /* AppLogger.swift */,
+				D10000000000000000000001 /* NotificationManager.swift */,
+				D10000000000000000000002 /* BackgroundRefreshManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A50000000000000000000001 /* UltraNav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90000000000000000000002 /* Build configuration list for PBXNativeTarget "UltraNav" */;
+			buildPhases = (
+				A60000000000000000000001 /* Sources */,
+				C40000000000000000000004 /* Embed App Extensions */,
+				A30000000000000000000001 /* Frameworks */,
+				A70000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C50000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = UltraNav;
+			productName = UltraNav;
+			productReference = A20000000000000000000006 /* UltraNav.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C10000000000000000000001 /* UltraNavWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C60000000000000000000001 /* Build configuration list for PBXNativeTarget "UltraNavWidget" */;
+			buildPhases = (
+				C40000000000000000000001 /* Sources */,
+				C40000000000000000000002 /* Frameworks */,
+				C40000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UltraNavWidget;
+			productName = UltraNavWidget;
+			productReference = C20000000000000000000001 /* UltraNavWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		CA0D5BE543BD3FCC50DDC3C7 /* UltraNavUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 286F43D38C7B8E2F1D90A4FA /* Build configuration list for PBXNativeTarget "UltraNavUITests" */;
+			buildPhases = (
+				72A7DE717F5D24D146F9B0BA /* Sources */,
+				930C57EA82AA1B31F488374C /* Frameworks */,
+				56F0E8055EB4E47CF456B478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DA0AD78E0FD8DE8C3EB1279 /* PBXTargetDependency */,
+			);
+			name = UltraNavUITests;
+			productName = UltraNavUITests;
+			productReference = 2F788BBBB4DCECC2ED285C42 /* UltraNavUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		CACFAA68B4F4B6D3361A094C /* UltraNavTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 115A7CB9EA8BDB16BB0E1108 /* Build configuration list for PBXNativeTarget "UltraNavTests" */;
+			buildPhases = (
+				0677E06DC0717816BF954A1C /* Sources */,
+				6A43B79B5E1C38AA1E5884CA /* Frameworks */,
+				E50E132D601886CBD9F74FA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0065FEAF27C3CB18CC5B455 /* PBXTargetDependency */,
+			);
+			name = UltraNavTests;
+			productName = UltraNavTests;
+			productReference = 5BCEB636EA57A1DB93126A3A /* UltraNavTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A80000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					A50000000000000000000001 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = A90000000000000000000001 /* Build configuration list for PBXProject "UltraNav" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A40000000000000000000001;
+			productRefGroup = A40000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A50000000000000000000001 /* UltraNav */,
+				C10000000000000000000001 /* UltraNavWidget */,
+				CACFAA68B4F4B6D3361A094C /* UltraNavTests */,
+				CA0D5BE543BD3FCC50DDC3C7 /* UltraNavUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56F0E8055EB4E47CF456B478 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20000000000000000000002 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E50E132D601886CBD9F74FA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0677E06DC0717816BF954A1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
+				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
+				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
+				F0000000000000000000000E /* GPXParserTests.swift in Sources */,
+				F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72A7DE717F5D24D146F9B0BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D967E8DA6D3D0B8A08A4BB64 /* UltraNavJourneyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20000000000000000000001 /* AppLogger.swift in Sources */,
+				D20000000000000000000003 /* AccessibilitySupport.swift in Sources */,
+				D20000000000000000000002 /* BackgroundRefreshManager.swift in Sources */,
+				D20000000000000000000001 /* NotificationManager.swift in Sources */,
+				A10000000000000000000001 /* UltraNavApp.swift in Sources */,
+				A10000000000000000000002 /* NavigationModel.swift in Sources */,
+				F100000000000000000001 /* MKDirectionsTransportType+Extensions.swift in Sources */,
+				A10000000000000000000003 /* ContentView.swift in Sources */,
+				A10000000000000000000004 /* LoadingView.swift in Sources */,
+				A10000000000000000000005 /* EmptyStateView.swift in Sources */,
+				A10000000000000000000006 /* ErrorStateView.swift in Sources */,
+				A10000000000000000000007 /* RetryButton.swift in Sources */,
+				A10000000000000000000008 /* ScreenState.swift in Sources */,
+				A10000000000000000000009 /* AppCache.swift in Sources */,
+				A1000000000000000000000A /* SyncCoordinator.swift in Sources */,
+				A1000000000000000000000B /* AppLaunchView.swift in Sources */,
+				A1000000000000000000000C /* OnboardingView.swift in Sources */,
+				A1000000000000000000000D /* SettingsView.swift in Sources */,
+				F00000000000000000000001 /* GPXRoute.swift in Sources */,
+				F00000000000000000000002 /* GPXParser.swift in Sources */,
+				F00000000000000000000003 /* RouteLibraryManager.swift in Sources */,
+				F00000000000000000000004 /* BluetoothSensorManager.swift in Sources */,
+				F00000000000000000000005 /* WorkoutSessionManager.swift in Sources */,
+				F00000000000000000000006 /* CyclingRideEngine.swift in Sources */,
+				F00000000000000000000007 /* MetricsGridView.swift in Sources */,
+				F00000000000000000000008 /* OfflineBreadcrumbMapView.swift in Sources */,
+				F00000000000000000000009 /* ClimbProView.swift in Sources */,
+				F0000000000000000000000A /* CueSheetListView.swift in Sources */,
+				F0000000000000000000000B /* LapMetricsView.swift in Sources */,
+				F0000000000000000000000C /* RoutePickerView.swift in Sources */,
+				F0000000000000000000000D /* CyclingComputerContainerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22000000000000000000001 /* AppleWatchWidget.swift in Sources */,
+				C22000000000000000000002 /* TimelineProvider.swift in Sources */,
+				C22000000000000000000003 /* NavigationAppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DA0AD78E0FD8DE8C3EB1279 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UltraNav;
+			target = A50000000000000000000001 /* UltraNav */;
+			targetProxy = 068FB4C4B500F2A8F58BA6B4 /* PBXContainerItemProxy */;
+		};
+		C0065FEAF27C3CB18CC5B455 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UltraNav;
+			target = A50000000000000000000001 /* UltraNav */;
+			targetProxy = 14C14D2AF051A61AC12ED1B2 /* PBXContainerItemProxy */;
+		};
+		C50000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C10000000000000000000001 /* UltraNavWidget */;
+			targetProxy = C50000000000000000000002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		92059F0C15C9E9934830FDD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNavUITests;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = UltraNav;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		AA0000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		AA0000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UltraNav/UltraNav.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = UltraNav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UltraNav/UltraNav.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = UltraNav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		B8F6D3EA7D8EE432FA7C50A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNavTests;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltraNav.app/UltraNav";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		BB6A509CFBA42AA04C653F19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNavTests;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltraNav.app/UltraNav";
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		C70000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = UltraNavWidget/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNav.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		C70000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = UltraNavWidget/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNav.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		EFEF92ADB0FB8F2FE734F8F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UltraNavUITests;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = UltraNav;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		115A7CB9EA8BDB16BB0E1108 /* Build configuration list for PBXNativeTarget "UltraNavTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F6D3EA7D8EE432FA7C50A3 /* Release */,
+				BB6A509CFBA42AA04C653F19 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		286F43D38C7B8E2F1D90A4FA /* Build configuration list for PBXNativeTarget "UltraNavUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92059F0C15C9E9934830FDD1 /* Release */,
+				EFEF92ADB0FB8F2FE734F8F2 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90000000000000000000001 /* Build configuration list for PBXProject "UltraNav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000001 /* Debug */,
+				AA0000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90000000000000000000002 /* Build configuration list for PBXNativeTarget "UltraNav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000003 /* Debug */,
+				AA0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C60000000000000000000001 /* Build configuration list for PBXNativeTarget "UltraNavWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C70000000000000000000001 /* Debug */,
+				C70000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A80000000000000000000001 /* Project object */;
+}
