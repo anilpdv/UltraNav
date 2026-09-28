@@ -8,16 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		0B1B1AF63565A28F12098B1F /* LocationAuthorizationMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE127120A9F14F6A962014 /* LocationAuthorizationMappingTests.swift */; };
+		12331641973340C32EDAAB7F /* FakeWorkoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA3AA067DBB84321094544 /* FakeWorkoutBuilder.swift */; };
 		13F4C576A4012FE5FE079FA2 /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4186BEB6EF289F7BFE945E43 /* FakeLocationManager.swift */; };
+		165507CDE9E6FBA3E5116AF2 /* HealthKitDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0868082FA5FDE59548183350 /* HealthKitDataTypes.swift */; };
+		1A31ADE6A4C1D1976E378C49 /* CompletedWorkoutReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D50DE1CF751F54AA51175 /* CompletedWorkoutReference.swift */; };
+		21C03F099AE9B707A71E4BDB /* WorkoutConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36485830302172F9E1DE49E9 /* WorkoutConfiguration.swift */; };
+		2978D231D5793DED12CDA148 /* FakeWorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAE47C867D98032A9720945 /* FakeWorkoutSession.swift */; };
+		2BCC60A2B93DF898BDC0F5E2 /* HealthKitDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F9B5E18DC2766C690DF26 /* HealthKitDelegateBridge.swift */; };
+		2EB97F0708E7918C68038AF4 /* HealthKitMetricConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5E80B4A7776EA0F2239A5 /* HealthKitMetricConverterTests.swift */; };
 		30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */; };
 		3714A546C72EBC98BD9561AC /* LocationConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EA250BB7716045A5CF0A67 /* LocationConverting.swift */; };
 		3A472795122BD0421B53FFA1 /* CoreLocationSampleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AAB08834B30E1714C2F159 /* CoreLocationSampleConverterTests.swift */; };
+		3BDEBC01FC491748A3E84ED9 /* HealthKitWorkoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F3AE32BAC3F738405E169 /* HealthKitWorkoutFactory.swift */; };
 		3E0832E46D6A895D78B0EFAD /* LocationServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955F802272A290EAB6B4A075 /* LocationServiceState.swift */; };
 		485EF4AC80946081921CAE44 /* LocationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD156E006309C4A04AD37C /* LocationConfiguration.swift */; };
+		4E635EA7D1FC2E6612CD465D /* HealthKitServiceLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1F8ED6696F062C5BD09F8 /* HealthKitServiceLifecycleTests.swift */; };
 		4F3DF2CCD64A1A0A21FF0059 /* LocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E9CFFD04EA1A7DD3E78279 /* LocationServiceTests.swift */; };
+		6528BABABB394659431B0085 /* HealthKitConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6887B0EB049DBDD6854AE940 /* HealthKitConfigurationTests.swift */; };
 		6D6D5A4C1DAEFB3604A8A737 /* LocationConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECC7BAD6C892AD3FCF3D714 /* LocationConfigurationTests.swift */; };
 		799B57A40E30254FC3D5023C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD58B1FF781346EB0A467756 /* Foundation.framework */; };
+		83C73A9574ADB24F6D2A463D /* HealthKitServiceFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A783D19DC8BCC3D69FE79B /* HealthKitServiceFailureTests.swift */; };
+		87F8CD7141487153EEC6A3D1 /* HealthKitSessionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C415A2F613B81AC0E78E9DA /* HealthKitSessionManaging.swift */; };
+		8AD50E0DFE098E49E0479A89 /* FakeWorkoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE831E61B3B793394B243E9 /* FakeWorkoutFactory.swift */; };
 		8E1AEBF80CE18687CD9E411E /* CoreLocationSampleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1AFFACB4BD8EFA90F06C9 /* CoreLocationSampleConverter.swift */; };
+		918E4C712999F8F0AD542A67 /* HealthKitMetricConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25DD3CA87099D4EDC2F744 /* HealthKitMetricConverter.swift */; };
 		9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */; };
 		A10000000000000000000001 /* UltraNavApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* UltraNavApp.swift */; };
 		A10000000000000000000002 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* NavigationModel.swift */; };
@@ -33,8 +47,10 @@
 		A1000000000000000000000C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* OnboardingView.swift */; };
 		A1000000000000000000000D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* SettingsView.swift */; };
 		B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000002 /* TimelineProvider.swift */; };
+		B7C3A69CAC99C5F273B08322 /* HealthKitAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF5E0D2D8CDBABB0D7ACDC /* HealthKitAuthorizationTests.swift */; };
 		B83FBCAEFA96F29A01AA8870 /* CoreLocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD34641DD5B65642B97571 /* CoreLocationManaging.swift */; };
 		BE84DC91B6A9403BAE269B46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD58B1FF781346EB0A467756 /* Foundation.framework */; };
+		BFF346945B1A5C3B2E2955EA /* FakeHealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6B7A2BDAE5B4F4A940CE2 /* FakeHealthStore.swift */; };
 		C22000000000000000000001 /* AppleWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000001 /* AppleWatchWidget.swift */; };
 		C22000000000000000000002 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000002 /* TimelineProvider.swift */; };
 		C22000000000000000000003 /* NavigationAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21000000000000000000003 /* NavigationAppIntent.swift */; };
@@ -45,6 +61,7 @@
 		D20000000000000000000003 /* AccessibilitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000000000000000000003 /* AccessibilitySupport.swift */; };
 		D4008FB7471E797C31E03202 /* LocationSampleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610BD8F5B15ADB5ACBE2F85C /* LocationSampleFactory.swift */; };
 		D967E8DA6D3D0B8A08A4BB64 /* UltraNavJourneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E377FD5CC36F4C716B6181E /* UltraNavJourneyUITests.swift */; };
+		DA1C43A2F67F4013706CCB10 /* WorkoutMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4027E46C2956B8762173A /* WorkoutMetric.swift */; };
 		E1B0000000000000000001C1 /* RideEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C1 /* RideEvent.swift */; };
 		E1B0000000000000000001C2 /* RideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C2 /* RideEffect.swift */; };
 		E1B0000000000000000001C3 /* RideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C3 /* RideTransition.swift */; };
@@ -135,6 +152,7 @@
 		E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */; };
 		E2BDA51CE5E233E3D9FE3AB3 /* RideModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC4033DF79302AFA35749E /* RideModelTests.swift */; };
 		E2BFDCCAE3DFEF11BE95CA79 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */; };
+		EDC2ADB5A7A03D8E2B64CD9A /* HealthKitAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2254713225671CCA7F4D5BB /* HealthKitAuthorizing.swift */; };
 		F00000000000000000000001 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000001 /* GPXRoute.swift */; };
 		F00000000000000000000002 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000002 /* GPXParser.swift */; };
 		F00000000000000000000003 /* RouteLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000003 /* RouteLibraryManager.swift */; };
@@ -192,10 +210,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014F9B5E18DC2766C690DF26 /* HealthKitDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitDelegateBridge.swift; path = UltraNav/Services/Workout/HealthKitDelegateBridge.swift; sourceTree = "<group>"; };
+		0868082FA5FDE59548183350 /* HealthKitDataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitDataTypes.swift; path = UltraNav/Services/Workout/HealthKitDataTypes.swift; sourceTree = "<group>"; };
 		11B3B06575641B7CDE41CF1B /* CoreLocationSampleConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationSampleConverter.swift; sourceTree = "<group>"; };
 		1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UltraNavCoreTests.swift; path = UltraNavTests/UltraNavCoreTests.swift; sourceTree = "<group>"; };
 		2B424CABA118E69FAB5BE99C /* CoreLocationDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationDelegateBridge.swift; sourceTree = "<group>"; };
+		2DEF5E0D2D8CDBABB0D7ACDC /* HealthKitAuthorizationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitAuthorizationTests.swift; path = UltraNavTests/Services/HealthKitAuthorizationTests.swift; sourceTree = "<group>"; };
 		2F788BBBB4DCECC2ED285C42 /* UltraNavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltraNavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36485830302172F9E1DE49E9 /* WorkoutConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkoutConfiguration.swift; path = UltraNav/Services/Workout/WorkoutConfiguration.swift; sourceTree = "<group>"; };
 		37CD34641DD5B65642B97571 /* CoreLocationManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationManaging.swift; path = UltraNav/Services/Location/CoreLocationManaging.swift; sourceTree = "<group>"; };
 		3AFD156E006309C4A04AD37C /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfiguration.swift; path = UltraNav/Services/Location/LocationConfiguration.swift; sourceTree = "<group>"; };
 		3E7979E36A231071FF56F1CA /* CoreLocationManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationManaging.swift; sourceTree = "<group>"; };
@@ -203,19 +225,27 @@
 		49EDB52FE77D89B7BEE4916C /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
 		57573B303ABEBB96EC0F5E2F /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeLocationManager.swift; path = TestDoubles/FakeLocationManager.swift; sourceTree = "<group>"; };
 		576E624D1A3D6B58FDCF30B6 /* LocationConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfigurationTests.swift; path = Services/LocationConfigurationTests.swift; sourceTree = "<group>"; };
+		5A25DD3CA87099D4EDC2F744 /* HealthKitMetricConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitMetricConverter.swift; path = UltraNav/Services/Workout/HealthKitMetricConverter.swift; sourceTree = "<group>"; };
 		5A86F5A3F1CB4A88912D21BF /* CoreLocationSampleConverterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationSampleConverterTests.swift; path = Services/CoreLocationSampleConverterTests.swift; sourceTree = "<group>"; };
 		5BCEB636EA57A1DB93126A3A /* UltraNavTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltraNavTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		610BD8F5B15ADB5ACBE2F85C /* LocationSampleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationSampleFactory.swift; path = UltraNavTests/TestDoubles/LocationSampleFactory.swift; sourceTree = "<group>"; };
 		66AAB08834B30E1714C2F159 /* CoreLocationSampleConverterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationSampleConverterTests.swift; path = UltraNavTests/Services/CoreLocationSampleConverterTests.swift; sourceTree = "<group>"; };
+		66F5E80B4A7776EA0F2239A5 /* HealthKitMetricConverterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitMetricConverterTests.swift; path = UltraNavTests/Services/HealthKitMetricConverterTests.swift; sourceTree = "<group>"; };
+		6887B0EB049DBDD6854AE940 /* HealthKitConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitConfigurationTests.swift; path = UltraNavTests/Services/HealthKitConfigurationTests.swift; sourceTree = "<group>"; };
 		69258B67786819022694D642 /* CoreLocationManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationManaging.swift; path = Services/Location/CoreLocationManaging.swift; sourceTree = "<group>"; };
 		6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WidgetTimelineTests.swift; path = UltraNavTests/WidgetTimelineTests.swift; sourceTree = "<group>"; };
 		7127515F28483E2D23B9FFC1 /* CoreLocationDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationDelegateBridge.swift; path = Services/Location/CoreLocationDelegateBridge.swift; sourceTree = "<group>"; };
 		7660682764ED56A74608B5DC /* CoreLocationDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationDelegateBridge.swift; path = UltraNav/Services/Location/CoreLocationDelegateBridge.swift; sourceTree = "<group>"; };
+		79F6B7A2BDAE5B4F4A940CE2 /* FakeHealthStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeHealthStore.swift; path = UltraNavTests/TestDoubles/FakeHealthStore.swift; sourceTree = "<group>"; };
+		7C415A2F613B81AC0E78E9DA /* HealthKitSessionManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitSessionManaging.swift; path = UltraNav/Services/Workout/HealthKitSessionManaging.swift; sourceTree = "<group>"; };
 		7E377FD5CC36F4C716B6181E /* UltraNavJourneyUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UltraNavJourneyUITests.swift; path = UltraNavUITests/UltraNavJourneyUITests.swift; sourceTree = "<group>"; };
 		8543A5AF4ADDA313B0C6DE7A /* LocationAuthorizationMappingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationAuthorizationMappingTests.swift; path = Services/LocationAuthorizationMappingTests.swift; sourceTree = "<group>"; };
 		892B84AA407EBF53B6DDEDA5 /* CoreLocationSampleConverterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationSampleConverterTests.swift; sourceTree = "<group>"; };
+		8E7D50DE1CF751F54AA51175 /* CompletedWorkoutReference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompletedWorkoutReference.swift; path = UltraNav/Services/Workout/CompletedWorkoutReference.swift; sourceTree = "<group>"; };
 		955F802272A290EAB6B4A075 /* LocationServiceState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceState.swift; path = UltraNav/Services/Location/LocationServiceState.swift; sourceTree = "<group>"; };
+		95AA3AA067DBB84321094544 /* FakeWorkoutBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeWorkoutBuilder.swift; path = UltraNavTests/TestDoubles/FakeWorkoutBuilder.swift; sourceTree = "<group>"; };
 		990EE8E9573C1F1E448F661F /* LocationConverting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationConverting.swift; sourceTree = "<group>"; };
+		9BAE47C867D98032A9720945 /* FakeWorkoutSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeWorkoutSession.swift; path = UltraNavTests/TestDoubles/FakeWorkoutSession.swift; sourceTree = "<group>"; };
 		A20000000000000000000001 /* UltraNavApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavApp.swift; sourceTree = "<group>"; };
 		A20000000000000000000002 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
 		A20000000000000000000003 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,18 +268,22 @@
 		B4A46C0716CCC5424083765D /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationConfiguration.swift; sourceTree = "<group>"; };
 		B6EA250BB7716045A5CF0A67 /* LocationConverting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConverting.swift; path = UltraNav/Services/Location/LocationConverting.swift; sourceTree = "<group>"; };
 		BBF6D42724681F717DC4A8E6 /* LocationSampleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationSampleFactory.swift; path = TestDoubles/LocationSampleFactory.swift; sourceTree = "<group>"; };
+		C0A783D19DC8BCC3D69FE79B /* HealthKitServiceFailureTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitServiceFailureTests.swift; path = UltraNavTests/Services/HealthKitServiceFailureTests.swift; sourceTree = "<group>"; };
 		C20000000000000000000001 /* UltraNavWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UltraNavWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21000000000000000000001 /* AppleWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchWidget.swift; sourceTree = "<group>"; };
 		C21000000000000000000002 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
 		C21000000000000000000003 /* NavigationAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppIntent.swift; sourceTree = "<group>"; };
 		C21000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C52F3AE32BAC3F738405E169 /* HealthKitWorkoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitWorkoutFactory.swift; path = UltraNav/Services/Workout/HealthKitWorkoutFactory.swift; sourceTree = "<group>"; };
 		C815FEB50AD0F49C45E982A2 /* LocationAuthorizationMappingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationMappingTests.swift; sourceTree = "<group>"; };
 		CB81427AE5D13A20B34A0E57 /* LocationConverting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConverting.swift; path = Services/Location/LocationConverting.swift; sourceTree = "<group>"; };
 		CCD1AFFACB4BD8EFA90F06C9 /* CoreLocationSampleConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationSampleConverter.swift; path = UltraNav/Services/Location/CoreLocationSampleConverter.swift; sourceTree = "<group>"; };
 		D10000000000000000000001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D10000000000000000000002 /* BackgroundRefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshManager.swift; sourceTree = "<group>"; };
 		D10000000000000000000003 /* AccessibilitySupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Shared/AccessibilitySupport.swift; sourceTree = "<group>"; };
+		D2254713225671CCA7F4D5BB /* HealthKitAuthorizing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitAuthorizing.swift; path = UltraNav/Services/Workout/HealthKitAuthorizing.swift; sourceTree = "<group>"; };
 		D3CE127120A9F14F6A962014 /* LocationAuthorizationMappingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationAuthorizationMappingTests.swift; path = UltraNavTests/Services/LocationAuthorizationMappingTests.swift; sourceTree = "<group>"; };
+		DBE831E61B3B793394B243E9 /* FakeWorkoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeWorkoutFactory.swift; path = UltraNavTests/TestDoubles/FakeWorkoutFactory.swift; sourceTree = "<group>"; };
 		DC38EBCFBB03301E24BE251D /* LocationSampleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationSampleFactory.swift; sourceTree = "<group>"; };
 		DECC7BAD6C892AD3FCF3D714 /* LocationConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfigurationTests.swift; path = UltraNavTests/Services/LocationConfigurationTests.swift; sourceTree = "<group>"; };
 		E10000000000000000000001 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
@@ -345,6 +379,7 @@
 		E4ED9F5641FF5C22EA22DD88 /* LocationServiceState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceState.swift; path = Services/Location/LocationServiceState.swift; sourceTree = "<group>"; };
 		EC9FC6B24D3132AC896D3D6B /* LocationServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceTests.swift; path = Services/LocationServiceTests.swift; sourceTree = "<group>"; };
 		EFBAAAB0AFAAB5219B7B7BC9 /* LocationServiceState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationServiceState.swift; sourceTree = "<group>"; };
+		EFF4027E46C2956B8762173A /* WorkoutMetric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkoutMetric.swift; path = UltraNav/Services/Workout/WorkoutMetric.swift; sourceTree = "<group>"; };
 		F01000000000000000000001 /* GPXRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/GPXRoute.swift; sourceTree = "<group>"; };
 		F01000000000000000000002 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/GPXParser.swift; sourceTree = "<group>"; };
 		F01000000000000000000003 /* RouteLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/RouteLibraryManager.swift; sourceTree = "<group>"; };
@@ -360,6 +395,7 @@
 		F0100000000000000000000D /* CyclingComputerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/CyclingComputerContainerView.swift; sourceTree = "<group>"; };
 		F0100000000000000000000E /* GPXParserTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParserTests.swift; path = UltraNavTests/GPXParserTests.swift; sourceTree = "<group>"; };
 		F0100000000000000000000F /* CyclingRideEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CyclingRideEngineTests.swift; path = UltraNavTests/CyclingRideEngineTests.swift; sourceTree = "<group>"; };
+		F0C1F8ED6696F062C5BD09F8 /* HealthKitServiceLifecycleTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitServiceLifecycleTests.swift; path = UltraNavTests/Services/HealthKitServiceLifecycleTests.swift; sourceTree = "<group>"; };
 		F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions/MKDirectionsTransportType+Extensions.swift"; sourceTree = "<group>"; };
 		F41C06CBDB66BB5016238EA3 /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfiguration.swift; path = Services/Location/LocationConfiguration.swift; sourceTree = "<group>"; };
 		F4716A9E44EA2281E529F902 /* LocationServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationServiceTests.swift; sourceTree = "<group>"; };
@@ -507,6 +543,24 @@
 				A3E9CFFD04EA1A7DD3E78279 /* LocationServiceTests.swift */,
 				4186BEB6EF289F7BFE945E43 /* FakeLocationManager.swift */,
 				610BD8F5B15ADB5ACBE2F85C /* LocationSampleFactory.swift */,
+				36485830302172F9E1DE49E9 /* WorkoutConfiguration.swift */,
+				0868082FA5FDE59548183350 /* HealthKitDataTypes.swift */,
+				D2254713225671CCA7F4D5BB /* HealthKitAuthorizing.swift */,
+				8E7D50DE1CF751F54AA51175 /* CompletedWorkoutReference.swift */,
+				EFF4027E46C2956B8762173A /* WorkoutMetric.swift */,
+				7C415A2F613B81AC0E78E9DA /* HealthKitSessionManaging.swift */,
+				014F9B5E18DC2766C690DF26 /* HealthKitDelegateBridge.swift */,
+				5A25DD3CA87099D4EDC2F744 /* HealthKitMetricConverter.swift */,
+				C52F3AE32BAC3F738405E169 /* HealthKitWorkoutFactory.swift */,
+				9BAE47C867D98032A9720945 /* FakeWorkoutSession.swift */,
+				95AA3AA067DBB84321094544 /* FakeWorkoutBuilder.swift */,
+				79F6B7A2BDAE5B4F4A940CE2 /* FakeHealthStore.swift */,
+				DBE831E61B3B793394B243E9 /* FakeWorkoutFactory.swift */,
+				2DEF5E0D2D8CDBABB0D7ACDC /* HealthKitAuthorizationTests.swift */,
+				6887B0EB049DBDD6854AE940 /* HealthKitConfigurationTests.swift */,
+				F0C1F8ED6696F062C5BD09F8 /* HealthKitServiceLifecycleTests.swift */,
+				C0A783D19DC8BCC3D69FE79B /* HealthKitServiceFailureTests.swift */,
+				66F5E80B4A7776EA0F2239A5 /* HealthKitMetricConverterTests.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -851,6 +905,15 @@
 				4F3DF2CCD64A1A0A21FF0059 /* LocationServiceTests.swift in Sources */,
 				13F4C576A4012FE5FE079FA2 /* FakeLocationManager.swift in Sources */,
 				D4008FB7471E797C31E03202 /* LocationSampleFactory.swift in Sources */,
+				2978D231D5793DED12CDA148 /* FakeWorkoutSession.swift in Sources */,
+				12331641973340C32EDAAB7F /* FakeWorkoutBuilder.swift in Sources */,
+				BFF346945B1A5C3B2E2955EA /* FakeHealthStore.swift in Sources */,
+				8AD50E0DFE098E49E0479A89 /* FakeWorkoutFactory.swift in Sources */,
+				B7C3A69CAC99C5F273B08322 /* HealthKitAuthorizationTests.swift in Sources */,
+				6528BABABB394659431B0085 /* HealthKitConfigurationTests.swift in Sources */,
+				4E635EA7D1FC2E6612CD465D /* HealthKitServiceLifecycleTests.swift in Sources */,
+				83C73A9574ADB24F6D2A463D /* HealthKitServiceFailureTests.swift in Sources */,
+				2EB97F0708E7918C68038AF4 /* HealthKitMetricConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,6 +1027,15 @@
 				B83FBCAEFA96F29A01AA8870 /* CoreLocationManaging.swift in Sources */,
 				CA749B21ED46631305B82246 /* CoreLocationDelegateBridge.swift in Sources */,
 				3E0832E46D6A895D78B0EFAD /* LocationServiceState.swift in Sources */,
+				21C03F099AE9B707A71E4BDB /* WorkoutConfiguration.swift in Sources */,
+				165507CDE9E6FBA3E5116AF2 /* HealthKitDataTypes.swift in Sources */,
+				EDC2ADB5A7A03D8E2B64CD9A /* HealthKitAuthorizing.swift in Sources */,
+				1A31ADE6A4C1D1976E378C49 /* CompletedWorkoutReference.swift in Sources */,
+				DA1C43A2F67F4013706CCB10 /* WorkoutMetric.swift in Sources */,
+				87F8CD7141487153EEC6A3D1 /* HealthKitSessionManaging.swift in Sources */,
+				2BCC60A2B93DF898BDC0F5E2 /* HealthKitDelegateBridge.swift in Sources */,
+				918E4C712999F8F0AD542A67 /* HealthKitMetricConverter.swift in Sources */,
+				3BDEBC01FC491748A3E84ED9 /* HealthKitWorkoutFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
