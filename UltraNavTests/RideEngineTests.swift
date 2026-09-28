@@ -72,7 +72,7 @@ final class RideEngineTests: XCTestCase {
             try await rideEngine.prepareRide()
             XCTFail("Expected prepareRide to throw")
         } catch {
-            XCTAssertEqual(rideEngine.state, .failed(.workoutAuthorizationDenied))
+            XCTAssertEqual(rideEngine.state, .failed(failure: .workoutAuthorizationDenied, recovery: .returnToIdle))
         }
     }
 

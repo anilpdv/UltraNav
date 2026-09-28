@@ -94,6 +94,21 @@
 		E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */; };
 		E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */; };
 		E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */; };
+		E1B0000000000000000001C1 /* RideEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C1 /* RideEvent.swift */; };
+		E1B0000000000000000001C2 /* RideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C2 /* RideEffect.swift */; };
+		E1B0000000000000000001C3 /* RideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C3 /* RideTransition.swift */; };
+		E1B0000000000000000001C4 /* RideTransitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C4 /* RideTransitionError.swift */; };
+		E1B0000000000000000001C5 /* RideStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C5 /* RideStateMachine.swift */; };
+		E1B0000000000000000001C6 /* NavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C6 /* NavigationEvent.swift */; };
+		E1B0000000000000000001C7 /* NavigationEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C7 /* NavigationEffect.swift */; };
+		E1B0000000000000000001C8 /* NavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C8 /* NavigationTransition.swift */; };
+		E1B0000000000000000001C9 /* NavigationTransitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001C9 /* NavigationTransitionError.swift */; };
+		E1B0000000000000000001CA /* NavigationStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0000000000000000001CA /* NavigationStateMachine.swift */; };
+		E2B0000000000000000001C1 /* RideStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C1 /* RideStateMachineTests.swift */; };
+		E2B0000000000000000001C2 /* RideStateMachineFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C2 /* RideStateMachineFailureTests.swift */; };
+		E2B0000000000000000001C3 /* RideStateMachinePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */; };
+		E2B0000000000000000001C4 /* NavigationStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */; };
+		E2B0000000000000000001C5 /* NavigationStateMachineFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +241,21 @@
 		E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideEngineTests.swift; path = UltraNavTests/RideEngineTests.swift; sourceTree = "<group>"; };
 		E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationEngineTests.swift; path = UltraNavTests/NavigationEngineTests.swift; sourceTree = "<group>"; };
 		E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetricsEngineTests.swift; path = UltraNavTests/MetricsEngineTests.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C1 /* RideEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideEvent.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C2 /* RideEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideEffect.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C3 /* RideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideTransition.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C4 /* RideTransitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideTransitionError.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C5 /* RideStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideStateMachine.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C6 /* NavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationEvent.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C7 /* NavigationEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationEffect.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C8 /* NavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationTransition.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001C9 /* NavigationTransitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationTransitionError.swift; sourceTree = "<group>"; };
+		E1F0000000000000000001CA /* NavigationStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationStateMachine.swift; sourceTree = "<group>"; };
+		E2F0000000000000000001C1 /* RideStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachineTests.swift; sourceTree = "<group>"; };
+		E2F0000000000000000001C2 /* RideStateMachineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachineFailureTests.swift; sourceTree = "<group>"; };
+		E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachinePathTests.swift; sourceTree = "<group>"; };
+		E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/NavigationStateMachineTests.swift; sourceTree = "<group>"; };
+		E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/NavigationStateMachineFailureTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +316,11 @@
 				E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */,
 				E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */,
 				E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */,
+				E2F0000000000000000001C1 /* RideStateMachineTests.swift */,
+				E2F0000000000000000001C2 /* RideStateMachineFailureTests.swift */,
+				E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */,
+				E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */,
+				E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */,
 																																1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
 				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
 				F0100000000000000000000E /* GPXParserTests.swift */,
@@ -354,6 +389,16 @@
 				E1F6382A9E473671928AE21A /* NavigationEngine.swift */,
 				E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */,
 				E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */,
+				E1F0000000000000000001C1 /* RideEvent.swift */,
+				E1F0000000000000000001C2 /* RideEffect.swift */,
+				E1F0000000000000000001C3 /* RideTransition.swift */,
+				E1F0000000000000000001C4 /* RideTransitionError.swift */,
+				E1F0000000000000000001C5 /* RideStateMachine.swift */,
+				E1F0000000000000000001C6 /* NavigationEvent.swift */,
+				E1F0000000000000000001C7 /* NavigationEffect.swift */,
+				E1F0000000000000000001C8 /* NavigationTransition.swift */,
+				E1F0000000000000000001C9 /* NavigationTransitionError.swift */,
+				E1F0000000000000000001CA /* NavigationStateMachine.swift */,
 																																																														D30000000000000000000001 /* Services */,
 				A20000000000000000000001 /* UltraNavApp.swift */,
 				A20000000000000000000002 /* NavigationModel.swift */,
@@ -584,6 +629,11 @@
 				E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */,
 				E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */,
 				E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */,
+				E2B0000000000000000001C1 /* RideStateMachineTests.swift in Sources */,
+				E2B0000000000000000001C2 /* RideStateMachineFailureTests.swift in Sources */,
+				E2B0000000000000000001C3 /* RideStateMachinePathTests.swift in Sources */,
+				E2B0000000000000000001C4 /* NavigationStateMachineTests.swift in Sources */,
+				E2B0000000000000000001C5 /* NavigationStateMachineFailureTests.swift in Sources */,
 																																9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
 				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
 				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
@@ -633,6 +683,16 @@
 				E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */,
 				E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */,
 				E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */,
+				E1B0000000000000000001C1 /* RideEvent.swift in Sources */,
+				E1B0000000000000000001C2 /* RideEffect.swift in Sources */,
+				E1B0000000000000000001C3 /* RideTransition.swift in Sources */,
+				E1B0000000000000000001C4 /* RideTransitionError.swift in Sources */,
+				E1B0000000000000000001C5 /* RideStateMachine.swift in Sources */,
+				E1B0000000000000000001C6 /* NavigationEvent.swift in Sources */,
+				E1B0000000000000000001C7 /* NavigationEffect.swift in Sources */,
+				E1B0000000000000000001C8 /* NavigationTransition.swift in Sources */,
+				E1B0000000000000000001C9 /* NavigationTransitionError.swift in Sources */,
+				E1B0000000000000000001CA /* NavigationStateMachine.swift in Sources */,
 																																																														E20000000000000000000001 /* AppLogger.swift in Sources */,
 				D20000000000000000000003 /* AccessibilitySupport.swift in Sources */,
 				D20000000000000000000002 /* BackgroundRefreshManager.swift in Sources */,

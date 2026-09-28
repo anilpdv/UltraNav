@@ -50,7 +50,7 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         locationService.requestAuthorization()
         let authSuccess = await workoutService.requestAuthorization()
         if !authSuccess {
-            state = .failed(.workoutAuthorizationDenied)
+            state = .failed(failure: .workoutAuthorizationDenied, recovery: .returnToIdle)
             throw RideFailure.workoutAuthorizationDenied
         }
 
