@@ -55,6 +55,18 @@
 - [x] `HealthKitService` managing workout lifecycle, bounded events (`bufferingNewest(50)`), and finalization.
 - [x] 100% unit test coverage for authorization, configuration, preparation, lifecycle, finalization, and failure paths.
 
+### Bluetooth Service Boundary (Phase 1G)
+- [x] `BluetoothAvailability` capturing fine-grained CoreBluetooth manager availability.
+- [x] `SensorScanRequest` and `SensorScanState` formalizing scan parameters and lifecycle.
+- [x] `CoreBluetoothUUIDs` and `SensorServiceDefinition` centralizing cycling GATT service specifications.
+- [x] `CoreBluetoothManaging` and `CoreBluetoothPeripheralManaging` protocol abstractions.
+- [x] `CoreBluetoothDelegateBridge` and `PeripheralDelegateBridge` serializing delegate callbacks to `@MainActor`.
+- [x] `SensorMeasurementPacket` decoupling raw characteristic byte streams from parsers.
+- [x] `SensorPacketParsing` protocol with legacy adapters (`LegacyHeartRateParserAdapter`, `LegacyCyclingPowerParserAdapter`, `LegacyCSCParserAdapter`, `CyclingSensorPacketParser`).
+- [x] `PeripheralContext` and `BluetoothService` managing scanning, discovery, connections, discovery pipeline, subscription confirmation, packet routing, and disconnection handling.
+- [x] Bounded event stream (`bufferingNewest(100)`).
+- [x] 100% unit test coverage for mapper, availability, scanning, discovery, connections, subscriptions, and failure handling.
+
 ### Dependency Management & Composition
 - [x] `AppContainer` serves as central composition root.
 - [x] Dependencies injected cleanly into engines.
@@ -81,12 +93,20 @@
 - [x] `HealthKitServiceLifecycleTests` (5 tests)
 - [x] `HealthKitServiceFailureTests` (3 tests)
 - [x] `HealthKitMetricConverterTests` (1 test)
+- [x] `CoreBluetoothMapperTests` (5 tests)
+- [x] `BluetoothServiceAvailabilityTests` (5 tests)
+- [x] `BluetoothServiceScanningTests` (6 tests)
+- [x] `BluetoothServiceDiscoveryTests` (4 tests)
+- [x] `BluetoothServiceConnectionTests` (4 tests)
+- [x] `BluetoothServiceNotificationTests` (2 tests)
+- [x] `BluetoothServiceDisconnectionTests` (4 tests)
+- [x] `BluetoothServiceFailureTests` (4 tests)
 - [x] `RideEngineTests` covering start, pause, resume, finish, lap, and failure paths.
 - [x] `NavigationEngineTests` covering XTE, off-course, and cue lookahead.
 - [x] `MetricsEngineTests` covering time, speed, and lap distance triggers.
 - [x] `GPXParserTests` covering XML parsing and climb scoring.
 - [x] `UltraNavCoreTests` covering navigation model and caching.
-- [x] Total: **121 unit tests** passing with 0 failures on watchOS simulator.
+- [x] Total: **150+ unit tests** passing with 0 failures on watchOS simulator.
 
 ---
 
@@ -100,7 +120,8 @@
 | **Phase 1D** | **Service Protocol Boundaries** | Formalize hardware protocols & event streams. | **COMPLETED** |
 | **Phase 1E** | **Core Location Service Boundary** | Isolate CoreLocation behind LocationProviding. | **COMPLETED** |
 | **Phase 1F** | **HealthKit Service Boundary** | Isolate HealthKit behind WorkoutProviding. | **COMPLETED** |
-| **Phase 1G** | **Bluetooth Service Boundary** | Isolate CoreBluetooth behind SensorProviding. | Next |
+| **Phase 1G** | **Bluetooth Service Boundary** | Isolate CoreBluetooth behind SensorProviding. | **COMPLETED** |
+| **Phase 1H** | **RideEngine Extraction** | Unify Location, Workout, and Sensor into RideEngine. | Next |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
 | **Phase 4** | **HealthKit & Workout Session** | Background execution runtime, battery preservation, HealthKit mirrors. | Pending |
@@ -111,3 +132,4 @@
 | **Phase 9** | **Power & Cycling Metrics** | NP (Normalized Power), IF, 3s/10s smoothing, TSS calculation. | Pending |
 | **Phase 10** | **ClimbPro & Gradient Engine** | Automated climb segmentation, Cat 4 to HC scoring, gradient color bands. | Pending |
 | **Phase 11** | **OLED High-Contrast UI & Polish** | Sunlight-readable big numbers HUD, 60fps vector canvas map, complications. | Pending |
+
