@@ -7,6 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F250F6AAD4A056C8D192495 /* BluetoothAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B0F1CEA599E5E2C64DC45 /* BluetoothAvailability.swift */; };
+		3ECDB07BA09434F19D9C0390 /* SensorScanState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8063DC5A656E5A71162C8AB /* SensorScanState.swift */; };
+		34495E61599C56DA1FB33FEE /* SensorScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D846A2102F742270D693A04 /* SensorScanRequest.swift */; };
+		8DEE53D62EA6049C39082E4D /* SensorDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE617BD837007FF7FB0705 /* SensorDiscovery.swift */; };
+		104962E1CB254F117162A563 /* SensorServiceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA28A42A7A081E1BF95B7C4 /* SensorServiceDefinition.swift */; };
+		094925549248A9D035BE75B9 /* SensorMeasurementPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5518C9B137F45F6DF60D71 /* SensorMeasurementPacket.swift */; };
+		F9D33877A279FE554E95EA0E /* CoreBluetoothUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E51B5C1C10D9E70D812D4D /* CoreBluetoothUUIDs.swift */; };
+		C69BE53C6ACBAAC3C33AE1E8 /* CoreBluetoothMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5288D9B95898C95A0F40B66 /* CoreBluetoothMapper.swift */; };
+		30EB6E38FCF241094292D964 /* CoreBluetoothManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4265580497437D99215A2D /* CoreBluetoothManaging.swift */; };
+		31EB6E38FCF241094292D965 /* CoreBluetoothCharacteristicManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B914A79BF655F156C193F818 /* CoreBluetoothCharacteristicManaging.swift */; };
+		91BFDA0881448E364353588C /* CoreBluetoothPeripheralManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA14B79BF655F156C193F817 /* CoreBluetoothPeripheralManaging.swift */; };
+		EB83A0CB7B8695CF02EE631B /* CoreBluetoothDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9634B95E18026419105913E9 /* CoreBluetoothDelegateBridge.swift */; };
+		B2661686F32558C279FC1557 /* PeripheralDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F770D39478D8825E6A91F1 /* PeripheralDelegateBridge.swift */; };
+		72D3F0EC427911C40170BC6C /* PeripheralContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA442CA2611E126245B507 /* PeripheralContext.swift */; };
+		C9B1B57CDDABEDEEFADE7B6D /* SensorPacketParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112EAFB7D5326720A24EE6 /* SensorPacketParsing.swift */; };
+		E1FBEF2801B8C1E84C0EAA39 /* LegacyHeartRateParserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1340684726B71ADC6D5E73 /* LegacyHeartRateParserAdapter.swift */; };
+		92E4105F8F5CC7EDD7CC49EE /* LegacyCyclingPowerParserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B606BF3B68B6B0D067B8D40 /* LegacyCyclingPowerParserAdapter.swift */; };
+		248F8B726949DC015231EE5D /* LegacyCSCParserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F34298E14E4C40E74B6FAB /* LegacyCSCParserAdapter.swift */; };
+		708684566C1DE9469BCD8E14 /* CyclingSensorPacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733421CB9A1C33E3BE327A58 /* CyclingSensorPacketParser.swift */; };
+		E2D676FA933B0FC8AB2B72B9 /* FakeCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8CDD8951C3217BF8F7619A /* FakeCentralManager.swift */; };
+		E3D676FA933B0FC8AB2B72BA /* FakeCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8CDD8951C3217BF8F7619B /* FakeCharacteristic.swift */; };
+		A88E7345629FDCDB3C7D6056 /* FakePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8C18509C894E747085439 /* FakePeripheral.swift */; };
+		625021EEA0A45D814A1E1B09 /* FakeSensorPacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163792A6FB81920015EF7045 /* FakeSensorPacketParser.swift */; };
+		82F36299A75AB4A4EE3A45EC /* BluetoothEventRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D1FE2F8BF624E46B2C6685 /* BluetoothEventRecorder.swift */; };
+		701AED0511DA94FA5BB83B85 /* SensorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73E1A4F3672612F96B0F72E /* SensorFactory.swift */; };
+		9679C59E1201A256869382BC /* CoreBluetoothMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D89316C04110BD7E13F5C /* CoreBluetoothMapperTests.swift */; };
+		505ECDD618B51282E7B3C0C2 /* BluetoothServiceAvailabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0700037D6D3D56B1BF13C /* BluetoothServiceAvailabilityTests.swift */; };
+		3BAB0960BB18AAD02E2DCD7D /* BluetoothServiceScanningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9502D42BB959AC28F3588 /* BluetoothServiceScanningTests.swift */; };
+		3F89B4B6FD21EA88371DE3F3 /* BluetoothServiceDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC79629C24617A1903364CD /* BluetoothServiceDiscoveryTests.swift */; };
+		CB73864CFCC59A909E1773C7 /* BluetoothServiceConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD31C51AAE0C3664185444A /* BluetoothServiceConnectionTests.swift */; };
+		E56694535A26FD42D4D46A6F /* BluetoothServiceNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63C575BB37C2058145BD0A /* BluetoothServiceNotificationTests.swift */; };
+		202EB135DA32450B1E9DEFFF /* BluetoothServiceDisconnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3531385FF4DB9A64B178824 /* BluetoothServiceDisconnectionTests.swift */; };
+		E75725139D3D6804EF54391A /* BluetoothServiceFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97386321E7D939356538874A /* BluetoothServiceFailureTests.swift */; };
 		0B1B1AF63565A28F12098B1F /* LocationAuthorizationMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE127120A9F14F6A962014 /* LocationAuthorizationMappingTests.swift */; };
 		12331641973340C32EDAAB7F /* FakeWorkoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA3AA067DBB84321094544 /* FakeWorkoutBuilder.swift */; };
 		13F4C576A4012FE5FE079FA2 /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4186BEB6EF289F7BFE945E43 /* FakeLocationManager.swift */; };
@@ -210,6 +243,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		178B0F1CEA599E5E2C64DC45 /* BluetoothAvailability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothAvailability.swift; path = Services/Sensors/BluetoothAvailability.swift; sourceTree = "<group>"; };
+		F8063DC5A656E5A71162C8AB /* SensorScanState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorScanState.swift; path = Services/Sensors/SensorScanState.swift; sourceTree = "<group>"; };
+		8D846A2102F742270D693A04 /* SensorScanRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorScanRequest.swift; path = Services/Sensors/SensorScanRequest.swift; sourceTree = "<group>"; };
+		0DEE617BD837007FF7FB0705 /* SensorDiscovery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorDiscovery.swift; path = Services/Sensors/SensorDiscovery.swift; sourceTree = "<group>"; };
+		CBA28A42A7A081E1BF95B7C4 /* SensorServiceDefinition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorServiceDefinition.swift; path = Services/Sensors/SensorServiceDefinition.swift; sourceTree = "<group>"; };
+		4E5518C9B137F45F6DF60D71 /* SensorMeasurementPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorMeasurementPacket.swift; path = Services/Sensors/SensorMeasurementPacket.swift; sourceTree = "<group>"; };
+		38E51B5C1C10D9E70D812D4D /* CoreBluetoothUUIDs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothUUIDs.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothUUIDs.swift; sourceTree = "<group>"; };
+		B5288D9B95898C95A0F40B66 /* CoreBluetoothMapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothMapper.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothMapper.swift; sourceTree = "<group>"; };
+		0A4265580497437D99215A2D /* CoreBluetoothManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothManaging.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothManaging.swift; sourceTree = "<group>"; };
+		B914A79BF655F156C193F818 /* CoreBluetoothCharacteristicManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothCharacteristicManaging.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothCharacteristicManaging.swift; sourceTree = "<group>"; };
+		BA14B79BF655F156C193F817 /* CoreBluetoothPeripheralManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothPeripheralManaging.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothPeripheralManaging.swift; sourceTree = "<group>"; };
+		9634B95E18026419105913E9 /* CoreBluetoothDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothDelegateBridge.swift; path = Services/Sensors/CoreBluetooth/CoreBluetoothDelegateBridge.swift; sourceTree = "<group>"; };
+		39F770D39478D8825E6A91F1 /* PeripheralDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeripheralDelegateBridge.swift; path = Services/Sensors/CoreBluetooth/PeripheralDelegateBridge.swift; sourceTree = "<group>"; };
+		31FA442CA2611E126245B507 /* PeripheralContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeripheralContext.swift; path = Services/Sensors/CoreBluetooth/PeripheralContext.swift; sourceTree = "<group>"; };
+		49112EAFB7D5326720A24EE6 /* SensorPacketParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorPacketParsing.swift; path = Services/Sensors/Parsing/SensorPacketParsing.swift; sourceTree = "<group>"; };
+		EF1340684726B71ADC6D5E73 /* LegacyHeartRateParserAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyHeartRateParserAdapter.swift; path = Services/Sensors/Parsing/LegacyHeartRateParserAdapter.swift; sourceTree = "<group>"; };
+		5B606BF3B68B6B0D067B8D40 /* LegacyCyclingPowerParserAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyCyclingPowerParserAdapter.swift; path = Services/Sensors/Parsing/LegacyCyclingPowerParserAdapter.swift; sourceTree = "<group>"; };
+		60F34298E14E4C40E74B6FAB /* LegacyCSCParserAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyCSCParserAdapter.swift; path = Services/Sensors/Parsing/LegacyCSCParserAdapter.swift; sourceTree = "<group>"; };
+		733421CB9A1C33E3BE327A58 /* CyclingSensorPacketParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CyclingSensorPacketParser.swift; path = Services/Sensors/Parsing/CyclingSensorPacketParser.swift; sourceTree = "<group>"; };
+		8C8CDD8951C3217BF8F7619A /* FakeCentralManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeCentralManager.swift; path = UltraNavTests/TestDoubles/FakeCentralManager.swift; sourceTree = "<group>"; };
+		8D8CDD8951C3217BF8F7619B /* FakeCharacteristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeCharacteristic.swift; path = UltraNavTests/TestDoubles/FakeCharacteristic.swift; sourceTree = "<group>"; };
+		AEB8C18509C894E747085439 /* FakePeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakePeripheral.swift; path = UltraNavTests/TestDoubles/FakePeripheral.swift; sourceTree = "<group>"; };
+		163792A6FB81920015EF7045 /* FakeSensorPacketParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeSensorPacketParser.swift; path = UltraNavTests/TestDoubles/FakeSensorPacketParser.swift; sourceTree = "<group>"; };
+		24D1FE2F8BF624E46B2C6685 /* BluetoothEventRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothEventRecorder.swift; path = UltraNavTests/TestDoubles/BluetoothEventRecorder.swift; sourceTree = "<group>"; };
+		B73E1A4F3672612F96B0F72E /* SensorFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorFactory.swift; path = UltraNavTests/TestDoubles/SensorFactory.swift; sourceTree = "<group>"; };
+		B61D89316C04110BD7E13F5C /* CoreBluetoothMapperTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreBluetoothMapperTests.swift; path = UltraNavTests/Services/Sensors/CoreBluetoothMapperTests.swift; sourceTree = "<group>"; };
+		14F0700037D6D3D56B1BF13C /* BluetoothServiceAvailabilityTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceAvailabilityTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceAvailabilityTests.swift; sourceTree = "<group>"; };
+		5BA9502D42BB959AC28F3588 /* BluetoothServiceScanningTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceScanningTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceScanningTests.swift; sourceTree = "<group>"; };
+		2AC79629C24617A1903364CD /* BluetoothServiceDiscoveryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceDiscoveryTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceDiscoveryTests.swift; sourceTree = "<group>"; };
+		BCD31C51AAE0C3664185444A /* BluetoothServiceConnectionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceConnectionTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceConnectionTests.swift; sourceTree = "<group>"; };
+		9F63C575BB37C2058145BD0A /* BluetoothServiceNotificationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceNotificationTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceNotificationTests.swift; sourceTree = "<group>"; };
+		E3531385FF4DB9A64B178824 /* BluetoothServiceDisconnectionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceDisconnectionTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceDisconnectionTests.swift; sourceTree = "<group>"; };
+		97386321E7D939356538874A /* BluetoothServiceFailureTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BluetoothServiceFailureTests.swift; path = UltraNavTests/Services/Sensors/BluetoothServiceFailureTests.swift; sourceTree = "<group>"; };
 		014F9B5E18DC2766C690DF26 /* HealthKitDelegateBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitDelegateBridge.swift; path = UltraNav/Services/Workout/HealthKitDelegateBridge.swift; sourceTree = "<group>"; };
 		0868082FA5FDE59548183350 /* HealthKitDataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitDataTypes.swift; path = UltraNav/Services/Workout/HealthKitDataTypes.swift; sourceTree = "<group>"; };
 		11B3B06575641B7CDE41CF1B /* CoreLocationSampleConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationSampleConverter.swift; sourceTree = "<group>"; };
@@ -223,7 +289,7 @@
 		3E7979E36A231071FF56F1CA /* CoreLocationManaging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreLocationManaging.swift; sourceTree = "<group>"; };
 		4186BEB6EF289F7BFE945E43 /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeLocationManager.swift; path = UltraNavTests/TestDoubles/FakeLocationManager.swift; sourceTree = "<group>"; };
 		49EDB52FE77D89B7BEE4916C /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
-		57573B303ABEBB96EC0F5E2F /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeLocationManager.swift; path = TestDoubles/FakeLocationManager.swift; sourceTree = "<group>"; };
+		57573B303ABEBB96EC0F5E2F /* FakeLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FakeLocationManager.swift; path = UltraNavTests/TestDoubles/FakeLocationManager.swift; sourceTree = "<group>"; };
 		576E624D1A3D6B58FDCF30B6 /* LocationConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfigurationTests.swift; path = Services/LocationConfigurationTests.swift; sourceTree = "<group>"; };
 		5A25DD3CA87099D4EDC2F744 /* HealthKitMetricConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitMetricConverter.swift; path = UltraNav/Services/Workout/HealthKitMetricConverter.swift; sourceTree = "<group>"; };
 		5A86F5A3F1CB4A88912D21BF /* CoreLocationSampleConverterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationSampleConverterTests.swift; path = Services/CoreLocationSampleConverterTests.swift; sourceTree = "<group>"; };
@@ -267,7 +333,7 @@
 		AD58B1FF781346EB0A467756 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		B4A46C0716CCC5424083765D /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationConfiguration.swift; sourceTree = "<group>"; };
 		B6EA250BB7716045A5CF0A67 /* LocationConverting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConverting.swift; path = UltraNav/Services/Location/LocationConverting.swift; sourceTree = "<group>"; };
-		BBF6D42724681F717DC4A8E6 /* LocationSampleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationSampleFactory.swift; path = TestDoubles/LocationSampleFactory.swift; sourceTree = "<group>"; };
+		BBF6D42724681F717DC4A8E6 /* LocationSampleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationSampleFactory.swift; path = UltraNavTests/TestDoubles/LocationSampleFactory.swift; sourceTree = "<group>"; };
 		C0A783D19DC8BCC3D69FE79B /* HealthKitServiceFailureTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitServiceFailureTests.swift; path = UltraNavTests/Services/HealthKitServiceFailureTests.swift; sourceTree = "<group>"; };
 		C20000000000000000000001 /* UltraNavWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UltraNavWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21000000000000000000001 /* AppleWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchWidget.swift; sourceTree = "<group>"; };
@@ -324,7 +390,7 @@
 		E1F000000000000000001D017 /* SleepProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Time/SleepProviding.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D018 /* HapticProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Haptics/HapticProviding.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D064 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitService.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D065 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/BluetoothService.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D065 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/CoreBluetooth/BluetoothService.swift; sourceTree = "<group>"; };
 		E1F13D042F536D38C8A1A0F8 /* RideMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/RideMetrics.swift; sourceTree = "<group>"; };
 		E1F18A2D2B0725F5098952D9 /* NavigationSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationSnapshot.swift; sourceTree = "<group>"; };
 		E1F1A680783B754F54FB90AB /* RideFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideFailure.swift; sourceTree = "<group>"; };
@@ -560,6 +626,20 @@
 				6887B0EB049DBDD6854AE940 /* HealthKitConfigurationTests.swift */,
 				F0C1F8ED6696F062C5BD09F8 /* HealthKitServiceLifecycleTests.swift */,
 				C0A783D19DC8BCC3D69FE79B /* HealthKitServiceFailureTests.swift */,
+				8C8CDD8951C3217BF8F7619A /* FakeCentralManager.swift */,
+				8D8CDD8951C3217BF8F7619B /* FakeCharacteristic.swift */,
+				AEB8C18509C894E747085439 /* FakePeripheral.swift */,
+				163792A6FB81920015EF7045 /* FakeSensorPacketParser.swift */,
+				24D1FE2F8BF624E46B2C6685 /* BluetoothEventRecorder.swift */,
+				B73E1A4F3672612F96B0F72E /* SensorFactory.swift */,
+				B61D89316C04110BD7E13F5C /* CoreBluetoothMapperTests.swift */,
+				14F0700037D6D3D56B1BF13C /* BluetoothServiceAvailabilityTests.swift */,
+				5BA9502D42BB959AC28F3588 /* BluetoothServiceScanningTests.swift */,
+				2AC79629C24617A1903364CD /* BluetoothServiceDiscoveryTests.swift */,
+				BCD31C51AAE0C3664185444A /* BluetoothServiceConnectionTests.swift */,
+				9F63C575BB37C2058145BD0A /* BluetoothServiceNotificationTests.swift */,
+				E3531385FF4DB9A64B178824 /* BluetoothServiceDisconnectionTests.swift */,
+				97386321E7D939356538874A /* BluetoothServiceFailureTests.swift */,
 				66F5E80B4A7776EA0F2239A5 /* HealthKitMetricConverterTests.swift */,
 			);
 			sourceTree = "<group>";
@@ -627,6 +707,25 @@
 				E1F000000000000000001D017 /* SleepProviding.swift */,
 				E1F000000000000000001D018 /* HapticProviding.swift */,
 				E1F000000000000000001D064 /* HealthKitService.swift */,
+				178B0F1CEA599E5E2C64DC45 /* BluetoothAvailability.swift */,
+				F8063DC5A656E5A71162C8AB /* SensorScanState.swift */,
+				8D846A2102F742270D693A04 /* SensorScanRequest.swift */,
+				0DEE617BD837007FF7FB0705 /* SensorDiscovery.swift */,
+				CBA28A42A7A081E1BF95B7C4 /* SensorServiceDefinition.swift */,
+				4E5518C9B137F45F6DF60D71 /* SensorMeasurementPacket.swift */,
+				38E51B5C1C10D9E70D812D4D /* CoreBluetoothUUIDs.swift */,
+				B5288D9B95898C95A0F40B66 /* CoreBluetoothMapper.swift */,
+				0A4265580497437D99215A2D /* CoreBluetoothManaging.swift */,
+				B914A79BF655F156C193F818 /* CoreBluetoothCharacteristicManaging.swift */,
+				BA14B79BF655F156C193F817 /* CoreBluetoothPeripheralManaging.swift */,
+				9634B95E18026419105913E9 /* CoreBluetoothDelegateBridge.swift */,
+				39F770D39478D8825E6A91F1 /* PeripheralDelegateBridge.swift */,
+				31FA442CA2611E126245B507 /* PeripheralContext.swift */,
+				49112EAFB7D5326720A24EE6 /* SensorPacketParsing.swift */,
+				EF1340684726B71ADC6D5E73 /* LegacyHeartRateParserAdapter.swift */,
+				5B606BF3B68B6B0D067B8D40 /* LegacyCyclingPowerParserAdapter.swift */,
+				60F34298E14E4C40E74B6FAB /* LegacyCSCParserAdapter.swift */,
+				733421CB9A1C33E3BE327A58 /* CyclingSensorPacketParser.swift */,
 				E1F000000000000000001D065 /* BluetoothService.swift */,
 				D30000000000000000000001 /* Services */,
 				A20000000000000000000001 /* UltraNavApp.swift */,
@@ -913,6 +1012,20 @@
 				6528BABABB394659431B0085 /* HealthKitConfigurationTests.swift in Sources */,
 				4E635EA7D1FC2E6612CD465D /* HealthKitServiceLifecycleTests.swift in Sources */,
 				83C73A9574ADB24F6D2A463D /* HealthKitServiceFailureTests.swift in Sources */,
+				E2D676FA933B0FC8AB2B72B9 /* FakeCentralManager.swift in Sources */,
+				E3D676FA933B0FC8AB2B72BA /* FakeCharacteristic.swift in Sources */,
+				A88E7345629FDCDB3C7D6056 /* FakePeripheral.swift in Sources */,
+				625021EEA0A45D814A1E1B09 /* FakeSensorPacketParser.swift in Sources */,
+				82F36299A75AB4A4EE3A45EC /* BluetoothEventRecorder.swift in Sources */,
+				701AED0511DA94FA5BB83B85 /* SensorFactory.swift in Sources */,
+				9679C59E1201A256869382BC /* CoreBluetoothMapperTests.swift in Sources */,
+				505ECDD618B51282E7B3C0C2 /* BluetoothServiceAvailabilityTests.swift in Sources */,
+				3BAB0960BB18AAD02E2DCD7D /* BluetoothServiceScanningTests.swift in Sources */,
+				3F89B4B6FD21EA88371DE3F3 /* BluetoothServiceDiscoveryTests.swift in Sources */,
+				CB73864CFCC59A909E1773C7 /* BluetoothServiceConnectionTests.swift in Sources */,
+				E56694535A26FD42D4D46A6F /* BluetoothServiceNotificationTests.swift in Sources */,
+				202EB135DA32450B1E9DEFFF /* BluetoothServiceDisconnectionTests.swift in Sources */,
+				E75725139D3D6804EF54391A /* BluetoothServiceFailureTests.swift in Sources */,
 				2EB97F0708E7918C68038AF4 /* HealthKitMetricConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -989,6 +1102,25 @@
 				E1B000000000000000001D017 /* SleepProviding.swift in Sources */,
 				E1B000000000000000001D018 /* HapticProviding.swift in Sources */,
 				E1B000000000000000001D064 /* HealthKitService.swift in Sources */,
+				8F250F6AAD4A056C8D192495 /* BluetoothAvailability.swift in Sources */,
+				3ECDB07BA09434F19D9C0390 /* SensorScanState.swift in Sources */,
+				34495E61599C56DA1FB33FEE /* SensorScanRequest.swift in Sources */,
+				8DEE53D62EA6049C39082E4D /* SensorDiscovery.swift in Sources */,
+				104962E1CB254F117162A563 /* SensorServiceDefinition.swift in Sources */,
+				094925549248A9D035BE75B9 /* SensorMeasurementPacket.swift in Sources */,
+				F9D33877A279FE554E95EA0E /* CoreBluetoothUUIDs.swift in Sources */,
+				C69BE53C6ACBAAC3C33AE1E8 /* CoreBluetoothMapper.swift in Sources */,
+				30EB6E38FCF241094292D964 /* CoreBluetoothManaging.swift in Sources */,
+				31EB6E38FCF241094292D965 /* CoreBluetoothCharacteristicManaging.swift in Sources */,
+				91BFDA0881448E364353588C /* CoreBluetoothPeripheralManaging.swift in Sources */,
+				EB83A0CB7B8695CF02EE631B /* CoreBluetoothDelegateBridge.swift in Sources */,
+				B2661686F32558C279FC1557 /* PeripheralDelegateBridge.swift in Sources */,
+				72D3F0EC427911C40170BC6C /* PeripheralContext.swift in Sources */,
+				C9B1B57CDDABEDEEFADE7B6D /* SensorPacketParsing.swift in Sources */,
+				E1FBEF2801B8C1E84C0EAA39 /* LegacyHeartRateParserAdapter.swift in Sources */,
+				92E4105F8F5CC7EDD7CC49EE /* LegacyCyclingPowerParserAdapter.swift in Sources */,
+				248F8B726949DC015231EE5D /* LegacyCSCParserAdapter.swift in Sources */,
+				708684566C1DE9469BCD8E14 /* CyclingSensorPacketParser.swift in Sources */,
 				E1B000000000000000001D065 /* BluetoothService.swift in Sources */,
 				E20000000000000000000001 /* AppLogger.swift in Sources */,
 				D20000000000000000000003 /* AccessibilitySupport.swift in Sources */,
