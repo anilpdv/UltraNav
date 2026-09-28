@@ -1,12 +1,13 @@
 import Foundation
 
 enum SensorConnectionState: Equatable, Sendable {
-    case unavailable
-    case idle
-    case scanning
+    case disconnected
     case connecting
     case connected
+    case discoveringServices
+    case discoveringCharacteristics
+    case subscribing
+    case ready
     case disconnecting
-    case disconnected
     case failed
 }

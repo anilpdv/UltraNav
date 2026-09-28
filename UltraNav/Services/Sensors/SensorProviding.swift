@@ -8,6 +8,10 @@ protocol SensorProviding: Sendable {
     func knownSensors() async -> [SensorDescriptor]
 
     func startScanning(
+        request: SensorScanRequest
+    ) async throws
+
+    func startScanning(
         for types: Set<SensorType>
     ) async throws
 
@@ -22,4 +26,12 @@ protocol SensorProviding: Sendable {
     ) async
 
     func disconnectAll() async
+}
+
+extension SensorProviding {
+    func startScanning(
+        for types: Set<SensorType>
+    ) async throws {
+        try await startScanning(request: .standard(for: types))
+    }
 }

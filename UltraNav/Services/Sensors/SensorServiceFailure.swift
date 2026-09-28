@@ -1,24 +1,29 @@
 import Foundation
 
 enum SensorServiceFailure: Error, Equatable, Sendable {
-    case bluetoothUnavailable
-    case bluetoothUnauthorized
+    case bluetoothUnavailable(BluetoothAvailability)
     case scanFailed
-    case connectionFailed(
-        SensorIdentifier
+    case unknownSensor(SensorIdentifier)
+    case connectionFailed(SensorIdentifier)
+    case disconnectedUnexpectedly(SensorIdentifier)
+    case serviceDiscoveryFailed(SensorIdentifier)
+    case requiredServiceMissing(
+        sensor: SensorIdentifier,
+        serviceIdentifier: String
     )
-    case discoveryFailed(
-        SensorIdentifier
+    case characteristicDiscoveryFailed(SensorIdentifier)
+    case requiredCharacteristicMissing(
+        sensor: SensorIdentifier,
+        characteristicIdentifier: String
     )
     case notificationSetupFailed(
-        SensorIdentifier
-    )
-    case disconnectedUnexpectedly(
-        SensorIdentifier
+        sensor: SensorIdentifier,
+        characteristicIdentifier: String
     )
     case malformedMeasurement(
         sensor: SensorIdentifier,
-        type: SensorType
+        characteristicIdentifier: String
     )
+    case invalidServiceState
     case unexpected
 }

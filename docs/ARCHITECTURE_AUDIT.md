@@ -182,3 +182,51 @@ Tests:
 - Metric normalization -> Managed by `HealthKitMetricConverter`
 
 
+## Phase 1G Bluetooth Ownership Audit
+
+### CBCentralManager creation sites
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift` (`BluetoothSensorManager.startScanning`)
+- `UltraNav/Services/Sensors/CoreBluetooth/BluetoothService.swift` (via `CoreBluetoothManaging` abstraction)
+
+### CBCentralManagerDelegate implementations
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift`: Legacy monolithic manager.
+- `UltraNav/Services/Sensors/CoreBluetooth/CoreBluetoothDelegateBridge.swift`: Isolated bridge dispatching onto `@MainActor`.
+
+### CBPeripheralDelegate implementations
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift`: Legacy monolithic delegate.
+- `UltraNav/Services/Sensors/CoreBluetooth/PeripheralDelegateBridge.swift`: Per-peripheral bridge dispatching callbacks to `BluetoothService`.
+
+### Peripheral storage locations
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift` (`connectedSensors: [CBPeripheral]`, `discoveredSensors: [DiscoveredSensor]`)
+- `UltraNav/Services/Sensors/CoreBluetooth/PeripheralContext.swift` (encapsulates `CBPeripheral`, descriptors, service/characteristic maps, and connection lifecycle)
+
+### Characteristic parsers
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift`: `parsePowerData`, `parseCSCData`, `parseHRData`.
+- `UltraNav/Services/Sensors/Parsing/`:
+  - `LegacyHeartRateParserAdapter`
+  - `LegacyCyclingPowerParserAdapter`
+  - `LegacyCSCParserAdapter`
+  - `CyclingSensorPacketParser`
+
+### Reconnection implementations
+- `UltraNav/Services/Cycling/BluetoothSensorManager.swift`: Ad-hoc scanning trigger in `centralManagerDidUpdateState`.
+- `BluetoothService`: Emits `.disconnectedUnexpectedly(SensorIdentifier)` typed failures, preserving `PeripheralContext` for explicit or policy-driven reconnection (full retry backoff engine in Phase 8).
+
+### Views accessing Bluetooth directly
+- `UltraNav/Views/SettingsView.swift`: Observes `BluetoothSensorManager.shared` directly for sensor pairing list and battery indicator (to be updated to view model / `SensorProviding` in Phase 12).
+
+### Duplicate sensor state
+- `BluetoothSensorManager.discoveredSensors` vs `BluetoothService.contexts`
+- `BluetoothSensorManager.connectedSensors` vs `BluetoothService.contexts`
+- `BluetoothSensorManager.livePower`, `liveCadence`, `liveSpeedKmh`, `liveHeartRate` vs `SensorSample` event stream
+
+### Migration decisions
+- `CBCentralManager` & `CBPeripheral` lifecycle -> `BluetoothService`
+- Raw GATT byte handling -> `SensorMeasurementPacket`
+- Heart Rate, Cycling Power, CSC packet parsing -> `SensorPacketParsing` adapters (retained until Phase 8 deep audit)
+- Live metric derivation & smoothing -> `MetricsEngine` in Phase 1J / Phase 9
+- Sensor settings & pairing persistence -> Phase 12
+- Legacy `BluetoothSensorManager` -> Retained temporarily for existing UI, dismantled when views migrate to `SensorProviding`
+
+
+

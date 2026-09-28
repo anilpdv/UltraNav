@@ -1,22 +1,25 @@
 import Foundation
 
 enum SensorServiceEvent: Equatable, Sendable {
-    case serviceAvailabilityChanged(
-        isAvailable: Bool
+    case availabilityChanged(
+        BluetoothAvailability
     )
 
-    case scanStarted
+    case scanStateChanged(
+        SensorScanState
+    )
 
     case sensorDiscovered(
-        descriptor: SensorDescriptor,
-        signalStrength: Int?
+        SensorDiscovery
     )
-
-    case scanStopped
 
     case connectionStateChanged(
         sensor: SensorIdentifier,
         state: SensorConnectionState
+    )
+
+    case sensorReady(
+        SensorDescriptor
     )
 
     case sampleReceived(
