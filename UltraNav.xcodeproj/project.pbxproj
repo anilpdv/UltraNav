@@ -72,10 +72,6 @@
 		E1BF0B657851AFE0B528A730 /* ClimbSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */; };
 		E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F574182C51AA527079AE9F /* LocationAdapters.swift */; };
 		E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCD6CBB650672532816ADF /* AppContainer.swift */; };
-		E1B8EF2C6A95B2807DF76D82 /* ClockProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */; };
-		E1BE920F1BEA4C9EB765CF9A /* LocationProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */; };
-		E1BAB2434FDDB4134EC3ADD9 /* WorkoutProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */; };
-		E1BEEC10454E6D888586DD99 /* SensorProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F929B3138E3AE48CFB856D /* SensorProviding.swift */; };
 		E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50FCA694C3B244193BACE /* LocationService.swift */; };
 		E1BC52CB0D1471B3C958CF62 /* RideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */; };
 		E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6382A9E473671928AE21A /* NavigationEngine.swift */; };
@@ -88,9 +84,6 @@
 		E2B537C644BBC66810155334 /* NavigationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */; };
 		E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */; };
 		E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F2AF7F43F99B2BF3025372 /* TestClock.swift */; };
-		E2B1589FE988A4E645D17A40 /* FakeLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */; };
-		E2BC1FC254FC0D4F8B927B5D /* FakeWorkoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */; };
-		E2B5752E4C440242141D0E81 /* FakeSensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */; };
 		E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */; };
 		E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */; };
 		E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */; };
@@ -109,6 +102,43 @@
 		E2B0000000000000000001C3 /* RideStateMachinePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */; };
 		E2B0000000000000000001C4 /* NavigationStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */; };
 		E2B0000000000000000001C5 /* NavigationStateMachineFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */; };
+		E1B000000000000000001D001 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D001 /* LocationAuthorizationStatus.swift */; };
+		E1B000000000000000001D002 /* LocationServiceFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D002 /* LocationServiceFailure.swift */; };
+		E1B000000000000000001D003 /* LocationServiceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D003 /* LocationServiceEvent.swift */; };
+		E1B000000000000000001D004 /* LocationProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D004 /* LocationProviding.swift */; };
+		E1B000000000000000001D005 /* WorkoutAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D005 /* WorkoutAuthorizationStatus.swift */; };
+		E1B000000000000000001D006 /* WorkoutServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D006 /* WorkoutServiceState.swift */; };
+		E1B000000000000000001D007 /* WorkoutServiceFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D007 /* WorkoutServiceFailure.swift */; };
+		E1B000000000000000001D008 /* WorkoutServiceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D008 /* WorkoutServiceEvent.swift */; };
+		E1B000000000000000001D009 /* WorkoutProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D009 /* WorkoutProviding.swift */; };
+		E1B000000000000000001D00A /* SensorIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00A /* SensorIdentifier.swift */; };
+		E1B000000000000000001D00B /* SensorDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00B /* SensorDescriptor.swift */; };
+		E1B000000000000000001D00C /* SensorServiceFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00C /* SensorServiceFailure.swift */; };
+		E1B000000000000000001D00D /* SensorServiceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00D /* SensorServiceEvent.swift */; };
+		E1B000000000000000001D00E /* SensorProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00E /* SensorProviding.swift */; };
+		E1B000000000000000001D00F /* RouteStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D00F /* RouteStoreError.swift */; };
+		E1B000000000000000001D010 /* RouteSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D010 /* RouteSummary.swift */; };
+		E1B000000000000000001D011 /* RouteStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D011 /* RouteStoring.swift */; };
+		E1B000000000000000001D012 /* CompletedRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D012 /* CompletedRide.swift */; };
+		E1B000000000000000001D013 /* RidePersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D013 /* RidePersistenceError.swift */; };
+		E1B000000000000000001D014 /* RidePersisting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D014 /* RidePersisting.swift */; };
+		E1B000000000000000001D015 /* ClockProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D015 /* ClockProviding.swift */; };
+		E1B000000000000000001D016 /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D016 /* SystemClock.swift */; };
+		E1B000000000000000001D017 /* SleepProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D017 /* SleepProviding.swift */; };
+		E1B000000000000000001D018 /* HapticProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D018 /* HapticProviding.swift */; };
+		E2B000000000000000001D001 /* FakeLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D001 /* FakeLocationProvider.swift */; };
+		E2B000000000000000001D002 /* FakeWorkoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D002 /* FakeWorkoutProvider.swift */; };
+		E2B000000000000000001D003 /* FakeSensorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D003 /* FakeSensorProvider.swift */; };
+		E2B000000000000000001D004 /* FakeRouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D004 /* FakeRouteStore.swift */; };
+		E2B000000000000000001D005 /* FakeRidePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D005 /* FakeRidePersistence.swift */; };
+		E2B000000000000000001D006 /* FakeLocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D006 /* FakeLocationProviderTests.swift */; };
+		E2B000000000000000001D007 /* FakeWorkoutProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D007 /* FakeWorkoutProviderTests.swift */; };
+		E2B000000000000000001D008 /* FakeSensorProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D008 /* FakeSensorProviderTests.swift */; };
+		E2B000000000000000001D009 /* FakeRouteStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D009 /* FakeRouteStoreTests.swift */; };
+		E2B000000000000000001D00A /* FakeRidePersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */; };
+		E2B000000000000000001D00B /* TestClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D00B /* TestClockTests.swift */; };
+		E1B000000000000000001D064 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D064 /* HealthKitService.swift */; };
+		E1B000000000000000001D065 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D065 /* BluetoothService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,10 +249,6 @@
 		E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbSnapshot.swift; sourceTree = "<group>"; };
 		E1F574182C51AA527079AE9F /* LocationAdapters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Adapters/LocationAdapters.swift; sourceTree = "<group>"; };
 		E1FCD6CBB650672532816ADF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppContainer.swift; sourceTree = "<group>"; };
-		E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/ClockProviding.swift; sourceTree = "<group>"; };
-		E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/LocationProviding.swift; sourceTree = "<group>"; };
-		E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/WorkoutProviding.swift; sourceTree = "<group>"; };
-		E1F929B3138E3AE48CFB856D /* SensorProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/SensorProviding.swift; sourceTree = "<group>"; };
 		E1F50FCA694C3B244193BACE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationService.swift; sourceTree = "<group>"; };
 		E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/RideEngine.swift; sourceTree = "<group>"; };
 		E1F6382A9E473671928AE21A /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/NavigationEngine.swift; sourceTree = "<group>"; };
@@ -235,9 +261,6 @@
 		E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationModelTests.swift; path = UltraNavTests/Domain/NavigationModelTests.swift; sourceTree = "<group>"; };
 		E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SensorModelTests.swift; path = UltraNavTests/Domain/SensorModelTests.swift; sourceTree = "<group>"; };
 		E2F2AF7F43F99B2BF3025372 /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestClock.swift; path = UltraNavTests/TestDoubles/TestClock.swift; sourceTree = "<group>"; };
-		E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeLocationService.swift; path = UltraNavTests/TestDoubles/FakeLocationService.swift; sourceTree = "<group>"; };
-		E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeWorkoutService.swift; path = UltraNavTests/TestDoubles/FakeWorkoutService.swift; sourceTree = "<group>"; };
-		E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeSensorService.swift; path = UltraNavTests/TestDoubles/FakeSensorService.swift; sourceTree = "<group>"; };
 		E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideEngineTests.swift; path = UltraNavTests/RideEngineTests.swift; sourceTree = "<group>"; };
 		E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationEngineTests.swift; path = UltraNavTests/NavigationEngineTests.swift; sourceTree = "<group>"; };
 		E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetricsEngineTests.swift; path = UltraNavTests/MetricsEngineTests.swift; sourceTree = "<group>"; };
@@ -256,6 +279,43 @@
 		E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachinePathTests.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/NavigationStateMachineTests.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/NavigationStateMachineFailureTests.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D001 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D002 /* LocationServiceFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationServiceFailure.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D003 /* LocationServiceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationServiceEvent.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D004 /* LocationProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D005 /* WorkoutAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutAuthorizationStatus.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D006 /* WorkoutServiceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutServiceState.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D007 /* WorkoutServiceFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutServiceFailure.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D008 /* WorkoutServiceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutServiceEvent.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D009 /* WorkoutProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00A /* SensorIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/SensorIdentifier.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00B /* SensorDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/SensorDescriptor.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00C /* SensorServiceFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/SensorServiceFailure.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00D /* SensorServiceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/SensorServiceEvent.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00E /* SensorProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/SensorProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D00F /* RouteStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Routes/RouteStoreError.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D010 /* RouteSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Routes/RouteSummary.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D011 /* RouteStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Routes/RouteStoring.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D012 /* CompletedRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/CompletedRide.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D013 /* RidePersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Persistence/RidePersistenceError.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D014 /* RidePersisting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Persistence/RidePersisting.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D015 /* ClockProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Time/ClockProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D016 /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Time/SystemClock.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D017 /* SleepProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Time/SleepProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D018 /* HapticProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Haptics/HapticProviding.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D001 /* FakeLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeLocationProvider.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D002 /* FakeWorkoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeWorkoutProvider.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D003 /* FakeSensorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeSensorProvider.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D004 /* FakeRouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteStore.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D005 /* FakeRidePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRidePersistence.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D006 /* FakeLocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeLocationProviderTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D007 /* FakeWorkoutProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeWorkoutProviderTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D008 /* FakeSensorProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeSensorProviderTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D009 /* FakeRouteStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeRouteStoreTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeRidePersistenceTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D00B /* TestClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/TestClockTests.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D064 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitService.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D065 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Sensors/BluetoothService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,9 +370,6 @@
 				E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */,
 				E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */,
 				E2F2AF7F43F99B2BF3025372 /* TestClock.swift */,
-				E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */,
-				E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */,
-				E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */,
 				E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */,
 				E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */,
 				E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */,
@@ -321,6 +378,17 @@
 				E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */,
 				E2F0000000000000000001C4 /* NavigationStateMachineTests.swift */,
 				E2F0000000000000000001C5 /* NavigationStateMachineFailureTests.swift */,
+				E2F000000000000000001D001 /* FakeLocationProvider.swift */,
+				E2F000000000000000001D002 /* FakeWorkoutProvider.swift */,
+				E2F000000000000000001D003 /* FakeSensorProvider.swift */,
+				E2F000000000000000001D004 /* FakeRouteStore.swift */,
+				E2F000000000000000001D005 /* FakeRidePersistence.swift */,
+				E2F000000000000000001D006 /* FakeLocationProviderTests.swift */,
+				E2F000000000000000001D007 /* FakeWorkoutProviderTests.swift */,
+				E2F000000000000000001D008 /* FakeSensorProviderTests.swift */,
+				E2F000000000000000001D009 /* FakeRouteStoreTests.swift */,
+				E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */,
+				E2F000000000000000001D00B /* TestClockTests.swift */,
 																																1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
 				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
 				F0100000000000000000000E /* GPXParserTests.swift */,
@@ -380,10 +448,6 @@
 				E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */,
 				E1F574182C51AA527079AE9F /* LocationAdapters.swift */,
 				E1FCD6CBB650672532816ADF /* AppContainer.swift */,
-				E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */,
-				E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */,
-				E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */,
-				E1F929B3138E3AE48CFB856D /* SensorProviding.swift */,
 				E1F50FCA694C3B244193BACE /* LocationService.swift */,
 				E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */,
 				E1F6382A9E473671928AE21A /* NavigationEngine.swift */,
@@ -399,6 +463,32 @@
 				E1F0000000000000000001C8 /* NavigationTransition.swift */,
 				E1F0000000000000000001C9 /* NavigationTransitionError.swift */,
 				E1F0000000000000000001CA /* NavigationStateMachine.swift */,
+				E1F000000000000000001D001 /* LocationAuthorizationStatus.swift */,
+				E1F000000000000000001D002 /* LocationServiceFailure.swift */,
+				E1F000000000000000001D003 /* LocationServiceEvent.swift */,
+				E1F000000000000000001D004 /* LocationProviding.swift */,
+				E1F000000000000000001D005 /* WorkoutAuthorizationStatus.swift */,
+				E1F000000000000000001D006 /* WorkoutServiceState.swift */,
+				E1F000000000000000001D007 /* WorkoutServiceFailure.swift */,
+				E1F000000000000000001D008 /* WorkoutServiceEvent.swift */,
+				E1F000000000000000001D009 /* WorkoutProviding.swift */,
+				E1F000000000000000001D00A /* SensorIdentifier.swift */,
+				E1F000000000000000001D00B /* SensorDescriptor.swift */,
+				E1F000000000000000001D00C /* SensorServiceFailure.swift */,
+				E1F000000000000000001D00D /* SensorServiceEvent.swift */,
+				E1F000000000000000001D00E /* SensorProviding.swift */,
+				E1F000000000000000001D00F /* RouteStoreError.swift */,
+				E1F000000000000000001D010 /* RouteSummary.swift */,
+				E1F000000000000000001D011 /* RouteStoring.swift */,
+				E1F000000000000000001D012 /* CompletedRide.swift */,
+				E1F000000000000000001D013 /* RidePersistenceError.swift */,
+				E1F000000000000000001D014 /* RidePersisting.swift */,
+				E1F000000000000000001D015 /* ClockProviding.swift */,
+				E1F000000000000000001D016 /* SystemClock.swift */,
+				E1F000000000000000001D017 /* SleepProviding.swift */,
+				E1F000000000000000001D018 /* HapticProviding.swift */,
+				E1F000000000000000001D064 /* HealthKitService.swift */,
+				E1F000000000000000001D065 /* BluetoothService.swift */,
 																																																														D30000000000000000000001 /* Services */,
 				A20000000000000000000001 /* UltraNavApp.swift */,
 				A20000000000000000000002 /* NavigationModel.swift */,
@@ -623,9 +713,6 @@
 				E2B537C644BBC66810155334 /* NavigationModelTests.swift in Sources */,
 				E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */,
 				E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */,
-				E2B1589FE988A4E645D17A40 /* FakeLocationService.swift in Sources */,
-				E2BC1FC254FC0D4F8B927B5D /* FakeWorkoutService.swift in Sources */,
-				E2B5752E4C440242141D0E81 /* FakeSensorService.swift in Sources */,
 				E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */,
 				E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */,
 				E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */,
@@ -634,6 +721,17 @@
 				E2B0000000000000000001C3 /* RideStateMachinePathTests.swift in Sources */,
 				E2B0000000000000000001C4 /* NavigationStateMachineTests.swift in Sources */,
 				E2B0000000000000000001C5 /* NavigationStateMachineFailureTests.swift in Sources */,
+				E2B000000000000000001D001 /* FakeLocationProvider.swift in Sources */,
+				E2B000000000000000001D002 /* FakeWorkoutProvider.swift in Sources */,
+				E2B000000000000000001D003 /* FakeSensorProvider.swift in Sources */,
+				E2B000000000000000001D004 /* FakeRouteStore.swift in Sources */,
+				E2B000000000000000001D005 /* FakeRidePersistence.swift in Sources */,
+				E2B000000000000000001D006 /* FakeLocationProviderTests.swift in Sources */,
+				E2B000000000000000001D007 /* FakeWorkoutProviderTests.swift in Sources */,
+				E2B000000000000000001D008 /* FakeSensorProviderTests.swift in Sources */,
+				E2B000000000000000001D009 /* FakeRouteStoreTests.swift in Sources */,
+				E2B000000000000000001D00A /* FakeRidePersistenceTests.swift in Sources */,
+				E2B000000000000000001D00B /* TestClockTests.swift in Sources */,
 																																9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
 				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
 				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
@@ -674,10 +772,6 @@
 				E1BF0B657851AFE0B528A730 /* ClimbSnapshot.swift in Sources */,
 				E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */,
 				E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */,
-				E1B8EF2C6A95B2807DF76D82 /* ClockProviding.swift in Sources */,
-				E1BE920F1BEA4C9EB765CF9A /* LocationProviding.swift in Sources */,
-				E1BAB2434FDDB4134EC3ADD9 /* WorkoutProviding.swift in Sources */,
-				E1BEEC10454E6D888586DD99 /* SensorProviding.swift in Sources */,
 				E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */,
 				E1BC52CB0D1471B3C958CF62 /* RideEngine.swift in Sources */,
 				E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */,
@@ -693,6 +787,32 @@
 				E1B0000000000000000001C8 /* NavigationTransition.swift in Sources */,
 				E1B0000000000000000001C9 /* NavigationTransitionError.swift in Sources */,
 				E1B0000000000000000001CA /* NavigationStateMachine.swift in Sources */,
+				E1B000000000000000001D001 /* LocationAuthorizationStatus.swift in Sources */,
+				E1B000000000000000001D002 /* LocationServiceFailure.swift in Sources */,
+				E1B000000000000000001D003 /* LocationServiceEvent.swift in Sources */,
+				E1B000000000000000001D004 /* LocationProviding.swift in Sources */,
+				E1B000000000000000001D005 /* WorkoutAuthorizationStatus.swift in Sources */,
+				E1B000000000000000001D006 /* WorkoutServiceState.swift in Sources */,
+				E1B000000000000000001D007 /* WorkoutServiceFailure.swift in Sources */,
+				E1B000000000000000001D008 /* WorkoutServiceEvent.swift in Sources */,
+				E1B000000000000000001D009 /* WorkoutProviding.swift in Sources */,
+				E1B000000000000000001D00A /* SensorIdentifier.swift in Sources */,
+				E1B000000000000000001D00B /* SensorDescriptor.swift in Sources */,
+				E1B000000000000000001D00C /* SensorServiceFailure.swift in Sources */,
+				E1B000000000000000001D00D /* SensorServiceEvent.swift in Sources */,
+				E1B000000000000000001D00E /* SensorProviding.swift in Sources */,
+				E1B000000000000000001D00F /* RouteStoreError.swift in Sources */,
+				E1B000000000000000001D010 /* RouteSummary.swift in Sources */,
+				E1B000000000000000001D011 /* RouteStoring.swift in Sources */,
+				E1B000000000000000001D012 /* CompletedRide.swift in Sources */,
+				E1B000000000000000001D013 /* RidePersistenceError.swift in Sources */,
+				E1B000000000000000001D014 /* RidePersisting.swift in Sources */,
+				E1B000000000000000001D015 /* ClockProviding.swift in Sources */,
+				E1B000000000000000001D016 /* SystemClock.swift in Sources */,
+				E1B000000000000000001D017 /* SleepProviding.swift in Sources */,
+				E1B000000000000000001D018 /* HapticProviding.swift in Sources */,
+				E1B000000000000000001D064 /* HealthKitService.swift in Sources */,
+				E1B000000000000000001D065 /* BluetoothService.swift in Sources */,
 																																																														E20000000000000000000001 /* AppLogger.swift in Sources */,
 				D20000000000000000000003 /* AccessibilitySupport.swift in Sources */,
 				D20000000000000000000002 /* BackgroundRefreshManager.swift in Sources */,

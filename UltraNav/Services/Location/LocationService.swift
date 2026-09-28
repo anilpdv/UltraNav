@@ -5,15 +5,16 @@ import OSLog
 /// CoreLocation wrapper implementing the LocationProviding boundary protocol.
 @MainActor
 final class LocationService: NSObject, LocationProviding, CLLocationManagerDelegate {
-    public weak var delegate: (any LocationServiceDelegate)?
-
-    private(set) var lastSample: LocationSample?
-    private(set) var currentHeading: Double = 0
+    nonisolated let events: AsyncStream<LocationServiceEvent>
+    private let continuation: AsyncStream<LocationServiceEvent>.Continuation
 
     private let locationManager: CLLocationManager
 
-    init(locationManager: CLLocationManager = CLLocationManager()) {
-        self.locationManager = locationManager
+    override init() {
+        let pair = AsyncStream.makeStream(of: LocationServiceEvent.self)
+        self.events = pair.stream
+        self.continuation = pair.continuation
+        self.locationManager = CLLocationManager()
         super.init()
         self.locationManager.delegate = self
         self.locationManager.activityType = .fitness
@@ -24,18 +25,30 @@ final class LocationService: NSObject, LocationProviding, CLLocationManagerDeleg
 #endif
     }
 
-    func requestAuthorization() {
+    func authorizationStatus() async -> LocationAuthorizationStatus {
+        switch locationManager.authorizationStatus {
+        case .notDetermined: return .notDetermined
+        case .restricted: return .restricted
+        case .denied: return .denied
+        case .authorizedAlways, .authorizedWhenInUse: return .authorized
+        @unknown default: return .notDetermined
+        }
+    }
+
+    func requestAuthorization() async {
         locationManager.requestWhenInUseAuthorization()
     }
 
-    func startUpdating() {
+    func startUpdates() async throws {
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
+        continuation.yield(.updateStarted)
     }
 
-    func stopUpdating() {
+    func stopUpdates() async {
         locationManager.stopUpdatingLocation()
         locationManager.stopUpdatingHeading()
+        continuation.yield(.updateStopped)
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -43,29 +56,22 @@ final class LocationService: NSObject, LocationProviding, CLLocationManagerDeleg
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let clLocation = locations.last, clLocation.horizontalAccuracy >= 0 else { return }
         let sample = LocationSample(clLocation)
-        Task { @MainActor [weak self] in
-            guard let self else { return }
-            self.lastSample = sample
-            self.delegate?.locationService(self, didUpdateLocation: sample)
-        }
-    }
-
-    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        guard newHeading.headingAccuracy >= 0 else { return }
-        let headingVal = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
-        Task { @MainActor [weak self] in
-            guard let self else { return }
-            self.currentHeading = headingVal
-            self.delegate?.locationService(self, didUpdateHeading: headingVal)
-        }
+        continuation.yield(.locationReceived(sample))
     }
 
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        let status = manager.authorizationStatus
-        AppLogger.lifecycle.info("Location authorization changed: \(status.rawValue, privacy: .public)")
+        let status: LocationAuthorizationStatus
+        switch manager.authorizationStatus {
+        case .notDetermined: status = .notDetermined
+        case .restricted: status = .restricted
+        case .denied: status = .denied
+        case .authorizedAlways, .authorizedWhenInUse: status = .authorized
+        @unknown default: status = .notDetermined
+        }
+        continuation.yield(.authorizationChanged(status))
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        AppLogger.lifecycle.error("Location manager error: \(String(describing: type(of: error)), privacy: .public)")
+        continuation.yield(.failed(.updateFailed))
     }
 }
