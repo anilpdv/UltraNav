@@ -1,19 +1,43 @@
 import Foundation
 @testable import UltraNav
 
-/// Controllable clock for deterministic time advancing in unit tests.
-public final class TestClock: ClockProviding, @unchecked Sendable {
-    public var currentTime: Date
+/// Controllable clock with thread-safe lock protection for deterministic testing.
+final class TestClock: ClockProviding, @unchecked Sendable {
+    private let lock = NSLock()
+    private var currentDate: Date
 
-    public init(initialTime: Date = Date(timeIntervalSince1970: 1704067200)) { // 2024-01-01 00:00:00 UTC
-        self.currentTime = initialTime
+    init(now: Date = Date(timeIntervalSince1970: 1_704_067_200)) {
+        self.currentDate = now
     }
 
-    public var now: Date {
-        currentTime
+    init(initialTime: Date) {
+        self.currentDate = initialTime
     }
 
-    public func advance(by interval: TimeInterval) {
-        currentTime = currentTime.addingTimeInterval(interval)
+    var now: Date {
+        lock.withLock {
+            currentDate
+        }
+    }
+
+    var currentTime: Date {
+        get {
+            lock.withLock { currentDate }
+        }
+        set {
+            lock.withLock { currentDate = newValue }
+        }
+    }
+
+    func advance(by interval: TimeInterval) {
+        lock.withLock {
+            currentDate = currentDate.addingTimeInterval(interval)
+        }
+    }
+
+    func set(_ date: Date) {
+        lock.withLock {
+            currentDate = date
+        }
     }
 }
