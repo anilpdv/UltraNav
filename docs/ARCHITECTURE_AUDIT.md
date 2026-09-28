@@ -228,5 +228,62 @@ Tests:
 - Sensor settings & pairing persistence -> Phase 12
 - Legacy `BluetoothSensorManager` -> Retained temporarily for existing UI, dismantled when views migrate to `SensorProviding`
 
+## Phase 1H RideEngine Migration Audit
+
+### Current lifecycle owner
+
+- Type: `CyclingRideEngine` (facade/manager), `RideEngine` (previous prototype), `WorkoutSessionManager` (legacy HealthKit coordinator)
+- File: `UltraNav/Services/Cycling/CyclingRideEngine.swift`, `UltraNav/Engines/RideEngine.swift`, `UltraNav/Services/Cycling/WorkoutSessionManager.swift`
+
+### Prepare methods
+
+- `RideEngine.prepareRide(route:)` -> Migrated to `RideEngine.send(.prepare)`
+- `CyclingRideEngine.startRide` (ad-hoc preparation on start) -> Decoupled via `RideEngineCommand.prepare`
+
+### Start methods
+
+- `CyclingRideEngine.startRide(route:)` -> Delegated to `RideEngine.send(.start)` via `LegacyRideEngineAdapter`
+- `RideEngine.startRide(route:)` -> Migrated to `RideEngine.send(.start)` with atomic rollback
+
+### Pause and resume methods
+
+- `CyclingRideEngine.pauseRide()`, `resumeRide()` -> Delegated to `RideEngine.send(.pause)` and `RideEngine.send(.resume)`
+- `RideEngine.pauseRide()`, `resumeRide()` -> Replaced by explicit state machine effects and confirmed service commands
+
+### Finish methods
+
+- `CyclingRideEngine.finishRide()` -> Delegated to `RideEngine.send(.finish)`
+- `RideEngine.finishRide()` -> Migrated to `RideEngine.send(.finish)` with deterministic finish timestamping
+
+### Timing ownership
+
+- `MetricsEngine.elapsedTime`, `MetricsEngine.movingTime` -> Extracted to pure, framework-independent `RideTimingState` owned by `RideEngine`
+- Timer ticker -> Decoupled; `RideTimingState` provides exact calculation at any query date `now`
+
+### Service event consumers
+
+- Location events: `LocationProviding.events` -> Consumed via async Task in `RideEngine`
+- Workout events: `WorkoutProviding.events` -> Consumed via async Task in `RideEngine`
+- Sensor events: `SensorProviding.events` -> Consumed via async Task in `RideEngine`
+
+### Lifecycle Boolean state
+
+- `CyclingRideEngine.isRiding`, `isPaused` -> Projected from `RideSnapshot.state` (e.g. `hasActiveRideSession`, `.paused`)
+- `RideEngine.state` -> Driven strictly by `RideStateMachine`
+
+### Migration decisions
+
+- `RideEngine` -> Pure lifecycle coordinator, state machine owner, snapshot publisher
+- `RideTimingState` -> Owns ride start/pause/resume/finish timing and moving time accumulation
+- `RideMetricState` -> Lightweight snapshot metric cache (current speed, HR, power, cadence, altitude, distance)
+- `RideDependencyPolicy` -> Declares mandatory vs optional subsystems (.outdoorCycling)
+- `RideSnapshotBuilder` -> Centralizes pure immutable snapshot creation
+- `RideFailureMapper` -> Maps lower-level location and workout service failures to `RideFailure`
+- `LegacyRideEngineAdapter` -> Provides backward-compatible `ObservableObject` wrapper for existing SwiftUI views
+- Advanced distance/GPS filtering -> Postponed to Phase 3
+- Navigation geometry & cues -> Handled by `NavigationEngine` in Phase 1I
+- Advanced metrics & power zones -> Handled by `MetricsEngine` in Phase 1J
+- Climb analysis -> Handled by `ClimbEngine` in Phase 1K
+
 
 

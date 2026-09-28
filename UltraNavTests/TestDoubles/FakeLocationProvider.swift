@@ -27,6 +27,10 @@ actor FakeLocationProvider: LocationProviding {
         self.startUpdatesFailure = failure
     }
 
+    func setStartFailure(_ failure: LocationServiceFailure?) {
+        self.startUpdatesFailure = failure
+    }
+
     func authorizationStatus() async -> LocationAuthorizationStatus {
         stubbedAuthorizationStatus
     }
@@ -47,11 +51,11 @@ actor FakeLocationProvider: LocationProviding {
         stopUpdatesCallCount += 1
     }
 
-    func send(_ event: LocationServiceEvent) {
+    nonisolated func send(_ event: LocationServiceEvent) {
         continuation.yield(event)
     }
 
-    func finishEvents() {
+    nonisolated func finishEvents() {
         continuation.finish()
     }
 }

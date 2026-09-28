@@ -21,6 +21,7 @@ actor FakeWorkoutProvider: WorkoutProviding {
     private(set) var pauseCallCount = 0
     private(set) var resumeCallCount = 0
     private(set) var finishDates: [Date] = []
+    private(set) var cancelCallCount = 0
     private(set) var resetCallCount = 0
 
     init() {
@@ -109,15 +110,19 @@ actor FakeWorkoutProvider: WorkoutProviding {
         }
     }
 
+    func cancel() async {
+        cancelCallCount += 1
+    }
+
     func reset() async {
         resetCallCount += 1
     }
 
-    func send(_ event: WorkoutServiceEvent) {
+    nonisolated func send(_ event: WorkoutServiceEvent) {
         continuation.yield(event)
     }
 
-    func finishEvents() {
+    nonisolated func finishEvents() {
         continuation.finish()
     }
 }

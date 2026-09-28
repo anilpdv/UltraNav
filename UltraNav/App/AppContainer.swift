@@ -40,13 +40,10 @@ final class AppContainer {
         self.climbEngine = clm
 
         self.rideEngine = RideEngine(
-            locationService: loc,
-            workoutService: work,
-            sensorService: sens,
-            clock: clk,
-            navigationEngine: nav,
-            metricsEngine: met,
-            climbEngine: clm
+            location: loc,
+            workout: work,
+            sensors: sens,
+            clock: clk
         )
     }
 }

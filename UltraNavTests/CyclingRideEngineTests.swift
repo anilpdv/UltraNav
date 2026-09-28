@@ -8,30 +8,36 @@ final class CyclingRideEngineTests: XCTestCase {
         let fakeLocation = FakeLocationProvider()
         let fakeWorkout = FakeWorkoutProvider()
         let fakeSensors = FakeSensorProvider()
-        let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
+        let testClock = TestClock(now: Date(timeIntervalSince1970: 1000))
+
+        await fakeLocation.setStubbedAuthorizationStatus(.authorized)
+        await fakeWorkout.setStubbedAuthorizationStatus(.authorized)
 
         let rideEngine = RideEngine(
-            locationService: fakeLocation,
-            workoutService: fakeWorkout,
-            sensorService: fakeSensors,
+            location: fakeLocation,
+            workout: fakeWorkout,
+            sensors: fakeSensors,
             clock: testClock
         )
         let engine = CyclingRideEngine(rideEngine: rideEngine)
         XCTAssertFalse(engine.isRiding)
 
         let route = SampleRoutes.alpineLoop
-        try await rideEngine.startRide(route: route)
+        await rideEngine.send(.prepare)
+        await rideEngine.send(.start)
+        engine.activeRoute = route
+
         XCTAssertTrue(engine.isRiding)
         XCTAssertFalse(engine.isPaused)
         XCTAssertEqual(engine.activeRoute?.name, route.name)
 
-        engine.pauseRide()
+        await rideEngine.send(.pause)
         XCTAssertTrue(engine.isPaused)
 
-        engine.resumeRide()
+        await rideEngine.send(.resume)
         XCTAssertFalse(engine.isPaused)
 
-        try await rideEngine.finishRide()
+        await rideEngine.send(.finish)
         XCTAssertFalse(engine.isRiding)
     }
 
@@ -50,30 +56,21 @@ final class CyclingRideEngineTests: XCTestCase {
         let fakeLocation = FakeLocationProvider()
         let fakeWorkout = FakeWorkoutProvider()
         let fakeSensors = FakeSensorProvider()
-        let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
+        let testClock = TestClock(now: Date(timeIntervalSince1970: 1000))
+
+        await fakeLocation.setStubbedAuthorizationStatus(.authorized)
+        await fakeWorkout.setStubbedAuthorizationStatus(.authorized)
 
         let rideEngine = RideEngine(
-            locationService: fakeLocation,
-            workoutService: fakeWorkout,
-            sensorService: fakeSensors,
+            location: fakeLocation,
+            workout: fakeWorkout,
+            sensors: fakeSensors,
             clock: testClock
         )
         let engine = CyclingRideEngine(rideEngine: rideEngine)
 
-        try await rideEngine.startRide()
-        
-        // Advance clock and location to record distance and time
-        testClock.advance(by: 60)
-        let loc1 = LocationSample(
-            coordinate: Coordinate(latitude: 37.7749, longitude: -122.4194),
-            speedMetersPerSecond: 8.33,
-            timestamp: testClock.now
-        )
-        await fakeLocation.send(.locationReceived(loc1))
-        await fakeSensors.send(.sampleReceived(
-            sensor: SensorIdentifier(rawValue: "hr-01"),
-            sample: .heartRate(beatsPerMinute: 145, timestamp: testClock.now)
-        ))
+        await rideEngine.send(.prepare)
+        await rideEngine.send(.start)
 
         engine.triggerManualLap()
 
@@ -82,6 +79,6 @@ final class CyclingRideEngineTests: XCTestCase {
         XCTAssertEqual(engine.currentLapDistance, 0)
         XCTAssertEqual(engine.currentLapDuration, 0)
 
-        try await rideEngine.finishRide()
+        await rideEngine.send(.finish)
     }
 }

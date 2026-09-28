@@ -1,6 +1,7 @@
 import Foundation
 
 enum RideFailure: Error, Equatable, Sendable {
+    case locationPermissionRequired
     case locationPermissionDenied
     case locationUnavailable
 

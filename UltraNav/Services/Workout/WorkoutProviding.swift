@@ -22,5 +22,7 @@ protocol WorkoutProviding: Sendable {
         at date: Date
     ) async throws
 
+    func cancel() async
+
     func reset() async
 }

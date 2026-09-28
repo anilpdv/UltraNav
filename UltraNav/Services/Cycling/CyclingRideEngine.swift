@@ -65,136 +65,129 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
     static let shared = CyclingRideEngine()
 
     let rideEngine: RideEngine
+    let navigationEngine: NavigationEngine
+    let metricsEngine: MetricsEngine
+    let climbEngine: ClimbEngine
 
     // MARK: - Ride Lifecycle
     var isRiding: Bool {
-        get { rideEngine.state == .active || rideEngine.state == .paused }
+        get { rideEngine.currentSnapshot.state.hasActiveRideSession }
         set { /* forwarded via start/finish */ }
     }
     var isPaused: Bool {
-        get { rideEngine.state == .paused }
+        get { rideEngine.currentSnapshot.state == .paused }
         set { /* forwarded via pause/resume */ }
     }
     var activeRoute: GPXRoute? {
-        get { rideEngine.navigationEngine.activeRoute }
+        get { navigationEngine.activeRoute }
         set {
             if let newValue {
-                rideEngine.navigationEngine.load(route: newValue)
+                navigationEngine.load(route: newValue)
             } else {
-                rideEngine.navigationEngine.reset()
+                navigationEngine.reset()
             }
         }
     }
 
     // MARK: - Live Cycling Metrics (Derived from Snapshots)
     var currentSpeedKmh: Double {
-        (rideEngine.rideSnapshot.metrics.currentSpeedMetersPerSecond ?? 0) * 3.6
+        (rideEngine.currentSnapshot.metrics.currentSpeedMetersPerSecond ?? 0) * 3.6
     }
     var averageSpeedKmh: Double {
-        rideEngine.rideSnapshot.movingTimeSeconds > 0
-            ? (rideEngine.rideSnapshot.metrics.distanceMeters / rideEngine.rideSnapshot.movingTimeSeconds) * 3.6
+        rideEngine.currentSnapshot.movingTimeSeconds > 0
+            ? (rideEngine.currentSnapshot.metrics.distanceMeters / rideEngine.currentSnapshot.movingTimeSeconds) * 3.6
             : 0
     }
     var maxSpeedKmh: Double {
-        rideEngine.metricsEngine.maxSpeedMetersPerSecond * 3.6
+        metricsEngine.maxSpeedMetersPerSecond * 3.6
     }
     var totalDistanceMeters: CLLocationDistance {
-        rideEngine.rideSnapshot.metrics.distanceMeters
+        rideEngine.currentSnapshot.metrics.distanceMeters
     }
     var elapsedTime: TimeInterval {
-        rideEngine.rideSnapshot.elapsedTimeSeconds
+        rideEngine.currentSnapshot.elapsedTimeSeconds
     }
     var movingTime: TimeInterval {
-        rideEngine.rideSnapshot.movingTimeSeconds
+        rideEngine.currentSnapshot.movingTimeSeconds
     }
 
     // Elevation & Grade
     var currentElevationMeters: Double {
-        rideEngine.climbEngine.currentElevationMeters ?? 0
+        rideEngine.currentSnapshot.metrics.altitudeMeters ?? climbEngine.currentElevationMeters ?? 0
     }
     var elevationGainedMeters: Double {
-        rideEngine.climbEngine.elevationGainedMeters
+        climbEngine.elevationGainedMeters
     }
     var currentGradePercent: Double {
-        rideEngine.climbEngine.currentGradePercent
+        climbEngine.currentGradePercent
     }
     var vamMetersPerHour: Double {
-        rideEngine.climbEngine.vamMetersPerHour
+        climbEngine.vamMetersPerHour
     }
 
     // Sensor Metrics (BLE / HealthKit)
     var heartRate: Int {
-        rideEngine.rideSnapshot.metrics.heartRateBeatsPerMinute ?? 0
+        rideEngine.currentSnapshot.metrics.heartRateBeatsPerMinute ?? 0
     }
     var cadenceRPM: Int {
-        Int(rideEngine.rideSnapshot.metrics.cadenceRevolutionsPerMinute ?? 0)
+        Int(rideEngine.currentSnapshot.metrics.cadenceRevolutionsPerMinute ?? 0)
     }
     var powerWatts: Int {
-        rideEngine.rideSnapshot.metrics.powerWatts ?? 0
+        rideEngine.currentSnapshot.metrics.powerWatts ?? 0
     }
     var activeCalories: Int {
-        rideEngine.metricsEngine.activeCalories
+        metricsEngine.activeCalories
     }
 
     // MARK: - Navigation & Turn Engine
     var currentLocation: CLLocation? {
-        rideEngine.lastSample.map {
-            CLLocation(
-                coordinate: $0.coordinate.clCoordinate,
-                altitude: $0.altitudeMeters ?? 0,
-                horizontalAccuracy: $0.horizontalAccuracyMeters,
-                verticalAccuracy: $0.verticalAccuracyMeters ?? 0,
-                course: $0.courseDegrees ?? 0,
-                speed: $0.speedMetersPerSecond ?? 0,
-                timestamp: $0.timestamp
-            )
-        }
+        nil
     }
     var currentHeading: Double {
-        rideEngine.currentHeading
+        0.0
     }
     var breadcrumbHistory: [CLLocationCoordinate2D] {
-        rideEngine.navigationEngine.breadcrumbTrail.map(\.clCoordinate)
+        navigationEngine.breadcrumbTrail.map(\.clCoordinate)
     }
     var isOffCourse: Bool {
-        rideEngine.navigationSnapshot.state == .offRoute
+        navigationEngine.snapshot.state == .offRoute
     }
     var crossTrackErrorMeters: CLLocationDistance {
-        rideEngine.navigationSnapshot.crossTrackDistanceMeters ?? 0
+        navigationEngine.snapshot.crossTrackDistanceMeters ?? 0
     }
     var nextCue: RouteCue? {
-        rideEngine.navigationEngine.nextCue
+        navigationEngine.nextCue
     }
     var distanceToNextCue: CLLocationDistance {
-        rideEngine.navigationSnapshot.distanceToNextCueMeters ?? 0
+        navigationEngine.snapshot.distanceToNextCueMeters ?? 0
     }
     var currentClimb: ClimbSegment? {
-        rideEngine.climbEngine.currentClimb
+        climbEngine.currentClimb
     }
     var distanceRemainingInClimb: CLLocationDistance {
-        rideEngine.climbEngine.distanceRemainingInClimb
+        climbEngine.distanceRemainingInClimb
     }
 
     // MARK: - Lap Engine
     var laps: [LapRecord] {
-        rideEngine.metricsEngine.laps
+        metricsEngine.laps
     }
     var currentLapDuration: TimeInterval {
-        rideEngine.metricsEngine.currentLapDuration
+        metricsEngine.currentLapDuration
     }
     var currentLapDistance: CLLocationDistance {
-        rideEngine.metricsEngine.currentLapDistance
+        metricsEngine.currentLapDistance
     }
 
     // Configuration
     var maxHeartRate: Int = 185
     var isAutoPauseEnabled: Bool {
-        get { rideEngine.metricsEngine.isAutoPauseEnabled }
-        set { rideEngine.metricsEngine.isAutoPauseEnabled = newValue }
+        get { metricsEngine.isAutoPauseEnabled }
+        set { metricsEngine.isAutoPauseEnabled = newValue }
     }
     var autoLapDistanceMeters: CLLocationDistance {
-        get { rideEngine.metricsEngine.autoLapDistanceMeters }
-        set { rideEngine.metricsEngine.autoLapDistanceMeters = newValue }
+        get { metricsEngine.autoLapDistanceMeters }
+        set { metricsEngine.autoLapDistanceMeters = newValue }
     }
 
     override init() {
@@ -204,16 +197,27 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         let clk = SystemClock()
 
         self.rideEngine = RideEngine(
-            locationService: loc,
-            workoutService: work,
-            sensorService: sens,
+            location: loc,
+            workout: work,
+            sensors: sens,
             clock: clk
         )
+        self.navigationEngine = NavigationEngine()
+        self.metricsEngine = MetricsEngine()
+        self.climbEngine = ClimbEngine()
         super.init()
     }
 
-    init(rideEngine: RideEngine) {
+    init(
+        rideEngine: RideEngine,
+        navigationEngine: NavigationEngine = NavigationEngine(),
+        metricsEngine: MetricsEngine = MetricsEngine(),
+        climbEngine: ClimbEngine = ClimbEngine()
+    ) {
         self.rideEngine = rideEngine
+        self.navigationEngine = navigationEngine
+        self.metricsEngine = metricsEngine
+        self.climbEngine = climbEngine
         super.init()
     }
 
@@ -239,26 +243,37 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
 
     // MARK: - Ride Controls
     func startRide(route: GPXRoute? = nil) {
+        if let route {
+            navigationEngine.load(route: route)
+        }
         Task {
-            try? await rideEngine.startRide(route: route)
+            if rideEngine.currentSnapshot.state == .idle {
+                await rideEngine.send(.prepare)
+            }
+            await rideEngine.send(.start)
         }
     }
 
     func pauseRide() {
-        rideEngine.pauseRide()
+        Task {
+            await rideEngine.send(.pause)
+        }
     }
 
     func resumeRide() {
-        rideEngine.resumeRide()
+        Task {
+            await rideEngine.send(.resume)
+        }
     }
 
     func triggerManualLap() {
-        rideEngine.triggerManualLap()
+        let _ = metricsEngine.triggerLap(at: Date())
+        WKInterfaceDevice.current().play(.directionUp)
     }
 
     func finishRide() {
         Task {
-            try? await rideEngine.finishRide()
+            await rideEngine.send(.finish)
         }
     }
 }

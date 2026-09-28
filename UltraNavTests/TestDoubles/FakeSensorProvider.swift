@@ -86,11 +86,11 @@ actor FakeSensorProvider: SensorProviding {
         disconnectAllCallCount += 1
     }
 
-    func send(_ event: SensorServiceEvent) {
+    nonisolated func send(_ event: SensorServiceEvent) {
         continuation.yield(event)
     }
 
-    func finishEvents() {
+    nonisolated func finishEvents() {
         continuation.finish()
     }
 }

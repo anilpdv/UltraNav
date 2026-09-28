@@ -199,6 +199,14 @@ final class HealthKitService: NSObject, WorkoutProviding, HealthKitDelegateBridg
         }
     }
 
+    func cancel() async {
+        session?.end()
+        session = nil
+        builder = nil
+        state = .idle
+        continuation.yield(.stateChanged(.idle))
+    }
+
     func reset() async {
         guard state == .ended || state == .failed || state == .idle else {
             return
