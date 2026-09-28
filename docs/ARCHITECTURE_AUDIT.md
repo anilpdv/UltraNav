@@ -144,3 +144,41 @@ Tests:
 - `CLLocation` conversion -> Managed by `CoreLocationSampleConverter`
 - GPS filtering / validation -> Deferred to Phase 3 (Location & Sensor Fusion)
 
+---
+
+## 8. Phase 1F HealthKit Ownership Audit
+
+### HKHealthStore creation sites
+- `UltraNav/Services/Workout/HealthKitAuthorizing.swift` (`HealthKitAuthorizationClient`)
+- `UltraNav/Services/Workout/HealthKitWorkoutFactory.swift` (`HealthKitWorkoutFactory`)
+
+### HKWorkoutSession creation sites
+- `UltraNav/Services/Workout/HealthKitWorkoutFactory.swift` (`HealthKitWorkoutFactory.createResources`)
+
+### HKLiveWorkoutBuilder ownership
+- `UltraNav/Services/Workout/HealthKitService.swift` (via `HealthKitBuilderManaging` adapter)
+
+### Session delegate implementations
+- `UltraNav/Services/Workout/HealthKitDelegateBridge.swift`: Isolated delegate bridge forwarding session state changes to `HealthKitService`.
+
+### Builder delegate implementations
+- `UltraNav/Services/Workout/HealthKitDelegateBridge.swift`: Isolated delegate bridge forwarding data collection callbacks to `HealthKitService`.
+
+### Authorization request sites
+- `UltraNav/Services/Workout/HealthKitAuthorizing.swift` (`HealthKitAuthorizationClient.requestAuthorization`)
+
+### Finalization sites
+- `UltraNav/Services/Workout/HealthKitService.swift` (`HealthKitService.finish`)
+
+### Direct SwiftUI access
+- None. Views receive metrics via snapshots from `RideEngine` / `MetricsEngine`.
+
+### Duplicate state
+- `WorkoutSessionManager` legacy singleton retained until Phase 1H engine migration.
+
+### Migration decisions
+- `HKWorkoutSession` creation -> Owned exclusively by `HealthKitWorkoutFactory`
+- `HKLiveWorkoutBuilder` management -> Owned exclusively by `HealthKitService`
+- Metric normalization -> Managed by `HealthKitMetricConverter`
+
+
