@@ -4,7 +4,7 @@ import OSLog
 
 @MainActor
 @Observable
-public final class WorkoutSessionManager: NSObject, WorkoutProviding, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
+public final class WorkoutSessionManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     public static let shared = WorkoutSessionManager()
 
     private let healthStore = HKHealthStore()
