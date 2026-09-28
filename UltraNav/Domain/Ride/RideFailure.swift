@@ -11,6 +11,10 @@ enum RideFailure: Error, Equatable, Sendable {
     case workoutResumeFailed
     case workoutFinishFailed
 
-    case invalidStateTransition
+    case invalidStateTransition(
+        from: RideStateName,
+        event: RideEventName
+    )
+
     case unexpected
 }
