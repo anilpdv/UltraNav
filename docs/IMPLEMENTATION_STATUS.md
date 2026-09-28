@@ -1,6 +1,6 @@
 # UltraNav Implementation Status & Roadmap
 
-**Current Phase:** Phase 1C (Explicit State Machines) — **COMPLETED**
+**Current Phase:** Phase 1D (Service Protocol Boundaries) — **COMPLETED**
 
 ---
 
@@ -21,14 +21,19 @@
 - [x] State preservation invariant on rejected transitions.
 - [x] 100% test coverage for lifecycle paths, failures, and recovery.
 
-### Architecture & Boundaries (Phase 1D - 1H)
-- [x] `RideEngine` coordinates ride lifecycle and snapshot publishing.
-- [x] `LocationProviding` protocol decouples CoreLocation.
-- [x] `WorkoutProviding` protocol decouples HealthKit.
-- [x] `SensorProviding` protocol decouples CoreBluetooth.
-- [x] `NavigationEngine` isolated from hardware services.
-- [x] `MetricsEngine` isolated from UI state.
-- [x] `ClimbEngine` isolated from view rendering.
+### Service Protocol Boundaries (Phase 1D)
+- [x] Framework-independent `LocationProviding` protocol decoupling CoreLocation.
+- [x] Framework-independent `WorkoutProviding` protocol decoupling HealthKit.
+- [x] Framework-independent `SensorProviding` protocol decoupling CoreBluetooth.
+- [x] Framework-independent `RouteStoring` protocol decoupling filesystem & persistence.
+- [x] Framework-independent `RidePersisting` protocol decoupling ride storage.
+- [x] Framework-independent `ClockProviding` and `SleepProviding` decoupling system clocks.
+- [x] Framework-independent `HapticProviding` decoupling WatchKit haptics.
+- [x] Pure asynchronous event streams (`AsyncStream`) for all streaming boundaries.
+- [x] Zero framework leaks (`CLLocation`, `HKWorkoutSession`, `CBPeripheral`) in boundary APIs.
+- [x] Zero raw OS error leaks (`NSError`, `CLError`, `HKError`, `CBError`) in failure models.
+- [x] Actor-backed test doubles (`FakeLocationProvider`, `FakeWorkoutProvider`, `FakeSensorProvider`, `FakeRouteStore`, `FakeRidePersistence`, `TestClock`).
+- [x] 100% contract verification test suite for all test doubles and storage providers.
 
 ### Dependency Management & Composition
 - [x] `AppContainer` serves as central composition root.
@@ -41,12 +46,18 @@
 - [x] `RideStateMachinePathTests` (2 tests)
 - [x] `NavigationStateMachineTests` (8 tests)
 - [x] `NavigationStateMachineFailureTests` (5 tests)
+- [x] `FakeLocationProviderTests` (2 tests)
+- [x] `FakeWorkoutProviderTests` (3 tests)
+- [x] `FakeSensorProviderTests` (3 tests)
+- [x] `FakeRouteStoreTests` (2 tests)
+- [x] `FakeRidePersistenceTests` (2 tests)
+- [x] `TestClockTests` (2 tests)
 - [x] `RideEngineTests` covering start, pause, resume, finish, lap, and failure paths.
 - [x] `NavigationEngineTests` covering XTE, off-course, and cue lookahead.
 - [x] `MetricsEngineTests` covering time, speed, and lap distance triggers.
 - [x] `GPXParserTests` covering XML parsing and climb scoring.
 - [x] `UltraNavCoreTests` covering navigation model and caching.
-- [x] Total: **70 unit tests** passing with 0 failures on watchOS simulator.
+- [x] Total: **84 unit tests** passing with 0 failures on watchOS simulator.
 
 ---
 
@@ -57,7 +68,7 @@
 | **Phase 1A** | **Architecture Audit & Inventory** | Inventory boundaries, state, and dependencies. | **COMPLETED** |
 | **Phase 1B** | **Domain Model Foundation** | Framework-independent models and geometry. | **COMPLETED** |
 | **Phase 1C** | **Explicit State Machines** | Deterministic lifecycle state machines and effects. | **COMPLETED** |
-| **Phase 1D** | **Service Protocol Boundaries** | Formalize hardware protocols & event streams. | Next |
+| **Phase 1D** | **Service Protocol Boundaries** | Formalize hardware protocols & event streams. | **COMPLETED** |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
 | **Phase 4** | **HealthKit & Workout Session** | Background execution runtime, battery preservation, HealthKit mirrors. | Pending |
