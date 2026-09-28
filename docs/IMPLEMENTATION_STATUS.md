@@ -1,6 +1,6 @@
 # UltraNav Implementation Status & Roadmap
 
-**Current Phase:** Phase 1E (Core Location Service Boundary) — **COMPLETED**
+**Current Phase:** Phase 1F (HealthKit Service Boundary) — **COMPLETED**
 
 ---
 
@@ -44,6 +44,17 @@
 - [x] Idempotent start and stop commands with bounded event stream (`bufferingNewest(10)`).
 - [x] 100% unit test coverage for converter, authorization mapping, configuration, lifecycle, and transient error recovery.
 
+### HealthKit Service Boundary (Phase 1F)
+- [x] `WorkoutConfiguration` for outdoor cycling configuration mapping.
+- [x] `HealthKitDataTypes` explicit read and share type sets.
+- [x] `HealthKitAuthorizing` and `HealthKitAuthorizationClient` isolating authorization.
+- [x] `HealthKitWorkoutFactory` for `HKWorkoutSession` and `HKLiveWorkoutBuilder` creation.
+- [x] `HealthKitSessionManaging` and `HealthKitBuilderManaging` protocols with adapters.
+- [x] `HealthKitDelegateBridge` decoupling session and builder delegates.
+- [x] `HealthKitMetricConverter` normalizing `HKStatistics` to `WorkoutMetric`.
+- [x] `HealthKitService` managing workout lifecycle, bounded events (`bufferingNewest(50)`), and finalization.
+- [x] 100% unit test coverage for authorization, configuration, preparation, lifecycle, finalization, and failure paths.
+
 ### Dependency Management & Composition
 - [x] `AppContainer` serves as central composition root.
 - [x] Dependencies injected cleanly into engines.
@@ -65,12 +76,17 @@
 - [x] `LocationAuthorizationMappingTests` (1 test)
 - [x] `LocationConfigurationTests` (1 test)
 - [x] `LocationServiceTests` (12 tests)
+- [x] `HealthKitAuthorizationTests` (4 tests)
+- [x] `HealthKitConfigurationTests` (1 test)
+- [x] `HealthKitServiceLifecycleTests` (5 tests)
+- [x] `HealthKitServiceFailureTests` (3 tests)
+- [x] `HealthKitMetricConverterTests` (1 test)
 - [x] `RideEngineTests` covering start, pause, resume, finish, lap, and failure paths.
 - [x] `NavigationEngineTests` covering XTE, off-course, and cue lookahead.
 - [x] `MetricsEngineTests` covering time, speed, and lap distance triggers.
 - [x] `GPXParserTests` covering XML parsing and climb scoring.
 - [x] `UltraNavCoreTests` covering navigation model and caching.
-- [x] Total: **105 unit tests** passing with 0 failures on watchOS simulator.
+- [x] Total: **121 unit tests** passing with 0 failures on watchOS simulator.
 
 ---
 
@@ -83,7 +99,8 @@
 | **Phase 1C** | **Explicit State Machines** | Deterministic lifecycle state machines and effects. | **COMPLETED** |
 | **Phase 1D** | **Service Protocol Boundaries** | Formalize hardware protocols & event streams. | **COMPLETED** |
 | **Phase 1E** | **Core Location Service Boundary** | Isolate CoreLocation behind LocationProviding. | **COMPLETED** |
-| **Phase 1F** | **HealthKit Service Boundary** | Isolate HealthKit behind WorkoutProviding. | Next |
+| **Phase 1F** | **HealthKit Service Boundary** | Isolate HealthKit behind WorkoutProviding. | **COMPLETED** |
+| **Phase 1G** | **Bluetooth Service Boundary** | Isolate CoreBluetooth behind SensorProviding. | Next |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
 | **Phase 4** | **HealthKit & Workout Session** | Background execution runtime, battery preservation, HealthKit mirrors. | Pending |
