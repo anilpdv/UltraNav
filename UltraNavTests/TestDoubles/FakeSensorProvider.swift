@@ -13,6 +13,7 @@ actor FakeSensorProvider: SensorProviding {
 
     private(set) var startScanningCallCount = 0
     private(set) var scannedTypes: Set<SensorType> = []
+    private(set) var lastScanRequest: SensorScanRequest?
     private(set) var stopScanningCallCount = 0
     private(set) var connectedSensors: [SensorIdentifier] = []
     private(set) var disconnectedSensors: [SensorIdentifier] = []
@@ -52,13 +53,18 @@ actor FakeSensorProvider: SensorProviding {
         stubbedKnownSensors
     }
 
-    func startScanning(for types: Set<SensorType>) async throws {
+    func startScanning(request: SensorScanRequest) async throws {
         startScanningCallCount += 1
-        scannedTypes = types
+        scannedTypes = request.sensorTypes
+        lastScanRequest = request
 
         if let scanFailure {
             throw scanFailure
         }
+    }
+
+    func startScanning(for types: Set<SensorType>) async throws {
+        try await startScanning(request: .standard(for: types))
     }
 
     func stopScanning() async {
