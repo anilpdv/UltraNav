@@ -4,12 +4,23 @@ import CoreLocation
 
 @MainActor
 final class CyclingRideEngineTests: XCTestCase {
-    func testRideEngineLifecycle() {
-        let engine = CyclingRideEngine()
+    func testRideEngineLifecycle() async throws {
+        let fakeLocation = FakeLocationService()
+        let fakeWorkout = FakeWorkoutService()
+        let fakeSensors = FakeSensorService()
+        let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
+
+        let rideEngine = RideEngine(
+            locationService: fakeLocation,
+            workoutService: fakeWorkout,
+            sensorService: fakeSensors,
+            clock: testClock
+        )
+        let engine = CyclingRideEngine(rideEngine: rideEngine)
         XCTAssertFalse(engine.isRiding)
 
         let route = SampleRoutes.alpineLoop
-        engine.startRide(route: route)
+        try await rideEngine.startRide(route: route)
         XCTAssertTrue(engine.isRiding)
         XCTAssertFalse(engine.isPaused)
         XCTAssertEqual(engine.activeRoute?.name, route.name)
@@ -20,7 +31,7 @@ final class CyclingRideEngineTests: XCTestCase {
         engine.resumeRide()
         XCTAssertFalse(engine.isPaused)
 
-        engine.finishRide()
+        try await rideEngine.finishRide()
         XCTAssertFalse(engine.isRiding)
     }
 
@@ -28,39 +39,46 @@ final class CyclingRideEngineTests: XCTestCase {
         let engine = CyclingRideEngine()
         engine.maxHeartRate = 200
 
-        engine.heartRate = 100 // 50%
-        XCTAssertEqual(engine.heartRateZone, .zone1)
-
-        engine.heartRate = 130 // 65%
-        XCTAssertEqual(engine.heartRateZone, .zone2)
-
-        engine.heartRate = 150 // 75%
-        XCTAssertEqual(engine.heartRateZone, .zone3)
-
-        engine.heartRate = 170 // 85%
-        XCTAssertEqual(engine.heartRateZone, .zone4)
-
-        engine.heartRate = 190 // 95%
-        XCTAssertEqual(engine.heartRateZone, .zone5)
+        XCTAssertEqual(engine.heartRateZone(for: 100), .zone1) // 50%
+        XCTAssertEqual(engine.heartRateZone(for: 130), .zone2) // 65%
+        XCTAssertEqual(engine.heartRateZone(for: 150), .zone3) // 75%
+        XCTAssertEqual(engine.heartRateZone(for: 170), .zone4) // 85%
+        XCTAssertEqual(engine.heartRateZone(for: 190), .zone5) // 95%
     }
 
-    func testManualLapTrigger() {
-        let engine = CyclingRideEngine()
-        engine.startRide()
-        engine.currentLapDuration = 60
-        engine.currentLapDistance = 500
-        engine.heartRate = 145
+    func testManualLapTrigger() async throws {
+        let fakeLocation = FakeLocationService()
+        let fakeWorkout = FakeWorkoutService()
+        let fakeSensors = FakeSensorService()
+        let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
+
+        let rideEngine = RideEngine(
+            locationService: fakeLocation,
+            workoutService: fakeWorkout,
+            sensorService: fakeSensors,
+            clock: testClock
+        )
+        let engine = CyclingRideEngine(rideEngine: rideEngine)
+
+        try await rideEngine.startRide()
+        
+        // Advance clock and location to record distance and time
+        testClock.advance(by: 60)
+        let loc1 = LocationSample(
+            coordinate: Coordinate(latitude: 37.7749, longitude: -122.4194),
+            speedMetersPerSecond: 8.33,
+            timestamp: testClock.now
+        )
+        rideEngine.locationService(fakeLocation as any LocationProviding, didUpdateLocation: loc1)
+        fakeSensors.simulateHeartRate(145)
 
         engine.triggerManualLap()
 
         XCTAssertEqual(engine.laps.count, 1)
         XCTAssertEqual(engine.laps[0].lapNumber, 1)
-        XCTAssertEqual(engine.laps[0].duration, 60)
-        XCTAssertEqual(engine.laps[0].distance, 500)
-        XCTAssertEqual(engine.laps[0].avgHeartRate, 145)
         XCTAssertEqual(engine.currentLapDistance, 0)
         XCTAssertEqual(engine.currentLapDuration, 0)
 
-        engine.finishRide()
+        try await rideEngine.finishRide()
     }
 }

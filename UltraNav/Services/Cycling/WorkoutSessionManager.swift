@@ -4,7 +4,7 @@ import OSLog
 
 @MainActor
 @Observable
-public final class WorkoutSessionManager: NSObject, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
+public final class WorkoutSessionManager: NSObject, WorkoutProviding, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     public static let shared = WorkoutSessionManager()
 
     private let healthStore = HKHealthStore()
@@ -18,6 +18,10 @@ public final class WorkoutSessionManager: NSObject, HKWorkoutSessionDelegate, HK
 
     public override init() {
         super.init()
+    }
+
+    public func requestAuthorization() async -> Bool {
+        await requestHealthKitAuthorization()
     }
 
     public func requestHealthKitAuthorization() async -> Bool {

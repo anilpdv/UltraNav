@@ -52,6 +52,48 @@
 		F0000000000000000000000D /* CyclingComputerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000D /* CyclingComputerContainerView.swift */; };
 		F0000000000000000000000E /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000E /* GPXParserTests.swift */; };
 		F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000F /* CyclingRideEngineTests.swift */; };
+		E1BF4BD94A5BDF1A6D57C70F /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE58D83618BED000E8D091 /* Coordinate.swift */; };
+		E1BFDC7E3C02FC554F7E393F /* MeasurementUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB12AE7DA2ACAF1FDAEA88 /* MeasurementUnits.swift */; };
+		E1B51EFA7D6DA5ECE2F19673 /* LocationSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */; };
+		E1B75BC291A8FA7B05E65ED0 /* RideFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1A680783B754F54FB90AB /* RideFailure.swift */; };
+		E1B4627E4FADB93D2B848CC2 /* RideState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F99BBE9A191CB446F2A549 /* RideState.swift */; };
+		E1B41C8FA4925D538305F357 /* RideSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3298E904F3D091696FCD9 /* RideSnapshot.swift */; };
+		E1B174113F4FA499D52CF07E /* RideMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F13D042F536D38C8A1A0F8 /* RideMetrics.swift */; };
+		E1B21DE903DA8C9DE8519958 /* RoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC68A6EA6D07723766CB33 /* RoutePoint.swift */; };
+		E1B6AF37758B992965CCD672 /* RouteMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6782A658F61C8594186ED /* RouteMetadata.swift */; };
+		E1BC0A49AC5E5D8E45816FA3 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F76A6E6E75F0076D98C6F4 /* Route.swift */; };
+		E1BFE12539ED1DD1DD961BA8 /* NavigationFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF047511DE4B466D55F68A /* NavigationFailure.swift */; };
+		E1B6642E7050D299FCC2E16B /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F75FE79D3030E7F2871E55 /* NavigationState.swift */; };
+		E1BFEACB9748768DC9980DA2 /* NavigationCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB7AA3899ED16E04D1857E /* NavigationCue.swift */; };
+		E1BC438204D2A4D7A14DD171 /* NavigationSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18A2D2B0725F5098952D9 /* NavigationSnapshot.swift */; };
+		E1B84D0A6BB889EDEFB7F52D /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FADFE8F797A0EACE481BE7 /* SensorType.swift */; };
+		E1B6A92292A115D07DCF081C /* SensorConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBEFCDB8D596EDE60A8984 /* SensorConnectionState.swift */; };
+		E1B9341E5FBDBC2A86942EDE /* SensorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F289897033076A01B58DB7 /* SensorSample.swift */; };
+		E1BF0B657851AFE0B528A730 /* ClimbSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */; };
+		E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F574182C51AA527079AE9F /* LocationAdapters.swift */; };
+		E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCD6CBB650672532816ADF /* AppContainer.swift */; };
+		E1B8EF2C6A95B2807DF76D82 /* ClockProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */; };
+		E1BE920F1BEA4C9EB765CF9A /* LocationProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */; };
+		E1BAB2434FDDB4134EC3ADD9 /* WorkoutProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */; };
+		E1BEEC10454E6D888586DD99 /* SensorProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F929B3138E3AE48CFB856D /* SensorProviding.swift */; };
+		E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50FCA694C3B244193BACE /* LocationService.swift */; };
+		E1BC52CB0D1471B3C958CF62 /* RideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */; };
+		E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6382A9E473671928AE21A /* NavigationEngine.swift */; };
+		E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */; };
+		E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */; };
+		E2BFDCCAE3DFEF11BE95CA79 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */; };
+		E2B31D83877F92D94BC95EB2 /* LocationSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1E8859A4524438B4F7230 /* LocationSampleTests.swift */; };
+		E2BDA51CE5E233E3D9FE3AB3 /* RideModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC4033DF79302AFA35749E /* RideModelTests.swift */; };
+		E2B3B950633C3DE99C055189 /* RouteModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F881189C84CA8682B55500 /* RouteModelTests.swift */; };
+		E2B537C644BBC66810155334 /* NavigationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */; };
+		E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */; };
+		E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F2AF7F43F99B2BF3025372 /* TestClock.swift */; };
+		E2B1589FE988A4E645D17A40 /* FakeLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */; };
+		E2BC1FC254FC0D4F8B927B5D /* FakeWorkoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */; };
+		E2B5752E4C440242141D0E81 /* FakeSensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */; };
+		E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */; };
+		E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */; };
+		E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +184,48 @@
 		F0100000000000000000000D /* CyclingComputerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/CyclingComputerContainerView.swift; sourceTree = "<group>"; };
 		F0100000000000000000000E /* GPXParserTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParserTests.swift; path = UltraNavTests/GPXParserTests.swift; sourceTree = "<group>"; };
 		F0100000000000000000000F /* CyclingRideEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CyclingRideEngineTests.swift; path = UltraNavTests/CyclingRideEngineTests.swift; sourceTree = "<group>"; };
+		E1FE58D83618BED000E8D091 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Common/Coordinate.swift; sourceTree = "<group>"; };
+		E1FB12AE7DA2ACAF1FDAEA88 /* MeasurementUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Common/MeasurementUnits.swift; sourceTree = "<group>"; };
+		E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Location/LocationSample.swift; sourceTree = "<group>"; };
+		E1F1A680783B754F54FB90AB /* RideFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideFailure.swift; sourceTree = "<group>"; };
+		E1F99BBE9A191CB446F2A549 /* RideState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideState.swift; sourceTree = "<group>"; };
+		E1F3298E904F3D091696FCD9 /* RideSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideSnapshot.swift; sourceTree = "<group>"; };
+		E1F13D042F536D38C8A1A0F8 /* RideMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/RideMetrics.swift; sourceTree = "<group>"; };
+		E1FC68A6EA6D07723766CB33 /* RoutePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RoutePoint.swift; sourceTree = "<group>"; };
+		E1F6782A658F61C8594186ED /* RouteMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteMetadata.swift; sourceTree = "<group>"; };
+		E1F76A6E6E75F0076D98C6F4 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/Route.swift; sourceTree = "<group>"; };
+		E1FF047511DE4B466D55F68A /* NavigationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationFailure.swift; sourceTree = "<group>"; };
+		E1F75FE79D3030E7F2871E55 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationState.swift; sourceTree = "<group>"; };
+		E1FB7AA3899ED16E04D1857E /* NavigationCue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationCue.swift; sourceTree = "<group>"; };
+		E1F18A2D2B0725F5098952D9 /* NavigationSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationSnapshot.swift; sourceTree = "<group>"; };
+		E1FADFE8F797A0EACE481BE7 /* SensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Sensors/SensorType.swift; sourceTree = "<group>"; };
+		E1FBEFCDB8D596EDE60A8984 /* SensorConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Sensors/SensorConnectionState.swift; sourceTree = "<group>"; };
+		E1F289897033076A01B58DB7 /* SensorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Sensors/SensorSample.swift; sourceTree = "<group>"; };
+		E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbSnapshot.swift; sourceTree = "<group>"; };
+		E1F574182C51AA527079AE9F /* LocationAdapters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Adapters/LocationAdapters.swift; sourceTree = "<group>"; };
+		E1FCD6CBB650672532816ADF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppContainer.swift; sourceTree = "<group>"; };
+		E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/ClockProviding.swift; sourceTree = "<group>"; };
+		E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/LocationProviding.swift; sourceTree = "<group>"; };
+		E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/WorkoutProviding.swift; sourceTree = "<group>"; };
+		E1F929B3138E3AE48CFB856D /* SensorProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Protocols/SensorProviding.swift; sourceTree = "<group>"; };
+		E1F50FCA694C3B244193BACE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationService.swift; sourceTree = "<group>"; };
+		E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/RideEngine.swift; sourceTree = "<group>"; };
+		E1F6382A9E473671928AE21A /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/NavigationEngine.swift; sourceTree = "<group>"; };
+		E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/MetricsEngine.swift; sourceTree = "<group>"; };
+		E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/ClimbEngine.swift; sourceTree = "<group>"; };
+		E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoordinateTests.swift; path = UltraNavTests/Domain/CoordinateTests.swift; sourceTree = "<group>"; };
+		E2F1E8859A4524438B4F7230 /* LocationSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationSampleTests.swift; path = UltraNavTests/Domain/LocationSampleTests.swift; sourceTree = "<group>"; };
+		E2FC4033DF79302AFA35749E /* RideModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideModelTests.swift; path = UltraNavTests/Domain/RideModelTests.swift; sourceTree = "<group>"; };
+		E2F881189C84CA8682B55500 /* RouteModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RouteModelTests.swift; path = UltraNavTests/Domain/RouteModelTests.swift; sourceTree = "<group>"; };
+		E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationModelTests.swift; path = UltraNavTests/Domain/NavigationModelTests.swift; sourceTree = "<group>"; };
+		E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SensorModelTests.swift; path = UltraNavTests/Domain/SensorModelTests.swift; sourceTree = "<group>"; };
+		E2F2AF7F43F99B2BF3025372 /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestClock.swift; path = UltraNavTests/TestDoubles/TestClock.swift; sourceTree = "<group>"; };
+		E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeLocationService.swift; path = UltraNavTests/TestDoubles/FakeLocationService.swift; sourceTree = "<group>"; };
+		E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeWorkoutService.swift; path = UltraNavTests/TestDoubles/FakeWorkoutService.swift; sourceTree = "<group>"; };
+		E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeSensorService.swift; path = UltraNavTests/TestDoubles/FakeSensorService.swift; sourceTree = "<group>"; };
+		E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideEngineTests.swift; path = UltraNavTests/RideEngineTests.swift; sourceTree = "<group>"; };
+		E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationEngineTests.swift; path = UltraNavTests/NavigationEngineTests.swift; sourceTree = "<group>"; };
+		E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetricsEngineTests.swift; path = UltraNavTests/MetricsEngineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +273,20 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
-				1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
+				E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */,
+				E2F1E8859A4524438B4F7230 /* LocationSampleTests.swift */,
+				E2FC4033DF79302AFA35749E /* RideModelTests.swift */,
+				E2F881189C84CA8682B55500 /* RouteModelTests.swift */,
+				E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */,
+				E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */,
+				E2F2AF7F43F99B2BF3025372 /* TestClock.swift */,
+				E2F3273BEDE3CBD60CA6ED48 /* FakeLocationService.swift */,
+				E2FAA24B7E6A58E3AAC2A85D /* FakeWorkoutService.swift */,
+				E2FFBB74C9791D7867B34181 /* FakeSensorService.swift */,
+				E2F9101E8295B1DC124988F7 /* RideEngineTests.swift */,
+				E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */,
+				E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */,
+																																1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
 				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
 				F0100000000000000000000E /* GPXParserTests.swift */,
 				F0100000000000000000000F /* CyclingRideEngineTests.swift */,
@@ -228,7 +325,36 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
-				D30000000000000000000001 /* Services */,
+				E1FE58D83618BED000E8D091 /* Coordinate.swift */,
+				E1FB12AE7DA2ACAF1FDAEA88 /* MeasurementUnits.swift */,
+				E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */,
+				E1F1A680783B754F54FB90AB /* RideFailure.swift */,
+				E1F99BBE9A191CB446F2A549 /* RideState.swift */,
+				E1F3298E904F3D091696FCD9 /* RideSnapshot.swift */,
+				E1F13D042F536D38C8A1A0F8 /* RideMetrics.swift */,
+				E1FC68A6EA6D07723766CB33 /* RoutePoint.swift */,
+				E1F6782A658F61C8594186ED /* RouteMetadata.swift */,
+				E1F76A6E6E75F0076D98C6F4 /* Route.swift */,
+				E1FF047511DE4B466D55F68A /* NavigationFailure.swift */,
+				E1F75FE79D3030E7F2871E55 /* NavigationState.swift */,
+				E1FB7AA3899ED16E04D1857E /* NavigationCue.swift */,
+				E1F18A2D2B0725F5098952D9 /* NavigationSnapshot.swift */,
+				E1FADFE8F797A0EACE481BE7 /* SensorType.swift */,
+				E1FBEFCDB8D596EDE60A8984 /* SensorConnectionState.swift */,
+				E1F289897033076A01B58DB7 /* SensorSample.swift */,
+				E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */,
+				E1F574182C51AA527079AE9F /* LocationAdapters.swift */,
+				E1FCD6CBB650672532816ADF /* AppContainer.swift */,
+				E1FFE8D120C0D63ED0B25DC1 /* ClockProviding.swift */,
+				E1F3D8BA421ECDBC1FA15101 /* LocationProviding.swift */,
+				E1FFCE740CEF08B5C4AC15BF /* WorkoutProviding.swift */,
+				E1F929B3138E3AE48CFB856D /* SensorProviding.swift */,
+				E1F50FCA694C3B244193BACE /* LocationService.swift */,
+				E1F7B2EFCF2C042CF17026B4 /* RideEngine.swift */,
+				E1F6382A9E473671928AE21A /* NavigationEngine.swift */,
+				E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */,
+				E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */,
+																																																														D30000000000000000000001 /* Services */,
 				A20000000000000000000001 /* UltraNavApp.swift */,
 				A20000000000000000000002 /* NavigationModel.swift */,
 				F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */,
@@ -445,7 +571,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
+				E2BFDCCAE3DFEF11BE95CA79 /* CoordinateTests.swift in Sources */,
+				E2B31D83877F92D94BC95EB2 /* LocationSampleTests.swift in Sources */,
+				E2BDA51CE5E233E3D9FE3AB3 /* RideModelTests.swift in Sources */,
+				E2B3B950633C3DE99C055189 /* RouteModelTests.swift in Sources */,
+				E2B537C644BBC66810155334 /* NavigationModelTests.swift in Sources */,
+				E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */,
+				E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */,
+				E2B1589FE988A4E645D17A40 /* FakeLocationService.swift in Sources */,
+				E2BC1FC254FC0D4F8B927B5D /* FakeWorkoutService.swift in Sources */,
+				E2B5752E4C440242141D0E81 /* FakeSensorService.swift in Sources */,
+				E2B254C0BEF4E4714AFA0511 /* RideEngineTests.swift in Sources */,
+				E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */,
+				E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */,
+																																9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
 				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
 				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
 				F0000000000000000000000E /* GPXParserTests.swift in Sources */,
@@ -465,7 +604,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E20000000000000000000001 /* AppLogger.swift in Sources */,
+				E1BF4BD94A5BDF1A6D57C70F /* Coordinate.swift in Sources */,
+				E1BFDC7E3C02FC554F7E393F /* MeasurementUnits.swift in Sources */,
+				E1B51EFA7D6DA5ECE2F19673 /* LocationSample.swift in Sources */,
+				E1B75BC291A8FA7B05E65ED0 /* RideFailure.swift in Sources */,
+				E1B4627E4FADB93D2B848CC2 /* RideState.swift in Sources */,
+				E1B41C8FA4925D538305F357 /* RideSnapshot.swift in Sources */,
+				E1B174113F4FA499D52CF07E /* RideMetrics.swift in Sources */,
+				E1B21DE903DA8C9DE8519958 /* RoutePoint.swift in Sources */,
+				E1B6AF37758B992965CCD672 /* RouteMetadata.swift in Sources */,
+				E1BC0A49AC5E5D8E45816FA3 /* Route.swift in Sources */,
+				E1BFE12539ED1DD1DD961BA8 /* NavigationFailure.swift in Sources */,
+				E1B6642E7050D299FCC2E16B /* NavigationState.swift in Sources */,
+				E1BFEACB9748768DC9980DA2 /* NavigationCue.swift in Sources */,
+				E1BC438204D2A4D7A14DD171 /* NavigationSnapshot.swift in Sources */,
+				E1B84D0A6BB889EDEFB7F52D /* SensorType.swift in Sources */,
+				E1B6A92292A115D07DCF081C /* SensorConnectionState.swift in Sources */,
+				E1B9341E5FBDBC2A86942EDE /* SensorSample.swift in Sources */,
+				E1BF0B657851AFE0B528A730 /* ClimbSnapshot.swift in Sources */,
+				E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */,
+				E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */,
+				E1B8EF2C6A95B2807DF76D82 /* ClockProviding.swift in Sources */,
+				E1BE920F1BEA4C9EB765CF9A /* LocationProviding.swift in Sources */,
+				E1BAB2434FDDB4134EC3ADD9 /* WorkoutProviding.swift in Sources */,
+				E1BEEC10454E6D888586DD99 /* SensorProviding.swift in Sources */,
+				E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */,
+				E1BC52CB0D1471B3C958CF62 /* RideEngine.swift in Sources */,
+				E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */,
+				E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */,
+				E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */,
+																																																														E20000000000000000000001 /* AppLogger.swift in Sources */,
 				D20000000000000000000003 /* AccessibilitySupport.swift in Sources */,
 				D20000000000000000000002 /* BackgroundRefreshManager.swift in Sources */,
 				D20000000000000000000001 /* NotificationManager.swift in Sources */,

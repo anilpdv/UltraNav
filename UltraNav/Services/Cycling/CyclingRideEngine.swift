@@ -61,82 +61,165 @@ public enum HeartRateZone: Int, CaseIterable {
 
 @MainActor
 @Observable
-public final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
-    public static let shared = CyclingRideEngine()
+final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
+    static let shared = CyclingRideEngine()
+
+    let rideEngine: RideEngine
 
     // MARK: - Ride Lifecycle
-    public var isRiding: Bool = false
-    public var isPaused: Bool = false
-    public var activeRoute: GPXRoute?
-
-    // MARK: - Live Cycling Metrics
-    public var currentSpeedKmh: Double = 0
-    public var averageSpeedKmh: Double = 0
-    public var maxSpeedKmh: Double = 0
-    public var totalDistanceMeters: CLLocationDistance = 0
-    public var elapsedTime: TimeInterval = 0
-    public var movingTime: TimeInterval = 0
-
-    // Elevation & Grade
-    public var currentElevationMeters: Double = 0
-    public var elevationGainedMeters: Double = 0
-    public var currentGradePercent: Double = 0
-    public var vamMetersPerHour: Double = 0
-
-    // Sensor Metrics (BLE / HealthKit)
-    public var heartRate: Int = 0
-    public var cadenceRPM: Int = 0
-    public var powerWatts: Int = 0
-    public var activeCalories: Int = 0
-
-    // MARK: - Navigation & Turn Engine
-    public var currentLocation: CLLocation?
-    public var currentHeading: Double = 0
-    public var breadcrumbHistory: [CLLocationCoordinate2D] = []
-    public var isOffCourse: Bool = false
-    public var crossTrackErrorMeters: CLLocationDistance = 0
-    public var nextCue: RouteCue?
-    public var distanceToNextCue: CLLocationDistance = 0
-    public var currentClimb: ClimbSegment?
-    public var distanceRemainingInClimb: CLLocationDistance = 0
-
-    // MARK: - Lap Engine
-    public var laps: [LapRecord] = []
-    public var currentLapDuration: TimeInterval = 0
-    public var currentLapDistance: CLLocationDistance = 0
-    private var lapStartTime: Date = Date()
-    private var lapStartDistance: CLLocationDistance = 0
-
-    // Internal Services
-    private let locationManager = CLLocationManager()
-    private let sensorManager = BluetoothSensorManager.shared
-    private let workoutManager = WorkoutSessionManager.shared
-
-    private var rideTimer: Timer?
-    private var rideStartDate: Date?
-    private var lastLocation: CLLocation?
-    private var lastElevationSampleTime: Date = Date()
-    private var recentElevations: [(time: Date, alt: Double, dist: Double)] = []
-
-    // Configuration
-    public var maxHeartRate: Int = 185
-    public var isAutoPauseEnabled: Bool = true
-    public var autoLapDistanceMeters: CLLocationDistance = 5000 // 5km auto lap
-
-    public override init() {
-        super.init()
-        locationManager.delegate = self
-        locationManager.activityType = .fitness
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.distanceFilter = 2.0
-#if !targetEnvironment(simulator)
-        locationManager.allowsBackgroundLocationUpdates = true
-#endif
+    var isRiding: Bool {
+        get { rideEngine.state == .active || rideEngine.state == .paused }
+        set { /* forwarded via start/finish */ }
+    }
+    var isPaused: Bool {
+        get { rideEngine.state == .paused }
+        set { /* forwarded via pause/resume */ }
+    }
+    var activeRoute: GPXRoute? {
+        get { rideEngine.navigationEngine.activeRoute }
+        set {
+            if let newValue {
+                rideEngine.navigationEngine.load(route: newValue)
+            } else {
+                rideEngine.navigationEngine.reset()
+            }
+        }
     }
 
-    public var heartRateZone: HeartRateZone {
-        guard heartRate > 0 else { return .zone1 }
-        let pct = Double(heartRate) / Double(maxHeartRate)
+    // MARK: - Live Cycling Metrics (Derived from Snapshots)
+    var currentSpeedKmh: Double {
+        (rideEngine.rideSnapshot.metrics.currentSpeedMetersPerSecond ?? 0) * 3.6
+    }
+    var averageSpeedKmh: Double {
+        rideEngine.rideSnapshot.movingTimeSeconds > 0
+            ? (rideEngine.rideSnapshot.metrics.distanceMeters / rideEngine.rideSnapshot.movingTimeSeconds) * 3.6
+            : 0
+    }
+    var maxSpeedKmh: Double {
+        rideEngine.metricsEngine.maxSpeedMetersPerSecond * 3.6
+    }
+    var totalDistanceMeters: CLLocationDistance {
+        rideEngine.rideSnapshot.metrics.distanceMeters
+    }
+    var elapsedTime: TimeInterval {
+        rideEngine.rideSnapshot.elapsedTimeSeconds
+    }
+    var movingTime: TimeInterval {
+        rideEngine.rideSnapshot.movingTimeSeconds
+    }
+
+    // Elevation & Grade
+    var currentElevationMeters: Double {
+        rideEngine.climbEngine.currentElevationMeters ?? 0
+    }
+    var elevationGainedMeters: Double {
+        rideEngine.climbEngine.elevationGainedMeters
+    }
+    var currentGradePercent: Double {
+        rideEngine.climbEngine.currentGradePercent
+    }
+    var vamMetersPerHour: Double {
+        rideEngine.climbEngine.vamMetersPerHour
+    }
+
+    // Sensor Metrics (BLE / HealthKit)
+    var heartRate: Int {
+        rideEngine.rideSnapshot.metrics.heartRateBeatsPerMinute ?? 0
+    }
+    var cadenceRPM: Int {
+        Int(rideEngine.rideSnapshot.metrics.cadenceRevolutionsPerMinute ?? 0)
+    }
+    var powerWatts: Int {
+        rideEngine.rideSnapshot.metrics.powerWatts ?? 0
+    }
+    var activeCalories: Int {
+        rideEngine.metricsEngine.activeCalories
+    }
+
+    // MARK: - Navigation & Turn Engine
+    var currentLocation: CLLocation? {
+        rideEngine.locationService.lastSample.map {
+            CLLocation(
+                coordinate: $0.coordinate.clCoordinate,
+                altitude: $0.altitudeMeters ?? 0,
+                horizontalAccuracy: $0.horizontalAccuracyMeters,
+                verticalAccuracy: $0.verticalAccuracyMeters ?? 0,
+                course: $0.courseDegrees ?? 0,
+                speed: $0.speedMetersPerSecond ?? 0,
+                timestamp: $0.timestamp
+            )
+        }
+    }
+    var currentHeading: Double {
+        rideEngine.locationService.currentHeading
+    }
+    var breadcrumbHistory: [CLLocationCoordinate2D] {
+        rideEngine.navigationEngine.breadcrumbTrail.map(\.clCoordinate)
+    }
+    var isOffCourse: Bool {
+        rideEngine.navigationSnapshot.state == .offRoute
+    }
+    var crossTrackErrorMeters: CLLocationDistance {
+        rideEngine.navigationSnapshot.crossTrackDistanceMeters ?? 0
+    }
+    var nextCue: RouteCue? {
+        rideEngine.navigationEngine.nextCue
+    }
+    var distanceToNextCue: CLLocationDistance {
+        rideEngine.navigationSnapshot.distanceToNextCueMeters ?? 0
+    }
+    var currentClimb: ClimbSegment? {
+        rideEngine.climbEngine.currentClimb
+    }
+    var distanceRemainingInClimb: CLLocationDistance {
+        rideEngine.climbEngine.distanceRemainingInClimb
+    }
+
+    // MARK: - Lap Engine
+    var laps: [LapRecord] {
+        rideEngine.metricsEngine.laps
+    }
+    var currentLapDuration: TimeInterval {
+        rideEngine.metricsEngine.currentLapDuration
+    }
+    var currentLapDistance: CLLocationDistance {
+        rideEngine.metricsEngine.currentLapDistance
+    }
+
+    // Configuration
+    var maxHeartRate: Int = 185
+    var isAutoPauseEnabled: Bool {
+        get { rideEngine.metricsEngine.isAutoPauseEnabled }
+        set { rideEngine.metricsEngine.isAutoPauseEnabled = newValue }
+    }
+    var autoLapDistanceMeters: CLLocationDistance {
+        get { rideEngine.metricsEngine.autoLapDistanceMeters }
+        set { rideEngine.metricsEngine.autoLapDistanceMeters = newValue }
+    }
+
+    override init() {
+        let loc = LocationService()
+        let work = WorkoutSessionManager.shared
+        let sens = BluetoothSensorManager.shared
+        let clk = SystemClock()
+
+        self.rideEngine = RideEngine(
+            locationService: loc,
+            workoutService: work,
+            sensorService: sens,
+            clock: clk
+        )
+        super.init()
+    }
+
+    init(rideEngine: RideEngine) {
+        self.rideEngine = rideEngine
+        super.init()
+    }
+
+    func heartRateZone(for hr: Int) -> HeartRateZone {
+        guard hr > 0 else { return .zone1 }
+        let pct = Double(hr) / Double(maxHeartRate)
         if pct < 0.60 { return .zone1 }
         if pct < 0.70 { return .zone2 }
         if pct < 0.80 { return .zone3 }
@@ -144,269 +227,38 @@ public final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         return .zone5
     }
 
-    public var speedComparison: Int {
+    var heartRateZone: HeartRateZone {
+        heartRateZone(for: heartRate)
+    }
+
+    var speedComparison: Int {
         if currentSpeedKmh > averageSpeedKmh + 0.5 { return 1 }
         if currentSpeedKmh < averageSpeedKmh - 0.5 { return -1 }
         return 0
     }
 
     // MARK: - Ride Controls
-
-    public func startRide(route: GPXRoute? = nil) {
-        self.activeRoute = route
-        self.isRiding = true
-        self.isPaused = false
-        self.totalDistanceMeters = 0
-        self.elapsedTime = 0
-        self.movingTime = 0
-        self.elevationGainedMeters = 0
-        self.maxSpeedKmh = 0
-        self.breadcrumbHistory = []
-        self.laps = []
-        self.rideStartDate = Date()
-        self.lapStartTime = Date()
-        self.lapStartDistance = 0
-        self.lastLocation = nil
-        self.recentElevations = []
-
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
-
+    func startRide(route: GPXRoute? = nil) {
         Task {
-            let _ = await workoutManager.requestHealthKitAuthorization()
-            await workoutManager.startWorkout()
+            try? await rideEngine.startRide(route: route)
         }
-
-        startTimer()
-        WKInterfaceDevice.current().play(.start)
-        AppLogger.lifecycle.info("Started cycling ride engine")
     }
 
-    public func pauseRide() {
-        guard isRiding, !isPaused else { return }
-        isPaused = true
-        workoutManager.pauseWorkout()
-        WKInterfaceDevice.current().play(.stop)
+    func pauseRide() {
+        rideEngine.pauseRide()
     }
 
-    public func resumeRide() {
-        guard isRiding, isPaused else { return }
-        isPaused = false
-        workoutManager.resumeWorkout()
-        WKInterfaceDevice.current().play(.start)
+    func resumeRide() {
+        rideEngine.resumeRide()
     }
 
-    public func triggerManualLap() {
-        guard isRiding else { return }
-        let lapNum = laps.count + 1
-        let duration = currentLapDuration
-        let dist = currentLapDistance
-        let avgSpd = duration > 0 ? (dist / duration) * 3.6 : 0
-
-        let lap = LapRecord(
-            lapNumber: lapNum,
-            duration: duration,
-            distance: dist,
-            avgSpeedKmh: avgSpd,
-            avgHeartRate: heartRate,
-            avgPower: powerWatts
-        )
-        laps.append(lap)
-
-        currentLapDuration = 0
-        currentLapDistance = 0
-        lapStartTime = Date()
-        lapStartDistance = totalDistanceMeters
-        WKInterfaceDevice.current().play(.directionUp)
-        AppLogger.lifecycle.info("Lap \(lapNum, privacy: .public) triggered")
+    func triggerManualLap() {
+        rideEngine.triggerManualLap()
     }
 
-    public func finishRide() {
-        isRiding = false
-        isPaused = false
-        stopTimer()
-        locationManager.stopUpdatingLocation()
-        locationManager.stopUpdatingHeading()
-
+    func finishRide() {
         Task {
-            await workoutManager.stopWorkout()
-        }
-        WKInterfaceDevice.current().play(.success)
-        AppLogger.lifecycle.info("Finished cycling ride")
-    }
-
-    // MARK: - Timer & State Update
-
-    private func startTimer() {
-        rideTimer?.invalidate()
-        rideTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            Task { @MainActor [weak self] in
-                self?.timerTick()
-            }
-        }
-    }
-
-    private func stopTimer() {
-        rideTimer?.invalidate()
-        rideTimer = nil
-    }
-
-    private func timerTick() {
-        guard isRiding, !isPaused else { return }
-        elapsedTime += 1
-
-        if let bleHR = sensorManager.liveHeartRate, bleHR > 0 {
-            self.heartRate = bleHR
-        } else if workoutManager.liveHeartRate > 0 {
-            self.heartRate = Int(workoutManager.liveHeartRate.rounded())
-        }
-
-        if let blePower = sensorManager.livePower {
-            self.powerWatts = blePower
-        }
-
-        if let bleCadence = sensorManager.liveCadence {
-            self.cadenceRPM = bleCadence
-        }
-
-        self.activeCalories = Int(workoutManager.activeCalories)
-
-        if isAutoPauseEnabled && currentSpeedKmh < 1.5 && elapsedTime > 5 {
-            // Idle
-        } else {
-            movingTime += 1
-        }
-
-        currentLapDuration += 1
-
-        if movingTime > 0 {
-            averageSpeedKmh = (totalDistanceMeters / movingTime) * 3.6
-        }
-
-        if currentLapDistance >= autoLapDistanceMeters {
-            triggerManualLap()
-        }
-    }
-
-    // MARK: - CLLocationManagerDelegate
-
-    nonisolated public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last, location.horizontalAccuracy >= 0 else { return }
-        Task { @MainActor [weak self] in
-            self?.processLocationUpdate(location)
-        }
-    }
-
-    nonisolated public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        guard newHeading.headingAccuracy >= 0 else { return }
-        let headingVal = newHeading.trueHeading > 0 ? newHeading.trueHeading : newHeading.magneticHeading
-        Task { @MainActor [weak self] in
-            self?.currentHeading = headingVal
-        }
-    }
-
-    private func processLocationUpdate(_ location: CLLocation) {
-        self.currentLocation = location
-        self.currentElevationMeters = location.altitude
-
-        if let bleSpd = sensorManager.liveSpeedKmh {
-            self.currentSpeedKmh = bleSpd
-        } else if location.speed >= 0 {
-            self.currentSpeedKmh = location.speed * 3.6
-        }
-
-        if currentSpeedKmh > maxSpeedKmh {
-            maxSpeedKmh = currentSpeedKmh
-        }
-
-        if isRiding && !isPaused {
-            if let last = lastLocation {
-                let dist = location.distance(from: last)
-                if dist > 1.5 && dist < 150 {
-                    totalDistanceMeters += dist
-                    currentLapDistance += dist
-                    breadcrumbHistory.append(location.coordinate)
-
-                    let dAlt = location.altitude - last.altitude
-                    if dAlt > 0.6 {
-                        elevationGainedMeters += dAlt
-                    }
-                }
-            } else {
-                breadcrumbHistory.append(location.coordinate)
-            }
-            lastLocation = location
-
-            updateGradientAndVAM(location: location)
-
-            if let route = activeRoute {
-                updateNavigationStatus(location: location, route: route)
-            }
-        }
-    }
-
-    private func updateGradientAndVAM(location: CLLocation) {
-        let now = Date()
-        recentElevations.append((time: now, alt: location.altitude, dist: totalDistanceMeters))
-        recentElevations.removeAll { now.timeIntervalSince($0.time) > 15 }
-
-        if let first = recentElevations.first, recentElevations.count >= 3 {
-            let deltaDist = totalDistanceMeters - first.dist
-            let deltaAlt = location.altitude - first.alt
-            let deltaTime = now.timeIntervalSince(first.time)
-
-            if deltaDist > 15 {
-                let rawGrade = (deltaAlt / deltaDist) * 100.0
-                self.currentGradePercent = (self.currentGradePercent * 0.7) + (rawGrade * 0.3)
-            }
-
-            if deltaTime > 5 && deltaAlt > 0 {
-                self.vamMetersPerHour = (deltaAlt / deltaTime) * 3600.0
-            }
-        }
-    }
-
-    private func updateNavigationStatus(location: CLLocation, route: GPXRoute) {
-        guard !route.points.isEmpty else { return }
-
-        var minDistance: CLLocationDistance = .infinity
-        var closestPointIndex = 0
-
-        for i in 0..<route.points.count {
-            let pt = route.points[i]
-            let ptLoc = CLLocation(latitude: pt.coordinate.latitude, longitude: pt.coordinate.longitude)
-            let d = location.distance(from: ptLoc)
-            if d < minDistance {
-                minDistance = d
-                closestPointIndex = i
-            }
-        }
-
-        self.crossTrackErrorMeters = minDistance
-
-        if minDistance > 35 && !isOffCourse {
-            isOffCourse = true
-            WKInterfaceDevice.current().play(.failure)
-        } else if minDistance <= 25 && isOffCourse {
-            isOffCourse = false
-            WKInterfaceDevice.current().play(.directionUp)
-        }
-
-        let userRouteDist = route.points[closestPointIndex].distanceFromStart
-        if let next = route.cues.first(where: { $0.distanceFromStart >= (userRouteDist - 25) }) {
-            self.nextCue = next
-            self.distanceToNextCue = max(0, next.distanceFromStart - userRouteDist)
-        } else {
-            self.nextCue = route.cues.last
-            self.distanceToNextCue = max(0, route.totalDistance - userRouteDist)
-        }
-
-        if let climb = route.climbs.first(where: { userRouteDist >= $0.startDistance && userRouteDist <= $0.endDistance }) {
-            self.currentClimb = climb
-            self.distanceRemainingInClimb = max(0, climb.endDistance - userRouteDist)
-        } else {
-            self.currentClimb = nil
-            self.distanceRemainingInClimb = 0
+            try? await rideEngine.finishRide()
         }
     }
 }
