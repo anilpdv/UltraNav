@@ -54,12 +54,12 @@ final class FakeSensorProviderTests: XCTestCase {
         let provider = FakeSensorProvider()
         let sensorId = SensorIdentifier(rawValue: "cadence-01")
 
-        await provider.setScanFailure(.bluetoothUnavailable)
+        await provider.setScanFailure(.bluetoothUnavailable(.poweredOff))
         do {
             try await provider.startScanning(for: [.cyclingCadence])
             XCTFail("Expected startScanning to throw")
         } catch {
-            XCTAssertEqual(error as? SensorServiceFailure, .bluetoothUnavailable)
+            XCTAssertEqual(error as? SensorServiceFailure, .bluetoothUnavailable(.poweredOff))
         }
 
         await provider.setConnectionFailure(.connectionFailed(sensorId), for: sensorId)
