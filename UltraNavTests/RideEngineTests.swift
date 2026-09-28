@@ -99,7 +99,7 @@ final class RideEngineTests: XCTestCase {
             sample: .speed(metersPerSecond: 32.5 / 3.6, timestamp: Date())
         ))
 
-        await Task.yield()
+        try await Task.sleep(nanoseconds: 50_000_000)
 
         testClock.advance(by: 10)
         for _ in 0..<10 {

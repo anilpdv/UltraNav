@@ -1,77 +1,171 @@
-import Foundation
 import CoreLocation
+import Foundation
 import OSLog
 
 /// CoreLocation wrapper implementing the LocationProviding boundary protocol.
 @MainActor
-final class LocationService: NSObject, LocationProviding, CLLocationManagerDelegate {
+final class LocationService: NSObject, LocationProviding, CoreLocationDelegateBridgeDelegate {
     nonisolated let events: AsyncStream<LocationServiceEvent>
     private let continuation: AsyncStream<LocationServiceEvent>.Continuation
 
-    private let locationManager: CLLocationManager
+    private let manager: any CoreLocationManaging
+    private let delegateBridge: CoreLocationDelegateBridge
+    private let converter: any LocationConverting
+    private let configuration: LocationConfiguration
+    private var state: LocationServiceState = .idle
 
-    override init() {
-        let pair = AsyncStream.makeStream(of: LocationServiceEvent.self)
+    init(
+        manager: any CoreLocationManaging,
+        delegateBridge: CoreLocationDelegateBridge = CoreLocationDelegateBridge(),
+        converter: any LocationConverting = CoreLocationSampleConverter(),
+        configuration: LocationConfiguration = .cycling
+    ) {
+        let pair = AsyncStream.makeStream(
+            of: LocationServiceEvent.self,
+            bufferingPolicy: .bufferingNewest(10)
+        )
         self.events = pair.stream
         self.continuation = pair.continuation
-        self.locationManager = CLLocationManager()
+
+        self.manager = manager
+        self.delegateBridge = delegateBridge
+        self.converter = converter
+        self.configuration = configuration
+
         super.init()
-        self.locationManager.delegate = self
-        self.locationManager.activityType = .fitness
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        self.locationManager.distanceFilter = 2.0
+
+        self.delegateBridge.delegate = self
+        self.manager.delegate = self.delegateBridge
+        configureManager()
+    }
+
+    convenience init(configuration: LocationConfiguration = .cycling) {
+        let manager = CLLocationManager()
+        let bridge = CoreLocationDelegateBridge()
+        let converter = CoreLocationSampleConverter()
+        self.init(manager: manager, delegateBridge: bridge, converter: converter, configuration: configuration)
+    }
+
+    deinit {
+        continuation.finish()
+    }
+
+    private func configureManager() {
+        manager.desiredAccuracy = configuration.desiredAccuracyMeters
+        manager.distanceFilter = configuration.distanceFilterMeters
+        manager.activityType = .fitness
 #if !targetEnvironment(simulator)
-        self.locationManager.allowsBackgroundLocationUpdates = true
+        manager.allowsBackgroundLocationUpdates = configuration.allowsBackgroundUpdates
 #endif
     }
 
+    // MARK: - LocationProviding
+
     func authorizationStatus() async -> LocationAuthorizationStatus {
-        switch locationManager.authorizationStatus {
-        case .notDetermined: return .notDetermined
-        case .restricted: return .restricted
-        case .denied: return .denied
-        case .authorizedAlways, .authorizedWhenInUse: return .authorized
-        @unknown default: return .notDetermined
-        }
+        LocationAuthorizationStatus(coreLocationStatus: manager.authorizationStatus)
     }
 
     func requestAuthorization() async {
-        locationManager.requestWhenInUseAuthorization()
+        let current = await authorizationStatus()
+        guard current == .notDetermined else {
+            continuation.yield(.authorizationChanged(current))
+            return
+        }
+        manager.requestWhenInUseAuthorization()
     }
 
     func startUpdates() async throws {
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        switch state {
+        case .idle, .failed:
+            break
+        case .starting, .running:
+            return
+        case .stopping:
+            throw LocationServiceFailure.alreadyRunning
+        }
+
+        let auth = await authorizationStatus()
+        switch auth {
+        case .authorized:
+            break
+        case .denied:
+            throw LocationServiceFailure.authorizationDenied
+        case .restricted:
+            throw LocationServiceFailure.authorizationRestricted
+        case .notDetermined:
+            throw LocationServiceFailure.updatesUnavailable
+        }
+
+        state = .starting
+        manager.startUpdatingLocation()
+        state = .running
         continuation.yield(.updateStarted)
     }
 
     func stopUpdates() async {
-        locationManager.stopUpdatingLocation()
-        locationManager.stopUpdatingHeading()
-        continuation.yield(.updateStopped)
-    }
-
-    // MARK: - CLLocationManagerDelegate
-
-    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let clLocation = locations.last, clLocation.horizontalAccuracy >= 0 else { return }
-        let sample = LocationSample(clLocation)
-        continuation.yield(.locationReceived(sample))
-    }
-
-    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        let status: LocationAuthorizationStatus
-        switch manager.authorizationStatus {
-        case .notDetermined: status = .notDetermined
-        case .restricted: status = .restricted
-        case .denied: status = .denied
-        case .authorizedAlways, .authorizedWhenInUse: status = .authorized
-        @unknown default: status = .notDetermined
+        switch state {
+        case .idle, .stopping:
+            return
+        case .starting, .running, .failed:
+            state = .stopping
+            manager.stopUpdatingLocation()
+            state = .idle
+            continuation.yield(.updateStopped)
         }
-        continuation.yield(.authorizationChanged(status))
     }
 
-    nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        continuation.yield(.failed(.updateFailed))
+    // MARK: - CoreLocationDelegateBridgeDelegate
+
+    func locationAuthorizationChanged(_ status: CLAuthorizationStatus) {
+        let authStatus = LocationAuthorizationStatus(coreLocationStatus: status)
+        continuation.yield(.authorizationChanged(authStatus))
+
+        switch authStatus {
+        case .denied:
+            transitionToAuthorizationFailure(.authorizationDenied)
+        case .restricted:
+            transitionToAuthorizationFailure(.authorizationRestricted)
+        case .notDetermined, .authorized:
+            break
+        }
+    }
+
+    func locationsReceived(_ locations: [CLLocation]) {
+        guard state == .running else { return }
+
+        for location in locations {
+            guard let sample = converter.convert(location) else {
+                continue
+            }
+            // This service emits structurally valid raw samples.
+            // Ride-quality filtering belongs to the Phase 3 location-processing pipeline.
+            continuation.yield(.locationReceived(sample))
+        }
+    }
+
+    func locationUpdateFailed(_ error: Error) {
+        let failure = mapLocationError(error)
+        continuation.yield(.failed(failure))
+    }
+
+    private func transitionToAuthorizationFailure(_ failure: LocationServiceFailure) {
+        guard state == .starting || state == .running else { return }
+        manager.stopUpdatingLocation()
+        state = .failed
+        continuation.yield(.failed(failure))
+    }
+
+    private func mapLocationError(_ error: Error) -> LocationServiceFailure {
+        guard let clError = error as? CLError else {
+            return .unexpected
+        }
+        switch clError.code {
+        case .denied:
+            return .authorizationDenied
+        case .locationUnknown:
+            return .updatesUnavailable
+        default:
+            return .updateFailed
+        }
     }
 }
