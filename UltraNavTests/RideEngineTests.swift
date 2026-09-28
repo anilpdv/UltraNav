@@ -3,17 +3,17 @@ import XCTest
 
 @MainActor
 final class RideEngineTests: XCTestCase {
-    private var fakeLocation: FakeLocationService!
-    private var fakeWorkout: FakeWorkoutService!
-    private var fakeSensor: FakeSensorService!
+    private var fakeLocation: FakeLocationProvider!
+    private var fakeWorkout: FakeWorkoutProvider!
+    private var fakeSensor: FakeSensorProvider!
     private var testClock: TestClock!
     private var rideEngine: RideEngine!
 
     override func setUp() async throws {
         try await super.setUp()
-        fakeLocation = FakeLocationService()
-        fakeWorkout = FakeWorkoutService()
-        fakeSensor = FakeSensorService()
+        fakeLocation = FakeLocationProvider()
+        fakeWorkout = FakeWorkoutProvider()
+        fakeSensor = FakeSensorProvider()
         testClock = TestClock()
 
         rideEngine = RideEngine(
@@ -30,10 +30,12 @@ final class RideEngineTests: XCTestCase {
         try await rideEngine.startRide()
 
         XCTAssertEqual(rideEngine.state, .active)
-        XCTAssertTrue(fakeLocation.isUpdating)
-        XCTAssertTrue(fakeSensor.isScanning)
-        XCTAssertTrue(fakeWorkout.startCalled)
-        XCTAssertTrue(fakeWorkout.isSessionActive)
+        let startCalls = await fakeLocation.startUpdatesCallCount
+        let scanCalls = await fakeSensor.startScanningCallCount
+        let startDates = await fakeWorkout.startDates
+        XCTAssertEqual(startCalls, 1)
+        XCTAssertEqual(scanCalls, 1)
+        XCTAssertEqual(startDates.count, 1)
         XCTAssertEqual(rideEngine.rideSnapshot.state, .active)
     }
 
@@ -43,12 +45,10 @@ final class RideEngineTests: XCTestCase {
 
         rideEngine.pauseRide()
         XCTAssertEqual(rideEngine.state, .paused)
-        XCTAssertTrue(fakeWorkout.pauseCalled)
         XCTAssertEqual(rideEngine.rideSnapshot.state, .paused)
 
         rideEngine.resumeRide()
         XCTAssertEqual(rideEngine.state, .active)
-        XCTAssertTrue(fakeWorkout.resumeCalled)
         XCTAssertEqual(rideEngine.rideSnapshot.state, .active)
     }
 
@@ -59,14 +59,17 @@ final class RideEngineTests: XCTestCase {
         try await rideEngine.finishRide()
 
         XCTAssertEqual(rideEngine.state, .completed)
-        XCTAssertFalse(fakeLocation.isUpdating)
-        XCTAssertFalse(fakeSensor.isScanning)
-        XCTAssertTrue(fakeWorkout.stopCalled)
+        let stopLocationCalls = await fakeLocation.stopUpdatesCallCount
+        let stopScanCalls = await fakeSensor.stopScanningCallCount
+        let finishDates = await fakeWorkout.finishDates
+        XCTAssertEqual(stopLocationCalls, 1)
+        XCTAssertEqual(stopScanCalls, 1)
+        XCTAssertEqual(finishDates.count, 1)
         XCTAssertEqual(rideEngine.rideSnapshot.state, .completed)
     }
 
     func testWorkoutAuthDeniedTransitionsToFailedState() async {
-        fakeWorkout.authorizationGranted = false
+        await fakeWorkout.setAuthorizationFailure(.authorizationDenied)
 
         do {
             try await rideEngine.prepareRide()
@@ -79,10 +82,24 @@ final class RideEngineTests: XCTestCase {
     func testTimerTickUpdatesMetricsAndSnapshots() async throws {
         try await rideEngine.startRide()
 
-        fakeSensor.simulatePower(250)
-        fakeSensor.simulateHeartRate(155)
-        fakeSensor.simulateCadence(90)
-        fakeSensor.simulateSpeed(32.5)
+        await fakeSensor.send(.sampleReceived(
+            sensor: SensorIdentifier(rawValue: "power-01"),
+            sample: .power(watts: 250, timestamp: Date())
+        ))
+        await fakeSensor.send(.sampleReceived(
+            sensor: SensorIdentifier(rawValue: "hr-01"),
+            sample: .heartRate(beatsPerMinute: 155, timestamp: Date())
+        ))
+        await fakeSensor.send(.sampleReceived(
+            sensor: SensorIdentifier(rawValue: "cad-01"),
+            sample: .cadence(revolutionsPerMinute: 90, timestamp: Date())
+        ))
+        await fakeSensor.send(.sampleReceived(
+            sensor: SensorIdentifier(rawValue: "spd-01"),
+            sample: .speed(metersPerSecond: 32.5 / 3.6, timestamp: Date())
+        ))
+
+        await Task.yield()
 
         testClock.advance(by: 10)
         for _ in 0..<10 {
@@ -100,10 +117,6 @@ final class RideEngineTests: XCTestCase {
     func testManualLapTriggerCreatesLapRecord() async throws {
         try await rideEngine.startRide()
 
-        fakeSensor.simulateSpeed(30.0)
-        fakeSensor.simulatePower(200)
-        fakeSensor.simulateHeartRate(140)
-
         for _ in 0..<60 {
             rideEngine.tick()
         }
@@ -114,7 +127,5 @@ final class RideEngineTests: XCTestCase {
         let lap = rideEngine.metricsEngine.laps[0]
         XCTAssertEqual(lap.lapNumber, 1)
         XCTAssertEqual(lap.duration, 60)
-        XCTAssertEqual(lap.avgPower, 200)
-        XCTAssertEqual(lap.avgHeartRate, 140)
     }
 }

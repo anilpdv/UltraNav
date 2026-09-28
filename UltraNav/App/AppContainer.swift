@@ -22,8 +22,8 @@ final class AppContainer {
         clock: (any ClockProviding)? = nil
     ) {
         let loc = locationService ?? LocationService()
-        let work = workoutService ?? WorkoutSessionManager.shared
-        let sens = sensorService ?? BluetoothSensorManager.shared
+        let work = workoutService ?? HealthKitService()
+        let sens = sensorService ?? BluetoothService()
         let clk = clock ?? SystemClock()
 
         let nav = NavigationEngine()

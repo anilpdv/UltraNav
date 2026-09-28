@@ -138,7 +138,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
 
     // MARK: - Navigation & Turn Engine
     var currentLocation: CLLocation? {
-        rideEngine.locationService.lastSample.map {
+        rideEngine.lastSample.map {
             CLLocation(
                 coordinate: $0.coordinate.clCoordinate,
                 altitude: $0.altitudeMeters ?? 0,
@@ -151,7 +151,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         }
     }
     var currentHeading: Double {
-        rideEngine.locationService.currentHeading
+        rideEngine.currentHeading
     }
     var breadcrumbHistory: [CLLocationCoordinate2D] {
         rideEngine.navigationEngine.breadcrumbTrail.map(\.clCoordinate)
@@ -199,8 +199,8 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
 
     override init() {
         let loc = LocationService()
-        let work = WorkoutSessionManager.shared
-        let sens = BluetoothSensorManager.shared
+        let work = HealthKitService()
+        let sens = BluetoothService()
         let clk = SystemClock()
 
         self.rideEngine = RideEngine(

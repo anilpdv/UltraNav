@@ -5,9 +5,9 @@ import CoreLocation
 @MainActor
 final class CyclingRideEngineTests: XCTestCase {
     func testRideEngineLifecycle() async throws {
-        let fakeLocation = FakeLocationService()
-        let fakeWorkout = FakeWorkoutService()
-        let fakeSensors = FakeSensorService()
+        let fakeLocation = FakeLocationProvider()
+        let fakeWorkout = FakeWorkoutProvider()
+        let fakeSensors = FakeSensorProvider()
         let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
 
         let rideEngine = RideEngine(
@@ -47,9 +47,9 @@ final class CyclingRideEngineTests: XCTestCase {
     }
 
     func testManualLapTrigger() async throws {
-        let fakeLocation = FakeLocationService()
-        let fakeWorkout = FakeWorkoutService()
-        let fakeSensors = FakeSensorService()
+        let fakeLocation = FakeLocationProvider()
+        let fakeWorkout = FakeWorkoutProvider()
+        let fakeSensors = FakeSensorProvider()
         let testClock = TestClock(initialTime: Date(timeIntervalSince1970: 1000))
 
         let rideEngine = RideEngine(
@@ -69,8 +69,11 @@ final class CyclingRideEngineTests: XCTestCase {
             speedMetersPerSecond: 8.33,
             timestamp: testClock.now
         )
-        rideEngine.locationService(fakeLocation as any LocationProviding, didUpdateLocation: loc1)
-        fakeSensors.simulateHeartRate(145)
+        await fakeLocation.send(.locationReceived(loc1))
+        await fakeSensors.send(.sampleReceived(
+            sensor: SensorIdentifier(rawValue: "hr-01"),
+            sample: .heartRate(beatsPerMinute: 145, timestamp: testClock.now)
+        ))
 
         engine.triggerManualLap()
 

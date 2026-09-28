@@ -5,10 +5,13 @@ import OSLog
 /// Central coordinator for ride lifecycle, hardware services, and calculation engines.
 @MainActor
 @Observable
-final class RideEngine: NSObject, LocationServiceDelegate {
+final class RideEngine: NSObject {
     private(set) var state: RideState = .idle
     private(set) var rideSnapshot: RideSnapshot = .initial
     private(set) var navigationSnapshot: NavigationSnapshot = .inactive
+
+    private(set) var lastSample: LocationSample?
+    private(set) var currentHeading: Double = 0.0
 
     let locationService: any LocationProviding
     let workoutService: any WorkoutProviding
@@ -20,6 +23,9 @@ final class RideEngine: NSObject, LocationServiceDelegate {
     let climbEngine: ClimbEngine
 
     private var timer: Timer?
+    private var locationTask: Task<Void, Never>?
+    private var workoutTask: Task<Void, Never>?
+    private var sensorTask: Task<Void, Never>?
 
     init(
         locationService: any LocationProviding,
@@ -38,8 +44,6 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         self.metricsEngine = metricsEngine
         self.climbEngine = climbEngine
         super.init()
-
-        self.locationService.delegate = self
     }
 
     // MARK: - Ride Lifecycle State Transitions
@@ -47,9 +51,11 @@ final class RideEngine: NSObject, LocationServiceDelegate {
     func prepareRide(route: GPXRoute? = nil) async throws {
         state = .preparing
 
-        locationService.requestAuthorization()
-        let authSuccess = await workoutService.requestAuthorization()
-        if !authSuccess {
+        await locationService.requestAuthorization()
+        do {
+            try await workoutService.requestAuthorization()
+            try await workoutService.prepare()
+        } catch {
             state = .failed(failure: .workoutAuthorizationDenied, recovery: .returnToIdle)
             throw RideFailure.workoutAuthorizationDenied
         }
@@ -70,14 +76,16 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         state = .active
         AppLogger.lifecycle.info("RideEngine transitioned to .active")
 
-        locationService.startUpdating()
-        sensorService.startScanning()
+        try? await locationService.startUpdates()
+        try? await sensorService.startScanning(for: [.cyclingPower, .heartRate, .cyclingCadence, .cyclingSpeed])
 
-        let workoutStarted: Void? = try? await workoutService.startWorkout()
-        if workoutStarted == nil {
+        do {
+            try await workoutService.start(at: clock.now)
+        } catch {
             AppLogger.lifecycle.warning("Workout session start failed; continuing offline recording")
         }
 
+        startEventStreams()
         startTimer()
         updateSnapshots()
     }
@@ -87,7 +95,9 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         state = .paused
         AppLogger.lifecycle.info("RideEngine transitioned to .paused")
 
-        workoutService.pauseWorkout()
+        Task {
+            try? await workoutService.pause()
+        }
         stopTimer()
         updateSnapshots()
     }
@@ -97,7 +107,9 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         state = .active
         AppLogger.lifecycle.info("RideEngine resumed to .active")
 
-        workoutService.resumeWorkout()
+        Task {
+            try? await workoutService.resume()
+        }
         startTimer()
         updateSnapshots()
     }
@@ -107,10 +119,12 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         state = .finishing
 
         stopTimer()
-        locationService.stopUpdating()
-        sensorService.stopScanning()
+        stopEventStreams()
 
-        try await workoutService.stopWorkout()
+        await locationService.stopUpdates()
+        await sensorService.stopScanning()
+
+        try? await workoutService.finish(at: clock.now)
         state = .completed
         AppLogger.lifecycle.info("RideEngine finished and transitioned to .completed")
         updateSnapshots()
@@ -118,8 +132,14 @@ final class RideEngine: NSObject, LocationServiceDelegate {
 
     func resetToIdle() {
         stopTimer()
-        locationService.stopUpdating()
-        sensorService.stopScanning()
+        stopEventStreams()
+
+        Task {
+            await locationService.stopUpdates()
+            await sensorService.stopScanning()
+            await workoutService.reset()
+        }
+
         navigationEngine.reset()
         metricsEngine.reset(at: clock.now)
         climbEngine.reset()
@@ -134,24 +154,90 @@ final class RideEngine: NSObject, LocationServiceDelegate {
         WKInterfaceDevice.current().play(.directionUp)
     }
 
+    // MARK: - Stream Observers
+
+    private func startEventStreams() {
+        locationTask?.cancel()
+        locationTask = Task { [weak self] in
+            guard let self else { return }
+            for await event in self.locationService.events {
+                guard !Task.isCancelled else { break }
+                if case .locationReceived(let sample) = event {
+                    self.processLocation(sample)
+                }
+            }
+        }
+
+        workoutTask?.cancel()
+        workoutTask = Task { [weak self] in
+            guard let self else { return }
+            for await event in self.workoutService.events {
+                guard !Task.isCancelled else { break }
+                switch event {
+                case .heartRateReceived(let bpm, _):
+                    self.metricsEngine.updateSensors(heartRate: bpm)
+                    self.updateSnapshots()
+                case .activeEnergyReceived(let kcal, _):
+                    self.metricsEngine.updateSensors(activeCalories: Int(kcal))
+                    self.updateSnapshots()
+                default:
+                    break
+                }
+            }
+        }
+
+        sensorTask?.cancel()
+        sensorTask = Task { [weak self] in
+            guard let self else { return }
+            for await event in self.sensorService.events {
+                guard !Task.isCancelled else { break }
+                if case .sampleReceived(_, let sample) = event {
+                    switch sample {
+                    case .power(let watts, _):
+                        self.metricsEngine.updateSensors(powerWatts: watts)
+                    case .cadence(let rpm, _):
+                        self.metricsEngine.updateSensors(cadenceRPM: rpm)
+                    case .heartRate(let bpm, _):
+                        self.metricsEngine.updateSensors(heartRate: bpm)
+                    case .speed(let mps, _):
+                        self.metricsEngine.updateSensors(speedMetersPerSecond: mps)
+                    }
+                    self.updateSnapshots()
+                }
+            }
+        }
+    }
+
+    private func stopEventStreams() {
+        locationTask?.cancel()
+        locationTask = nil
+        workoutTask?.cancel()
+        workoutTask = nil
+        sensorTask?.cancel()
+        sensorTask = nil
+    }
+
+    private func processLocation(_ sample: LocationSample) {
+        guard state == .active else { return }
+        self.lastSample = sample
+        if let course = sample.courseDegrees {
+            self.currentHeading = course
+        }
+        metricsEngine.update(location: sample)
+        navigationEngine.update(location: sample)
+        climbEngine.update(
+            location: sample,
+            totalDistance: metricsEngine.totalDistanceMeters,
+            route: navigationEngine.activeRoute
+        )
+        updateSnapshots()
+    }
+
     // MARK: - Timer & Snapshots
 
     func tick() {
         guard state == .active else { return }
         metricsEngine.updateTimerTick()
-        let pwr = sensorService.livePower
-        let hr = sensorService.liveHeartRate
-        let cad = sensorService.liveCadence.map { Double($0) }
-        let spd = sensorService.liveSpeedKmh.map { $0 / 3.6 }
-
-        metricsEngine.updateSensors(
-            speedMetersPerSecond: spd,
-            heartRate: hr,
-            cadenceRPM: cad,
-            powerWatts: pwr,
-            activeCalories: nil
-        )
-
         updateSnapshots()
     }
 
@@ -167,26 +253,6 @@ final class RideEngine: NSObject, LocationServiceDelegate {
     private func stopTimer() {
         timer?.invalidate()
         timer = nil
-    }
-
-    // MARK: - LocationServiceDelegate
-
-    func locationService(_ service: any LocationProviding, didUpdateLocation sample: LocationSample) {
-        guard state == .active else { return }
-
-        metricsEngine.update(location: sample)
-        navigationEngine.update(location: sample)
-        climbEngine.update(
-            location: sample,
-            totalDistance: metricsEngine.totalDistanceMeters,
-            route: navigationEngine.activeRoute
-        )
-
-        updateSnapshots()
-    }
-
-    func locationService(_ service: any LocationProviding, didUpdateHeading heading: Double) {
-        updateSnapshots()
     }
 
     private func updateSnapshots() {
