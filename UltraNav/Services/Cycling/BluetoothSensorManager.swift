@@ -30,7 +30,7 @@ public struct DiscoveredSensor: Identifiable, Equatable {
 /// Central manager for standard Bluetooth LE cycling sensors (Power Meter, Cadence, Speed, Heart Rate).
 @MainActor
 @Observable
-public final class BluetoothSensorManager: NSObject, SensorProviding, CBCentralManagerDelegate, CBPeripheralDelegate {
+public final class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     public static let shared = BluetoothSensorManager()
 
     // Observable Live Data
