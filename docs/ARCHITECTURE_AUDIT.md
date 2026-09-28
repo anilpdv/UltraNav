@@ -112,3 +112,35 @@ Tests:
 - Executed: 22 tests across test suites
 - Target platform: `watchOS Simulator (Apple Watch Ultra 2 / Ultra 4 - 49mm)`
 
+---
+
+## 7. Phase 1E Location Ownership Audit
+
+### CLLocationManager creation sites
+- `UltraNav/Services/Location/LocationService.swift`: Production `CLLocationManager` owner.
+
+### CLLocationManagerDelegate implementations
+- `UltraNav/Services/Location/CoreLocationDelegateBridge.swift`: Isolated delegate bridge forwarding callbacks to `LocationService`.
+
+### Raw CLLocation consumers
+- `UltraNav/Services/Location/CoreLocationSampleConverter.swift`: Normalizes raw `CLLocation` to domain `LocationSample`.
+- `UltraNav/Infrastructure/Adapters/LocationAdapters.swift`: Legacy bridge extensions for view previews.
+
+### Direct UI access
+- None. Views access `Coordinate` or `LocationSample` via snapshots published by engines.
+
+### Duplicate state
+- None. `LocationService` is the single source of location updates.
+
+### Current configuration
+- desiredAccuracy: `10.0` meters (`kCLLocationAccuracyBestForNavigation` requested via `LocationConfiguration.cycling`)
+- distanceFilter: `2.0` meters
+- activityType: `.fitness`
+- background updates: `true`
+- automatic pausing: `false`
+
+### Migration decisions
+- `CLLocationManager` creation -> Owned exclusively by `LocationService`
+- `CLLocation` conversion -> Managed by `CoreLocationSampleConverter`
+- GPS filtering / validation -> Deferred to Phase 3 (Location & Sensor Fusion)
+

@@ -1,6 +1,6 @@
 # UltraNav Implementation Status & Roadmap
 
-**Current Phase:** Phase 1D (Service Protocol Boundaries) — **COMPLETED**
+**Current Phase:** Phase 1E (Core Location Service Boundary) — **COMPLETED**
 
 ---
 
@@ -35,6 +35,15 @@
 - [x] Actor-backed test doubles (`FakeLocationProvider`, `FakeWorkoutProvider`, `FakeSensorProvider`, `FakeRouteStore`, `FakeRidePersistence`, `TestClock`).
 - [x] 100% contract verification test suite for all test doubles and storage providers.
 
+### Core Location Service Boundary (Phase 1E)
+- [x] `CoreLocationSampleConverter` for structural raw `CLLocation` to `LocationSample` domain conversion.
+- [x] `CoreLocationDelegateBridge` decoupling `CLLocationManagerDelegate` callbacks.
+- [x] `CoreLocationManaging` protocol abstraction allowing test double injection (`FakeLocationManager`).
+- [x] `LocationConfiguration` centralized settings presets (`desiredAccuracy`, `distanceFilter`, `allowsBackgroundLocationUpdates`).
+- [x] `LocationServiceState` internal lifecycle management.
+- [x] Idempotent start and stop commands with bounded event stream (`bufferingNewest(10)`).
+- [x] 100% unit test coverage for converter, authorization mapping, configuration, lifecycle, and transient error recovery.
+
 ### Dependency Management & Composition
 - [x] `AppContainer` serves as central composition root.
 - [x] Dependencies injected cleanly into engines.
@@ -52,12 +61,16 @@
 - [x] `FakeRouteStoreTests` (2 tests)
 - [x] `FakeRidePersistenceTests` (2 tests)
 - [x] `TestClockTests` (2 tests)
+- [x] `CoreLocationSampleConverterTests` (7 tests)
+- [x] `LocationAuthorizationMappingTests` (1 test)
+- [x] `LocationConfigurationTests` (1 test)
+- [x] `LocationServiceTests` (12 tests)
 - [x] `RideEngineTests` covering start, pause, resume, finish, lap, and failure paths.
 - [x] `NavigationEngineTests` covering XTE, off-course, and cue lookahead.
 - [x] `MetricsEngineTests` covering time, speed, and lap distance triggers.
 - [x] `GPXParserTests` covering XML parsing and climb scoring.
 - [x] `UltraNavCoreTests` covering navigation model and caching.
-- [x] Total: **84 unit tests** passing with 0 failures on watchOS simulator.
+- [x] Total: **105 unit tests** passing with 0 failures on watchOS simulator.
 
 ---
 
@@ -69,6 +82,8 @@
 | **Phase 1B** | **Domain Model Foundation** | Framework-independent models and geometry. | **COMPLETED** |
 | **Phase 1C** | **Explicit State Machines** | Deterministic lifecycle state machines and effects. | **COMPLETED** |
 | **Phase 1D** | **Service Protocol Boundaries** | Formalize hardware protocols & event streams. | **COMPLETED** |
+| **Phase 1E** | **Core Location Service Boundary** | Isolate CoreLocation behind LocationProviding. | **COMPLETED** |
+| **Phase 1F** | **HealthKit Service Boundary** | Isolate HealthKit behind WorkoutProviding. | Next |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
 | **Phase 4** | **HealthKit & Workout Session** | Background execution runtime, battery preservation, HealthKit mirrors. | Pending |
