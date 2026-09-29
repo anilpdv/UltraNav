@@ -72,10 +72,16 @@ final class AppContainer {
     ) throws -> AppContainer {
         // 1. Infrastructure
         let clock = SystemClock()
+        let monotonicClock = SystemMonotonicClock()
+        let logger = SystemLogger()
+        let observability = ObservabilityCenter(clock: clock, logger: logger)
         let haptics = WatchHapticService()
         let fileSystem = StandardRouteFileSystem()
         let infrastructure = InfrastructureDependencies(
             clock: clock,
+            monotonicClock: monotonicClock,
+            logger: logger,
+            observability: observability,
             haptics: haptics,
             fileSystem: fileSystem
         )

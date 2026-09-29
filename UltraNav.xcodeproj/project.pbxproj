@@ -7,6 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		P1QB3113AADC34CE99286A838 /* MonotonicClockProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF6A8031CB9AF0CB264E757 /* MonotonicClockProviding.swift */; };
+		P1QB321099ED5330278643031 /* SystemMonotonicClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFC6EFB4DB07CFD2049A5EF /* SystemMonotonicClock.swift */; };
+		P1QB085B16EC32B165059F464 /* OperationID.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF385E61E771D64D4E25774 /* OperationID.swift */; };
+		P1QB764D051E0A137903FAC2D /* ObservedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF2AB9CF3CB1F2C951BD523 /* ObservedOperation.swift */; };
+		P1QB8C3188B483D76DFB06D7F /* OperationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF399657A97081CD755061C /* OperationTimer.swift */; };
+		P1QBA4E5923BD6AF1CD40CD7F /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF216D7CA27CE5A74603682 /* LogLevel.swift */; };
+		P1QB0B3E8A7ECECF201FA7E13 /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFCC4B631F8E9391FCA53BE /* LogCategory.swift */; };
+		P1QBE71CB164E690F2F70CC46 /* LogPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF95CD4660591796EC90244 /* LogPrivacy.swift */; };
+		P1QBA33ED16DA6DA8E30CF7FD /* LogMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFC9D4C264E88B56EB0A279 /* LogMetadata.swift */; };
+		P1QB0EA09A3C8818BDF987B92 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF57721708E9E56FA57B0CA /* Logging.swift */; };
+		P1QBE24517A6E4E68D88C5205 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF69CBBE2E7DBD204211FBD /* SystemLogger.swift */; };
+		P1QB43A5204A805C1DE4D403A /* CompositeLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFF9A2D2C6730A3CC61B9AF /* CompositeLogger.swift */; };
+		P1QB2EF9E05FAD34AA81EEC1B /* NoOpLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFF07A47673CA1A49BB1BA7 /* NoOpLogger.swift */; };
+		P1QB9EACCC1C078215CEE4920 /* DiagnosticEventID.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF3B5E5B318BBF5E891F4F9 /* DiagnosticEventID.swift */; };
+		P1QB4B66A556391D81E5C53EF /* DiagnosticMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF6978A3BAF85AA48D13A15 /* DiagnosticMetadata.swift */; };
+		P1QBCD914870A6F11CCA3ED1C /* StateTransitionTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFF96E695016A97F225B054 /* StateTransitionTrace.swift */; };
+		P1QB295214DBCC31D22A67F82 /* OperationTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF507387AD1F2B16F54FDD4 /* OperationTrace.swift */; };
+		P1QBD65A6FF9F2B7349A2EAA2 /* EventDropRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF18FDC43DB630A327CF49A /* EventDropRecord.swift */; };
+		P1QBB7ABF25671632601F6E7C /* DiscardedInputRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF15DB613764028A2404F67 /* DiscardedInputRecord.swift */; };
+		P1QBBF6229C4ADA70CD43CB63 /* DiagnosticEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFD652756CDEECAA36BDDD8 /* DiagnosticEvent.swift */; };
+		P1QB74F1C2E0AF91241EFA4EC /* CounterMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF019106315BC4D172525BF /* CounterMetric.swift */; };
+		P1QB97B74EEE2AE33F59AF175 /* GaugeMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFFA92B11F9FAA4B8FEFB13 /* GaugeMetric.swift */; };
+		P1QB0B833191A6464BE7D77BF /* SubsystemHealth.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFF8BEC85022A2F747897CA /* SubsystemHealth.swift */; };
+		P1QB5D26A7CE1F5E955455DF6 /* DiagnosticSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF9F610211AEB0E89624792 /* DiagnosticSnapshot.swift */; };
+		P1QBCB02F9F4EAD7697EE74DC /* DiagnosticExporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF6A169E1BE353DF97F5DA3 /* DiagnosticExporting.swift */; };
+		P1QBCD023E7DE44C54EED0892 /* ObservabilityProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF98BFF65903A75BF496E51 /* ObservabilityProviding.swift */; };
+		P1QBDB6198ACFD39C52EAD254 /* ObservabilityCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFC67DD0AC5A655DB49E12C /* ObservabilityCenter.swift */; };
+		P1QBFCCE2126441702FF72E8D /* OperationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF63EE2A98922AF461A26E0 /* OperationTracer.swift */; };
+		P1QB319D92AF52B375CFD2E28 /* DiagnosticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF8B93FA3B626B28C05C78D /* DiagnosticsCoordinator.swift */; };
+		P1QB50B230171CD0CB9DB681D /* DiagnosticsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF31B2A457F41213A5848E6 /* DiagnosticsViewState.swift */; };
+		P1QB0944620CD25DAA393D407 /* DiagnosticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF36991D0EE3DA2AFD08A21 /* DiagnosticsViewModel.swift */; };
+		P1QBACE11943EF53F294F76DE /* TestMonotonicClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF5CBDEF0E904A8432B5523 /* TestMonotonicClock.swift */; };
+		P1QB5B24649C27C7107155C34 /* TestLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFACE61DDE3BA46DFE5D3CE /* TestLogger.swift */; };
+		P1QBC0885318BE46EACD59E56 /* FakeObservabilityCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF9B544B8098EAD8F4EA9FE /* FakeObservabilityCenter.swift */; };
+		P1QBDCE5C786C7A75E28AD20C /* DiagnosticEventFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFB34D28199AE78A96FA166 /* DiagnosticEventFactory.swift */; };
+		P1QB6B0F8A4AF18DD43E80098 /* SystemClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFBF48631570E53CB9A4B1D /* SystemClockTests.swift */; };
+		P1QB3D198E4A4D1106BE1DF6F /* DeterministicClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFEE66098344A5CA05F49E9 /* DeterministicClockTests.swift */; };
+		P1QBFD2AC893A7536BCBB04E8 /* MonotonicClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF77B7DEFB9D542A824A7C6 /* MonotonicClockTests.swift */; };
+		P1QBAD0EED0FAE286E9884720 /* OperationTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF02F15594420EC5D955595 /* OperationTimerTests.swift */; };
+		P1QBFA9DE8ABCD3C3E164C4AD /* TestLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF99FBE8623CD800B185E06 /* TestLoggerTests.swift */; };
+		P1QBE6AC1AA6C706E16B32BB0 /* LogPrivacyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF1B280AC093996FC1208DC /* LogPrivacyTests.swift */; };
+		P1QBF5713ED4055C01BD6046F /* CompositeLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF23F9673D7A0B0F86F78DE /* CompositeLoggerTests.swift */; };
+		P1QBD261C2532473877167D27 /* LoggingBoundaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF581B2952FD4EF45ED1F74 /* LoggingBoundaryTests.swift */; };
+		P1QB63DBF27B59461667EB8F3 /* ObservabilityCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF59E1C4BCBA2253B4C8AC1 /* ObservabilityCenterTests.swift */; };
+		P1QB945FFD506D48EA6FEF6FC /* OperationTraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF9C4D38E1CD344B806781C /* OperationTraceTests.swift */; };
+		P1QBE746551B0B8BCEBCB1427 /* StateTransitionTraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF3677255DAC46827FE34BB /* StateTransitionTraceTests.swift */; };
+		P1QBD1CEC1934E0DA1F2D3AC1 /* CounterMetricTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF2672B11CA9C62B388226F /* CounterMetricTests.swift */; };
+		P1QB33D8D30E2A646437361AB /* StreamDropMonitoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF86F11ECA8BA6F5D58A843 /* StreamDropMonitoringTests.swift */; };
+		P1QBD71179AD9F6C323846823 /* SubsystemHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFA3489277C1498AE6DF195 /* SubsystemHealthTests.swift */; };
+		P1QB6CE01ABA542D0474B9172 /* DiagnosticSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF3B3F54FB4217C6D025C81 /* DiagnosticSnapshotTests.swift */; };
+		P1QBAA0250EA1D5B9053BDBC8 /* DiagnosticRetentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QFEC4F13478F11AA4955464 /* DiagnosticRetentionTests.swift */; };
+		P1QB2B68099CAD37DD8B9875E /* DiagnosticPrivacyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1QF3C20336648A922F702635 /* DiagnosticPrivacyTests.swift */; };
 		7F07DF30E016351B5DA901C3 /* MetricTileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B3C117FB458D5E5155515 /* MetricTileState.swift */; };
 		D01E78CB67A4A71EFF0D1166 /* MetricsViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B7FE7E537251B1A1BDFF16 /* MetricsViewStateMapper.swift */; };
 		62DB94ABCCD388FE821EACF4 /* MetricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013643E278132D827A1E3126 /* MetricsViewModel.swift */; };
@@ -474,7 +526,7 @@
 		E2B000000000000000001D008 /* FakeSensorProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D008 /* FakeSensorProviderTests.swift */; };
 		E2B000000000000000001D009 /* FakeRouteStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D009 /* FakeRouteStoreTests.swift */; };
 		E2B000000000000000001D00A /* FakeRidePersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */; };
-		E2B000000000000000001D00B /* TestClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D00B /* TestClockTests.swift */; };
+		E2B000000000000000001D00B /* DeterministicClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D00B /* DeterministicClockTests.swift */; };
 		E2B31D83877F92D94BC95EB2 /* LocationSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1E8859A4524438B4F7230 /* LocationSampleTests.swift */; };
 		E2B3B950633C3DE99C055189 /* RouteModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F881189C84CA8682B55500 /* RouteModelTests.swift */; };
 		E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F2AF7F43F99B2BF3025372 /* TestClock.swift */; };
@@ -606,6 +658,58 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		P1QF6A8031CB9AF0CB264E757 /* MonotonicClockProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Time/MonotonicClockProviding.swift"; sourceTree = "<group>"; };
+		P1QFC6EFB4DB07CFD2049A5EF /* SystemMonotonicClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Time/SystemMonotonicClock.swift"; sourceTree = "<group>"; };
+		P1QF385E61E771D64D4E25774 /* OperationID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Time/OperationID.swift"; sourceTree = "<group>"; };
+		P1QF2AB9CF3CB1F2C951BD523 /* ObservedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Time/ObservedOperation.swift"; sourceTree = "<group>"; };
+		P1QF399657A97081CD755061C /* OperationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Time/OperationTimer.swift"; sourceTree = "<group>"; };
+		P1QF216D7CA27CE5A74603682 /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/LogLevel.swift"; sourceTree = "<group>"; };
+		P1QFCC4B631F8E9391FCA53BE /* LogCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/LogCategory.swift"; sourceTree = "<group>"; };
+		P1QF95CD4660591796EC90244 /* LogPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/LogPrivacy.swift"; sourceTree = "<group>"; };
+		P1QFC9D4C264E88B56EB0A279 /* LogMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/LogMetadata.swift"; sourceTree = "<group>"; };
+		P1QF57721708E9E56FA57B0CA /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/Logging.swift"; sourceTree = "<group>"; };
+		P1QF69CBBE2E7DBD204211FBD /* SystemLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/SystemLogger.swift"; sourceTree = "<group>"; };
+		P1QFF9A2D2C6730A3CC61B9AF /* CompositeLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/CompositeLogger.swift"; sourceTree = "<group>"; };
+		P1QFF07A47673CA1A49BB1BA7 /* NoOpLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Logging/NoOpLogger.swift"; sourceTree = "<group>"; };
+		P1QF3B5E5B318BBF5E891F4F9 /* DiagnosticEventID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiagnosticEventID.swift"; sourceTree = "<group>"; };
+		P1QF6978A3BAF85AA48D13A15 /* DiagnosticMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiagnosticMetadata.swift"; sourceTree = "<group>"; };
+		P1QFF96E695016A97F225B054 /* StateTransitionTrace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/StateTransitionTrace.swift"; sourceTree = "<group>"; };
+		P1QF507387AD1F2B16F54FDD4 /* OperationTrace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/OperationTrace.swift"; sourceTree = "<group>"; };
+		P1QF18FDC43DB630A327CF49A /* EventDropRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/EventDropRecord.swift"; sourceTree = "<group>"; };
+		P1QF15DB613764028A2404F67 /* DiscardedInputRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiscardedInputRecord.swift"; sourceTree = "<group>"; };
+		P1QFD652756CDEECAA36BDDD8 /* DiagnosticEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiagnosticEvent.swift"; sourceTree = "<group>"; };
+		P1QF019106315BC4D172525BF /* CounterMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/CounterMetric.swift"; sourceTree = "<group>"; };
+		P1QFFA92B11F9FAA4B8FEFB13 /* GaugeMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/GaugeMetric.swift"; sourceTree = "<group>"; };
+		P1QFF8BEC85022A2F747897CA /* SubsystemHealth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/SubsystemHealth.swift"; sourceTree = "<group>"; };
+		P1QF9F610211AEB0E89624792 /* DiagnosticSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiagnosticSnapshot.swift"; sourceTree = "<group>"; };
+		P1QF6A169E1BE353DF97F5DA3 /* DiagnosticExporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/DiagnosticExporting.swift"; sourceTree = "<group>"; };
+		P1QF98BFF65903A75BF496E51 /* ObservabilityProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/ObservabilityProviding.swift"; sourceTree = "<group>"; };
+		P1QFC67DD0AC5A655DB49E12C /* ObservabilityCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/ObservabilityCenter.swift"; sourceTree = "<group>"; };
+		P1QF63EE2A98922AF461A26E0 /* OperationTracer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Infrastructure/Observability/OperationTracer.swift"; sourceTree = "<group>"; };
+		P1QF8B93FA3B626B28C05C78D /* DiagnosticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Coordinators/DiagnosticsCoordinator.swift"; sourceTree = "<group>"; };
+		P1QF31B2A457F41213A5848E6 /* DiagnosticsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Diagnostics/DiagnosticsViewState.swift"; sourceTree = "<group>"; };
+		P1QF36991D0EE3DA2AFD08A21 /* DiagnosticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Diagnostics/DiagnosticsViewModel.swift"; sourceTree = "<group>"; };
+		P1QF5CBDEF0E904A8432B5523 /* TestMonotonicClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/TestMonotonicClock.swift"; sourceTree = "<group>"; };
+		P1QFACE61DDE3BA46DFE5D3CE /* TestLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/TestLogger.swift"; sourceTree = "<group>"; };
+		P1QF9B544B8098EAD8F4EA9FE /* FakeObservabilityCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/FakeObservabilityCenter.swift"; sourceTree = "<group>"; };
+		P1QFB34D28199AE78A96FA166 /* DiagnosticEventFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/DiagnosticEventFactory.swift"; sourceTree = "<group>"; };
+		P1QFBF48631570E53CB9A4B1D /* SystemClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Time/SystemClockTests.swift"; sourceTree = "<group>"; };
+		P1QFEE66098344A5CA05F49E9 /* DeterministicClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Time/DeterministicClockTests.swift"; sourceTree = "<group>"; };
+		P1QF77B7DEFB9D542A824A7C6 /* MonotonicClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Time/MonotonicClockTests.swift"; sourceTree = "<group>"; };
+		P1QF02F15594420EC5D955595 /* OperationTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Time/OperationTimerTests.swift"; sourceTree = "<group>"; };
+		P1QF99FBE8623CD800B185E06 /* TestLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Logging/TestLoggerTests.swift"; sourceTree = "<group>"; };
+		P1QF1B280AC093996FC1208DC /* LogPrivacyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Logging/LogPrivacyTests.swift"; sourceTree = "<group>"; };
+		P1QF23F9673D7A0B0F86F78DE /* CompositeLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Logging/CompositeLoggerTests.swift"; sourceTree = "<group>"; };
+		P1QF581B2952FD4EF45ED1F74 /* LoggingBoundaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Logging/LoggingBoundaryTests.swift"; sourceTree = "<group>"; };
+		P1QF59E1C4BCBA2253B4C8AC1 /* ObservabilityCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/ObservabilityCenterTests.swift"; sourceTree = "<group>"; };
+		P1QF9C4D38E1CD344B806781C /* OperationTraceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/OperationTraceTests.swift"; sourceTree = "<group>"; };
+		P1QF3677255DAC46827FE34BB /* StateTransitionTraceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/StateTransitionTraceTests.swift"; sourceTree = "<group>"; };
+		P1QF2672B11CA9C62B388226F /* CounterMetricTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/CounterMetricTests.swift"; sourceTree = "<group>"; };
+		P1QF86F11ECA8BA6F5D58A843 /* StreamDropMonitoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/StreamDropMonitoringTests.swift"; sourceTree = "<group>"; };
+		P1QFA3489277C1498AE6DF195 /* SubsystemHealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/SubsystemHealthTests.swift"; sourceTree = "<group>"; };
+		P1QF3B3F54FB4217C6D025C81 /* DiagnosticSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/DiagnosticSnapshotTests.swift"; sourceTree = "<group>"; };
+		P1QFEC4F13478F11AA4955464 /* DiagnosticRetentionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/DiagnosticRetentionTests.swift"; sourceTree = "<group>"; };
+		P1QF3C20336648A922F702635 /* DiagnosticPrivacyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Observability/DiagnosticPrivacyTests.swift"; sourceTree = "<group>"; };
 		BE3B3C117FB458D5E5155515 /* MetricTileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricTileState.swift"; sourceTree = "<group>"; };
 		20B7FE7E537251B1A1BDFF16 /* MetricsViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricsViewStateMapper.swift"; sourceTree = "<group>"; };
 		013643E278132D827A1E3126 /* MetricsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricsViewModel.swift"; sourceTree = "<group>"; };
@@ -1094,7 +1198,7 @@
 		E2F000000000000000001D008 /* FakeSensorProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeSensorProviderTests.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D009 /* FakeRouteStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeRouteStoreTests.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/FakeRidePersistenceTests.swift; sourceTree = "<group>"; };
-		E2F000000000000000001D00B /* TestClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/TestClockTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D00B /* DeterministicClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Services/TestClockTests.swift; sourceTree = "<group>"; };
 		E2F1E8859A4524438B4F7230 /* LocationSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationSampleTests.swift; path = UltraNavTests/Domain/LocationSampleTests.swift; sourceTree = "<group>"; };
 		E2F2AF7F43F99B2BF3025372 /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestClock.swift; path = UltraNavTests/TestDoubles/TestClock.swift; sourceTree = "<group>"; };
 		E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoordinateTests.swift; path = UltraNavTests/Domain/CoordinateTests.swift; sourceTree = "<group>"; };
@@ -1348,7 +1452,7 @@
 				E2F000000000000000001D008 /* FakeSensorProviderTests.swift */,
 				E2F000000000000000001D009 /* FakeRouteStoreTests.swift */,
 				E2F000000000000000001D00A /* FakeRidePersistenceTests.swift */,
-				E2F000000000000000001D00B /* TestClockTests.swift */,
+				E2F000000000000000001D00B /* DeterministicClockTests.swift */,
 				1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
 				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
 				F0100000000000000000000E /* GPXParserTests.swift */,
@@ -1982,6 +2086,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P1QBACE11943EF53F294F76DE /* TestMonotonicClock.swift in Sources */,
+				P1QB5B24649C27C7107155C34 /* TestLogger.swift in Sources */,
+				P1QBC0885318BE46EACD59E56 /* FakeObservabilityCenter.swift in Sources */,
+				P1QBDCE5C786C7A75E28AD20C /* DiagnosticEventFactory.swift in Sources */,
+				P1QB6B0F8A4AF18DD43E80098 /* SystemClockTests.swift in Sources */,
+				P1QB3D198E4A4D1106BE1DF6F /* DeterministicClockTests.swift in Sources */,
+				P1QBFD2AC893A7536BCBB04E8 /* MonotonicClockTests.swift in Sources */,
+				P1QBAD0EED0FAE286E9884720 /* OperationTimerTests.swift in Sources */,
+				P1QBFA9DE8ABCD3C3E164C4AD /* TestLoggerTests.swift in Sources */,
+				P1QBE6AC1AA6C706E16B32BB0 /* LogPrivacyTests.swift in Sources */,
+				P1QBF5713ED4055C01BD6046F /* CompositeLoggerTests.swift in Sources */,
+				P1QBD261C2532473877167D27 /* LoggingBoundaryTests.swift in Sources */,
+				P1QB63DBF27B59461667EB8F3 /* ObservabilityCenterTests.swift in Sources */,
+				P1QB945FFD506D48EA6FEF6FC /* OperationTraceTests.swift in Sources */,
+				P1QBE746551B0B8BCEBCB1427 /* StateTransitionTraceTests.swift in Sources */,
+				P1QBD1CEC1934E0DA1F2D3AC1 /* CounterMetricTests.swift in Sources */,
+				P1QB33D8D30E2A646437361AB /* StreamDropMonitoringTests.swift in Sources */,
+				P1QBD71179AD9F6C323846823 /* SubsystemHealthTests.swift in Sources */,
+				P1QB6CE01ABA542D0474B9172 /* DiagnosticSnapshotTests.swift in Sources */,
+				P1QBAA0250EA1D5B9053BDBC8 /* DiagnosticRetentionTests.swift in Sources */,
+				P1QB2B68099CAD37DD8B9875E /* DiagnosticPrivacyTests.swift in Sources */,
 				P1P02FBC841805051DCAB11E /* FakeFailureRecorder.swift in Sources */,
 				P1P35F636C9033E5EF7AF376 /* FailureFactory.swift in Sources */,
 				P1PEAD84849497C564EAFFCD /* FailureClassificationTests.swift in Sources */,
@@ -2121,7 +2246,7 @@
 				E2B000000000000000001D008 /* FakeSensorProviderTests.swift in Sources */,
 				E2B000000000000000001D009 /* FakeRouteStoreTests.swift in Sources */,
 				E2B000000000000000001D00A /* FakeRidePersistenceTests.swift in Sources */,
-				E2B000000000000000001D00B /* TestClockTests.swift in Sources */,
+				E2B000000000000000001D00B /* DeterministicClockTests.swift in Sources */,
 				9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
 				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
 				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
@@ -2171,6 +2296,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P1QB3113AADC34CE99286A838 /* MonotonicClockProviding.swift in Sources */,
+				P1QB321099ED5330278643031 /* SystemMonotonicClock.swift in Sources */,
+				P1QB085B16EC32B165059F464 /* OperationID.swift in Sources */,
+				P1QB764D051E0A137903FAC2D /* ObservedOperation.swift in Sources */,
+				P1QB8C3188B483D76DFB06D7F /* OperationTimer.swift in Sources */,
+				P1QBA4E5923BD6AF1CD40CD7F /* LogLevel.swift in Sources */,
+				P1QB0B3E8A7ECECF201FA7E13 /* LogCategory.swift in Sources */,
+				P1QBE71CB164E690F2F70CC46 /* LogPrivacy.swift in Sources */,
+				P1QBA33ED16DA6DA8E30CF7FD /* LogMetadata.swift in Sources */,
+				P1QB0EA09A3C8818BDF987B92 /* Logging.swift in Sources */,
+				P1QBE24517A6E4E68D88C5205 /* SystemLogger.swift in Sources */,
+				P1QB43A5204A805C1DE4D403A /* CompositeLogger.swift in Sources */,
+				P1QB2EF9E05FAD34AA81EEC1B /* NoOpLogger.swift in Sources */,
+				P1QB9EACCC1C078215CEE4920 /* DiagnosticEventID.swift in Sources */,
+				P1QB4B66A556391D81E5C53EF /* DiagnosticMetadata.swift in Sources */,
+				P1QBCD914870A6F11CCA3ED1C /* StateTransitionTrace.swift in Sources */,
+				P1QB295214DBCC31D22A67F82 /* OperationTrace.swift in Sources */,
+				P1QBD65A6FF9F2B7349A2EAA2 /* EventDropRecord.swift in Sources */,
+				P1QBB7ABF25671632601F6E7C /* DiscardedInputRecord.swift in Sources */,
+				P1QBBF6229C4ADA70CD43CB63 /* DiagnosticEvent.swift in Sources */,
+				P1QB74F1C2E0AF91241EFA4EC /* CounterMetric.swift in Sources */,
+				P1QB97B74EEE2AE33F59AF175 /* GaugeMetric.swift in Sources */,
+				P1QB0B833191A6464BE7D77BF /* SubsystemHealth.swift in Sources */,
+				P1QB5D26A7CE1F5E955455DF6 /* DiagnosticSnapshot.swift in Sources */,
+				P1QBCB02F9F4EAD7697EE74DC /* DiagnosticExporting.swift in Sources */,
+				P1QBCD023E7DE44C54EED0892 /* ObservabilityProviding.swift in Sources */,
+				P1QBDB6198ACFD39C52EAD254 /* ObservabilityCenter.swift in Sources */,
+				P1QBFCCE2126441702FF72E8D /* OperationTracer.swift in Sources */,
+				P1QB319D92AF52B375CFD2E28 /* DiagnosticsCoordinator.swift in Sources */,
+				P1QB50B230171CD0CB9DB681D /* DiagnosticsViewState.swift in Sources */,
+				P1QB0944620CD25DAA393D407 /* DiagnosticsViewModel.swift in Sources */,
 				P1P33B7FC88616750959CFEB /* FailureID.swift in Sources */,
 				P1PCC15D56F8BEF585999BB0 /* FailureSeverity.swift in Sources */,
 				P1P01B68ACDF9D052D98B21D /* FailureImpact.swift in Sources */,

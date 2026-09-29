@@ -3,15 +3,24 @@ import Foundation
 @MainActor
 struct InfrastructureDependencies {
     let clock: any ClockProviding
+    let monotonicClock: any MonotonicClockProviding
+    let logger: any Logging
+    let observability: any ObservabilityProviding
     let haptics: any HapticProviding
     let fileSystem: any RouteFileSystemProviding
 
     init(
         clock: any ClockProviding,
+        monotonicClock: any MonotonicClockProviding = SystemMonotonicClock(),
+        logger: any Logging = NoOpLogger(),
+        observability: any ObservabilityProviding = ObservabilityCenter(),
         haptics: any HapticProviding,
         fileSystem: any RouteFileSystemProviding
     ) {
         self.clock = clock
+        self.monotonicClock = monotonicClock
+        self.logger = logger
+        self.observability = observability
         self.haptics = haptics
         self.fileSystem = fileSystem
     }

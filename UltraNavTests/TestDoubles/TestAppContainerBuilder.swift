@@ -5,6 +5,9 @@ import Foundation
 struct TestAppContainerBuilder {
     var configuration: AppConfiguration = .test
     var clock: any ClockProviding = TestClock()
+    var monotonicClock: any MonotonicClockProviding = TestMonotonicClock()
+    var logger: any Logging = TestLogger()
+    var observability: any ObservabilityProviding = FakeObservabilityCenter()
     var haptics: any HapticProviding = FakeHapticProvider()
     var fileSystem: any RouteFileSystemProviding = FakeRouteFileSystem()
 
@@ -27,6 +30,9 @@ struct TestAppContainerBuilder {
     func build() -> AppContainer {
         let infrastructure = InfrastructureDependencies(
             clock: clock,
+            monotonicClock: monotonicClock,
+            logger: logger,
+            observability: observability,
             haptics: haptics,
             fileSystem: fileSystem
         )
