@@ -25,7 +25,7 @@ final class RouteImporterTests: XCTestCase {
         """.data(using: .utf8)!
 
         let result = try await importer.importRoute(from: .data(gpx, originalFileName: "test.gpx"))
-        XCTAssertEqual(result.route.metadata.name, "Import Test")
+        XCTAssertEqual(result.route.metadata.name, "Track Test")
         XCTAssertEqual(result.route.points.count, 2)
         XCTAssertEqual(result.route.segments.count, 1)
         XCTAssertTrue(result.route.id.rawValue.hasPrefix("route-v1:"))

@@ -8,6 +8,7 @@ public struct GPXSourceMetadata: Equatable, Hashable, Sendable {
     public let time: Date?
     public let creator: String?
     public let keywords: String?
+    public let originalFileName: String?
 
     public init(
         name: String? = nil,
@@ -15,7 +16,8 @@ public struct GPXSourceMetadata: Equatable, Hashable, Sendable {
         author: String? = nil,
         time: Date? = nil,
         creator: String? = nil,
-        keywords: String? = nil
+        keywords: String? = nil,
+        originalFileName: String? = nil
     ) {
         self.name = name
         self.description = description
@@ -23,5 +25,6 @@ public struct GPXSourceMetadata: Equatable, Hashable, Sendable {
         self.time = time
         self.creator = creator
         self.keywords = keywords
+        self.originalFileName = originalFileName
     }
 }

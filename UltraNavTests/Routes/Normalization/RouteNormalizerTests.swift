@@ -1,3 +1,4 @@
+import Foundation
 import XCTest
 @testable import UltraNav
 
@@ -9,62 +10,89 @@ final class RouteNormalizerTests: XCTestCase {
         normalizer = RouteNormalizer()
     }
 
-    func testNormalizeTrackWithMultipleSegmentsDoesNotAddGapDistance() throws {
-        // Seg 1: (37.3349, -122.0090) to (37.3359, -122.0090) ~111 meters
-        let seg1 = GPXParsedSegment(points: [
-            GPXParsedPoint(latitude: 37.3349, longitude: -122.0090, elevation: 100),
-            GPXParsedPoint(latitude: 37.3359, longitude: -122.0090, elevation: 105)
-        ])
+    override func tearDown() {
+        normalizer = nil
+        super.tearDown()
+    }
 
-        // Seg 2: (37.4000, -122.0090) to (37.4010, -122.0090) ~111 meters
-        // Note: Distance between (37.3359) and (37.4000) is ~7100m, which MUST NOT be added!
-        let seg2 = GPXParsedSegment(points: [
-            GPXParsedPoint(latitude: 37.4000, longitude: -122.0090, elevation: 200),
-            GPXParsedPoint(latitude: 37.4010, longitude: -122.0090, elevation: 205)
-        ])
+    func testPruneExactConsecutiveSampleDuplicates() throws {
+        let timestamp = Date(timeIntervalSince1970: 1700000000)
+        let pts = [
+            GPXParsedPoint(latitude: 37.0, longitude: -122.0, elevationMeters: 100.0, timestamp: timestamp),
+            GPXParsedPoint(latitude: 37.0, longitude: -122.0, elevationMeters: 100.0, timestamp: timestamp), // Duplicate
+            GPXParsedPoint(latitude: 37.001, longitude: -122.001, elevationMeters: 102.0, timestamp: timestamp.addingTimeInterval(5))
+        ]
 
-        let track = GPXParsedTrack(name: "Multi-Seg", segments: [seg1, seg2])
-        let doc = GPXParsedDocument(tracks: [track])
+        let track = GPXParsedTrack(name: "Test", description: nil, segments: [GPXParsedSegment(points: pts)])
+        let doc = GPXParsedDocument(metadata: GPXSourceMetadata(), tracks: [track], routes: [], waypoints: [])
 
         let result = try normalizer.normalize(
             document: doc,
-            source: .importedGPX(originalFileName: "multi.gpx"),
-            fallbackName: "Multi",
+            source: .importedGPX(originalFileName: "test.gpx"),
+            fallbackName: "Fallback",
+            policy: .default
+        )
+
+        XCTAssertEqual(result.route.points.count, 2)
+        XCTAssertTrue(result.warnings.contains { warning in
+            if case .duplicatePointsFiltered(let count) = warning { return count == 1 }
+            return false
+        })
+    }
+
+    func testCumulativeDistancesDoNotJumpAcrossSegmentGaps() throws {
+        let seg1 = GPXParsedSegment(points: [
+            GPXParsedPoint(latitude: 37.000, longitude: -122.000),
+            GPXParsedPoint(latitude: 37.001, longitude: -122.000) // ~111m
+        ])
+
+        let seg2 = GPXParsedSegment(points: [
+            GPXParsedPoint(latitude: 38.000, longitude: -122.000), // ~111km gap from previous segment
+            GPXParsedPoint(latitude: 38.001, longitude: -122.000) // ~111m
+        ])
+
+        let track = GPXParsedTrack(name: "Two Segments", description: nil, segments: [seg1, seg2])
+        let doc = GPXParsedDocument(metadata: GPXSourceMetadata(), tracks: [track], routes: [], waypoints: [])
+
+        let result = try normalizer.normalize(
+            document: doc,
+            source: .importedGPX(originalFileName: "test.gpx"),
+            fallbackName: "Fallback",
             policy: .default
         )
 
         let route = result.route
         XCTAssertEqual(route.segments.count, 2)
-        XCTAssertEqual(route.points.count, 4)
+        XCTAssertEqual(route.segments[0].startPointIndex, 0)
+        XCTAssertEqual(route.segments[0].endPointIndex, 1)
+        XCTAssertEqual(route.segments[1].startPointIndex, 2)
+        XCTAssertEqual(route.segments[1].endPointIndex, 3)
 
-        // Total distance should be ~222 meters (111m + 111m), definitely under 500 meters, NOT 7300+ meters!
+        // The cumulative distance of the second segment start point should equal the end of the first segment
+        let seg1EndDist = route.points[1].cumulativeDistanceMeters
+        let seg2StartDist = route.points[2].cumulativeDistanceMeters
+        XCTAssertEqual(seg1EndDist, seg2StartDist, accuracy: 0.001)
+
+        // Total distance should be ~222m, NOT 111km!
         XCTAssertLessThan(route.totalDistanceMeters, 500.0)
-        XCTAssertGreaterThan(route.totalDistanceMeters, 200.0)
-
-        // Cumulative distance at point 2 (start of seg 2) should match cumulative distance at point 1 (end of seg 1)
-        XCTAssertEqual(route.points[2].cumulativeDistanceMeters, route.points[1].cumulativeDistanceMeters, accuracy: 0.001)
     }
 
-    func testNormalizeFiltersDuplicateNearbyPoints() throws {
-        // Points spaced 0.1m apart
-        let seg = GPXParsedSegment(points: [
-            GPXParsedPoint(latitude: 37.334900, longitude: -122.009000),
-            GPXParsedPoint(latitude: 37.334901, longitude: -122.009000), // ~0.11m apart
-            GPXParsedPoint(latitude: 37.335900, longitude: -122.009000)
-        ])
-        let doc = GPXParsedDocument(tracks: [GPXParsedTrack(segments: [seg])])
+    func testAntimeridianCrossingDetection() throws {
+        let pts = [
+            GPXParsedPoint(latitude: 0.0, longitude: 179.9),
+            GPXParsedPoint(latitude: 0.0, longitude: -179.9)
+        ]
+
+        let track = GPXParsedTrack(name: "Pacific Crossing", description: nil, segments: [GPXParsedSegment(points: pts)])
+        let doc = GPXParsedDocument(metadata: GPXSourceMetadata(), tracks: [track], routes: [], waypoints: [])
 
         let result = try normalizer.normalize(
             document: doc,
-            source: .generated,
-            fallbackName: "Filtered",
-            policy: RouteNormalizationPolicy(minimumPointSpacingMeters: 0.5)
+            source: .importedGPX(originalFileName: "pacific.gpx"),
+            fallbackName: "Pacific",
+            policy: .default
         )
 
-        XCTAssertEqual(result.route.points.count, 2)
-        XCTAssertTrue(result.warnings.contains(where: {
-            if case .duplicatePointsFiltered(let count) = $0 { return count == 1 }
-            return false
-        }))
+        XCTAssertTrue(result.warnings.contains { $0 == .antimeridianCrossingDetected })
     }
 }

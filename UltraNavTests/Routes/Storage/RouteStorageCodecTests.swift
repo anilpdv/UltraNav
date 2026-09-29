@@ -40,7 +40,7 @@ final class RouteStorageCodecTests: XCTestCase {
         let data = try codec.encodeRecord(record)
         let decoded = try codec.decodeRecord(from: data)
 
-        XCTAssertEqual(decoded.schemaVersion, 1)
+        XCTAssertEqual(decoded.schemaVersion, 2)
         XCTAssertEqual(decoded.route.id, route.id)
         XCTAssertEqual(decoded.route.metadata.name, "Roundtrip Route")
         XCTAssertEqual(decoded.route.points.count, 2)

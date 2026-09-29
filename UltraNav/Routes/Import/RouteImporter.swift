@@ -13,7 +13,7 @@ public final class RouteImporter: RouteImporting, Sendable {
         parser: any GPXParsing = GPXParserAdapter(),
         parsedValidator: any ParsedRouteValidating = ParsedRouteValidator(),
         normalizer: any RouteNormalizing = RouteNormalizer(),
-        routeValidator: any RouteValidating = StoredRouteValidator()
+        routeValidator: any RouteValidating = CanonicalRouteValidator()
     ) {
         self.sourceReader = sourceReader
         self.parser = parser
@@ -26,6 +26,8 @@ public final class RouteImporter: RouteImporting, Sendable {
         from source: RouteImportSource,
         policy: RouteImportPolicy = .default
     ) async throws -> RouteImportResult {
+        try Task.checkCancellation()
+
         // 1. Read source data
         let content: RouteSourceContent
         do {
@@ -44,19 +46,22 @@ public final class RouteImporter: RouteImporting, Sendable {
             )
         }
 
-        // 3. Parse GPX XML
-        let document: GPXParsedDocument
+        // 3. Parse GPX XML & gather parser warnings
+        let report: GPXParsingReport
         do {
-            document = try await parser.parse(data: content.data)
+            let meta = GPXSourceMetadata(originalFileName: content.fallbackName)
+            report = try await parser.parseReport(data: content.data, sourceMetadata: meta)
         } catch let failure as GPXParserFailure {
             throw RouteImportFailure.parsingFailed(failure)
         } catch {
             throw RouteImportFailure.parsingFailed(.malformedXML(message: error.localizedDescription))
         }
 
+        try Task.checkCancellation()
+
         // 4. Validate parsed document structure
         do {
-            try parsedValidator.validate(document: document, policy: policy.validationPolicy)
+            try parsedValidator.validate(document: report.document, policy: policy.validationPolicy)
         } catch let failure as ParsedRouteValidationFailure {
             throw RouteImportFailure.validationFailed(failure)
         } catch {
@@ -67,7 +72,7 @@ public final class RouteImporter: RouteImporting, Sendable {
         let normResult: RouteNormalizationResult
         do {
             normResult = try normalizer.normalize(
-                document: document,
+                document: report.document,
                 source: content.source,
                 fallbackName: content.fallbackName,
                 policy: policy.normalizationPolicy
@@ -77,6 +82,8 @@ public final class RouteImporter: RouteImporting, Sendable {
         } catch {
             throw RouteImportFailure.normalizationFailed(.noPointsRemainingAfterFiltering)
         }
+
+        try Task.checkCancellation()
 
         // 6. Validate domain invariants of normalized Route
         do {
