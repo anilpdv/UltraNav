@@ -16,6 +16,7 @@ forbidden_patterns=(
   "GPXRoute"
   "LegacyRouteMatcher"
   "LegacyCueAdapter"
+  "LegacyOffRouteEvaluator"
 )
 
 failed=0

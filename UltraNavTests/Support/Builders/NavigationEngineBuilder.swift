@@ -8,7 +8,7 @@ final class NavigationEngineBuilder {
     var routeMatcher: any RouteMatching = RouteMatcher()
     var cueProvider: any NavigationCueProviding = NavigationCueBuilder()
     var cueProgressor: any CueProgressing = CueProgressor()
-    var offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator()
+    var offRouteEvaluator: any OffRouteEvaluating = OffRouteEvaluator()
     var completionEvaluator: any RouteCompletionEvaluating = LegacyRouteCompletionEvaluator()
 
     func withRouteStore(_ store: any RouteStoring) -> Self {

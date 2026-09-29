@@ -433,7 +433,23 @@
 		E6B0110C000000000000000C /* CueProgressorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0110C000000000000000C /* CueProgressorTests.swift */; };
 		E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0907 /* OffRouteEvaluation.swift */; };
 		E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0908 /* OffRouteEvaluating.swift */; };
-		E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */; };
+		E7B000010000000000000001 /* OffRouteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000001 /* OffRouteConfiguration.swift */; };
+		E7B000010000000000000002 /* OffRouteEvidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000002 /* OffRouteEvidence.swift */; };
+		E7B000010000000000000003 /* OffRouteEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000003 /* OffRouteEvaluator.swift */; };
+		E7B000010000000000000004 /* OffRouteEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000004 /* OffRouteEpisode.swift */; };
+		E7B000010000000000000005 /* NavigationTravelDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000005 /* NavigationTravelDirection.swift */; };
+		E7B000010000000000000006 /* RejoinCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000006 /* RejoinCandidate.swift */; };
+		E7B000010000000000000007 /* RejoinConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000007 /* RejoinConfiguration.swift */; };
+		E7B000010000000000000008 /* RejoinSearchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000008 /* RejoinSearchContext.swift */; };
+		E7B000010000000000000009 /* RejoinDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000009 /* RejoinDecision.swift */; };
+		E7B00001000000000000000A /* RejoinCandidateSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000A /* RejoinCandidateSearching.swift */; };
+		E7B00001000000000000000B /* RejoinCandidateSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000B /* RejoinCandidateSearcher.swift */; };
+		E7B00001000000000000000C /* RejoinEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000C /* RejoinEvaluator.swift */; };
+		E7B00001000000000000000D /* RejoinProgressReconciliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000D /* RejoinProgressReconciliation.swift */; };
+		E7B00001000000000000000E /* OffRouteEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000E /* OffRouteEvaluatorTests.swift */; };
+		E7B00001000000000000000F /* RejoinCandidateSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F00001000000000000000F /* RejoinCandidateSearcherTests.swift */; };
+		E7B000010000000000000010 /* RejoinEvaluatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000010 /* RejoinEvaluatorTests.swift */; };
+		E7B000010000000000000011 /* RejoinProgressReconciliationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F000010000000000000011 /* RejoinProgressReconciliationTests.swift */; };
 		E1B000000000000000001D090A /* RouteCompletionEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */; };
 		E1B000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */; };
 		E1B000000000000000001D090C /* RideNavigationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090C /* RideNavigationPolicy.swift */; };
@@ -1204,7 +1220,23 @@
 		E6F0110C000000000000000C /* CueProgressorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/CueProgressorTests.swift"; sourceTree = "<group>"; };
 		E1F000000000000000001D0907 /* OffRouteEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluation.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0908 /* OffRouteEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluating.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/LegacyOffRouteEvaluator.swift; sourceTree = "<group>"; };
+		E7F000010000000000000001 /* OffRouteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteConfiguration.swift; sourceTree = "<group>"; };
+		E7F000010000000000000002 /* OffRouteEvidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvidence.swift; sourceTree = "<group>"; };
+		E7F000010000000000000003 /* OffRouteEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluator.swift; sourceTree = "<group>"; };
+		E7F000010000000000000004 /* OffRouteEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEpisode.swift; sourceTree = "<group>"; };
+		E7F000010000000000000005 /* NavigationTravelDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationTravelDirection.swift; sourceTree = "<group>"; };
+		E7F000010000000000000006 /* RejoinCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinCandidate.swift; sourceTree = "<group>"; };
+		E7F000010000000000000007 /* RejoinConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinConfiguration.swift; sourceTree = "<group>"; };
+		E7F000010000000000000008 /* RejoinSearchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinSearchContext.swift; sourceTree = "<group>"; };
+		E7F000010000000000000009 /* RejoinDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinDecision.swift; sourceTree = "<group>"; };
+		E7F00001000000000000000A /* RejoinCandidateSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinCandidateSearching.swift; sourceTree = "<group>"; };
+		E7F00001000000000000000B /* RejoinCandidateSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinCandidateSearcher.swift; sourceTree = "<group>"; };
+		E7F00001000000000000000C /* RejoinEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinEvaluator.swift; sourceTree = "<group>"; };
+		E7F00001000000000000000D /* RejoinProgressReconciliation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Rejoin/RejoinProgressReconciliation.swift; sourceTree = "<group>"; };
+		E7F00001000000000000000E /* OffRouteEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/OffRouteEvaluatorTests.swift"; sourceTree = "<group>"; };
+		E7F00001000000000000000F /* RejoinCandidateSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RejoinCandidateSearcherTests.swift"; sourceTree = "<group>"; };
+		E7F000010000000000000010 /* RejoinEvaluatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RejoinEvaluatorTests.swift"; sourceTree = "<group>"; };
+		E7F000010000000000000011 /* RejoinProgressReconciliationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RejoinProgressReconciliationTests.swift"; sourceTree = "<group>"; };
 		E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Completion/RouteCompletionEvaluating.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Completion/LegacyRouteCompletionEvaluator.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D090C /* RideNavigationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Coordinator/RideNavigationPolicy.swift; sourceTree = "<group>"; };
@@ -1592,6 +1624,10 @@
 				E6F0110A000000000000000A /* TurnCandidateMergerTests.swift */,
 				E6F0110B000000000000000B /* NavigationCueBuilderTests.swift */,
 				E6F0110C000000000000000C /* CueProgressorTests.swift */,
+				E7F00001000000000000000E /* OffRouteEvaluatorTests.swift */,
+				E7F00001000000000000000F /* RejoinCandidateSearcherTests.swift */,
+				E7F000010000000000000010 /* RejoinEvaluatorTests.swift */,
+				E7F000010000000000000011 /* RejoinProgressReconciliationTests.swift */,
 
 				P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */,
 				P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */,
@@ -2109,7 +2145,19 @@
 				E6F011060000000000000006 /* CueProgressor.swift */,
 				E1F000000000000000001D0907 /* OffRouteEvaluation.swift */,
 				E1F000000000000000001D0908 /* OffRouteEvaluating.swift */,
-				E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */,
+				E7F000010000000000000001 /* OffRouteConfiguration.swift */,
+				E7F000010000000000000002 /* OffRouteEvidence.swift */,
+				E7F000010000000000000003 /* OffRouteEvaluator.swift */,
+				E7F000010000000000000004 /* OffRouteEpisode.swift */,
+				E7F000010000000000000005 /* NavigationTravelDirection.swift */,
+				E7F000010000000000000006 /* RejoinCandidate.swift */,
+				E7F000010000000000000007 /* RejoinConfiguration.swift */,
+				E7F000010000000000000008 /* RejoinSearchContext.swift */,
+				E7F000010000000000000009 /* RejoinDecision.swift */,
+				E7F00001000000000000000A /* RejoinCandidateSearching.swift */,
+				E7F00001000000000000000B /* RejoinCandidateSearcher.swift */,
+				E7F00001000000000000000C /* RejoinEvaluator.swift */,
+				E7F00001000000000000000D /* RejoinProgressReconciliation.swift */,
 				E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */,
 				E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */,
 				E1F000000000000000001D090C /* RideNavigationPolicy.swift */,
@@ -2725,6 +2773,10 @@
 				E6B0110A000000000000000A /* TurnCandidateMergerTests.swift in Sources */,
 				E6B0110B000000000000000B /* NavigationCueBuilderTests.swift in Sources */,
 				E6B0110C000000000000000C /* CueProgressorTests.swift in Sources */,
+				E7B00001000000000000000E /* OffRouteEvaluatorTests.swift in Sources */,
+				E7B00001000000000000000F /* RejoinCandidateSearcherTests.swift in Sources */,
+				E7B000010000000000000010 /* RejoinEvaluatorTests.swift in Sources */,
+				E7B000010000000000000011 /* RejoinProgressReconciliationTests.swift in Sources */,
 
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3025,7 +3077,19 @@
 				E6B011060000000000000006 /* CueProgressor.swift in Sources */,
 				E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */,
 				E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */,
-				E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */,
+				E7B000010000000000000001 /* OffRouteConfiguration.swift in Sources */,
+				E7B000010000000000000002 /* OffRouteEvidence.swift in Sources */,
+				E7B000010000000000000003 /* OffRouteEvaluator.swift in Sources */,
+				E7B000010000000000000004 /* OffRouteEpisode.swift in Sources */,
+				E7B000010000000000000005 /* NavigationTravelDirection.swift in Sources */,
+				E7B000010000000000000006 /* RejoinCandidate.swift in Sources */,
+				E7B000010000000000000007 /* RejoinConfiguration.swift in Sources */,
+				E7B000010000000000000008 /* RejoinSearchContext.swift in Sources */,
+				E7B000010000000000000009 /* RejoinDecision.swift in Sources */,
+				E7B00001000000000000000A /* RejoinCandidateSearching.swift in Sources */,
+				E7B00001000000000000000B /* RejoinCandidateSearcher.swift in Sources */,
+				E7B00001000000000000000C /* RejoinEvaluator.swift in Sources */,
+				E7B00001000000000000000D /* RejoinProgressReconciliation.swift in Sources */,
 				E1B000000000000000001D090A /* RouteCompletionEvaluating.swift in Sources */,
 				E1B000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift in Sources */,
 				E1B000000000000000001D090C /* RideNavigationPolicy.swift in Sources */,

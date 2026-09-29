@@ -47,7 +47,7 @@ final class RideDataCoordinatorHarness {
             routeMatcher: RouteMatcher(),
             cueProvider: NavigationCueBuilder(),
             cueProgressor: CueProgressor(),
-            offRouteEvaluator: LegacyOffRouteEvaluator()
+            offRouteEvaluator: OffRouteEvaluator()
         )
 
         self.coordinator = RideDataCoordinator(

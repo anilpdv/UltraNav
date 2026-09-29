@@ -58,7 +58,7 @@ struct TestAppContainerBuilder {
             routeMatcher: RouteMatcher(),
             cueProvider: NavigationCueBuilder(),
             cueProgressor: CueProgressor(),
-            offRouteEvaluator: LegacyOffRouteEvaluator()
+            offRouteEvaluator: OffRouteEvaluator()
         )
 
         let climb = climbEngine ?? ClimbEngine(

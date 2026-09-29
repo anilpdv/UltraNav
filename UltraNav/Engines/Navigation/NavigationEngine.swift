@@ -41,7 +41,7 @@ final class NavigationEngine: NavigationEngineProviding {
         routeMatcher: any RouteMatching = RouteMatcher(),
         cueProvider: any NavigationCueProviding = NavigationCueBuilder(),
         cueProgressor: any CueProgressing = CueProgressor(),
-        offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator(),
+        offRouteEvaluator: any OffRouteEvaluating = OffRouteEvaluator(),
         completionEvaluator: any RouteCompletionEvaluating = LegacyRouteCompletionEvaluator(),
         snapshotBuilder: NavigationSnapshotBuilder = NavigationSnapshotBuilder(),
         failureMapper: NavigationEngineFailureMapper = NavigationEngineFailureMapper()
