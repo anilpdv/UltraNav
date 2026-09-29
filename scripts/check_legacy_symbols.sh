@@ -17,6 +17,9 @@ forbidden_patterns=(
   "LegacyRouteMatcher"
   "LegacyCueAdapter"
   "LegacyOffRouteEvaluator"
+  "LegacyHeartRateParserAdapter"
+  "LegacyCyclingPowerParserAdapter"
+  "LegacyCSCParserAdapter"
 )
 
 failed=0

@@ -4,11 +4,11 @@ import CoreBluetooth
 
 @MainActor
 final class BluetoothServiceFailureTests: XCTestCase {
-    func testLegacyHeartRateParserAdapterParses8BitData() async throws {
-        let adapter = LegacyHeartRateParserAdapter()
+    func testCyclingSensorPacketParserParsesHeartRate8BitData() async throws {
+        let parser = CyclingSensorPacketParser()
         let packet = SensorFactory.makeHRPacket(sensorId: "hrm-01", bpm: 152)
 
-        let samples = try await adapter.parse(packet)
+        let samples = try await parser.parse(packet)
         XCTAssertEqual(samples.count, 1)
         if case .heartRate(let bpm, _) = samples.first {
             XCTAssertEqual(bpm, 152)
@@ -17,8 +17,8 @@ final class BluetoothServiceFailureTests: XCTestCase {
         }
     }
 
-    func testLegacyHeartRateParserAdapterRejectsEmptyData() async {
-        let adapter = LegacyHeartRateParserAdapter()
+    func testCyclingSensorPacketParserRejectsEmptyData() async {
+        let parser = CyclingSensorPacketParser()
         let emptyPacket = SensorMeasurementPacket(
             sensor: SensorIdentifier(rawValue: "hrm-01"),
             serviceIdentifier: "180D",
@@ -28,18 +28,18 @@ final class BluetoothServiceFailureTests: XCTestCase {
         )
 
         do {
-            _ = try await adapter.parse(emptyPacket)
+            _ = try await parser.parse(emptyPacket)
             XCTFail("Expected empty payload to throw")
         } catch {
             XCTAssertEqual(error as? SensorPacketParsingFailure, .emptyPayload)
         }
     }
 
-    func testLegacyCyclingPowerParserAdapterParsesWatts() async throws {
-        let adapter = LegacyCyclingPowerParserAdapter()
+    func testCyclingSensorPacketParserParsesWatts() async throws {
+        let parser = CyclingSensorPacketParser()
         let packet = SensorFactory.makePowerPacket(sensorId: "power-01", watts: 280)
 
-        let samples = try await adapter.parse(packet)
+        let samples = try await parser.parse(packet)
         XCTAssertEqual(samples.count, 1)
         if case .power(let watts, _) = samples.first {
             XCTAssertEqual(watts, 280)

@@ -1,31 +1,22 @@
 import Foundation
 
+/// Production sensor measurement parser delegating to SensorPacketProcessor.
 actor CyclingSensorPacketParser: SensorPacketParsing {
-    private let hrParser: LegacyHeartRateParserAdapter
-    private let powerParser: LegacyCyclingPowerParserAdapter
-    private let cscParser: LegacyCSCParserAdapter
+    private let processor: SensorPacketProcessor
 
-    init(
-        hrParser: LegacyHeartRateParserAdapter = LegacyHeartRateParserAdapter(),
-        powerParser: LegacyCyclingPowerParserAdapter = LegacyCyclingPowerParserAdapter(),
-        cscParser: LegacyCSCParserAdapter = LegacyCSCParserAdapter()
-    ) {
-        self.hrParser = hrParser
-        self.powerParser = powerParser
-        self.cscParser = cscParser
+    init(processor: SensorPacketProcessor = SensorPacketProcessor()) {
+        self.processor = processor
     }
 
     func parse(_ packet: SensorMeasurementPacket) async throws -> [SensorSample] {
-        let charID = packet.characteristicIdentifier.uppercased()
-        switch charID {
-        case "2A37":
-            return try await hrParser.parse(packet)
-        case "2A63":
-            return try await powerParser.parse(packet)
-        case "2A5B":
-            return try await cscParser.parse(packet)
-        default:
-            return []
-        }
+        try await processor.parse(packet)
+    }
+
+    func reset(sensor: SensorIdentifier) async {
+        await processor.reset(sensor: sensor)
+    }
+
+    func resetAll() async {
+        await processor.resetAll()
     }
 }
