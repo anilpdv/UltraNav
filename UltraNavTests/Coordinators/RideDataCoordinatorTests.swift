@@ -48,6 +48,7 @@ final class RideDataCoordinatorTests: XCTestCase {
         let metrics = MetricsEngine(clock: clock)
         let navigation = NavigationEngine()
 
+        let gpsProcessor = GPSProcessor()
         let coordinator = RideDataCoordinator(
             location: fakeLocation,
             workout: fakeWorkout,
@@ -56,10 +57,13 @@ final class RideDataCoordinatorTests: XCTestCase {
             rideWorkoutConsumer: ride,
             rideSensorConsumer: ride,
             metricsEngine: metrics,
-            navigationEngine: navigation
+            navigationEngine: navigation,
+            gpsProcessor: gpsProcessor,
+            clock: clock
         )
 
         coordinator.activate()
+        await gpsProcessor.send(.start(at: clock.now))
         await metrics.send(.start(at: clock.now))
 
         let sample = LocationSampleFactory.make(

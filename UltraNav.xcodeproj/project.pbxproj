@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		P3B9527FBE34406B0AD341F3 /* GPSQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */; };
+		P3BF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */; };
+		P3B2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */; };
+		P3B29346C09C6AE21D70AFE6 /* GPSSampleRejectionReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F29346C09C6AE21D70AFE6 /* GPSSampleRejectionReason.swift */; };
+		P3B4A3594D9F59A72A57D93D /* GPSRejectedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F4A3594D9F59A72A57D93D /* GPSRejectedSample.swift */; };
+		P3BCB4B83B9C6634B473C7D2 /* GPSProcessingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FCB4B83B9C6634B473C7D2 /* GPSProcessingResult.swift */; };
+		P3BB397B5A6D69F82148B285 /* GPSProcessingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FB397B5A6D69F82148B285 /* GPSProcessingState.swift */; };
+		P3B7350FF62C4A2D3A75F2D9 /* GPSProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F7350FF62C4A2D3A75F2D9 /* GPSProcessing.swift */; };
+		P3B6ACFF96F13FEFCAE3896A /* GPSProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F6ACFF96F13FEFCAE3896A /* GPSProcessor.swift */; };
+		P3BC0C0600628824DAE5F504 /* GPSTimestampValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FC0C0600628824DAE5F504 /* GPSTimestampValidating.swift */; };
+		P3B174BC0E2E6E98563C5420 /* GPSAccuracyValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F174BC0E2E6E98563C5420 /* GPSAccuracyValidating.swift */; };
+		P3B17E6F73CFF9D69A7C4CE7 /* GPSPlausibilityValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F17E6F73CFF9D69A7C4CE7 /* GPSPlausibilityValidator.swift */; };
+		P3B99CDAE4595CE383ED566A /* GPSSpeedEstimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F99CDAE4595CE383ED566A /* GPSSpeedEstimating.swift */; };
+		P3B5AF60C7F40708E4CCF466 /* GPSSpeedSmoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F5AF60C7F40708E4CCF466 /* GPSSpeedSmoothing.swift */; };
+		P3B1AB307D27F823A6D0BF38 /* MovementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F1AB307D27F823A6D0BF38 /* MovementState.swift */; };
+		P3BCF76C3D063A282FA101A3 /* MovementEvidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FCF76C3D063A282FA101A3 /* MovementEvidence.swift */; };
+		P3B35B5215874D0B44F3A235 /* MovementClassifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F35B5215874D0B44F3A235 /* MovementClassifying.swift */; };
+		P3B04394A29DD481E882C82F /* GPSDistanceAccumulating.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F04394A29DD481E882C82F /* GPSDistanceAccumulating.swift */; };
+		P3TB497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */; };
+		P3TB1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */; };
+		P3TB48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift */; };
+		P3TB09D334555EB4542BDEACC /* GPSSpeedEstimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF09D334555EB4542BDEACC /* GPSSpeedEstimatorTests.swift */; };
+		P3TB0A24DB14E35BD5C9F4978 /* GPSSpeedSmootherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF0A24DB14E35BD5C9F4978 /* GPSSpeedSmootherTests.swift */; };
+		P3TB3BE2F3FF03F26261A4A21 /* MovementClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF3BE2F3FF03F26261A4A21 /* MovementClassifierTests.swift */; };
+		P3TB209B267AA1EAB11CFF0B5 /* GPSDistanceAccumulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF209B267AA1EAB11CFF0B5 /* GPSDistanceAccumulatorTests.swift */; };
+		P3TB32453BA8C9DA77D77E2C2 /* GPSProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF32453BA8C9DA77D77E2C2 /* GPSProcessorTests.swift */; };
+		P3TB18628998D7BA4EBD83946 /* GPSIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3TF18628998D7BA4EBD83946 /* GPSIntegrationTests.swift */; };
 		P2B81E90088AB6335E2112B5FBF /* RouteFingerprints.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */; };
 		P2B5EFE65EFC1929D28CE13A68F /* RouteNormalizationVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */; };
 		P2BA9718A2160C3244F581257EB /* RouteNormalizationReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */; };
@@ -731,6 +758,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSQuality.swift"; sourceTree = "<group>"; };
+		P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessingConfiguration.swift"; sourceTree = "<group>"; };
+		P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSAcceptedSample.swift"; sourceTree = "<group>"; };
+		P3F29346C09C6AE21D70AFE6 /* GPSSampleRejectionReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSSampleRejectionReason.swift"; sourceTree = "<group>"; };
+		P3F4A3594D9F59A72A57D93D /* GPSRejectedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSRejectedSample.swift"; sourceTree = "<group>"; };
+		P3FCB4B83B9C6634B473C7D2 /* GPSProcessingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessingResult.swift"; sourceTree = "<group>"; };
+		P3FB397B5A6D69F82148B285 /* GPSProcessingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessingState.swift"; sourceTree = "<group>"; };
+		P3F7350FF62C4A2D3A75F2D9 /* GPSProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessing.swift"; sourceTree = "<group>"; };
+		P3F6ACFF96F13FEFCAE3896A /* GPSProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessor.swift"; sourceTree = "<group>"; };
+		P3FC0C0600628824DAE5F504 /* GPSTimestampValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Validation/GPSTimestampValidating.swift"; sourceTree = "<group>"; };
+		P3F174BC0E2E6E98563C5420 /* GPSAccuracyValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Validation/GPSAccuracyValidating.swift"; sourceTree = "<group>"; };
+		P3F17E6F73CFF9D69A7C4CE7 /* GPSPlausibilityValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Validation/GPSPlausibilityValidator.swift"; sourceTree = "<group>"; };
+		P3F99CDAE4595CE383ED566A /* GPSSpeedEstimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Speed/GPSSpeedEstimating.swift"; sourceTree = "<group>"; };
+		P3F5AF60C7F40708E4CCF466 /* GPSSpeedSmoothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Speed/GPSSpeedSmoothing.swift"; sourceTree = "<group>"; };
+		P3F1AB307D27F823A6D0BF38 /* MovementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Movement/MovementState.swift"; sourceTree = "<group>"; };
+		P3FCF76C3D063A282FA101A3 /* MovementEvidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Movement/MovementEvidence.swift"; sourceTree = "<group>"; };
+		P3F35B5215874D0B44F3A235 /* MovementClassifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Movement/MovementClassifying.swift"; sourceTree = "<group>"; };
+		P3F04394A29DD481E882C82F /* GPSDistanceAccumulating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Distance/GPSDistanceAccumulating.swift"; sourceTree = "<group>"; };
+		P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSTimestampValidatorTests.swift"; sourceTree = "<group>"; };
+		P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSAccuracyValidatorTests.swift"; sourceTree = "<group>"; };
+		P3TF48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSPlausibilityValidatorTests.swift"; sourceTree = "<group>"; };
+		P3TF09D334555EB4542BDEACC /* GPSSpeedEstimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSSpeedEstimatorTests.swift"; sourceTree = "<group>"; };
+		P3TF0A24DB14E35BD5C9F4978 /* GPSSpeedSmootherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSSpeedSmootherTests.swift"; sourceTree = "<group>"; };
+		P3TF3BE2F3FF03F26261A4A21 /* MovementClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/MovementClassifierTests.swift"; sourceTree = "<group>"; };
+		P3TF209B267AA1EAB11CFF0B5 /* GPSDistanceAccumulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSDistanceAccumulatorTests.swift"; sourceTree = "<group>"; };
+		P3TF32453BA8C9DA77D77E2C2 /* GPSProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSProcessorTests.swift"; sourceTree = "<group>"; };
+		P3TF18628998D7BA4EBD83946 /* GPSIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Location/GPSIntegrationTests.swift"; sourceTree = "<group>"; };
 		P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/Route/RouteFingerprints.swift"; sourceTree = "<group>"; };
 		P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Normalization/RouteNormalizationVersion.swift"; sourceTree = "<group>"; };
 		P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Normalization/RouteNormalizationReport.swift"; sourceTree = "<group>"; };
@@ -1489,6 +1543,15 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */,
+				P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */,
+				P3TF48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift */,
+				P3TF09D334555EB4542BDEACC /* GPSSpeedEstimatorTests.swift */,
+				P3TF0A24DB14E35BD5C9F4978 /* GPSSpeedSmootherTests.swift */,
+				P3TF3BE2F3FF03F26261A4A21 /* MovementClassifierTests.swift */,
+				P3TF209B267AA1EAB11CFF0B5 /* GPSDistanceAccumulatorTests.swift */,
+				P3TF32453BA8C9DA77D77E2C2 /* GPSProcessorTests.swift */,
+				P3TF18628998D7BA4EBD83946 /* GPSIntegrationTests.swift */,
 				P2TF7F2769DC256849CF30764BF1 /* GPXLargeFileTests.swift */,
 				P2TFDDCD2084DE05124E2E4BD53C /* GPXLargeFixtureGenerator.swift */,
 				P2TF349EF771B83E5971C605C575 /* SHA256RouteIdentityCreatorTests.swift */,
@@ -1805,6 +1868,24 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */,
+				P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */,
+				P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */,
+				P3F29346C09C6AE21D70AFE6 /* GPSSampleRejectionReason.swift */,
+				P3F4A3594D9F59A72A57D93D /* GPSRejectedSample.swift */,
+				P3FCB4B83B9C6634B473C7D2 /* GPSProcessingResult.swift */,
+				P3FB397B5A6D69F82148B285 /* GPSProcessingState.swift */,
+				P3F7350FF62C4A2D3A75F2D9 /* GPSProcessing.swift */,
+				P3F6ACFF96F13FEFCAE3896A /* GPSProcessor.swift */,
+				P3FC0C0600628824DAE5F504 /* GPSTimestampValidating.swift */,
+				P3F174BC0E2E6E98563C5420 /* GPSAccuracyValidating.swift */,
+				P3F17E6F73CFF9D69A7C4CE7 /* GPSPlausibilityValidator.swift */,
+				P3F99CDAE4595CE383ED566A /* GPSSpeedEstimating.swift */,
+				P3F5AF60C7F40708E4CCF466 /* GPSSpeedSmoothing.swift */,
+				P3F1AB307D27F823A6D0BF38 /* MovementState.swift */,
+				P3FCF76C3D063A282FA101A3 /* MovementEvidence.swift */,
+				P3F35B5215874D0B44F3A235 /* MovementClassifying.swift */,
+				P3F04394A29DD481E882C82F /* GPSDistanceAccumulating.swift */,
 				P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */,
 				P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */,
 				P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */,
@@ -2306,6 +2387,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P3TB497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift in Sources */,
+				P3TB1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift in Sources */,
+				P3TB48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift in Sources */,
+				P3TB09D334555EB4542BDEACC /* GPSSpeedEstimatorTests.swift in Sources */,
+				P3TB0A24DB14E35BD5C9F4978 /* GPSSpeedSmootherTests.swift in Sources */,
+				P3TB3BE2F3FF03F26261A4A21 /* MovementClassifierTests.swift in Sources */,
+				P3TB209B267AA1EAB11CFF0B5 /* GPSDistanceAccumulatorTests.swift in Sources */,
+				P3TB32453BA8C9DA77D77E2C2 /* GPSProcessorTests.swift in Sources */,
+				P3TB18628998D7BA4EBD83946 /* GPSIntegrationTests.swift in Sources */,
 				P2TBC8D97A8D2C506FF4D2FC9225 /* GPXLargeFileTests.swift in Sources */,
 				P2TB61762049C608B367CCF8F213 /* GPXLargeFixtureGenerator.swift in Sources */,
 				P2TB66E0BDF4F4C40017FA33EBA1 /* SHA256RouteIdentityCreatorTests.swift in Sources */,
@@ -2578,6 +2668,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P3B9527FBE34406B0AD341F3 /* GPSQuality.swift in Sources */,
+				P3BF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift in Sources */,
+				P3B2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift in Sources */,
+				P3B29346C09C6AE21D70AFE6 /* GPSSampleRejectionReason.swift in Sources */,
+				P3B4A3594D9F59A72A57D93D /* GPSRejectedSample.swift in Sources */,
+				P3BCB4B83B9C6634B473C7D2 /* GPSProcessingResult.swift in Sources */,
+				P3BB397B5A6D69F82148B285 /* GPSProcessingState.swift in Sources */,
+				P3B7350FF62C4A2D3A75F2D9 /* GPSProcessing.swift in Sources */,
+				P3B6ACFF96F13FEFCAE3896A /* GPSProcessor.swift in Sources */,
+				P3BC0C0600628824DAE5F504 /* GPSTimestampValidating.swift in Sources */,
+				P3B174BC0E2E6E98563C5420 /* GPSAccuracyValidating.swift in Sources */,
+				P3B17E6F73CFF9D69A7C4CE7 /* GPSPlausibilityValidator.swift in Sources */,
+				P3B99CDAE4595CE383ED566A /* GPSSpeedEstimating.swift in Sources */,
+				P3B5AF60C7F40708E4CCF466 /* GPSSpeedSmoothing.swift in Sources */,
+				P3B1AB307D27F823A6D0BF38 /* MovementState.swift in Sources */,
+				P3BCF76C3D063A282FA101A3 /* MovementEvidence.swift in Sources */,
+				P3B35B5215874D0B44F3A235 /* MovementClassifying.swift in Sources */,
+				P3B04394A29DD481E882C82F /* GPSDistanceAccumulating.swift in Sources */,
 				P2B81E90088AB6335E2112B5FBF /* RouteFingerprints.swift in Sources */,
 				P2B5EFE65EFC1929D28CE13A68F /* RouteNormalizationVersion.swift in Sources */,
 				P2BA9718A2160C3244F581257EB /* RouteNormalizationReport.swift in Sources */,

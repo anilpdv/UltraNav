@@ -16,6 +16,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
     private let metricsEngine: any MetricsEngineProviding
     private let navigationEngine: any NavigationEngineProviding
     private let climbEngine: any ClimbEngineProviding
+    private let gpsProcessor: any GPSProcessing
     private let clock: any ClockProviding
     private let navigationPolicy: RideNavigationPolicy
 
@@ -35,6 +36,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
         metricsEngine: any MetricsEngineProviding,
         navigationEngine: any NavigationEngineProviding,
         climbEngine: any ClimbEngineProviding,
+        gpsProcessor: any GPSProcessing = GPSProcessor(),
         clock: any ClockProviding,
         navigationPolicy: RideNavigationPolicy = .default
     ) {
@@ -42,6 +44,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
         self.metricsEngine = metricsEngine
         self.navigationEngine = navigationEngine
         self.climbEngine = climbEngine
+        self.gpsProcessor = gpsProcessor
         self.clock = clock
         self.navigationPolicy = navigationPolicy
     }
@@ -67,6 +70,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
             return
         }
 
+        await gpsProcessor.send(.start(at: date))
         await metricsEngine.send(.start(at: date))
 
         if navigationPolicy.startNavigationWithRide,
@@ -88,6 +92,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
             return
         }
 
+        await gpsProcessor.send(.pause(at: date))
         await metricsEngine.send(.pause(at: date))
 
         if !navigationPolicy.continueNavigationWhileRidePaused {
@@ -108,6 +113,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
             return
         }
 
+        await gpsProcessor.send(.resume(at: date))
         await metricsEngine.send(.resume(at: date))
 
         if navigationPolicy.startNavigationWithRide,
@@ -124,6 +130,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
         let date = clock.now
 
         await rideEngine.send(.finish(at: date))
+        await gpsProcessor.send(.finish(at: date))
         await metricsEngine.send(.finish(at: date))
 
         if navigationPolicy.stopNavigationWhenRideFinishes {
@@ -137,6 +144,7 @@ final class RideLifecycleCoordinator: RideLifecycleCoordinating {
         defer { commandInProgress = nil }
 
         await rideEngine.send(.reset)
+        await gpsProcessor.send(.reset)
         await metricsEngine.send(.reset)
         await navigationEngine.send(.reset)
         await climbEngine.send(.reset)

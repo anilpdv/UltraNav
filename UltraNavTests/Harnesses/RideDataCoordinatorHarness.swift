@@ -9,17 +9,22 @@ final class RideDataCoordinatorHarness {
     let ride: RideEngine
     let metrics: MetricsEngine
     let navigation: NavigationEngine
+    let gpsProcessor: GPSProcessor
     let coordinator: RideDataCoordinator
+    private let clock: any ClockProviding
 
     init(
         location: FakeLocationProvider = FakeLocationProvider(),
         workout: FakeWorkoutProvider = FakeWorkoutProvider(),
         sensors: FakeSensorProvider = FakeSensorProvider(),
+        gpsProcessor: GPSProcessor = GPSProcessor(),
         clock: any ClockProviding = TestClock()
     ) {
         self.location = location
         self.workout = workout
         self.sensors = sensors
+        self.gpsProcessor = gpsProcessor
+        self.clock = clock
 
         self.ride = RideEngine(
             location: location,
@@ -53,11 +58,14 @@ final class RideDataCoordinatorHarness {
             rideWorkoutConsumer: ride,
             rideSensorConsumer: ride,
             metricsEngine: metrics,
-            navigationEngine: navigation
+            navigationEngine: navigation,
+            gpsProcessor: gpsProcessor,
+            clock: clock
         )
     }
 
     func start() async {
+        await gpsProcessor.send(.start(at: clock.now))
         coordinator.activate()
     }
 

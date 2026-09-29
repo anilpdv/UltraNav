@@ -62,11 +62,40 @@ final class MetricsEngine: MetricsEngineProviding {
         switch input {
         case .location(let sample):
             consume(location: sample)
+        case .gps(let accepted):
+            consume(gps: accepted)
         case .workout(let metric):
             consume(workout: metric)
         case .sensor(let id, let sample):
             consume(sensor: id, sample: sample)
         }
+    }
+
+    func consume(gps: GPSAcceptedSample) {
+        guard state == .active else { return }
+
+        let now = clock.now
+
+        if let speed = gps.selectedSpeedMetersPerSecond {
+            let obs = MetricObservation(source: .coreLocation, value: .speed(metersPerSecond: speed), timestamp: gps.sample.timestamp)
+            if validator.validate(observation: obs) {
+                store.store(observation: obs)
+            }
+        }
+
+        let distObs = MetricObservation(source: .coreLocation, value: .distance(meters: gps.totalDistanceMeters), timestamp: gps.sample.timestamp)
+        if validator.validate(observation: distObs) {
+            store.store(observation: distObs)
+        }
+
+        if let altitude = gps.sample.altitudeMeters {
+            let obs = MetricObservation(source: .coreLocation, value: .altitude(meters: altitude), timestamp: gps.sample.timestamp)
+            if validator.validate(observation: obs) {
+                store.store(observation: obs)
+            }
+        }
+
+        publishSnapshot(at: now)
     }
 
     func consume(location: LocationSample) {

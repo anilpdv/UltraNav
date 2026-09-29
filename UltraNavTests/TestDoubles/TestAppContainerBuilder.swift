@@ -93,6 +93,8 @@ struct TestAppContainerBuilder {
         let workConsumer: any RideWorkoutEventConsuming = rideWorkoutConsumer ?? (ride as? RideWorkoutEventConsuming) ?? (ride as! RideEngine)
         let sensConsumer: any RideSensorEventConsuming = rideSensorConsumer ?? (ride as? RideSensorEventConsuming) ?? (ride as! RideEngine)
 
+        let gps = GPSProcessor()
+
         let rideData = RideDataCoordinator(
             location: location,
             workout: workout,
@@ -101,7 +103,9 @@ struct TestAppContainerBuilder {
             rideWorkoutConsumer: workConsumer,
             rideSensorConsumer: sensConsumer,
             metricsEngine: metrics,
-            navigationEngine: navigation
+            navigationEngine: navigation,
+            gpsProcessor: gps,
+            clock: clock
         )
 
         let rideLifecycle = RideLifecycleCoordinator(
@@ -109,6 +113,7 @@ struct TestAppContainerBuilder {
             metricsEngine: metrics,
             navigationEngine: navigation,
             climbEngine: climb,
+            gpsProcessor: gps,
             clock: clock,
             navigationPolicy: configuration.rideNavigation
         )

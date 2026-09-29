@@ -177,6 +177,8 @@ final class AppContainer {
         )
 
         // 5. Coordinators
+        let gpsProcessor = GPSProcessor()
+
         let rideDataCoordinator = RideDataCoordinator(
             location: locationService,
             workout: workoutService,
@@ -185,7 +187,9 @@ final class AppContainer {
             rideWorkoutConsumer: rideEngine,
             rideSensorConsumer: rideEngine,
             metricsEngine: metricsEngine,
-            navigationEngine: navigationEngine
+            navigationEngine: navigationEngine,
+            gpsProcessor: gpsProcessor,
+            clock: clock
         )
 
         let rideLifecycleCoordinator = RideLifecycleCoordinator(
@@ -193,6 +197,7 @@ final class AppContainer {
             metricsEngine: metricsEngine,
             navigationEngine: navigationEngine,
             climbEngine: climbEngine,
+            gpsProcessor: gpsProcessor,
             clock: clock,
             navigationPolicy: configuration.rideNavigation
         )

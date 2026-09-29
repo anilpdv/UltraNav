@@ -10,6 +10,8 @@ final class RideDataCoordinator {
     private let rideSensorConsumer: any RideSensorEventConsuming
     private let metricsEngine: any MetricsEngineProviding
     private let navigationEngine: any NavigationEngineProviding
+    private let gpsProcessor: any GPSProcessing
+    private let clock: any ClockProviding
 
     private var locationTask: Task<Void, Never>?
     private var workoutTask: Task<Void, Never>?
@@ -25,7 +27,9 @@ final class RideDataCoordinator {
         rideWorkoutConsumer: any RideWorkoutEventConsuming,
         rideSensorConsumer: any RideSensorEventConsuming,
         metricsEngine: any MetricsEngineProviding,
-        navigationEngine: any NavigationEngineProviding
+        navigationEngine: any NavigationEngineProviding,
+        gpsProcessor: any GPSProcessing = GPSProcessor(),
+        clock: any ClockProviding = SystemClock()
     ) {
         self.location = location
         self.workout = workout
@@ -35,6 +39,8 @@ final class RideDataCoordinator {
         self.rideSensorConsumer = rideSensorConsumer
         self.metricsEngine = metricsEngine
         self.navigationEngine = navigationEngine
+        self.gpsProcessor = gpsProcessor
+        self.clock = clock
     }
 
     func activate() {
@@ -96,11 +102,20 @@ final class RideDataCoordinator {
         await rideLocationConsumer.consume(locationEvent: locationEvent)
 
         guard case .locationReceived(let sample) = locationEvent else {
+            if case .failed = locationEvent {
+                await gpsProcessor.send(.locationUnavailable(at: clock.now))
+            }
             return
         }
 
-        metricsEngine.consume(.location(sample))
-        navigationEngine.consume(location: sample)
+        let result = await gpsProcessor.process(sample, receivedAt: clock.now)
+        switch result {
+        case .accepted(let accepted):
+            metricsEngine.consume(.gps(accepted))
+            navigationEngine.consume(location: accepted.sample)
+        case .rejected, .ignored:
+            break
+        }
     }
 
     private func handle(workoutEvent: WorkoutServiceEvent) async {
