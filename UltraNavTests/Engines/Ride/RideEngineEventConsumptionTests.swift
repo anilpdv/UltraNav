@@ -10,7 +10,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sample = LocationSampleFactory.makeSample(speed: 12.5, altitude: 350.0)
         harness.location.send(.locationReceived(sample))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.currentSpeedMetersPerSecond, 12.5)
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.altitudeMeters, 350.0)
@@ -21,7 +21,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sample = LocationSampleFactory.makeSample(speed: 12.5, altitude: 350.0)
         harness.location.send(.locationReceived(sample))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertNil(harness.engine.currentSnapshot.metrics.currentSpeedMetersPerSecond)
     }
@@ -34,7 +34,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sample = LocationSampleFactory.makeSample(speed: 15.0, altitude: 400.0)
         harness.location.send(.locationReceived(sample))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertNil(harness.engine.currentSnapshot.metrics.currentSpeedMetersPerSecond)
     }
@@ -52,7 +52,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
             )
         )
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.heartRateBeatsPerMinute, 152)
     }
@@ -70,7 +70,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
             )
         )
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.distanceMeters, 4500.0)
     }
@@ -81,7 +81,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
 
         harness.workout.send(.failed(.startFailed))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertTrue(harness.engine.degradations.contains(.workoutMetricsUnavailable))
     }
@@ -93,7 +93,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sensorID = SensorIdentifier(rawValue: "hr-01")
         harness.sensors.send(.sampleReceived(sensor: sensorID, sample: .heartRate(beatsPerMinute: 165, timestamp: harness.clock.now)))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.heartRateBeatsPerMinute, 165)
     }
@@ -105,7 +105,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sensorID = SensorIdentifier(rawValue: "power-01")
         harness.sensors.send(.sampleReceived(sensor: sensorID, sample: .power(watts: 320, timestamp: harness.clock.now)))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.powerWatts, 320)
     }
@@ -117,7 +117,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sensorID = SensorIdentifier(rawValue: "cadence-01")
         harness.sensors.send(.sampleReceived(sensor: sensorID, sample: .cadence(revolutionsPerMinute: 92.0, timestamp: harness.clock.now)))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.cadenceRevolutionsPerMinute, 92.0)
     }
@@ -129,7 +129,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
         let sensorID = SensorIdentifier(rawValue: "speed-01")
         harness.sensors.send(.sampleReceived(sensor: sensorID, sample: .speed(metersPerSecond: 11.2, timestamp: harness.clock.now)))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.metrics.currentSpeedMetersPerSecond, 11.2)
     }
@@ -140,7 +140,7 @@ final class RideEngineEventConsumptionTests: XCTestCase {
 
         harness.sensors.send(.failed(.disconnectedUnexpectedly(SensorIdentifier(rawValue: "hr-01"))))
 
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 20_000_000)
 
         XCTAssertEqual(harness.engine.currentSnapshot.state, .active)
         XCTAssertTrue(harness.engine.degradations.contains(.sensorsUnavailable))

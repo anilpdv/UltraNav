@@ -38,7 +38,7 @@ final class NavigationEngine: NavigationEngineProviding {
     init(
         routeStore: (any RouteStoring)? = nil,
         routeValidator: any NavigationRouteValidating = NavigationRouteValidator(),
-        routeMatcher: any RouteMatching = LegacyRouteMatcher(),
+        routeMatcher: any RouteMatching = RouteMatcher(),
         cueProvider: any NavigationCueProviding = LegacyCueAdapter(),
         cueProgressor: any CueProgressing = LegacyCueAdapter(),
         offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator(),

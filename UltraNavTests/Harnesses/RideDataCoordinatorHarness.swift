@@ -44,7 +44,7 @@ final class RideDataCoordinatorHarness {
         self.navigation = NavigationEngine(
             routeStore: FakeRouteStore(),
             routeValidator: NavigationRouteValidator(),
-            routeMatcher: LegacyRouteMatcher(),
+            routeMatcher: RouteMatcher(),
             cueProvider: LegacyCueAdapter(),
             cueProgressor: LegacyCueAdapter(),
             offRouteEvaluator: LegacyOffRouteEvaluator()

@@ -55,7 +55,7 @@ struct TestAppContainerBuilder {
         let navigation = navigationEngine ?? NavigationEngine(
             routeStore: routeStore,
             routeValidator: NavigationRouteValidator(),
-            routeMatcher: LegacyRouteMatcher(),
+            routeMatcher: RouteMatcher(),
             cueProvider: LegacyCueAdapter(),
             cueProgressor: LegacyCueAdapter(),
             offRouteEvaluator: LegacyOffRouteEvaluator()

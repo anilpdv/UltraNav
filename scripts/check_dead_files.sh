@@ -16,6 +16,7 @@ deprecated_files=(
   "UltraNav/Presentation/Metrics/LegacyMetricsAdapter.swift"
   "UltraNav/Presentation/Climb/LegacyClimbAdapter.swift"
   "UltraNav/Presentation/Routes/LegacyRouteLibraryAdapter.swift"
+  "UltraNav/Navigation/Matching/LegacyRouteMatcher.swift"
 )
 
 for file in "${deprecated_files[@]}"; do

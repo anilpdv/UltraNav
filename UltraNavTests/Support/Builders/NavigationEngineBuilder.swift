@@ -5,7 +5,7 @@ import Foundation
 final class NavigationEngineBuilder {
     var routeStore: (any RouteStoring)? = FakeRouteStore()
     var routeValidator: any NavigationRouteValidating = NavigationRouteValidator()
-    var routeMatcher: any RouteMatching = LegacyRouteMatcher()
+    var routeMatcher: any RouteMatching = RouteMatcher()
     var cueProvider: any NavigationCueProviding = LegacyCueAdapter()
     var cueProgressor: any CueProgressing = LegacyCueAdapter()
     var offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator()

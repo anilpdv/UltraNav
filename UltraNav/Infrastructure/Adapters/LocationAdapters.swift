@@ -10,22 +10,6 @@ extension Coordinate {
     init(_ clCoordinate: CLLocationCoordinate2D) {
         self.init(latitude: clCoordinate.latitude, longitude: clCoordinate.longitude)
     }
-
-    func distance(to other: Coordinate) -> Double {
-        let lat1 = latitude * .pi / 180.0
-        let lon1 = longitude * .pi / 180.0
-        let lat2 = other.latitude * .pi / 180.0
-        let lon2 = other.longitude * .pi / 180.0
-
-        let dLat = lat2 - lat1
-        let dLon = lon2 - lon1
-
-        let a = sin(dLat / 2) * sin(dLat / 2) +
-                cos(lat1) * cos(lat2) *
-                sin(dLon / 2) * sin(dLon / 2)
-        let c = 2 * atan2(sqrt(a), sqrt(1 - a))
-        return 6_371_000.0 * c
-    }
 }
 
 // TODO(PHASE-1E): Move framework conversions to LocationService.

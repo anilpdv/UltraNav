@@ -14,6 +14,7 @@ forbidden_patterns=(
   "WorkoutSessionManager"
   "RouteLibraryManager"
   "GPXRoute"
+  "LegacyRouteMatcher"
 )
 
 failed=0

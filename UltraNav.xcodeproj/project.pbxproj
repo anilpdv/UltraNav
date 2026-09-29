@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E58C4C7725F5A1269E269C22 /* GeoBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550248843F2A476E8F5333D /* GeoBoundingBox.swift */; };
+		E5BEC17436A1071FCC1CFCAB /* RouteGeometryEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B16217B24BFC0AEAEAAB17 /* RouteGeometryEdge.swift */; };
+		E5FA51C8397465EC23338D23 /* RouteSegmentProjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FFD22233DE65EF50508EE1 /* RouteSegmentProjector.swift */; };
+		E51B9542493B2B0FA4BE3000 /* RouteGeometryIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51888611FEF7F79493DABD1 /* RouteGeometryIndex.swift */; };
+		E55ADC167ED7A0F232363667 /* RouteMatchingConfidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE79DEC30B4699A3F00F64 /* RouteMatchingConfidence.swift */; };
+		E59D1E69594343885D024777 /* RouteMatchingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C214143E1375E085420B2A /* RouteMatchingConfiguration.swift */; };
+		E57E01897E46DE42AB43E8A5 /* RouteSegmentProjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E582A6FF26C7BF7C195A452B /* RouteSegmentProjectorTests.swift */; };
+		E5CC8EC25A24BC8A6DA8EA89 /* RouteGeometryIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54A34D8D4A4D85564DCFAF1 /* RouteGeometryIndexTests.swift */; };
+		E55D96E24D633DCA34615423 /* RouteMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5513D1959FA847710B9323E /* RouteMatcherTests.swift */; };
 		P3B9527FBE34406B0AD341F3 /* GPSQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */; };
 		P3BF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */; };
 		P3B2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */; };
@@ -407,7 +416,7 @@
 		E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0900 /* OffRouteStatus.swift */; };
 		E1B000000000000000001D0901 /* RouteMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0901 /* RouteMatch.swift */; };
 		E1B000000000000000001D0902 /* RouteMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0902 /* RouteMatching.swift */; };
-		E1B000000000000000001D0903 /* LegacyRouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */; };
+		E1B000000000000000001D0903 /* RouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0903 /* RouteMatcher.swift */; };
 		E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0904 /* NavigationCueProviding.swift */; };
 		E1B000000000000000001D0905 /* CueProgressing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0905 /* CueProgressing.swift */; };
 		E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0906 /* LegacyCueAdapter.swift */; };
@@ -758,6 +767,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E550248843F2A476E8F5333D /* GeoBoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Geometry/GeoBoundingBox.swift; sourceTree = "<group>"; };
+		E5B16217B24BFC0AEAEAAB17 /* RouteGeometryEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Geometry/RouteGeometryEdge.swift; sourceTree = "<group>"; };
+		E5FFD22233DE65EF50508EE1 /* RouteSegmentProjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Geometry/RouteSegmentProjector.swift; sourceTree = "<group>"; };
+		E51888611FEF7F79493DABD1 /* RouteGeometryIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Geometry/RouteGeometryIndex.swift; sourceTree = "<group>"; };
+		E5FE79DEC30B4699A3F00F64 /* RouteMatchingConfidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatchingConfidence.swift; sourceTree = "<group>"; };
+		E5C214143E1375E085420B2A /* RouteMatchingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatchingConfiguration.swift; sourceTree = "<group>"; };
+		E582A6FF26C7BF7C195A452B /* RouteSegmentProjectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RouteSegmentProjectorTests.swift"; sourceTree = "<group>"; };
+		E54A34D8D4A4D85564DCFAF1 /* RouteGeometryIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RouteGeometryIndexTests.swift"; sourceTree = "<group>"; };
+		E5513D1959FA847710B9323E /* RouteMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RouteMatcherTests.swift"; sourceTree = "<group>"; };
 		P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSQuality.swift"; sourceTree = "<group>"; };
 		P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSProcessingConfiguration.swift"; sourceTree = "<group>"; };
 		P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location/Processing/GPSAcceptedSample.swift"; sourceTree = "<group>"; };
@@ -1158,7 +1176,7 @@
 		E1F000000000000000001D0900 /* OffRouteStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/OffRouteStatus.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0901 /* RouteMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatch.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0902 /* RouteMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatching.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/LegacyRouteMatcher.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0903 /* RouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatcher.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0904 /* NavigationCueProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/NavigationCueProviding.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0905 /* CueProgressing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/CueProgressing.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0906 /* LegacyCueAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/LegacyCueAdapter.swift; sourceTree = "<group>"; };
@@ -1543,6 +1561,10 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E582A6FF26C7BF7C195A452B /* RouteSegmentProjectorTests.swift */,
+				E54A34D8D4A4D85564DCFAF1 /* RouteGeometryIndexTests.swift */,
+				E5513D1959FA847710B9323E /* RouteMatcherTests.swift */,
+
 				P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */,
 				P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */,
 				P3TF48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift */,
@@ -1868,6 +1890,13 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				E550248843F2A476E8F5333D /* GeoBoundingBox.swift */,
+				E5B16217B24BFC0AEAEAAB17 /* RouteGeometryEdge.swift */,
+				E5FFD22233DE65EF50508EE1 /* RouteSegmentProjector.swift */,
+				E51888611FEF7F79493DABD1 /* RouteGeometryIndex.swift */,
+				E5FE79DEC30B4699A3F00F64 /* RouteMatchingConfidence.swift */,
+				E5C214143E1375E085420B2A /* RouteMatchingConfiguration.swift */,
+
 				P3F9527FBE34406B0AD341F3 /* GPSQuality.swift */,
 				P3FF841BCBE7EE8071E136CD /* GPSProcessingConfiguration.swift */,
 				P3F2B705A20E3BC5D3D0DA40 /* GPSAcceptedSample.swift */,
@@ -2041,7 +2070,7 @@
 				E1F000000000000000001D0900 /* OffRouteStatus.swift */,
 				E1F000000000000000001D0901 /* RouteMatch.swift */,
 				E1F000000000000000001D0902 /* RouteMatching.swift */,
-				E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */,
+				E1F000000000000000001D0903 /* RouteMatcher.swift */,
 				E1F000000000000000001D0904 /* NavigationCueProviding.swift */,
 				E1F000000000000000001D0905 /* CueProgressing.swift */,
 				E1F000000000000000001D0906 /* LegacyCueAdapter.swift */,
@@ -2387,6 +2416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				P3TB497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift in Sources */,
 				P3TB1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift in Sources */,
 				P3TB48CAA725632D20C4DAB18 /* GPSPlausibilityValidatorTests.swift in Sources */,
@@ -2653,6 +2683,10 @@
 				202EB135DA32450B1E9DEFFF /* BluetoothServiceDisconnectionTests.swift in Sources */,
 				E75725139D3D6804EF54391A /* BluetoothServiceFailureTests.swift in Sources */,
 				2EB97F0708E7918C68038AF4 /* HealthKitMetricConverterTests.swift in Sources */,
+				E57E01897E46DE42AB43E8A5 /* RouteSegmentProjectorTests.swift in Sources */,
+				E5CC8EC25A24BC8A6DA8EA89 /* RouteGeometryIndexTests.swift in Sources */,
+				E55D96E24D633DCA34615423 /* RouteMatcherTests.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2660,6 +2694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				D967E8DA6D3D0B8A08A4BB64 /* UltraNavJourneyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2932,8 +2967,15 @@
 				E1B8F83C768B1B55B5BB70275 /* WorkoutMetric.swift in Sources */,
 				E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */,
 				E1B000000000000000001D0901 /* RouteMatch.swift in Sources */,
+				E58C4C7725F5A1269E269C22 /* GeoBoundingBox.swift in Sources */,
+				E5BEC17436A1071FCC1CFCAB /* RouteGeometryEdge.swift in Sources */,
+				E5FA51C8397465EC23338D23 /* RouteSegmentProjector.swift in Sources */,
+				E51B9542493B2B0FA4BE3000 /* RouteGeometryIndex.swift in Sources */,
+				E55ADC167ED7A0F232363667 /* RouteMatchingConfidence.swift in Sources */,
+				E59D1E69594343885D024777 /* RouteMatchingConfiguration.swift in Sources */,
+
 				E1B000000000000000001D0902 /* RouteMatching.swift in Sources */,
-				E1B000000000000000001D0903 /* LegacyRouteMatcher.swift in Sources */,
+				E1B000000000000000001D0903 /* RouteMatcher.swift in Sources */,
 				E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */,
 				E1B000000000000000001D0905 /* CueProgressing.swift in Sources */,
 				E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */,

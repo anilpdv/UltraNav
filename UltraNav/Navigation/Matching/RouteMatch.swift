@@ -1,20 +1,23 @@
 import Foundation
 
-struct RouteMatch: Equatable, Sendable {
-    let matchedCoordinate: Coordinate
-    let segmentIndex: Int
-    let segmentFraction: Double
-    let distanceAlongRouteMeters: Double
-    let crossTrackDistanceMeters: Double
-    let headingDifferenceDegrees: Double?
+/// Represents the deterministic projection and match of a location onto a route.
+public struct RouteMatch: Equatable, Sendable {
+    public let matchedCoordinate: Coordinate
+    public let segmentIndex: Int
+    public let segmentFraction: Double
+    public let distanceAlongRouteMeters: Double
+    public let crossTrackDistanceMeters: Double
+    public let headingDifferenceDegrees: Double?
+    public let confidence: RouteMatchingConfidence
 
-    init(
+    public init(
         matchedCoordinate: Coordinate,
         segmentIndex: Int,
         segmentFraction: Double = 0,
         distanceAlongRouteMeters: Double,
         crossTrackDistanceMeters: Double,
-        headingDifferenceDegrees: Double? = nil
+        headingDifferenceDegrees: Double? = nil,
+        confidence: RouteMatchingConfidence = .high
     ) {
         self.matchedCoordinate = matchedCoordinate
         self.segmentIndex = segmentIndex
@@ -22,5 +25,6 @@ struct RouteMatch: Equatable, Sendable {
         self.distanceAlongRouteMeters = distanceAlongRouteMeters
         self.crossTrackDistanceMeters = crossTrackDistanceMeters
         self.headingDifferenceDegrees = headingDifferenceDegrees
+        self.confidence = confidence
     }
 }
