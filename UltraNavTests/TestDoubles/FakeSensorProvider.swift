@@ -3,13 +3,25 @@ import Foundation
 
 actor FakeSensorProvider: SensorProviding {
     nonisolated let events: AsyncStream<SensorServiceEvent>
-
     private let continuation: AsyncStream<SensorServiceEvent>.Continuation
+
+    enum Call: Equatable, Sendable {
+        case isAvailable
+        case knownSensors
+        case startScanning(SensorScanRequest)
+        case stopScanning
+        case connect(SensorIdentifier)
+        case disconnect(SensorIdentifier)
+        case disconnectAll
+    }
+
+    private(set) var calls: [Call] = []
 
     var stubbedIsAvailable: Bool = true
     var stubbedKnownSensors: [SensorDescriptor] = []
     var scanFailure: SensorServiceFailure?
     var connectionFailures: [SensorIdentifier: SensorServiceFailure] = [:]
+    var connectGate: OperationGate?
 
     private(set) var startScanningCallCount = 0
     private(set) var scannedTypes: Set<SensorType> = []
@@ -45,15 +57,22 @@ actor FakeSensorProvider: SensorProviding {
         }
     }
 
+    func setConnectGate(_ gate: OperationGate?) {
+        self.connectGate = gate
+    }
+
     func isAvailable() async -> Bool {
-        stubbedIsAvailable
+        calls.append(.isAvailable)
+        return stubbedIsAvailable
     }
 
     func knownSensors() async -> [SensorDescriptor] {
-        stubbedKnownSensors
+        calls.append(.knownSensors)
+        return stubbedKnownSensors
     }
 
     func startScanning(request: SensorScanRequest) async throws {
+        calls.append(.startScanning(request))
         startScanningCallCount += 1
         scannedTypes = request.sensorTypes
         lastScanRequest = request
@@ -68,10 +87,17 @@ actor FakeSensorProvider: SensorProviding {
     }
 
     func stopScanning() async {
+        calls.append(.stopScanning)
         stopScanningCallCount += 1
     }
 
     func connect(to sensor: SensorIdentifier) async throws {
+        calls.append(.connect(sensor))
+
+        if let gate = connectGate {
+            try await gate.wait()
+        }
+
         if let failure = connectionFailures[sensor] {
             throw failure
         }
@@ -79,10 +105,12 @@ actor FakeSensorProvider: SensorProviding {
     }
 
     func disconnect(from sensor: SensorIdentifier) async {
+        calls.append(.disconnect(sensor))
         disconnectedSensors.append(sensor)
     }
 
     func disconnectAll() async {
+        calls.append(.disconnectAll)
         disconnectAllCallCount += 1
     }
 
@@ -92,5 +120,18 @@ actor FakeSensorProvider: SensorProviding {
 
     nonisolated func finishEvents() {
         continuation.finish()
+    }
+
+    func clear() {
+        calls.removeAll()
+        startScanningCallCount = 0
+        scannedTypes.removeAll()
+        lastScanRequest = nil
+        stopScanningCallCount = 0
+        connectedSensors.removeAll()
+        disconnectedSensors.removeAll()
+        disconnectAllCallCount = 0
+        connectionFailures.removeAll()
+        connectGate = nil
     }
 }

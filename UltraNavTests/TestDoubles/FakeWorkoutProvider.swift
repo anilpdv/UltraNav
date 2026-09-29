@@ -3,8 +3,21 @@ import Foundation
 
 actor FakeWorkoutProvider: WorkoutProviding {
     nonisolated let events: AsyncStream<WorkoutServiceEvent>
-
     private let continuation: AsyncStream<WorkoutServiceEvent>.Continuation
+
+    enum Call: Equatable, Sendable {
+        case authorizationStatus
+        case requestAuthorization
+        case prepare
+        case start(Date)
+        case pause
+        case resume
+        case finish(Date)
+        case cancel
+        case reset
+    }
+
+    private(set) var calls: [Call] = []
 
     var stubbedAuthorizationStatus: WorkoutAuthorizationStatus = .notDetermined
 
@@ -14,6 +27,9 @@ actor FakeWorkoutProvider: WorkoutProviding {
     var pauseFailure: WorkoutServiceFailure?
     var resumeFailure: WorkoutServiceFailure?
     var finishFailure: WorkoutServiceFailure?
+
+    var startGate: OperationGate?
+    var finishGate: OperationGate?
 
     private(set) var authorizationCallCount = 0
     private(set) var prepareCallCount = 0
@@ -58,11 +74,21 @@ actor FakeWorkoutProvider: WorkoutProviding {
         self.finishFailure = failure
     }
 
+    func setStartGate(_ gate: OperationGate?) {
+        self.startGate = gate
+    }
+
+    func setFinishGate(_ gate: OperationGate?) {
+        self.finishGate = gate
+    }
+
     func authorizationStatus() async -> WorkoutAuthorizationStatus {
-        stubbedAuthorizationStatus
+        calls.append(.authorizationStatus)
+        return stubbedAuthorizationStatus
     }
 
     func requestAuthorization() async throws {
+        calls.append(.requestAuthorization)
         authorizationCallCount += 1
 
         if let authorizationFailure {
@@ -71,6 +97,7 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func prepare() async throws {
+        calls.append(.prepare)
         prepareCallCount += 1
 
         if let preparationFailure {
@@ -79,7 +106,12 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func start(at date: Date) async throws {
+        calls.append(.start(date))
         startDates.append(date)
+
+        if let gate = startGate {
+            try await gate.wait()
+        }
 
         if let startFailure {
             throw startFailure
@@ -87,6 +119,7 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func pause() async throws {
+        calls.append(.pause)
         pauseCallCount += 1
 
         if let pauseFailure {
@@ -95,6 +128,7 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func resume() async throws {
+        calls.append(.resume)
         resumeCallCount += 1
 
         if let resumeFailure {
@@ -103,7 +137,12 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func finish(at date: Date) async throws {
+        calls.append(.finish(date))
         finishDates.append(date)
+
+        if let gate = finishGate {
+            try await gate.wait()
+        }
 
         if let finishFailure {
             throw finishFailure
@@ -111,10 +150,12 @@ actor FakeWorkoutProvider: WorkoutProviding {
     }
 
     func cancel() async {
+        calls.append(.cancel)
         cancelCallCount += 1
     }
 
     func reset() async {
+        calls.append(.reset)
         resetCallCount += 1
     }
 
@@ -124,5 +165,19 @@ actor FakeWorkoutProvider: WorkoutProviding {
 
     nonisolated func finishEvents() {
         continuation.finish()
+    }
+
+    func clear() {
+        calls.removeAll()
+        authorizationCallCount = 0
+        prepareCallCount = 0
+        startDates.removeAll()
+        pauseCallCount = 0
+        resumeCallCount = 0
+        finishDates.removeAll()
+        cancelCallCount = 0
+        resetCallCount = 0
+        startGate = nil
+        finishGate = nil
     }
 }
