@@ -12,8 +12,9 @@ public protocol RouteStorageCodec: Sendable {
 public final class JSONRouteStorageCodec: RouteStorageCodec, Sendable {
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder
+    private let migrator: RouteStorageMigrator
 
-    public init() {
+    public init(migrator: RouteStorageMigrator = RouteStorageMigrator()) {
         let enc = JSONEncoder()
         enc.dateEncodingStrategy = .iso8601
         enc.outputFormatting = [.sortedKeys]
@@ -22,6 +23,7 @@ public final class JSONRouteStorageCodec: RouteStorageCodec, Sendable {
         let dec = JSONDecoder()
         dec.dateDecodingStrategy = .iso8601
         self.decoder = dec
+        self.migrator = migrator
     }
 
     public func encodeRecord(_ record: RouteStorageRecord) throws -> Data {
@@ -29,7 +31,7 @@ public final class JSONRouteStorageCodec: RouteStorageCodec, Sendable {
     }
 
     public func decodeRecord(from data: Data) throws -> RouteStorageRecord {
-        try decoder.decode(RouteStorageRecord.self, from: data)
+        try migrator.migrate(data: data)
     }
 
     public func encodeIndex(_ index: RouteStoreIndex) throws -> Data {

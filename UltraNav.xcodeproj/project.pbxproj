@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		P2B81E90088AB6335E2112B5FBF /* RouteFingerprints.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */; };
+		P2B5EFE65EFC1929D28CE13A68F /* RouteNormalizationVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */; };
+		P2BA9718A2160C3244F581257EB /* RouteNormalizationReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */; };
+		P2B4632616AE9D87E6C2BA1CA87 /* DuplicatePointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F602EDBD768C5C1F2CCF92AA9 /* DuplicatePointPolicy.swift */; };
+		P2BDB42CCB7B3578DC2A30284BD /* RouteStorageMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FB7381D955A8A2FE9C63EC810 /* RouteStorageMigrator.swift */; };
+		P2BA8F73D716A5F207D0204C542 /* RouteStorageSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FC34851F0F3B760DA03DB006C /* RouteStorageSchemaV1.swift */; };
+		P2BFC111D953D64BCCDC7347DA5 /* RouteStorageSchemaV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F9FC9DBE96FF9F4E9620AC6A3 /* RouteStorageSchemaV2.swift */; };
+		P2B343B52F010A3BDB24649EF57 /* GPXParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F218258D1F3AB53876746E3EB /* GPXParserDelegate.swift */; };
+		P2B85A89C3FD3EFCB1398221FE7 /* GPXParserWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F3F57AB64E9C18F55FA3E964B /* GPXParserWarning.swift */; };
+		P2B76E71C4735CCF6071F496B6E /* GPXParserLimits.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F37A429B115D77B89436E205D /* GPXParserLimits.swift */; };
+		P2BC107726C8EC6A573C1BB5646 /* GPXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FE2DC8D61D536A12722A3B3CF /* GPXElement.swift */; };
+		P2B195BE60C1181590C57E6EAE8 /* GPXVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F08F17044F190622E994E262A /* GPXVersion.swift */; };
+		P2BB5A84516ACC7E5E5CBD500A2 /* GPXParsingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FF9784D835BE4D7907B6A0EC4 /* GPXParsingPolicy.swift */; };
+		P2B95593256251A25369233C268 /* GPXNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F4AC61255F531AFAE2870AE72 /* GPXNamespace.swift */; };
+		P2B2F69AB12CF55F499018032ED /* GPXParsingReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F17AC304E94C2800085708876 /* GPXParsingReport.swift */; };
+		P2B7D2234A98BFB9F0B7358448B /* GPXContentKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F350B056382DD45B3F4B91486 /* GPXContentKind.swift */; };
+		P2B4240B1BE7B98C671A805CB4C /* GPXContentSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F4B1145F46A133FDB1D3FDD6A /* GPXContentSelecting.swift */; };
+		P2BA118AAA817BA77DA5DDE1328 /* GPXContentSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F0968B26B42B12898BF2BA14D /* GPXContentSelection.swift */; };
+		P2BA31EE4D78CD37CB261F93F7D /* GPXContentCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FB533F4C74A0A16C5EDC87F11 /* GPXContentCandidate.swift */; };
+		P2BB71DD55F0EE1EE4846FDD730 /* StandardGPXContentSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F0335FAA80B5C76F965E28E96 /* StandardGPXContentSelector.swift */; };
+		P2BE3ADBAE7E9E1BD8478E9F015 /* GPXContentSelectionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F4B01E0788BB74681F12C7652 /* GPXContentSelectionPolicy.swift */; };
+		P2B4539FA6FE66A60CFF641F3D7 /* CanonicalRouteValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2F032AD36616FE7EC0704F4896 /* CanonicalRouteValidator.swift */; };
+		P2B58B3699847291508E6197C55 /* GPXDocumentValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2FEC95A21010DD6A4F8BB735C3 /* GPXDocumentValidator.swift */; };
+		P2TBC8D97A8D2C506FF4D2FC9225 /* GPXLargeFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TF7F2769DC256849CF30764BF1 /* GPXLargeFileTests.swift */; };
+		P2TB61762049C608B367CCF8F213 /* GPXLargeFixtureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TFDDCD2084DE05124E2E4BD53C /* GPXLargeFixtureGenerator.swift */; };
+		P2TB66E0BDF4F4C40017FA33EBA1 /* SHA256RouteIdentityCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TF349EF771B83E5971C605C575 /* SHA256RouteIdentityCreatorTests.swift */; };
+		P2TBF01970DEAACE012B774F15AF /* RouteStorageMigratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TF44BD243BB4FCB6902594B1E9 /* RouteStorageMigratorTests.swift */; };
+		P2TB5812EE3BCA5CB9085AE45597 /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TFE81EAB3CA4B23D9288DA8E17 /* GPXParserTests.swift */; };
+		P2TB8825DFD5814D91556401FA9B /* StandardGPXContentSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2TFB03D43DB6093B484FDFC8998 /* StandardGPXContentSelectorTests.swift */; };
 		E1B0D9A8DA0BFECD1E8E0B673 /* LegacySymbolAbsenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */; };
 		E1B99E2505439D1617F6C6EB5 /* SingleOwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */; };
 		E1B86ED188D36D452D142A29F /* FrameworkBoundaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */; };
@@ -702,6 +731,35 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/Route/RouteFingerprints.swift"; sourceTree = "<group>"; };
+		P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Normalization/RouteNormalizationVersion.swift"; sourceTree = "<group>"; };
+		P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Normalization/RouteNormalizationReport.swift"; sourceTree = "<group>"; };
+		P2F602EDBD768C5C1F2CCF92AA9 /* DuplicatePointPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Normalization/DuplicatePointPolicy.swift"; sourceTree = "<group>"; };
+		P2FB7381D955A8A2FE9C63EC810 /* RouteStorageMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Storage/RouteStorageMigrator.swift"; sourceTree = "<group>"; };
+		P2FC34851F0F3B760DA03DB006C /* RouteStorageSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Storage/RouteStorageSchemaV1.swift"; sourceTree = "<group>"; };
+		P2F9FC9DBE96FF9F4E9620AC6A3 /* RouteStorageSchemaV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Storage/RouteStorageSchemaV2.swift"; sourceTree = "<group>"; };
+		P2F218258D1F3AB53876746E3EB /* GPXParserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXParserDelegate.swift"; sourceTree = "<group>"; };
+		P2F3F57AB64E9C18F55FA3E964B /* GPXParserWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXParserWarning.swift"; sourceTree = "<group>"; };
+		P2F37A429B115D77B89436E205D /* GPXParserLimits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXParserLimits.swift"; sourceTree = "<group>"; };
+		P2FE2DC8D61D536A12722A3B3CF /* GPXElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXElement.swift"; sourceTree = "<group>"; };
+		P2F08F17044F190622E994E262A /* GPXVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXVersion.swift"; sourceTree = "<group>"; };
+		P2FF9784D835BE4D7907B6A0EC4 /* GPXParsingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXParsingPolicy.swift"; sourceTree = "<group>"; };
+		P2F4AC61255F531AFAE2870AE72 /* GPXNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXNamespace.swift"; sourceTree = "<group>"; };
+		P2F17AC304E94C2800085708876 /* GPXParsingReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/GPX/GPXParsingReport.swift"; sourceTree = "<group>"; };
+		P2F350B056382DD45B3F4B91486 /* GPXContentKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/GPXContentKind.swift"; sourceTree = "<group>"; };
+		P2F4B1145F46A133FDB1D3FDD6A /* GPXContentSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/GPXContentSelecting.swift"; sourceTree = "<group>"; };
+		P2F0968B26B42B12898BF2BA14D /* GPXContentSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/GPXContentSelection.swift"; sourceTree = "<group>"; };
+		P2FB533F4C74A0A16C5EDC87F11 /* GPXContentCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/GPXContentCandidate.swift"; sourceTree = "<group>"; };
+		P2F0335FAA80B5C76F965E28E96 /* StandardGPXContentSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/StandardGPXContentSelector.swift"; sourceTree = "<group>"; };
+		P2F4B01E0788BB74681F12C7652 /* GPXContentSelectionPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Selection/GPXContentSelectionPolicy.swift"; sourceTree = "<group>"; };
+		P2F032AD36616FE7EC0704F4896 /* CanonicalRouteValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Validation/CanonicalRouteValidator.swift"; sourceTree = "<group>"; };
+		P2FEC95A21010DD6A4F8BB735C3 /* GPXDocumentValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routes/Validation/GPXDocumentValidator.swift"; sourceTree = "<group>"; };
+		P2TF7F2769DC256849CF30764BF1 /* GPXLargeFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/Large/GPXLargeFileTests.swift"; sourceTree = "<group>"; };
+		P2TFDDCD2084DE05124E2E4BD53C /* GPXLargeFixtureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/Large/GPXLargeFixtureGenerator.swift"; sourceTree = "<group>"; };
+		P2TF349EF771B83E5971C605C575 /* SHA256RouteIdentityCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/Identity/SHA256RouteIdentityCreatorTests.swift"; sourceTree = "<group>"; };
+		P2TF44BD243BB4FCB6902594B1E9 /* RouteStorageMigratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/Storage/RouteStorageMigratorTests.swift"; sourceTree = "<group>"; };
+		P2TFE81EAB3CA4B23D9288DA8E17 /* GPXParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/GPX/GPXParserTests.swift"; sourceTree = "<group>"; };
+		P2TFB03D43DB6093B484FDFC8998 /* StandardGPXContentSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Routes/Selection/StandardGPXContentSelectorTests.swift"; sourceTree = "<group>"; };
 		E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/LegacySymbolAbsenceTests.swift; sourceTree = "<group>"; };
 		E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/SingleOwnerTests.swift; sourceTree = "<group>"; };
 		E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/FrameworkBoundaryTests.swift; sourceTree = "<group>"; };
@@ -1431,6 +1489,12 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				P2TF7F2769DC256849CF30764BF1 /* GPXLargeFileTests.swift */,
+				P2TFDDCD2084DE05124E2E4BD53C /* GPXLargeFixtureGenerator.swift */,
+				P2TF349EF771B83E5971C605C575 /* SHA256RouteIdentityCreatorTests.swift */,
+				P2TF44BD243BB4FCB6902594B1E9 /* RouteStorageMigratorTests.swift */,
+				P2TFE81EAB3CA4B23D9288DA8E17 /* GPXParserTests.swift */,
+				P2TFB03D43DB6093B484FDFC8998 /* StandardGPXContentSelectorTests.swift */,
 				E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */,
 				E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */,
 				E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */,
@@ -1741,6 +1805,29 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				P2FF89150DC04ECDDB2BE924C6E /* RouteFingerprints.swift */,
+				P2F7087167C7AE3FC26F0CE911F /* RouteNormalizationVersion.swift */,
+				P2F602501591E170DDD68D9245C /* RouteNormalizationReport.swift */,
+				P2F602EDBD768C5C1F2CCF92AA9 /* DuplicatePointPolicy.swift */,
+				P2FB7381D955A8A2FE9C63EC810 /* RouteStorageMigrator.swift */,
+				P2FC34851F0F3B760DA03DB006C /* RouteStorageSchemaV1.swift */,
+				P2F9FC9DBE96FF9F4E9620AC6A3 /* RouteStorageSchemaV2.swift */,
+				P2F218258D1F3AB53876746E3EB /* GPXParserDelegate.swift */,
+				P2F3F57AB64E9C18F55FA3E964B /* GPXParserWarning.swift */,
+				P2F37A429B115D77B89436E205D /* GPXParserLimits.swift */,
+				P2FE2DC8D61D536A12722A3B3CF /* GPXElement.swift */,
+				P2F08F17044F190622E994E262A /* GPXVersion.swift */,
+				P2FF9784D835BE4D7907B6A0EC4 /* GPXParsingPolicy.swift */,
+				P2F4AC61255F531AFAE2870AE72 /* GPXNamespace.swift */,
+				P2F17AC304E94C2800085708876 /* GPXParsingReport.swift */,
+				P2F350B056382DD45B3F4B91486 /* GPXContentKind.swift */,
+				P2F4B1145F46A133FDB1D3FDD6A /* GPXContentSelecting.swift */,
+				P2F0968B26B42B12898BF2BA14D /* GPXContentSelection.swift */,
+				P2FB533F4C74A0A16C5EDC87F11 /* GPXContentCandidate.swift */,
+				P2F0335FAA80B5C76F965E28E96 /* StandardGPXContentSelector.swift */,
+				P2F4B01E0788BB74681F12C7652 /* GPXContentSelectionPolicy.swift */,
+				P2F032AD36616FE7EC0704F4896 /* CanonicalRouteValidator.swift */,
+				P2FEC95A21010DD6A4F8BB735C3 /* GPXDocumentValidator.swift */,
 				CA955D152E144070AC46DFC2 /* AsyncEventChannel.swift */,
 				EF9A1B9CA7844AFDAFF19C9F /* EventStreamOwner.swift */,
 				AF3E6139E73446C2949195E7 /* TaskRegistry.swift */,
@@ -2219,6 +2306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P2TBC8D97A8D2C506FF4D2FC9225 /* GPXLargeFileTests.swift in Sources */,
+				P2TB61762049C608B367CCF8F213 /* GPXLargeFixtureGenerator.swift in Sources */,
+				P2TB66E0BDF4F4C40017FA33EBA1 /* SHA256RouteIdentityCreatorTests.swift in Sources */,
+				P2TBF01970DEAACE012B774F15AF /* RouteStorageMigratorTests.swift in Sources */,
+				P2TB5812EE3BCA5CB9085AE45597 /* GPXParserTests.swift in Sources */,
+				P2TB8825DFD5814D91556401FA9B /* StandardGPXContentSelectorTests.swift in Sources */,
 				E1B0D9A8DA0BFECD1E8E0B673 /* LegacySymbolAbsenceTests.swift in Sources */,
 				E1B99E2505439D1617F6C6EB5 /* SingleOwnerTests.swift in Sources */,
 				E1B86ED188D36D452D142A29F /* FrameworkBoundaryTests.swift in Sources */,
@@ -2485,6 +2578,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P2B81E90088AB6335E2112B5FBF /* RouteFingerprints.swift in Sources */,
+				P2B5EFE65EFC1929D28CE13A68F /* RouteNormalizationVersion.swift in Sources */,
+				P2BA9718A2160C3244F581257EB /* RouteNormalizationReport.swift in Sources */,
+				P2B4632616AE9D87E6C2BA1CA87 /* DuplicatePointPolicy.swift in Sources */,
+				P2BDB42CCB7B3578DC2A30284BD /* RouteStorageMigrator.swift in Sources */,
+				P2BA8F73D716A5F207D0204C542 /* RouteStorageSchemaV1.swift in Sources */,
+				P2BFC111D953D64BCCDC7347DA5 /* RouteStorageSchemaV2.swift in Sources */,
+				P2B343B52F010A3BDB24649EF57 /* GPXParserDelegate.swift in Sources */,
+				P2B85A89C3FD3EFCB1398221FE7 /* GPXParserWarning.swift in Sources */,
+				P2B76E71C4735CCF6071F496B6E /* GPXParserLimits.swift in Sources */,
+				P2BC107726C8EC6A573C1BB5646 /* GPXElement.swift in Sources */,
+				P2B195BE60C1181590C57E6EAE8 /* GPXVersion.swift in Sources */,
+				P2BB5A84516ACC7E5E5CBD500A2 /* GPXParsingPolicy.swift in Sources */,
+				P2B95593256251A25369233C268 /* GPXNamespace.swift in Sources */,
+				P2B2F69AB12CF55F499018032ED /* GPXParsingReport.swift in Sources */,
+				P2B7D2234A98BFB9F0B7358448B /* GPXContentKind.swift in Sources */,
+				P2B4240B1BE7B98C671A805CB4C /* GPXContentSelecting.swift in Sources */,
+				P2BA118AAA817BA77DA5DDE1328 /* GPXContentSelection.swift in Sources */,
+				P2BA31EE4D78CD37CB261F93F7D /* GPXContentCandidate.swift in Sources */,
+				P2BB71DD55F0EE1EE4846FDD730 /* StandardGPXContentSelector.swift in Sources */,
+				P2BE3ADBAE7E9E1BD8478E9F015 /* GPXContentSelectionPolicy.swift in Sources */,
+				P2B4539FA6FE66A60CFF641F3D7 /* CanonicalRouteValidator.swift in Sources */,
+				P2B58B3699847291508E6197C55 /* GPXDocumentValidator.swift in Sources */,
 				P1QB3113AADC34CE99286A838 /* MonotonicClockProviding.swift in Sources */,
 				P1QB321099ED5330278643031 /* SystemMonotonicClock.swift in Sources */,
 				P1QB085B16EC32B165059F464 /* OperationID.swift in Sources */,

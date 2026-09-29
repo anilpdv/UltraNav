@@ -7,6 +7,9 @@ public struct GPXParsedPoint: Equatable, Hashable, Sendable {
     public let elevation: Double?
     public let time: Date?
 
+    public var elevationMeters: Double? { elevation }
+    public var timestamp: Date? { time }
+
     public init(
         latitude: Double,
         longitude: Double,
@@ -17,5 +20,17 @@ public struct GPXParsedPoint: Equatable, Hashable, Sendable {
         self.longitude = longitude
         self.elevation = elevation
         self.time = time
+    }
+
+    public init(
+        latitude: Double,
+        longitude: Double,
+        elevationMeters: Double?,
+        timestamp: Date?
+    ) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.elevation = elevationMeters
+        self.time = timestamp
     }
 }
