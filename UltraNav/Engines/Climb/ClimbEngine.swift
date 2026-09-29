@@ -31,41 +31,18 @@ final class ClimbEngine: ClimbEngineProviding {
     private var lastAltitude: Double?
     private var lastRouteDistanceMeters: Double = 0
 
-    // Stream continuations
-    private var snapshotContinuation: AsyncStream<ClimbSnapshot>.Continuation?
-    private var notificationContinuation: AsyncStream<ClimbNotification>.Continuation?
+    // Stream channels
+    private let snapshotChannel = AsyncEventChannel<ClimbSnapshot>(bufferingPolicy: .bufferingNewest(5))
+    private let notificationChannel = AsyncEventChannel<ClimbNotification>(bufferingPolicy: .bufferingNewest(20))
 
     private(set) var currentSnapshot: ClimbSnapshot
 
     var snapshots: AsyncStream<ClimbSnapshot> {
-        AsyncStream { [weak self] continuation in
-            guard let self else {
-                continuation.finish()
-                return
-            }
-            self.snapshotContinuation = continuation
-            continuation.yield(self.currentSnapshot)
-            continuation.onTermination = { [weak self] _ in
-                Task { @MainActor [weak self] in
-                    self?.snapshotContinuation = nil
-                }
-            }
-        }
+        snapshotChannel.makeStream()
     }
 
     var notifications: AsyncStream<ClimbNotification> {
-        AsyncStream { [weak self] continuation in
-            guard let self else {
-                continuation.finish()
-                return
-            }
-            self.notificationContinuation = continuation
-            continuation.onTermination = { [weak self] _ in
-                Task { @MainActor [weak self] in
-                    self?.notificationContinuation = nil
-                }
-            }
-        }
+        notificationChannel.makeStream()
     }
 
     init(
@@ -143,18 +120,18 @@ final class ClimbEngine: ClimbEngineProviding {
                 self.state = .ready
             }
 
-            notificationContinuation?.yield(.routeAnalyzed(totalClimbs: result.climbs.count))
+            notificationChannel.send(.routeAnalyzed(totalClimbs: result.climbs.count))
             publishSnapshot()
         } catch let climbFailure as ClimbFailure {
             self.state = .failed
             self.failure = climbFailure
-            notificationContinuation?.yield(.analysisFailed(failure: climbFailure))
+            notificationChannel.send(.analysisFailed(failure: climbFailure))
             publishSnapshot()
         } catch {
             let wrappedFailure = ClimbFailure.unexpected(error.localizedDescription)
             self.state = .failed
             self.failure = wrappedFailure
-            notificationContinuation?.yield(.analysisFailed(failure: wrappedFailure))
+            notificationChannel.send(.analysisFailed(failure: wrappedFailure))
             publishSnapshot()
         }
     }
@@ -193,19 +170,19 @@ final class ClimbEngine: ClimbEngineProviding {
            let dist = selection.approachingDistanceMeters,
            approaching.id != lastApproachedClimbID {
             self.lastApproachedClimbID = approaching.id
-            notificationContinuation?.yield(.climbApproaching(climb: approaching, distanceMeters: dist))
+            notificationChannel.send(.climbApproaching(climb: approaching, distanceMeters: dist))
         }
 
         for skipped in selection.newlySkippedClimbs {
-            notificationContinuation?.yield(.climbSkipped(climb: skipped))
+            notificationChannel.send(.climbSkipped(climb: skipped))
         }
 
         if let completed = selection.newlyCompletedClimb {
-            notificationContinuation?.yield(.climbCompleted(climb: completed))
+            notificationChannel.send(.climbCompleted(climb: completed))
         }
 
         if let started = selection.newlyStartedClimb {
-            notificationContinuation?.yield(.climbStarted(climb: started))
+            notificationChannel.send(.climbStarted(climb: started))
         }
 
         // Update progress & state
@@ -221,7 +198,7 @@ final class ClimbEngine: ClimbEngineProviding {
             self.activeClimbProgress = nil
             if !climbs.isEmpty && completedClimbIDs.count == climbs.count {
                 if state != .completedAllClimbs {
-                    notificationContinuation?.yield(.allClimbsCompleted)
+                    notificationChannel.send(.allClimbsCompleted)
                 }
                 self.state = .completedAllClimbs
             } else {
@@ -298,7 +275,7 @@ final class ClimbEngine: ClimbEngineProviding {
         self.lastRouteDistanceMeters = 0
 
         self.currentSnapshot = ClimbSnapshot.empty
-        snapshotContinuation?.yield(self.currentSnapshot)
+        snapshotChannel.send(self.currentSnapshot)
     }
 
     private func publishSnapshot() {
@@ -318,6 +295,6 @@ final class ClimbEngine: ClimbEngineProviding {
             failure: failure
         )
         self.currentSnapshot = snapshot
-        snapshotContinuation?.yield(snapshot)
+        snapshotChannel.send(snapshot)
     }
 }

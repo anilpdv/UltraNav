@@ -11,6 +11,10 @@ struct UltraNavApp: App {
     @State private var cyclingEngine = CyclingRideEngine.shared
 
     init() {
+        if NSClassFromString("XCTestCase") != nil || ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            _container = State(initialValue: AppContainer.makePreview())
+            return
+        }
         do {
             let container = try AppContainer.makeProduction()
             _container = State(initialValue: container)

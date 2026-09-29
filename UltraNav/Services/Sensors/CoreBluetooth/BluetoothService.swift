@@ -19,8 +19,17 @@ final class BluetoothService: NSObject, SensorProviding, CoreBluetoothDelegateBr
     private var contexts: [SensorIdentifier: PeripheralContext] = [:]
     private var peripheralUUIDMap: [UUID: SensorIdentifier] = [:]
 
+    private static func makeDefaultCentral() -> any CoreBluetoothManaging {
+        #if targetEnvironment(simulator)
+        if NSClassFromString("XCTestCase") != nil || ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            return NoOpCentralManager()
+        }
+        #endif
+        return CBCentralManager(delegate: nil, queue: nil)
+    }
+
     init(
-        central: any CoreBluetoothManaging = CBCentralManager(delegate: nil, queue: nil),
+        central: any CoreBluetoothManaging = BluetoothService.makeDefaultCentral(),
         centralDelegateBridge: CoreBluetoothDelegateBridge = CoreBluetoothDelegateBridge(),
         clock: any ClockProviding = SystemClock(),
         packetParser: any SensorPacketParsing = CyclingSensorPacketParser()

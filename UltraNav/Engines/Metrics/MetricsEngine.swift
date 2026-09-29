@@ -3,8 +3,10 @@ import Foundation
 @MainActor
 final class MetricsEngine: MetricsEngineProviding {
     private(set) var currentSnapshot: MetricsSnapshot
-    let snapshots: AsyncStream<MetricsSnapshot>
-    private let snapshotContinuation: AsyncStream<MetricsSnapshot>.Continuation
+    private let snapshotChannel = AsyncEventChannel<MetricsSnapshot>(bufferingPolicy: .bufferingNewest(5))
+    var snapshots: AsyncStream<MetricsSnapshot> {
+        snapshotChannel.makeStream()
+    }
 
     private let validator: any MetricValidating
     private let sourceSelector: any MetricSourceSelecting
@@ -20,23 +22,12 @@ final class MetricsEngine: MetricsEngineProviding {
         summaryBuilder: MetricsSummaryBuilder = MetricsSummaryBuilder(),
         clock: any ClockProviding = SystemClock()
     ) {
-        let pair = AsyncStream.makeStream(
-            of: MetricsSnapshot.self,
-            bufferingPolicy: .bufferingNewest(5)
-        )
-        self.snapshots = pair.stream
-        self.snapshotContinuation = pair.continuation
-
         self.validator = validator
         self.sourceSelector = sourceSelector
         self.summaryBuilder = summaryBuilder
         self.clock = clock
 
         self.currentSnapshot = .empty
-    }
-
-    deinit {
-        snapshotContinuation.finish()
     }
 
     func send(_ command: MetricsEngineCommand) async {
@@ -63,7 +54,7 @@ final class MetricsEngine: MetricsEngineProviding {
             state = .idle
             store.reset()
             currentSnapshot = .empty
-            snapshotContinuation.yield(.empty)
+            snapshotChannel.send(.empty)
         }
     }
 
@@ -169,6 +160,6 @@ final class MetricsEngine: MetricsEngineProviding {
 
         guard snapshot != currentSnapshot else { return }
         currentSnapshot = snapshot
-        snapshotContinuation.yield(snapshot)
+        snapshotChannel.send(snapshot)
     }
 }

@@ -500,6 +500,28 @@
 		F0000000000000000000000E /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000E /* GPXParserTests.swift */; };
 		F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000F /* CyclingRideEngineTests.swift */; };
 		F100000000000000000001 /* MKDirectionsTransportType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */; };
+		D5E5E52F01374493A82E147D /* AsyncEventChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA955D152E144070AC46DFC2 /* AsyncEventChannel.swift */; };
+		9D1364A42CF141BDAB7C9176 /* EventStreamOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A1B9CA7844AFDAFF19C9F /* EventStreamOwner.swift */; };
+		FE84A471276A4FB7A70788BB /* TaskRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E6139E73446C2949195E7 /* TaskRegistry.swift */; };
+		5144BE7C7089406CB7238AF8 /* CancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDA9D51BB54FC9A911F488 /* CancellationToken.swift */; };
+		0A7C8A42FE154387ABCA9EC1 /* ConcurrencyDiagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499A3519AC9462CB78CDDFE /* ConcurrencyDiagnostics.swift */; };
+		6B381EE9C66448E78008C09A /* TickProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7046C213914202AB599BFF /* TickProviding.swift */; };
+		5526C50C76BF4CB68837FF70 /* SystemTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F5435C3F7F4D4CB5D7B6F7 /* SystemTicker.swift */; };
+		839E9B0B089047DE8F5D39D5 /* ManualTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162BA41BB0564CBFA67AC4CB /* ManualTicker.swift */; };
+		8C0F6512BDF1479CA6ED1FA2 /* LockedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D955654C67844A42BB2E8BB0 /* LockedValue.swift */; };
+		0A2892EDF4AA4DFC99C07722 /* AsyncEventChannelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB5C6D45234953B1DD7B2E /* AsyncEventChannelTests.swift */; };
+		704D7F23723E414E9F58826E /* TaskRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59FC422D51491A8FA59120 /* TaskRegistryTests.swift */; };
+		573E217163FB48E18A2A5FBB /* StreamCancellationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4FD6E1E26F4DC8B66CA221 /* StreamCancellationTests.swift */; };
+		67E8AFED18834B44879F91A7 /* StreamBufferingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470942885644DB783E84780 /* StreamBufferingTests.swift */; };
+		8DDC1B63870B42A68520DF6E /* EventOrderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08818078194EA98D43B0E8 /* EventOrderingTests.swift */; };
+		1646BD106C8C409399D85F9E /* ActorIsolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2040CD9F154CA5AEEA4686 /* ActorIsolationTests.swift */; };
+		D8F1DE6B1C23461CB9E44975 /* ContinuationSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B325DE34B48349EB4C095 /* ContinuationSafetyTests.swift */; };
+		BE7AE51ABAEC4F1194E34B76 /* TaskRetentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19216D915934074A91D0C9F /* TaskRetentionTests.swift */; };
+		AA6D01C02750486E82FE830F /* ConcurrencyStressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146B48E1FE149979D7A5CB5 /* ConcurrencyStressTests.swift */; };
+		DCD09FF60D0546CCBFDCAE24 /* LocationConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105CBE08CD94EC1AEEB896C /* LocationConcurrencyTests.swift */; };
+		5F177C1D239745B0A62E93B0 /* WorkoutConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A389D1E1742340F8BF4D4A96 /* WorkoutConcurrencyTests.swift */; };
+		CC57248ACC01446A83328C28 /* BluetoothConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008EB5570404BF4AB9BE579 /* BluetoothConcurrencyTests.swift */; };
+		96CE12B4DDC5498BAC69CAB4 /* CoordinatorConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E93D03D7740E589ED3A35 /* CoordinatorConcurrencyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1062,6 +1084,28 @@
 		F41C06CBDB66BB5016238EA3 /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfiguration.swift; path = Services/Location/LocationConfiguration.swift; sourceTree = "<group>"; };
 		F4716A9E44EA2281E529F902 /* LocationServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationServiceTests.swift; sourceTree = "<group>"; };
 		FC4142C15420381C1B4EF118 /* CoreLocationSampleConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocationSampleConverter.swift; path = Services/Location/CoreLocationSampleConverter.swift; sourceTree = "<group>"; };
+		CA955D152E144070AC46DFC2 /* AsyncEventChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Concurrency/AsyncEventChannel.swift"; sourceTree = "<group>"; };
+		EF9A1B9CA7844AFDAFF19C9F /* EventStreamOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Concurrency/EventStreamOwner.swift"; sourceTree = "<group>"; };
+		AF3E6139E73446C2949195E7 /* TaskRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Concurrency/TaskRegistry.swift"; sourceTree = "<group>"; };
+		B4BDA9D51BB54FC9A911F488 /* CancellationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Concurrency/CancellationToken.swift"; sourceTree = "<group>"; };
+		8499A3519AC9462CB78CDDFE /* ConcurrencyDiagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Concurrency/ConcurrencyDiagnostics.swift"; sourceTree = "<group>"; };
+		3A7046C213914202AB599BFF /* TickProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Time/TickProviding.swift"; sourceTree = "<group>"; };
+		E8F5435C3F7F4D4CB5D7B6F7 /* SystemTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Time/SystemTicker.swift"; sourceTree = "<group>"; };
+		162BA41BB0564CBFA67AC4CB /* ManualTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Time/ManualTicker.swift"; sourceTree = "<group>"; };
+		D955654C67844A42BB2E8BB0 /* LockedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Infrastructure/Synchronization/LockedValue.swift"; sourceTree = "<group>"; };
+		EBAB5C6D45234953B1DD7B2E /* AsyncEventChannelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/AsyncEventChannelTests.swift"; sourceTree = "<group>"; };
+		2D59FC422D51491A8FA59120 /* TaskRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/TaskRegistryTests.swift"; sourceTree = "<group>"; };
+		7B4FD6E1E26F4DC8B66CA221 /* StreamCancellationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/StreamCancellationTests.swift"; sourceTree = "<group>"; };
+		A470942885644DB783E84780 /* StreamBufferingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/StreamBufferingTests.swift"; sourceTree = "<group>"; };
+		DE08818078194EA98D43B0E8 /* EventOrderingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/EventOrderingTests.swift"; sourceTree = "<group>"; };
+		7F2040CD9F154CA5AEEA4686 /* ActorIsolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/ActorIsolationTests.swift"; sourceTree = "<group>"; };
+		7F8B325DE34B48349EB4C095 /* ContinuationSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/ContinuationSafetyTests.swift"; sourceTree = "<group>"; };
+		A19216D915934074A91D0C9F /* TaskRetentionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/TaskRetentionTests.swift"; sourceTree = "<group>"; };
+		0146B48E1FE149979D7A5CB5 /* ConcurrencyStressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/ConcurrencyStressTests.swift"; sourceTree = "<group>"; };
+		3105CBE08CD94EC1AEEB896C /* LocationConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/LocationConcurrencyTests.swift"; sourceTree = "<group>"; };
+		A389D1E1742340F8BF4D4A96 /* WorkoutConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/WorkoutConcurrencyTests.swift"; sourceTree = "<group>"; };
+		8008EB5570404BF4AB9BE579 /* BluetoothConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/BluetoothConcurrencyTests.swift"; sourceTree = "<group>"; };
+		5A0E93D03D7740E589ED3A35 /* CoordinatorConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/CoordinatorConcurrencyTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1109,6 +1153,19 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBAB5C6D45234953B1DD7B2E /* AsyncEventChannelTests.swift */,
+				2D59FC422D51491A8FA59120 /* TaskRegistryTests.swift */,
+				7B4FD6E1E26F4DC8B66CA221 /* StreamCancellationTests.swift */,
+				A470942885644DB783E84780 /* StreamBufferingTests.swift */,
+				DE08818078194EA98D43B0E8 /* EventOrderingTests.swift */,
+				7F2040CD9F154CA5AEEA4686 /* ActorIsolationTests.swift */,
+				7F8B325DE34B48349EB4C095 /* ContinuationSafetyTests.swift */,
+				A19216D915934074A91D0C9F /* TaskRetentionTests.swift */,
+				0146B48E1FE149979D7A5CB5 /* ConcurrencyStressTests.swift */,
+				3105CBE08CD94EC1AEEB896C /* LocationConcurrencyTests.swift */,
+				A389D1E1742340F8BF4D4A96 /* WorkoutConcurrencyTests.swift */,
+				8008EB5570404BF4AB9BE579 /* BluetoothConcurrencyTests.swift */,
+				5A0E93D03D7740E589ED3A35 /* CoordinatorConcurrencyTests.swift */,
 				E2F22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift */,
 				E2F0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift */,
 				E2FA1033874455C97442001E /* AppContainerStartupTests.swift */,
@@ -1350,6 +1407,15 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				CA955D152E144070AC46DFC2 /* AsyncEventChannel.swift */,
+				EF9A1B9CA7844AFDAFF19C9F /* EventStreamOwner.swift */,
+				AF3E6139E73446C2949195E7 /* TaskRegistry.swift */,
+				B4BDA9D51BB54FC9A911F488 /* CancellationToken.swift */,
+				8499A3519AC9462CB78CDDFE /* ConcurrencyDiagnostics.swift */,
+				3A7046C213914202AB599BFF /* TickProviding.swift */,
+				E8F5435C3F7F4D4CB5D7B6F7 /* SystemTicker.swift */,
+				162BA41BB0564CBFA67AC4CB /* ManualTicker.swift */,
+				D955654C67844A42BB2E8BB0 /* LockedValue.swift */,
 				E1F13A55CC98992427A375A1 /* AppConfiguration.swift */,
 				E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */,
 				E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */,
@@ -1830,6 +1896,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2892EDF4AA4DFC99C07722 /* AsyncEventChannelTests.swift in Sources */,
+				704D7F23723E414E9F58826E /* TaskRegistryTests.swift in Sources */,
+				573E217163FB48E18A2A5FBB /* StreamCancellationTests.swift in Sources */,
+				67E8AFED18834B44879F91A7 /* StreamBufferingTests.swift in Sources */,
+				8DDC1B63870B42A68520DF6E /* EventOrderingTests.swift in Sources */,
+				1646BD106C8C409399D85F9E /* ActorIsolationTests.swift in Sources */,
+				D8F1DE6B1C23461CB9E44975 /* ContinuationSafetyTests.swift in Sources */,
+				BE7AE51ABAEC4F1194E34B76 /* TaskRetentionTests.swift in Sources */,
+				AA6D01C02750486E82FE830F /* ConcurrencyStressTests.swift in Sources */,
+				DCD09FF60D0546CCBFDCAE24 /* LocationConcurrencyTests.swift in Sources */,
+				5F177C1D239745B0A62E93B0 /* WorkoutConcurrencyTests.swift in Sources */,
+				CC57248ACC01446A83328C28 /* BluetoothConcurrencyTests.swift in Sources */,
+				96CE12B4DDC5498BAC69CAB4 /* CoordinatorConcurrencyTests.swift in Sources */,
 				40AF80EBB0BE197572E01800 /* AppViewModelTests.swift in Sources */,
 				377911F4AA1F888B6951E41E /* FormattingTests.swift in Sources */,
 				93FF133FFD2D3A3B13CF9A84 /* RideViewModelTests.swift in Sources */,
@@ -1996,6 +2075,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E5E52F01374493A82E147D /* AsyncEventChannel.swift in Sources */,
+				9D1364A42CF141BDAB7C9176 /* EventStreamOwner.swift in Sources */,
+				FE84A471276A4FB7A70788BB /* TaskRegistry.swift in Sources */,
+				5144BE7C7089406CB7238AF8 /* CancellationToken.swift in Sources */,
+				0A7C8A42FE154387ABCA9EC1 /* ConcurrencyDiagnostics.swift in Sources */,
+				6B381EE9C66448E78008C09A /* TickProviding.swift in Sources */,
+				5526C50C76BF4CB68837FF70 /* SystemTicker.swift in Sources */,
+				839E9B0B089047DE8F5D39D5 /* ManualTicker.swift in Sources */,
+				8C0F6512BDF1479CA6ED1FA2 /* LockedValue.swift in Sources */,
 				7F07DF30E016351B5DA901C3 /* MetricTileState.swift in Sources */,
 				D01E78CB67A4A71EFF0D1166 /* MetricsViewStateMapper.swift in Sources */,
 				62DB94ABCCD388FE821EACF4 /* MetricsViewModel.swift in Sources */,

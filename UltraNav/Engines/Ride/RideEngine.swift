@@ -17,8 +17,10 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
         )
     }
     private var lastPublishedSnapshot: RideSnapshot = .initial
-    let snapshots: AsyncStream<RideSnapshot>
-    private let snapshotContinuation: AsyncStream<RideSnapshot>.Continuation
+    private let snapshotChannel = AsyncEventChannel<RideSnapshot>(bufferingPolicy: .bufferingNewest(5))
+    var snapshots: AsyncStream<RideSnapshot> {
+        snapshotChannel.makeStream()
+    }
 
     let location: any LocationProviding
     let workout: any WorkoutProviding
@@ -37,7 +39,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
     private(set) var activeFailure: RideFailure?
 
     private var sensorConnectionStates: [SensorIdentifier: SensorConnectionState] = [:]
-    private var consumerTasks: [Task<Void, Never>] = []
+    private let taskRegistry = TaskRegistry()
     private var commandInProgress: RideEngineCommand?
     private var pendingCommandDate: Date?
 
@@ -53,13 +55,6 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
         snapshotBuilder: RideSnapshotBuilder = RideSnapshotBuilder(),
         failureMapper: RideFailureMapper = RideFailureMapper()
     ) {
-        let pair = AsyncStream.makeStream(
-            of: RideSnapshot.self,
-            bufferingPolicy: .bufferingNewest(5)
-        )
-        self.snapshots = pair.stream
-        self.snapshotContinuation = pair.continuation
-
         self.location = location
         self.workout = workout
         self.sensors = sensors
@@ -79,17 +74,10 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
         self.activeFailure = nil
     }
 
-    deinit {
-        for task in consumerTasks {
-            task.cancel()
-        }
-        snapshotContinuation.finish()
-    }
-
     // MARK: - Lifecycle Activation & Shutdown
 
     func activate() {
-        guard consumerTasks.isEmpty else {
+        guard taskRegistry.count == 0 else {
             return
         }
         startLocationEventConsumer()
@@ -98,15 +86,12 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
     }
 
     func shutdown() async {
-        for task in consumerTasks {
-            task.cancel()
-        }
-        consumerTasks.removeAll()
+        taskRegistry.cancelAll()
 
         await location.stopUpdates()
         await sensors.stopScanning()
 
-        snapshotContinuation.finish()
+        snapshotChannel.finish()
     }
 
     // MARK: - Command Dispatch
@@ -485,7 +470,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
                 self?.handle(locationEvent: event)
             }
         }
-        consumerTasks.append(task)
+        taskRegistry.store(task, forKey: "location")
     }
 
     private func startWorkoutEventConsumer() {
@@ -497,7 +482,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
                 self?.handle(workoutEvent: event)
             }
         }
-        consumerTasks.append(task)
+        taskRegistry.store(task, forKey: "workout")
     }
 
     private func startSensorEventConsumer() {
@@ -509,7 +494,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
                 self?.handle(sensorEvent: event)
             }
         }
-        consumerTasks.append(task)
+        taskRegistry.store(task, forKey: "sensor")
     }
 
     func handle(locationEvent: LocationServiceEvent) {
@@ -705,6 +690,6 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
         let snapshot = currentSnapshot
         guard snapshot != lastPublishedSnapshot else { return }
         lastPublishedSnapshot = snapshot
-        snapshotContinuation.yield(snapshot)
+        snapshotChannel.send(snapshot)
     }
 }

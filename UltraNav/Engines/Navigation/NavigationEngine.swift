@@ -4,11 +4,15 @@ import OSLog
 @MainActor
 final class NavigationEngine: NavigationEngineProviding {
     private(set) var currentSnapshot: NavigationSnapshot
-    let snapshots: AsyncStream<NavigationSnapshot>
-    private let snapshotContinuation: AsyncStream<NavigationSnapshot>.Continuation
+    private let snapshotChannel = AsyncEventChannel<NavigationSnapshot>(bufferingPolicy: .bufferingNewest(5))
+    var snapshots: AsyncStream<NavigationSnapshot> {
+        snapshotChannel.makeStream()
+    }
 
-    let notifications: AsyncStream<NavigationNotification>
-    private let notificationContinuation: AsyncStream<NavigationNotification>.Continuation
+    private let notificationChannel = AsyncEventChannel<NavigationNotification>(bufferingPolicy: .bufferingNewest(20))
+    var notifications: AsyncStream<NavigationNotification> {
+        notificationChannel.makeStream()
+    }
 
     private let routeStore: (any RouteStoring)?
     private let routeValidator: any NavigationRouteValidating
@@ -42,20 +46,6 @@ final class NavigationEngine: NavigationEngineProviding {
         snapshotBuilder: NavigationSnapshotBuilder = NavigationSnapshotBuilder(),
         failureMapper: NavigationFailureMapper = NavigationFailureMapper()
     ) {
-        let snapshotPair = AsyncStream.makeStream(
-            of: NavigationSnapshot.self,
-            bufferingPolicy: .bufferingNewest(5)
-        )
-        self.snapshots = snapshotPair.stream
-        self.snapshotContinuation = snapshotPair.continuation
-
-        let notificationPair = AsyncStream.makeStream(
-            of: NavigationNotification.self,
-            bufferingPolicy: .bufferingNewest(20)
-        )
-        self.notifications = notificationPair.stream
-        self.notificationContinuation = notificationPair.continuation
-
         self.routeStore = routeStore
         self.routeValidator = routeValidator
         self.routeMatcher = routeMatcher
@@ -76,11 +66,6 @@ final class NavigationEngine: NavigationEngineProviding {
         self.activeFailure = nil
 
         self.currentSnapshot = .inactive
-    }
-
-    deinit {
-        snapshotContinuation.finish()
-        notificationContinuation.finish()
     }
 
     // MARK: - Command Dispatch
@@ -331,7 +316,7 @@ final class NavigationEngine: NavigationEngineProviding {
             // Emit cue notifications on progression
             if let nextCue = newCueProgress.nextCue {
                 if previousCueProgress?.nextCue?.id != nextCue.id {
-                    notificationContinuation.yield(.approachingCue(nextCue))
+                    notificationChannel.send(.approachingCue(nextCue))
                 }
             }
 
@@ -362,18 +347,18 @@ final class NavigationEngine: NavigationEngineProviding {
             case (.navigating, .suspected):
                 let transition = try stateMachine.handle(.possibleDeviationDetected)
                 apply(transition)
-                notificationContinuation.yield(.possibleDeviation)
+                notificationChannel.send(.possibleDeviation)
 
             case (.navigating, .offRoute):
                 _ = try stateMachine.handle(.possibleDeviationDetected)
                 let transition = try stateMachine.handle(.deviationConfirmed)
                 apply(transition)
-                notificationContinuation.yield(.offRoute)
+                notificationChannel.send(.offRoute)
 
             case (.suspectedOffRoute, .offRoute):
                 let transition = try stateMachine.handle(.deviationConfirmed)
                 apply(transition)
-                notificationContinuation.yield(.offRoute)
+                notificationChannel.send(.offRoute)
 
             case (.suspectedOffRoute, .onRoute):
                 let transition = try stateMachine.handle(.rejoinConfirmed)
@@ -387,12 +372,12 @@ final class NavigationEngine: NavigationEngineProviding {
                 _ = try stateMachine.handle(.rejoinDetected)
                 let transition = try stateMachine.handle(.rejoinConfirmed)
                 apply(transition)
-                notificationContinuation.yield(.routeRejoined)
+                notificationChannel.send(.routeRejoined)
 
             case (.rejoining, .onRoute):
                 let transition = try stateMachine.handle(.rejoinConfirmed)
                 apply(transition)
-                notificationContinuation.yield(.routeRejoined)
+                notificationChannel.send(.routeRejoined)
 
             default:
                 break
@@ -411,7 +396,7 @@ final class NavigationEngine: NavigationEngineProviding {
             offRouteStatus = .onRoute
             apply(finishedTransition)
 
-            notificationContinuation.yield(.routeCompleted)
+            notificationChannel.send(.routeCompleted)
         } catch {
             failNavigation(.calculationFailed)
         }
@@ -443,6 +428,6 @@ final class NavigationEngine: NavigationEngineProviding {
 
         guard snapshot != currentSnapshot else { return }
         currentSnapshot = snapshot
-        snapshotContinuation.yield(snapshot)
+        snapshotChannel.send(snapshot)
     }
 }

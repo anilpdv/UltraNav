@@ -55,3 +55,16 @@ extension CBCentralManager: CoreBluetoothManaging {
         return items
     }
 }
+
+final class NoOpCentralManager: CoreBluetoothManaging {
+    weak var delegate: CBCentralManagerDelegate?
+    var state: CBManagerState = .poweredOff
+    var isScanning: Bool = false
+
+    func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String: Any]?) {}
+    func stopScan() {}
+    func connect(_ peripheral: any CoreBluetoothPeripheralManaging, options: [String: Any]?) {}
+    func cancelPeripheralConnection(_ peripheral: any CoreBluetoothPeripheralManaging) {}
+    func retrievePeripherals(withIdentifiers identifiers: [UUID]) -> [any CoreBluetoothPeripheralManaging] { [] }
+    func retrieveConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [any CoreBluetoothPeripheralManaging] { [] }
+}
