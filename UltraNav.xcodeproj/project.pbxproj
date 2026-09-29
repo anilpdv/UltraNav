@@ -7,6 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B13A55CC98992427A375A1 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F13A55CC98992427A375A1 /* AppConfiguration.swift */; };
+		E1B7C1053BFE88A3EDCF6198 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */; };
+		E1B3AD573E19932AEBB27C13 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */; };
+		E1BEFF264A63BD1B071C057E /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEFF264A63BD1B071C057E /* AppLifecycle.swift */; };
+		E1B8F126A1B7C241EDA466E2 /* PreviewAppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8F126A1B7C241EDA466E2 /* PreviewAppContainer.swift */; };
+		E1BEB5D82736ADBF5426960E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEB5D82736ADBF5426960E /* AppCoordinator.swift */; };
+		E1BE481DFB62C6A3427BDE21 /* NavigationNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE481DFB62C6A3427BDE21 /* NavigationNotificationCoordinator.swift */; };
+		E1BAD1811B61A0CAB4337D47 /* RideDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAD1811B61A0CAB4337D47 /* RideDataCoordinator.swift */; };
+		E1BCD07291CB4A29939AC197 /* RideEventConsuming.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCD07291CB4A29939AC197 /* RideEventConsuming.swift */; };
+		E1B211F48A811C7F4841A833 /* RideLifecycleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F211F48A811C7F4841A833 /* RideLifecycleCoordinator.swift */; };
+		E1B4D2755497C38DF38867A0 /* RouteNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4D2755497C38DF38867A0 /* RouteNavigationCoordinator.swift */; };
+		E1BE0A6670E16DB27082C4F0 /* WatchHapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE0A6670E16DB27082C4F0 /* WatchHapticService.swift */; };
+		E1BCFA5DD76F4CB154B64332 /* AppPresentationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCFA5DD76F4CB154B64332 /* AppPresentationContainer.swift */; };
+		E2B22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift */; };
+		E2B0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift */; };
+		E2BA1033874455C97442001E /* AppContainerStartupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA1033874455C97442001E /* AppContainerStartupTests.swift */; };
+		E2BC46E3B3C38BF0465B15B0 /* AppContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC46E3B3C38BF0465B15B0 /* AppContainerTests.swift */; };
+		E2BB042F07CF9E98C5CE5762 /* AppEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB042F07CF9E98C5CE5762 /* AppEnvironmentTests.swift */; };
+		E2BE1641AEF979B8C9EA5C54 /* DependencyGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1641AEF979B8C9EA5C54 /* DependencyGraphTests.swift */; };
+		E2B731A215C870C6CE9885D6 /* NavigationNotificationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F731A215C870C6CE9885D6 /* NavigationNotificationCoordinatorTests.swift */; };
+		E2B972A2A537790E9CA30568 /* RideDataCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F972A2A537790E9CA30568 /* RideDataCoordinatorTests.swift */; };
+		E2B5697F92F26320B1B702BD /* RideLifecycleCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5697F92F26320B1B702BD /* RideLifecycleCoordinatorTests.swift */; };
+		E2B106852027664E87CF7CD8 /* RouteNavigationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F106852027664E87CF7CD8 /* RouteNavigationCoordinatorTests.swift */; };
+		E2BCE45C41D4C9CB7482C9A7 /* FakeHapticProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCE45C41D4C9CB7482C9A7 /* FakeHapticProvider.swift */; };
+		E2BCCDB056F5CEE13CF2FD0A /* TestAppContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCCDB056F5CEE13CF2FD0A /* TestAppContainerBuilder.swift */; };
 		E1B93F7EF5136E90E8F0365A /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F93F7EF5136E90E8F0365A /* RouteStore.swift */; };
 		E1B7878A36F786F4D90A548E /* RouteValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7878A36F786F4D90A548E /* RouteValidating.swift */; };
 		E2B30EB8897485FD3949B2B2 /* RouteStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */; };
@@ -480,6 +505,31 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1F13A55CC98992427A375A1 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppConfiguration.swift; sourceTree = "<group>"; };
+		E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppDependencies.swift; sourceTree = "<group>"; };
+		E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppEnvironment.swift; sourceTree = "<group>"; };
+		E1FEFF264A63BD1B071C057E /* AppLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppLifecycle.swift; sourceTree = "<group>"; };
+		E1F8F126A1B7C241EDA466E2 /* PreviewAppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/PreviewAppContainer.swift; sourceTree = "<group>"; };
+		E1FEB5D82736ADBF5426960E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/AppCoordinator.swift; sourceTree = "<group>"; };
+		E1FE481DFB62C6A3427BDE21 /* NavigationNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/NavigationNotificationCoordinator.swift; sourceTree = "<group>"; };
+		E1FAD1811B61A0CAB4337D47 /* RideDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/RideDataCoordinator.swift; sourceTree = "<group>"; };
+		E1FCD07291CB4A29939AC197 /* RideEventConsuming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/RideEventConsuming.swift; sourceTree = "<group>"; };
+		E1F211F48A811C7F4841A833 /* RideLifecycleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/RideLifecycleCoordinator.swift; sourceTree = "<group>"; };
+		E1F4D2755497C38DF38867A0 /* RouteNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators/RouteNavigationCoordinator.swift; sourceTree = "<group>"; };
+		E1FE0A6670E16DB27082C4F0 /* WatchHapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Haptics/WatchHapticService.swift; sourceTree = "<group>"; };
+		E1FCFA5DD76F4CB154B64332 /* AppPresentationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/AppPresentationContainer.swift; sourceTree = "<group>"; };
+		E2F22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/AppContainerLifetimeTests.swift; sourceTree = "<group>"; };
+		E2F0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/AppContainerShutdownTests.swift; sourceTree = "<group>"; };
+		E2FA1033874455C97442001E /* AppContainerStartupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/AppContainerStartupTests.swift; sourceTree = "<group>"; };
+		E2FC46E3B3C38BF0465B15B0 /* AppContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/AppContainerTests.swift; sourceTree = "<group>"; };
+		E2FB042F07CF9E98C5CE5762 /* AppEnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/AppEnvironmentTests.swift; sourceTree = "<group>"; };
+		E2FE1641AEF979B8C9EA5C54 /* DependencyGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/App/DependencyGraphTests.swift; sourceTree = "<group>"; };
+		E2F731A215C870C6CE9885D6 /* NavigationNotificationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Coordinators/NavigationNotificationCoordinatorTests.swift; sourceTree = "<group>"; };
+		E2F972A2A537790E9CA30568 /* RideDataCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Coordinators/RideDataCoordinatorTests.swift; sourceTree = "<group>"; };
+		E2F5697F92F26320B1B702BD /* RideLifecycleCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Coordinators/RideLifecycleCoordinatorTests.swift; sourceTree = "<group>"; };
+		E2F106852027664E87CF7CD8 /* RouteNavigationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Coordinators/RouteNavigationCoordinatorTests.swift; sourceTree = "<group>"; };
+		E2FCE45C41D4C9CB7482C9A7 /* FakeHapticProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeHapticProvider.swift; sourceTree = "<group>"; };
+		E2FCCDB056F5CEE13CF2FD0A /* TestAppContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/TestAppContainerBuilder.swift; sourceTree = "<group>"; };
 		E1F93F7EF5136E90E8F0365A /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteStore.swift; sourceTree = "<group>"; };
 		E1F7878A36F786F4D90A548E /* RouteValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/RouteValidating.swift; sourceTree = "<group>"; };
 		E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Storage/RouteStoreTests.swift; sourceTree = "<group>"; };
@@ -987,6 +1037,18 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2F22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift */,
+				E2F0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift */,
+				E2FA1033874455C97442001E /* AppContainerStartupTests.swift */,
+				E2FC46E3B3C38BF0465B15B0 /* AppContainerTests.swift */,
+				E2FB042F07CF9E98C5CE5762 /* AppEnvironmentTests.swift */,
+				E2FE1641AEF979B8C9EA5C54 /* DependencyGraphTests.swift */,
+				E2F731A215C870C6CE9885D6 /* NavigationNotificationCoordinatorTests.swift */,
+				E2F972A2A537790E9CA30568 /* RideDataCoordinatorTests.swift */,
+				E2F5697F92F26320B1B702BD /* RideLifecycleCoordinatorTests.swift */,
+				E2F106852027664E87CF7CD8 /* RouteNavigationCoordinatorTests.swift */,
+				E2FCE45C41D4C9CB7482C9A7 /* FakeHapticProvider.swift */,
+				E2FCCDB056F5CEE13CF2FD0A /* TestAppContainerBuilder.swift */,
 				E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */,
 				E2FEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift */,
 				E2FCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift */,
@@ -1180,6 +1242,19 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				E1F13A55CC98992427A375A1 /* AppConfiguration.swift */,
+				E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */,
+				E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */,
+				E1FEFF264A63BD1B071C057E /* AppLifecycle.swift */,
+				E1F8F126A1B7C241EDA466E2 /* PreviewAppContainer.swift */,
+				E1FEB5D82736ADBF5426960E /* AppCoordinator.swift */,
+				E1FE481DFB62C6A3427BDE21 /* NavigationNotificationCoordinator.swift */,
+				E1FAD1811B61A0CAB4337D47 /* RideDataCoordinator.swift */,
+				E1FCD07291CB4A29939AC197 /* RideEventConsuming.swift */,
+				E1F211F48A811C7F4841A833 /* RideLifecycleCoordinator.swift */,
+				E1F4D2755497C38DF38867A0 /* RouteNavigationCoordinator.swift */,
+				E1FE0A6670E16DB27082C4F0 /* WatchHapticService.swift */,
+				E1FCFA5DD76F4CB154B64332 /* AppPresentationContainer.swift */,
 				E1F93F7EF5136E90E8F0365A /* RouteStore.swift */,
 				E1F7878A36F786F4D90A548E /* RouteValidating.swift */,
 				E1F1673D1F73B83C62E82BAF /* RouteWaypoint.swift */,
@@ -1647,6 +1722,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift in Sources */,
+				E2B0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift in Sources */,
+				E2BA1033874455C97442001E /* AppContainerStartupTests.swift in Sources */,
+				E2BC46E3B3C38BF0465B15B0 /* AppContainerTests.swift in Sources */,
+				E2BB042F07CF9E98C5CE5762 /* AppEnvironmentTests.swift in Sources */,
+				E2BE1641AEF979B8C9EA5C54 /* DependencyGraphTests.swift in Sources */,
+				E2B731A215C870C6CE9885D6 /* NavigationNotificationCoordinatorTests.swift in Sources */,
+				E2B972A2A537790E9CA30568 /* RideDataCoordinatorTests.swift in Sources */,
+				E2B5697F92F26320B1B702BD /* RideLifecycleCoordinatorTests.swift in Sources */,
+				E2B106852027664E87CF7CD8 /* RouteNavigationCoordinatorTests.swift in Sources */,
+				E2BCE45C41D4C9CB7482C9A7 /* FakeHapticProvider.swift in Sources */,
+				E2BCCDB056F5CEE13CF2FD0A /* TestAppContainerBuilder.swift in Sources */,
 				E2B30EB8897485FD3949B2B2 /* RouteStoreTests.swift in Sources */,
 				E2BEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift in Sources */,
 				E2BCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift in Sources */,
@@ -1793,6 +1880,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B13A55CC98992427A375A1 /* AppConfiguration.swift in Sources */,
+				E1B7C1053BFE88A3EDCF6198 /* AppDependencies.swift in Sources */,
+				E1B3AD573E19932AEBB27C13 /* AppEnvironment.swift in Sources */,
+				E1BEFF264A63BD1B071C057E /* AppLifecycle.swift in Sources */,
+				E1B8F126A1B7C241EDA466E2 /* PreviewAppContainer.swift in Sources */,
+				E1BEB5D82736ADBF5426960E /* AppCoordinator.swift in Sources */,
+				E1BE481DFB62C6A3427BDE21 /* NavigationNotificationCoordinator.swift in Sources */,
+				E1BAD1811B61A0CAB4337D47 /* RideDataCoordinator.swift in Sources */,
+				E1BCD07291CB4A29939AC197 /* RideEventConsuming.swift in Sources */,
+				E1B211F48A811C7F4841A833 /* RideLifecycleCoordinator.swift in Sources */,
+				E1B4D2755497C38DF38867A0 /* RouteNavigationCoordinator.swift in Sources */,
+				E1BE0A6670E16DB27082C4F0 /* WatchHapticService.swift in Sources */,
+				E1BCFA5DD76F4CB154B64332 /* AppPresentationContainer.swift in Sources */,
 				E1B93F7EF5136E90E8F0365A /* RouteStore.swift in Sources */,
 				E1B7878A36F786F4D90A548E /* RouteValidating.swift in Sources */,
 				E1B1673D1F73B83C62E82BAF /* RouteWaypoint.swift in Sources */,

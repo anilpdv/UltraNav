@@ -41,29 +41,40 @@ final class MetricsEngine: MetricsEngineProviding {
 
     func send(_ command: MetricsEngineCommand) async {
         switch command {
-        case .start:
+        case .start(let at):
             state = .active
-            publishSnapshot()
+            publishSnapshot(at: at ?? clock.now)
 
-        case .pause:
+        case .pause(let at):
             guard state == .active else { return }
             state = .paused
-            publishSnapshot()
+            publishSnapshot(at: at ?? clock.now)
 
-        case .resume:
+        case .resume(let at):
             guard state == .paused else { return }
             state = .active
-            publishSnapshot()
+            publishSnapshot(at: at ?? clock.now)
 
-        case .stop:
+        case .stop(let at), .finish(let at):
             state = .stopped
-            publishSnapshot()
+            publishSnapshot(at: at ?? clock.now)
 
         case .reset:
             state = .idle
             store.reset()
             currentSnapshot = .empty
             snapshotContinuation.yield(.empty)
+        }
+    }
+
+    func consume(_ input: MetricsInput) {
+        switch input {
+        case .location(let sample):
+            consume(location: sample)
+        case .workout(let metric):
+            consume(workout: metric)
+        case .sensor(let id, let sample):
+            consume(sensor: id, sample: sample)
         }
     }
 

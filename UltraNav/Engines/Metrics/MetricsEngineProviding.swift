@@ -3,19 +3,26 @@ import Foundation
 enum MetricsInput: Equatable, Sendable {
     case location(LocationSample)
     case workout(WorkoutMetric)
-    case sensor(SensorIdentifier, SensorSample)
+    case sensor(sensor: SensorIdentifier, sample: SensorSample)
 }
 
 enum MetricsEngineCommand: Equatable, Sendable {
-    case start
-    case pause
-    case resume
-    case stop
+    case start(at: Date? = nil)
+    case pause(at: Date? = nil)
+    case resume(at: Date? = nil)
+    case stop(at: Date? = nil)
+    case finish(at: Date? = nil)
     case reset
+
+    static let start: MetricsEngineCommand = .start(at: nil)
+    static let pause: MetricsEngineCommand = .pause(at: nil)
+    static let resume: MetricsEngineCommand = .resume(at: nil)
+    static let stop: MetricsEngineCommand = .stop(at: nil)
+    static let finish: MetricsEngineCommand = .finish(at: nil)
 }
 
 @MainActor
-protocol MetricsEngineProviding: Sendable {
+protocol MetricsEngineProviding: AnyObject, Sendable {
     var currentSnapshot: MetricsSnapshot { get }
     var snapshots: AsyncStream<MetricsSnapshot> { get }
 
@@ -23,4 +30,5 @@ protocol MetricsEngineProviding: Sendable {
     func consume(location: LocationSample)
     func consume(workout: WorkoutMetric)
     func consume(sensor: SensorIdentifier, sample: SensorSample)
+    func consume(_ input: MetricsInput)
 }

@@ -101,6 +101,31 @@
 - [x] `LegacyClimbAdapter` and `CyclingRideEngine` bridging.
 - [x] 100% unit test coverage across lifecycle, route analysis, active climb selection, live progress calculation, completions/skips, failures, resets, and end-to-end integration.
 
+### Route and GPX Boundary (Phase 1L)
+- [x] Strongly typed `Route`, `RouteMetadata`, `RoutePoint`, and `RouteSummary` domain models.
+- [x] `GPXParserAdapter` isolating legacy XML parser behind `GPXParsing`.
+- [x] `ParsedRouteValidator` and `StoredRouteValidator` ensuring route geometric integrity.
+- [x] `RouteNormalizer` filtering duplicate points and calculating cumulative distances.
+- [x] `RouteImporter` coordinating validation and normalization pipeline.
+- [x] File-backed `RouteStore` with atomic JSON writes, index corruption recovery, and active route deletion protection.
+- [x] `RouteLibraryEngine` managing in-memory route catalog state, selection, and deletion.
+- [x] `LegacyRouteLibraryAdapter` bridging SwiftUI views to `RouteLibraryEngine`.
+- [x] 100% unit test coverage across parser adapters, validation, normalization, storage recovery, and library engine.
+
+### Dependency Injection & AppContainer (Phase 1M)
+- [x] Single explicit composition root (`AppContainer`) managing app-wide dependency lifecycles.
+- [x] Platform infrastructure wrappers (`SystemClock`, `WatchHapticService`, `LocalRouteFileSystem`).
+- [x] Pure configuration tree (`AppConfiguration`, `AppEnvironment`).
+- [x] Stream consumer fan-out coordinator (`RideDataCoordinator`).
+- [x] Synchronized timestamped lifecycle coordinator (`RideLifecycleCoordinator`).
+- [x] Safe route-loading and progress forwarding coordinator (`RouteNavigationCoordinator`).
+- [x] Haptic feedback notification coordinator (`NavigationNotificationCoordinator`).
+- [x] Unified coordinator root (`AppCoordinator`).
+- [x] Consolidated presentation container (`AppPresentationContainer`).
+- [x] Deterministic preview container (`PreviewAppContainer.makePreview()`).
+- [x] Zero singletons or direct framework allocations in views.
+- [x] 100% unit test coverage across container creation, lifetime transitions, startup/shutdown, and all coordinators.
+
 ---
 
 ## Upcoming Phases Roadmap
@@ -118,8 +143,9 @@
 | **Phase 1I** | **NavigationEngine Boundary** | Isolate navigation lifecycle, route matching, cues. | **COMPLETED** |
 | **Phase 1J** | **MetricsEngine Boundary** | Isolate metric ingestion, provenance, freshness. | **COMPLETED** |
 | **Phase 1K** | **ClimbEngine Boundary** | Isolate climb analysis, grade calculation, and segments. | **COMPLETED** |
-| **Phase 1L** | **Route and GPX Boundary** | Isolate route import, parsing, validation, normalization, and storage. | In Progress |
-| **Phase 1M** | **Dependency Injection & AppContainer** | Single composition root and DI unification. | Pending |
+| **Phase 1L** | **Route and GPX Boundary** | Isolate route import, parsing, validation, normalization, and storage. | **COMPLETED** |
+| **Phase 1M** | **Dependency Injection & AppContainer** | Single composition root and DI unification. | **COMPLETED** |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
+
 

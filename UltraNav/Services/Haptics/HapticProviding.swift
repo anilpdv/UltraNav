@@ -13,6 +13,10 @@ enum HapticPattern: Equatable, Sendable {
     case offRoute
     case routeRejoined
 
+    case climbApproaching
+    case climbStarted
+    case climbCompleted
+
     case error
 }
 

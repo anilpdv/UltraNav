@@ -1,59 +1,232 @@
 import Foundation
-import SwiftUI
+import CoreLocation
+import HealthKit
+import CoreBluetooth
 
-/// Central dependency injection composition root for UltraNav.
 @MainActor
-@Observable
 final class AppContainer {
-    let locationService: any LocationProviding
-    let workoutService: any WorkoutProviding
-    let sensorService: any SensorProviding
-    let clock: any ClockProviding
+    let configuration: AppConfiguration
+    let infrastructure: InfrastructureDependencies
+    let services: ServiceDependencies
+    let engines: EngineDependencies
+    let coordinators: CoordinatorDependencies
+    let presentation: AppPresentationContainer
 
-    let navigationEngine: NavigationEngine
-    let coordinator: RideNavigationCoordinator
-    let metricsEngine: MetricsEngine
-    let climbEngine: ClimbEngine
-    let rideEngine: RideEngine
+    private(set) var lifecycle: AppLifecycleState = .created
 
     init(
-        locationService: (any LocationProviding)? = nil,
-        workoutService: (any WorkoutProviding)? = nil,
-        sensorService: (any SensorProviding)? = nil,
-        clock: (any ClockProviding)? = nil
+        configuration: AppConfiguration,
+        infrastructure: InfrastructureDependencies,
+        services: ServiceDependencies,
+        engines: EngineDependencies,
+        coordinators: CoordinatorDependencies,
+        presentation: AppPresentationContainer
     ) {
-        let loc = locationService ?? LocationService()
-        let work = workoutService ?? HealthKitService()
-        let sens = sensorService ?? BluetoothService()
-        let clk = clock ?? SystemClock()
+        self.configuration = configuration
+        self.infrastructure = infrastructure
+        self.services = services
+        self.engines = engines
+        self.coordinators = coordinators
+        self.presentation = presentation
+    }
 
-        let nav = NavigationEngine()
-        let met = MetricsEngine()
-        let clm = ClimbEngine()
+    // MARK: - Lifecycle Management
 
-        let ride = RideEngine(
-            location: loc,
-            workout: work,
-            sensors: sens,
-            clock: clk
+    func start() async {
+        guard lifecycle == .created || lifecycle == .stopped else {
+            return
+        }
+
+        lifecycle = .starting
+
+        coordinators.rideData.activate()
+        coordinators.routeNavigation.activate()
+        coordinators.notifications.activate()
+
+        await engines.routeLibrary.send(.refresh)
+
+        lifecycle = .running
+    }
+
+    func stop() async {
+        guard lifecycle == .running else {
+            return
+        }
+
+        lifecycle = .stopping
+
+        coordinators.notifications.shutdown()
+        coordinators.routeNavigation.shutdown()
+        coordinators.rideData.shutdown()
+
+        await services.location.stopUpdates()
+        await services.sensors.stopScanning()
+
+        lifecycle = .stopped
+    }
+
+    // MARK: - Production Composition Root Factory
+
+    static func makeProduction(
+        configuration: AppConfiguration = .production
+    ) throws -> AppContainer {
+        // 1. Infrastructure
+        let clock = SystemClock()
+        let haptics = WatchHapticService()
+        let fileSystem = StandardRouteFileSystem()
+        let infrastructure = InfrastructureDependencies(
+            clock: clock,
+            haptics: haptics,
+            fileSystem: fileSystem
         )
 
-        let coord = RideNavigationCoordinator(
-            locationProvider: loc,
-            rideConsumer: ride,
-            navigationEngine: nav
+        // 2. Persistence & Route Import Pipeline
+        let routeCodec = JSONRouteStorageCodec()
+        let routeStore = RouteStore(
+            storageDirectory: configuration.routeDirectoryURL,
+            fileSystem: fileSystem,
+            codec: routeCodec
         )
 
-        self.locationService = loc
-        self.workoutService = work
-        self.sensorService = sens
-        self.clock = clk
+        let routeSourceReader = StandardRouteSourceReader()
+        let gpxParser = GPXParserAdapter()
+        let parsedRouteValidator = ParsedRouteValidator()
+        let routeNormalizer = RouteNormalizer(
+            distanceCalculator: CoreLocationDistanceCalculator(),
+            identityCreator: SHA256RouteIdentityCreator()
+        )
+        let storedRouteValidator = StoredRouteValidator()
 
-        self.navigationEngine = nav
-        self.coordinator = coord
-        self.metricsEngine = met
-        self.climbEngine = clm
-        self.rideEngine = ride
+        let routeImporter = RouteImporter(
+            sourceReader: routeSourceReader,
+            parser: gpxParser,
+            parsedValidator: parsedRouteValidator,
+            normalizer: routeNormalizer,
+            routeValidator: storedRouteValidator
+        )
+
+        // 3. Platform Services
+        let locationService = LocationService(
+            configuration: configuration.location
+        )
+        let workoutService = HealthKitService(
+            clock: clock,
+            configuration: configuration.workout
+        )
+        let sensorService = BluetoothService(
+            clock: clock
+        )
+
+        let services = ServiceDependencies(
+            location: locationService,
+            workout: workoutService,
+            sensors: sensorService,
+            routeStore: routeStore,
+            routeImporter: routeImporter
+        )
+
+        // 4. Domain Engines
+        let metricsEngine = MetricsEngine(
+            validator: StandardMetricValidator(),
+            sourceSelector: TemporaryLatestSourceSelector(),
+            summaryBuilder: MetricsSummaryBuilder(),
+            clock: clock
+        )
+
+        let navigationEngine = NavigationEngine(
+            routeStore: routeStore,
+            routeValidator: NavigationRouteValidator(),
+            routeMatcher: LegacyRouteMatcher(),
+            cueProvider: LegacyCueAdapter(),
+            cueProgressor: LegacyCueAdapter(),
+            offRouteEvaluator: LegacyOffRouteEvaluator()
+        )
+
+        let climbEngine = ClimbEngine(
+            analysisService: ClimbAnalysisService(),
+            selector: StandardActiveClimbSelector(),
+            progressCalculator: StandardClimbProgressCalculator(),
+            snapshotBuilder: ClimbSnapshotBuilder()
+        )
+
+        let rideEngine = RideEngine(
+            location: locationService,
+            workout: workoutService,
+            sensors: sensorService,
+            clock: clock,
+            dependencyPolicy: configuration.rideDependencies
+        )
+
+        let routeLibraryEngine = RouteLibraryEngine(
+            store: routeStore,
+            importer: routeImporter
+        )
+
+        let engines = EngineDependencies(
+            ride: rideEngine,
+            metrics: metricsEngine,
+            navigation: navigationEngine,
+            climb: climbEngine,
+            routeLibrary: routeLibraryEngine
+        )
+
+        // 5. Coordinators
+        let rideDataCoordinator = RideDataCoordinator(
+            location: locationService,
+            workout: workoutService,
+            sensors: sensorService,
+            rideLocationConsumer: rideEngine,
+            rideWorkoutConsumer: rideEngine,
+            rideSensorConsumer: rideEngine,
+            metricsEngine: metricsEngine,
+            navigationEngine: navigationEngine
+        )
+
+        let rideLifecycleCoordinator = RideLifecycleCoordinator(
+            rideEngine: rideEngine,
+            metricsEngine: metricsEngine,
+            navigationEngine: navigationEngine,
+            climbEngine: climbEngine,
+            clock: clock,
+            navigationPolicy: configuration.rideNavigation
+        )
+
+        let routeNavigationCoordinator = RouteNavigationCoordinator(
+            routeStore: routeStore,
+            routeLibraryEngine: routeLibraryEngine,
+            navigationEngine: navigationEngine,
+            climbEngine: climbEngine
+        )
+
+        let notificationCoordinator = NavigationNotificationCoordinator(
+            navigationEngine: navigationEngine,
+            climbEngine: climbEngine,
+            haptics: haptics
+        )
+
+        let coordinators = CoordinatorDependencies(
+            rideData: rideDataCoordinator,
+            rideLifecycle: rideLifecycleCoordinator,
+            routeNavigation: routeNavigationCoordinator,
+            notifications: notificationCoordinator
+        )
+
+        // 6. Presentation Container
+        let presentation = AppPresentationContainer(
+            rideEngine: rideEngine,
+            navigationEngine: navigationEngine,
+            metricsEngine: metricsEngine,
+            climbEngine: climbEngine,
+            routeLibraryEngine: routeLibraryEngine
+        )
+
+        return AppContainer(
+            configuration: configuration,
+            infrastructure: infrastructure,
+            services: services,
+            engines: engines,
+            coordinators: coordinators,
+            presentation: presentation
+        )
     }
 }
-

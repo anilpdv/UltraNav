@@ -10,6 +10,8 @@ public protocol RouteFileSystemProviding: Sendable {
     func removeItem(at url: URL) throws
 }
 
+public typealias RouteFileSystem = StandardRouteFileSystem
+
 public final class StandardRouteFileSystem: RouteFileSystemProviding, @unchecked Sendable {
     private let fileManager = FileManager.default
 

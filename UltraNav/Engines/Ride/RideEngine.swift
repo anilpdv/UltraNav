@@ -2,7 +2,7 @@ import Foundation
 import OSLog
 
 @MainActor
-final class RideEngine: RideEngineProviding, RideLocationConsuming {
+final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocationEventConsuming, RideWorkoutEventConsuming, RideSensorEventConsuming {
     var currentSnapshot: RideSnapshot {
         snapshotBuilder.makeSnapshot(
             state: stateMachine.state,
@@ -39,6 +39,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
     private var sensorConnectionStates: [SensorIdentifier: SensorConnectionState] = [:]
     private var consumerTasks: [Task<Void, Never>] = []
     private var commandInProgress: RideEngineCommand?
+    private var pendingCommandDate: Date?
 
     private let snapshotBuilder: RideSnapshotBuilder
     private let failureMapper: RideFailureMapper
@@ -118,22 +119,27 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
         commandInProgress = command
         defer {
             commandInProgress = nil
+            pendingCommandDate = nil
         }
 
         switch command {
         case .prepare:
             await prepare()
 
-        case .start:
+        case .start(let at):
+            pendingCommandDate = at
             await start()
 
-        case .pause:
+        case .pause(let at):
+            pendingCommandDate = at
             await pause()
 
-        case .resume:
+        case .resume(let at):
+            pendingCommandDate = at
             await resume()
 
-        case .finish:
+        case .finish(let at):
+            pendingCommandDate = at
             await finish()
 
         case .recover:
@@ -255,7 +261,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
     }
 
     private func startDependencies() async {
-        let startDate = clock.now
+        let startDate = pendingCommandDate ?? clock.now
 
         do {
             do {
@@ -267,7 +273,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
             do {
                 try await location.startUpdates()
             } catch {
-                await rollbackPartialStart(at: clock.now)
+                await rollbackPartialStart(at: startDate)
                 throw RideFailure.locationUnavailable
             }
 
@@ -319,7 +325,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
         do {
             try await workout.pause()
 
-            let pauseDate = clock.now
+            let pauseDate = pendingCommandDate ?? clock.now
             timingState.pause(at: pauseDate)
             workoutStatus = .paused
 
@@ -347,7 +353,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
         do {
             try await workout.resume()
 
-            let resumeDate = clock.now
+            let resumeDate = pendingCommandDate ?? clock.now
             timingState.resume(at: resumeDate)
             workoutStatus = .active
 
@@ -374,7 +380,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
     }
 
     private func finishDependencies() async {
-        let finishDate = clock.now
+        let finishDate = pendingCommandDate ?? clock.now
 
         locationStatus = .ready
         workoutStatus = .finalizing
@@ -677,6 +683,20 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
         }
 
         publishSnapshot()
+    }
+
+    // MARK: - Event Consuming Protocol Implementations
+
+    func consume(locationEvent: LocationServiceEvent) async {
+        handle(locationEvent: locationEvent)
+    }
+
+    func consume(workoutEvent: WorkoutServiceEvent) async {
+        handle(workoutEvent: workoutEvent)
+    }
+
+    func consume(sensorEvent: SensorServiceEvent) async {
+        handle(sensorEvent: sensorEvent)
     }
 
     // MARK: - Snapshot Publication
