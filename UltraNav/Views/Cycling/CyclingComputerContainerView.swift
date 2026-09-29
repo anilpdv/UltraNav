@@ -2,9 +2,11 @@ import SwiftUI
 
 /// Main multi-page cycling computer dashboard (Wahoo ELEMNT & Garmin Edge experience).
 public struct CyclingComputerContainerView: View {
-    @Environment(CyclingRideEngine.self) private var engine
+    @Environment(RideViewModel.self) private var rideViewModel
     @State private var selectedTab: Int = 0
     @State private var showingStopConfirmation: Bool = false
+
+    public init() {}
 
     public var body: some View {
         TabView(selection: $selectedTab) {
@@ -37,20 +39,19 @@ public struct CyclingComputerContainerView: View {
                     Image(systemName: "xmark")
                 }
                 .accessibilityLabel("End ride")
+                .disabled(rideViewModel.state.controls.secondaryAction == nil || !rideViewModel.state.controls.secondaryEnabled)
             }
 
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    if engine.isPaused {
-                        engine.resumeRide()
-                    } else {
-                        engine.pauseRide()
-                    }
+                    rideViewModel.handle(.primaryControlSelected)
                 } label: {
-                    Image(systemName: engine.isPaused ? "play.fill" : "pause.fill")
-                        .foregroundStyle(engine.isPaused ? .green : .yellow)
+                    let isPaused = rideViewModel.state.phase == .paused
+                    Image(systemName: isPaused ? "play.fill" : "pause.fill")
+                        .foregroundStyle(isPaused ? .green : .yellow)
                 }
-                .accessibilityLabel(engine.isPaused ? "Resume ride" : "Pause ride")
+                .accessibilityLabel(rideViewModel.state.phase == .paused ? "Resume ride" : "Pause ride")
+                .disabled(rideViewModel.state.controls.primaryAction == nil || !rideViewModel.state.controls.primaryEnabled)
             }
         }
         .confirmationDialog(
@@ -59,9 +60,11 @@ public struct CyclingComputerContainerView: View {
             titleVisibility: .visible
         ) {
             Button("Finish & Save Ride", role: .destructive) {
-                engine.finishRide()
+                rideViewModel.handle(.finishConfirmed)
             }
-            Button("Cancel", role: .cancel) {}
+            Button("Cancel", role: .cancel) {
+                rideViewModel.handle(.finishCancelled)
+            }
         } message: {
             Text("Your ride metrics and workout will be saved.")
         }

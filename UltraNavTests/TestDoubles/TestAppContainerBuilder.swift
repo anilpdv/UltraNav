@@ -132,7 +132,9 @@ struct TestAppContainerBuilder {
             navigationEngine: navigation,
             metricsEngine: metrics,
             climbEngine: climb,
-            routeLibraryEngine: routeLibrary
+            routeLibraryEngine: routeLibrary,
+            lifecycleCoordinator: rideLifecycle,
+            routeNavigationCoordinator: routeNavigation
         )
 
         return AppContainer(

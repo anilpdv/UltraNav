@@ -23,6 +23,13 @@ struct UltraNavApp: App {
     var body: some Scene {
         WindowGroup {
             AppLaunchView()
+                .environment(container.presentation.app)
+                .environment(container.presentation.ride)
+                .environment(container.presentation.metrics)
+                .environment(container.presentation.navigation)
+                .environment(container.presentation.climb)
+                .environment(container.presentation.routes)
+                .environment(container.presentation.map)
                 .environment(navigationModel)
                 .environment(cyclingEngine)
                 .task {

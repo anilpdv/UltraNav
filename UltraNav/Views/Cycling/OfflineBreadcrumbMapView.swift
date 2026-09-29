@@ -1,18 +1,22 @@
 import SwiftUI
-import CoreLocation
 
 /// 100% Offline Vector & Breadcrumb Map renderer for Apple Watch Ultra.
 /// Operates without any internet connection, cellular signal, or map tiles.
 public struct OfflineBreadcrumbMapView: View {
-    @Environment(CyclingRideEngine.self) private var engine
+    @Environment(NavigationViewModel.self) private var navViewModel
+    @Environment(RouteMapViewModel.self) private var mapViewModel
     @State private var zoomScale: Double = 1.0
-    @State private var isTrackUp: Bool = true
+
+    public init() {}
 
     public var body: some View {
+        let mapState = mapViewModel.state
+        let navState = navViewModel.state
+
         ZStack {
             // Standalone Vector Canvas
             Canvas { context, size in
-                drawOfflineVectorMap(context: context, size: size)
+                drawOfflineVectorMap(context: context, size: size, mapState: mapState)
             }
             .background(Color.black)
             .focusable()
@@ -21,11 +25,11 @@ public struct OfflineBreadcrumbMapView: View {
             // Overlays: Turn Pill, Off-Course Banner, Controls
             VStack(spacing: 3) {
                 // Off-Course Alert Banner
-                if engine.isOffCourse {
+                if case .offRoute(let distance) = navState.banner {
                     HStack(spacing: 4) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 10))
-                        Text("OFF COURSE (+\(Int(engine.crossTrackErrorMeters))m)")
+                        Text(distance != nil ? "OFF COURSE (+\(distance!.primaryText)\(distance!.unitText))" : "OFF COURSE")
                             .font(.system(size: 9, weight: .black, design: .rounded))
                     }
                     .padding(.horizontal, 8)
@@ -36,16 +40,18 @@ public struct OfflineBreadcrumbMapView: View {
                 }
 
                 // Dynamic Turn Instruction Banner
-                if let cue = engine.nextCue {
+                if let cue = navState.nextCue {
                     HStack(spacing: 6) {
-                        Image(systemName: cue.type.iconName)
+                        Image(systemName: cue.maneuver.iconName)
                             .font(.system(size: 13, weight: .bold))
                             .foregroundStyle(.green)
 
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("\(Int(engine.distanceToNextCue))m")
-                                .font(.system(size: 11, weight: .heavy, design: .rounded))
-                                .foregroundStyle(.white)
+                            if let dist = cue.distance {
+                                Text("\(dist.primaryText) \(dist.unitText)")
+                                    .font(.system(size: 11, weight: .heavy, design: .rounded))
+                                    .foregroundStyle(.white)
+                            }
                             Text(cue.instruction)
                                 .font(.system(size: 8, weight: .medium))
                                 .lineLimit(1)
@@ -64,18 +70,20 @@ public struct OfflineBreadcrumbMapView: View {
                 // Bottom Map Control Buttons
                 HStack(spacing: 8) {
                     Button {
-                        isTrackUp.toggle()
+                        mapViewModel.handle(.toggleOrientation)
                     } label: {
+                        let isTrackUp = mapState.orientation.mode == .trackUp
                         Image(systemName: isTrackUp ? "location.north.line.fill" : "safari.fill")
                             .font(.system(size: 10, weight: .bold))
                             .padding(6)
                             .background(Color.black.opacity(0.7), in: Circle())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Toggle map orientation")
 
                     Spacer()
 
-                    // Zoom Indicator / Reset
+                    // Zoom Reset Button
                     Button {
                         zoomScale = 1.0
                     } label: {
@@ -86,6 +94,7 @@ public struct OfflineBreadcrumbMapView: View {
                             .background(Color.black.opacity(0.7), in: Capsule())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Reset zoom")
                 }
                 .padding(.horizontal, 6)
                 .padding(.bottom, 2)
@@ -95,16 +104,17 @@ public struct OfflineBreadcrumbMapView: View {
         }
     }
 
-    private func drawOfflineVectorMap(context: GraphicsContext, size: CGSize) {
+    private func drawOfflineVectorMap(context: GraphicsContext, size: CGSize, mapState: RouteMapViewState) {
         let center = CGPoint(x: size.width / 2, y: size.height / 2)
 
         // Center on User coordinate (or route start if user location unavailable)
-        let userCoord = engine.currentLocation?.coordinate ??
-            engine.activeRoute?.points.first?.coordinate ??
-            CLLocationCoordinate2D(latitude: 37.3349, longitude: -122.0090)
+        let originCoord = mapState.currentPosition?.coordinate ??
+            mapState.routePolyline.first?.coordinate ??
+            mapState.viewport.center
 
         let metersPerPoint = 4.0 / zoomScale
-        let heading = isTrackUp ? engine.currentHeading : 0
+        let isTrackUp = mapState.orientation.mode == .trackUp
+        let heading = isTrackUp ? mapState.orientation.headingDegrees : 0
 
         // 1. Draw Grid Lines (Garmin background scale)
         var gridPath = Path()
@@ -122,12 +132,12 @@ public struct OfflineBreadcrumbMapView: View {
         }
 
         // 2. Draw Course Polyline (if active route loaded)
-        if let route = engine.activeRoute, route.points.count > 1 {
+        if mapState.routePolyline.count > 1 {
             var coursePath = Path()
-            for (index, pt) in route.points.enumerated() {
+            for (index, pt) in mapState.routePolyline.enumerated() {
                 let screenPt = projectCoordinate(
                     pt.coordinate,
-                    relativeTo: userCoord,
+                    relativeTo: originCoord,
                     center: center,
                     metersPerPoint: metersPerPoint,
                     heading: heading
@@ -145,10 +155,10 @@ public struct OfflineBreadcrumbMapView: View {
             context.stroke(coursePath, with: .color(Color(red: 0.0, green: 0.88, blue: 1.0)), style: StrokeStyle(lineWidth: 4.5, lineCap: .round, lineJoin: .round))
 
             // Draw Waypoints / Cues on Course
-            for cue in route.cues {
+            for cue in mapState.cueMarkers {
                 let cuePt = projectCoordinate(
                     cue.coordinate,
-                    relativeTo: userCoord,
+                    relativeTo: originCoord,
                     center: center,
                     metersPerPoint: metersPerPoint,
                     heading: heading
@@ -160,12 +170,12 @@ public struct OfflineBreadcrumbMapView: View {
         }
 
         // 3. Draw Breadcrumb History (Rider's actual ridden trail)
-        if engine.breadcrumbHistory.count > 1 {
+        if mapState.traveledPolyline.count > 1 {
             var crumbPath = Path()
-            for (index, coord) in engine.breadcrumbHistory.enumerated() {
+            for (index, pt) in mapState.traveledPolyline.enumerated() {
                 let screenPt = projectCoordinate(
-                    coord,
-                    relativeTo: userCoord,
+                    pt.coordinate,
+                    relativeTo: originCoord,
                     center: center,
                     metersPerPoint: metersPerPoint,
                     heading: heading
@@ -189,9 +199,9 @@ public struct OfflineBreadcrumbMapView: View {
 
         // Rotate arrow if North-up mode is active
         var arrowContext = context
-        if !isTrackUp && engine.currentHeading != 0 {
+        if !isTrackUp && mapState.orientation.headingDegrees != 0 {
             arrowContext.translateBy(x: center.x, y: center.y)
-            arrowContext.rotate(by: Angle.degrees(engine.currentHeading))
+            arrowContext.rotate(by: Angle.degrees(mapState.orientation.headingDegrees))
             arrowContext.translateBy(x: -center.x, y: -center.y)
         }
 
@@ -201,8 +211,8 @@ public struct OfflineBreadcrumbMapView: View {
     }
 
     private func projectCoordinate(
-        _ coord: CLLocationCoordinate2D,
-        relativeTo origin: CLLocationCoordinate2D,
+        _ coord: Coordinate,
+        relativeTo origin: Coordinate,
         center: CGPoint,
         metersPerPoint: Double,
         heading: Double

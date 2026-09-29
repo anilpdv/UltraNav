@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F07DF30E016351B5DA901C3 /* MetricTileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B3C117FB458D5E5155515 /* MetricTileState.swift */; };
+		D01E78CB67A4A71EFF0D1166 /* MetricsViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B7FE7E537251B1A1BDFF16 /* MetricsViewStateMapper.swift */; };
+		62DB94ABCCD388FE821EACF4 /* MetricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013643E278132D827A1E3126 /* MetricsViewModel.swift */; };
+		4AEC7346160E6AA52D14A67A /* ClimbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E5470FC6C0B57A85949FF /* ClimbViewModel.swift */; };
+		F46A9944D2D6221145C3F779 /* ClimbViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB2F864536B3E88EC31F07 /* ClimbViewState.swift */; };
+		C4A232F2E79E7F53742FF344 /* ClimbViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01548B42CB1C22574889A38F /* ClimbViewStateMapper.swift */; };
+		D651EA941B7B3DE754621680 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFBAD49250CD75006421F6C /* AppViewModel.swift */; };
+		9A225028DDB5D2079F4B84F0 /* RideViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DD0E4389EAA1FCC4D608E6 /* RideViewStateMapper.swift */; };
+		543828DBC6E5B4FFEF6296FB /* RideControlsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49EE714B9B04AC90F40BC7 /* RideControlsState.swift */; };
+		F42909A9EC90FE7B8D2CECDD /* RideViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B8F0505F3D46C02BD1967 /* RideViewState.swift */; };
+		F349252775DEE07DC937C144 /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B4FEC2D8CA9D7907E56511 /* RideViewModel.swift */; };
+		5B41FD397BD3A0EDB8C4A183 /* NavigationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E16A8060712D08C9EE36C /* NavigationViewState.swift */; };
+		76652C1461604C0C33A0BA9F /* NavigationPhaseViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9129BA300DC1225EC9128 /* NavigationPhaseViewState.swift */; };
+		3B2040C5FD447B87C790460C /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68DF5E72E86C62750241964 /* NavigationViewModel.swift */; };
+		FD479FE7F355E401F53AAF82 /* NavigationViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EB92D1BA425917EAB02318 /* NavigationViewStateMapper.swift */; };
+		9ABD42BBF2B9168139C0603D /* AlertViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C5E7EBCFF3C11563270CC /* AlertViewState.swift */; };
+		C3D5B5DD60C1A7555C70FF2E /* BannerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DFD4AD3DD948B5C6A4B7F /* BannerViewState.swift */; };
+		CC1D4875BCEA6EC8525A22E9 /* AppPresentationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38611E8BE44F06F4857FCAAC /* AppPresentationEvent.swift */; };
+		7ED496C98DB5C1477641CF9A /* RouteMapViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406802B4EF0EC0C78C5AF8C9 /* RouteMapViewStateMapper.swift */; };
+		7DE4967EA7D112F300F192AC /* RouteMapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C127F5B72CBE67A85BD9C /* RouteMapViewState.swift */; };
+		286324CFEA6EFEA1E2FF8828 /* RouteMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CDB3A47642C876E4A94FD8 /* RouteMapViewModel.swift */; };
+		D056C98A2387FFC48CB27925 /* FormattingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00969D14B78C4E949CAE595E /* FormattingProtocols.swift */; };
+		0EBF42C8C1C954790C268944 /* StandardFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2B66427D7CC95048C4052 /* StandardFormatters.swift */; };
+		610240134DD97FB2BDA9C70A /* MetricDisplayValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23955CA46A13C8BB437E18D6 /* MetricDisplayValue.swift */; };
+		BAA2DA6287A9A0E97DBCED7F /* UnitPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354B579790287C8D7142A59 /* UnitPreferences.swift */; };
+		528656822AF5E045F67D8A89 /* RouteLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104F6EDC157899303CAAE42 /* RouteLibraryViewModel.swift */; };
+		D37B909EABAE619E1649BED9 /* RouteLibraryViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667358D5C4E01A5518ADECA8 /* RouteLibraryViewState.swift */; };
+		27ECA57B1FD67A1A96BB4E9E /* RouteLibraryViewStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABE874F5F6A32AD24BDBCEA /* RouteLibraryViewStateMapper.swift */; };
+		40AF80EBB0BE197572E01800 /* AppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C22DEA68A5BD1EF39D7DB1 /* AppViewModelTests.swift */; };
+		377911F4AA1F888B6951E41E /* FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8003761876A61B57E1EDFB9D /* FormattingTests.swift */; };
+		93FF133FFD2D3A3B13CF9A84 /* RideViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF765D06DB99B594A2475C4C /* RideViewModelTests.swift */; };
+		F0049649C504F1DF45448D69 /* ClimbViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E1187765D2A82D07F5D34 /* ClimbViewModelTests.swift */; };
+		C3351F3C845AED3F132D36AF /* NavigationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8482547C9B08EBFAD8D2B43 /* NavigationViewModelTests.swift */; };
+		335FB6934026B9FA2664BCEA /* RouteMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C5FF6E3A6BAE84537984EA /* RouteMapViewModelTests.swift */; };
+		71BE5365745B34C519D09D7F /* MetricsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD5742F5C95A4CF9540755 /* MetricsViewModelTests.swift */; };
+		BD65D30D8391A761F0074A67 /* RouteLibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7957D687CC7461D24817C8AC /* RouteLibraryViewModelTests.swift */; };
 		E1B13A55CC98992427A375A1 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F13A55CC98992427A375A1 /* AppConfiguration.swift */; };
 		E1B7C1053BFE88A3EDCF6198 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */; };
 		E1B3AD573E19932AEBB27C13 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */; };
@@ -505,6 +541,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE3B3C117FB458D5E5155515 /* MetricTileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricTileState.swift"; sourceTree = "<group>"; };
+		20B7FE7E537251B1A1BDFF16 /* MetricsViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricsViewStateMapper.swift"; sourceTree = "<group>"; };
+		013643E278132D827A1E3126 /* MetricsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Metrics/MetricsViewModel.swift"; sourceTree = "<group>"; };
+		512E5470FC6C0B57A85949FF /* ClimbViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Climb/ClimbViewModel.swift"; sourceTree = "<group>"; };
+		35DB2F864536B3E88EC31F07 /* ClimbViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Climb/ClimbViewState.swift"; sourceTree = "<group>"; };
+		01548B42CB1C22574889A38F /* ClimbViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Climb/ClimbViewStateMapper.swift"; sourceTree = "<group>"; };
+		CDFBAD49250CD75006421F6C /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/App/AppViewModel.swift"; sourceTree = "<group>"; };
+		68DD0E4389EAA1FCC4D608E6 /* RideViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Ride/RideViewStateMapper.swift"; sourceTree = "<group>"; };
+		8D49EE714B9B04AC90F40BC7 /* RideControlsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Ride/RideControlsState.swift"; sourceTree = "<group>"; };
+		9E8B8F0505F3D46C02BD1967 /* RideViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Ride/RideViewState.swift"; sourceTree = "<group>"; };
+		94B4FEC2D8CA9D7907E56511 /* RideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Ride/RideViewModel.swift"; sourceTree = "<group>"; };
+		938E16A8060712D08C9EE36C /* NavigationViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Navigation/NavigationViewState.swift"; sourceTree = "<group>"; };
+		32C9129BA300DC1225EC9128 /* NavigationPhaseViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Navigation/NavigationPhaseViewState.swift"; sourceTree = "<group>"; };
+		B68DF5E72E86C62750241964 /* NavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Navigation/NavigationViewModel.swift"; sourceTree = "<group>"; };
+		99EB92D1BA425917EAB02318 /* NavigationViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Navigation/NavigationViewStateMapper.swift"; sourceTree = "<group>"; };
+		124C5E7EBCFF3C11563270CC /* AlertViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Alerts/AlertViewState.swift"; sourceTree = "<group>"; };
+		039DFD4AD3DD948B5C6A4B7F /* BannerViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Alerts/BannerViewState.swift"; sourceTree = "<group>"; };
+		38611E8BE44F06F4857FCAAC /* AppPresentationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Alerts/AppPresentationEvent.swift"; sourceTree = "<group>"; };
+		406802B4EF0EC0C78C5AF8C9 /* RouteMapViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Map/RouteMapViewStateMapper.swift"; sourceTree = "<group>"; };
+		299C127F5B72CBE67A85BD9C /* RouteMapViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Map/RouteMapViewState.swift"; sourceTree = "<group>"; };
+		63CDB3A47642C876E4A94FD8 /* RouteMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Map/RouteMapViewModel.swift"; sourceTree = "<group>"; };
+		00969D14B78C4E949CAE595E /* FormattingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Formatting/FormattingProtocols.swift"; sourceTree = "<group>"; };
+		65E2B66427D7CC95048C4052 /* StandardFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Formatting/StandardFormatters.swift"; sourceTree = "<group>"; };
+		23955CA46A13C8BB437E18D6 /* MetricDisplayValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Formatting/MetricDisplayValue.swift"; sourceTree = "<group>"; };
+		F354B579790287C8D7142A59 /* UnitPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Formatting/UnitPreferences.swift"; sourceTree = "<group>"; };
+		1104F6EDC157899303CAAE42 /* RouteLibraryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Routes/RouteLibraryViewModel.swift"; sourceTree = "<group>"; };
+		667358D5C4E01A5518ADECA8 /* RouteLibraryViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Routes/RouteLibraryViewState.swift"; sourceTree = "<group>"; };
+		8ABE874F5F6A32AD24BDBCEA /* RouteLibraryViewStateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Routes/RouteLibraryViewStateMapper.swift"; sourceTree = "<group>"; };
+		17C22DEA68A5BD1EF39D7DB1 /* AppViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/AppViewModelTests.swift"; sourceTree = "<group>"; };
+		8003761876A61B57E1EDFB9D /* FormattingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/FormattingTests.swift"; sourceTree = "<group>"; };
+		DF765D06DB99B594A2475C4C /* RideViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/RideViewModelTests.swift"; sourceTree = "<group>"; };
+		042E1187765D2A82D07F5D34 /* ClimbViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/ClimbViewModelTests.swift"; sourceTree = "<group>"; };
+		A8482547C9B08EBFAD8D2B43 /* NavigationViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/NavigationViewModelTests.swift"; sourceTree = "<group>"; };
+		B3C5FF6E3A6BAE84537984EA /* RouteMapViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/RouteMapViewModelTests.swift"; sourceTree = "<group>"; };
+		EDCD5742F5C95A4CF9540755 /* MetricsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/MetricsViewModelTests.swift"; sourceTree = "<group>"; };
+		7957D687CC7461D24817C8AC /* RouteLibraryViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Presentation/RouteLibraryViewModelTests.swift"; sourceTree = "<group>"; };
 		E1F13A55CC98992427A375A1 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppConfiguration.swift; sourceTree = "<group>"; };
 		E1F7C1053BFE88A3EDCF6198 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppDependencies.swift; sourceTree = "<group>"; };
 		E1F3AD573E19932AEBB27C13 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppEnvironment.swift; sourceTree = "<group>"; };
@@ -1174,6 +1246,42 @@
 		A40000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
+				BE3B3C117FB458D5E5155515 /* MetricTileState.swift */,
+				20B7FE7E537251B1A1BDFF16 /* MetricsViewStateMapper.swift */,
+				013643E278132D827A1E3126 /* MetricsViewModel.swift */,
+				512E5470FC6C0B57A85949FF /* ClimbViewModel.swift */,
+				35DB2F864536B3E88EC31F07 /* ClimbViewState.swift */,
+				01548B42CB1C22574889A38F /* ClimbViewStateMapper.swift */,
+				CDFBAD49250CD75006421F6C /* AppViewModel.swift */,
+				68DD0E4389EAA1FCC4D608E6 /* RideViewStateMapper.swift */,
+				8D49EE714B9B04AC90F40BC7 /* RideControlsState.swift */,
+				9E8B8F0505F3D46C02BD1967 /* RideViewState.swift */,
+				94B4FEC2D8CA9D7907E56511 /* RideViewModel.swift */,
+				938E16A8060712D08C9EE36C /* NavigationViewState.swift */,
+				32C9129BA300DC1225EC9128 /* NavigationPhaseViewState.swift */,
+				B68DF5E72E86C62750241964 /* NavigationViewModel.swift */,
+				99EB92D1BA425917EAB02318 /* NavigationViewStateMapper.swift */,
+				124C5E7EBCFF3C11563270CC /* AlertViewState.swift */,
+				039DFD4AD3DD948B5C6A4B7F /* BannerViewState.swift */,
+				38611E8BE44F06F4857FCAAC /* AppPresentationEvent.swift */,
+				406802B4EF0EC0C78C5AF8C9 /* RouteMapViewStateMapper.swift */,
+				299C127F5B72CBE67A85BD9C /* RouteMapViewState.swift */,
+				63CDB3A47642C876E4A94FD8 /* RouteMapViewModel.swift */,
+				00969D14B78C4E949CAE595E /* FormattingProtocols.swift */,
+				65E2B66427D7CC95048C4052 /* StandardFormatters.swift */,
+				23955CA46A13C8BB437E18D6 /* MetricDisplayValue.swift */,
+				F354B579790287C8D7142A59 /* UnitPreferences.swift */,
+				1104F6EDC157899303CAAE42 /* RouteLibraryViewModel.swift */,
+				667358D5C4E01A5518ADECA8 /* RouteLibraryViewState.swift */,
+				8ABE874F5F6A32AD24BDBCEA /* RouteLibraryViewStateMapper.swift */,
+				17C22DEA68A5BD1EF39D7DB1 /* AppViewModelTests.swift */,
+				8003761876A61B57E1EDFB9D /* FormattingTests.swift */,
+				DF765D06DB99B594A2475C4C /* RideViewModelTests.swift */,
+				042E1187765D2A82D07F5D34 /* ClimbViewModelTests.swift */,
+				A8482547C9B08EBFAD8D2B43 /* NavigationViewModelTests.swift */,
+				B3C5FF6E3A6BAE84537984EA /* RouteMapViewModelTests.swift */,
+				EDCD5742F5C95A4CF9540755 /* MetricsViewModelTests.swift */,
+				7957D687CC7461D24817C8AC /* RouteLibraryViewModelTests.swift */,
 				A40000000000000000000002 /* UltraNav */,
 				C30000000000000000000001 /* UltraNavWidget */,
 				A40000000000000000000003 /* Products */,
@@ -1722,6 +1830,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AF80EBB0BE197572E01800 /* AppViewModelTests.swift in Sources */,
+				377911F4AA1F888B6951E41E /* FormattingTests.swift in Sources */,
+				93FF133FFD2D3A3B13CF9A84 /* RideViewModelTests.swift in Sources */,
+				F0049649C504F1DF45448D69 /* ClimbViewModelTests.swift in Sources */,
+				C3351F3C845AED3F132D36AF /* NavigationViewModelTests.swift in Sources */,
+				335FB6934026B9FA2664BCEA /* RouteMapViewModelTests.swift in Sources */,
+				71BE5365745B34C519D09D7F /* MetricsViewModelTests.swift in Sources */,
+				BD65D30D8391A761F0074A67 /* RouteLibraryViewModelTests.swift in Sources */,
 				E2B22D45A929BE14B6F9FD80 /* AppContainerLifetimeTests.swift in Sources */,
 				E2B0BCC549C5F7477E86F95C /* AppContainerShutdownTests.swift in Sources */,
 				E2BA1033874455C97442001E /* AppContainerStartupTests.swift in Sources */,
@@ -1880,6 +1996,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F07DF30E016351B5DA901C3 /* MetricTileState.swift in Sources */,
+				D01E78CB67A4A71EFF0D1166 /* MetricsViewStateMapper.swift in Sources */,
+				62DB94ABCCD388FE821EACF4 /* MetricsViewModel.swift in Sources */,
+				4AEC7346160E6AA52D14A67A /* ClimbViewModel.swift in Sources */,
+				F46A9944D2D6221145C3F779 /* ClimbViewState.swift in Sources */,
+				C4A232F2E79E7F53742FF344 /* ClimbViewStateMapper.swift in Sources */,
+				D651EA941B7B3DE754621680 /* AppViewModel.swift in Sources */,
+				9A225028DDB5D2079F4B84F0 /* RideViewStateMapper.swift in Sources */,
+				543828DBC6E5B4FFEF6296FB /* RideControlsState.swift in Sources */,
+				F42909A9EC90FE7B8D2CECDD /* RideViewState.swift in Sources */,
+				F349252775DEE07DC937C144 /* RideViewModel.swift in Sources */,
+				5B41FD397BD3A0EDB8C4A183 /* NavigationViewState.swift in Sources */,
+				76652C1461604C0C33A0BA9F /* NavigationPhaseViewState.swift in Sources */,
+				3B2040C5FD447B87C790460C /* NavigationViewModel.swift in Sources */,
+				FD479FE7F355E401F53AAF82 /* NavigationViewStateMapper.swift in Sources */,
+				9ABD42BBF2B9168139C0603D /* AlertViewState.swift in Sources */,
+				C3D5B5DD60C1A7555C70FF2E /* BannerViewState.swift in Sources */,
+				CC1D4875BCEA6EC8525A22E9 /* AppPresentationEvent.swift in Sources */,
+				7ED496C98DB5C1477641CF9A /* RouteMapViewStateMapper.swift in Sources */,
+				7DE4967EA7D112F300F192AC /* RouteMapViewState.swift in Sources */,
+				286324CFEA6EFEA1E2FF8828 /* RouteMapViewModel.swift in Sources */,
+				D056C98A2387FFC48CB27925 /* FormattingProtocols.swift in Sources */,
+				0EBF42C8C1C954790C268944 /* StandardFormatters.swift in Sources */,
+				610240134DD97FB2BDA9C70A /* MetricDisplayValue.swift in Sources */,
+				BAA2DA6287A9A0E97DBCED7F /* UnitPreferences.swift in Sources */,
+				528656822AF5E045F67D8A89 /* RouteLibraryViewModel.swift in Sources */,
+				D37B909EABAE619E1649BED9 /* RouteLibraryViewState.swift in Sources */,
+				27ECA57B1FD67A1A96BB4E9E /* RouteLibraryViewStateMapper.swift in Sources */,
 				E1B13A55CC98992427A375A1 /* AppConfiguration.swift in Sources */,
 				E1B7C1053BFE88A3EDCF6198 /* AppDependencies.swift in Sources */,
 				E1B3AD573E19932AEBB27C13 /* AppEnvironment.swift in Sources */,

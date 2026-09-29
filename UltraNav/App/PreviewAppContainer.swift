@@ -84,7 +84,9 @@ extension AppContainer {
             navigationEngine: navigationEngine,
             metricsEngine: metricsEngine,
             climbEngine: climbEngine,
-            routeLibraryEngine: routeLibraryEngine
+            routeLibraryEngine: routeLibraryEngine,
+            lifecycleCoordinator: coordinators.rideLifecycle,
+            routeNavigationCoordinator: coordinators.routeNavigation
         )
 
         return AppContainer(

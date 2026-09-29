@@ -217,7 +217,9 @@ final class AppContainer {
             navigationEngine: navigationEngine,
             metricsEngine: metricsEngine,
             climbEngine: climbEngine,
-            routeLibraryEngine: routeLibraryEngine
+            routeLibraryEngine: routeLibraryEngine,
+            lifecycleCoordinator: rideLifecycleCoordinator,
+            routeNavigationCoordinator: routeNavigationCoordinator
         )
 
         return AppContainer(

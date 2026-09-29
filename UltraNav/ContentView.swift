@@ -3,12 +3,13 @@ import MapKit
 
 struct ContentView: View {
     @Environment(NavigationModel.self) private var model
-    @Environment(CyclingRideEngine.self) private var cyclingEngine
+    @Environment(AppViewModel.self) private var appViewModel
+    @Environment(RideViewModel.self) private var rideViewModel
 
     var body: some View {
         NavigationStack {
             Group {
-                if cyclingEngine.isRiding {
+                if rideViewModel.state.phase == .active || rideViewModel.state.phase == .paused || rideViewModel.state.phase == .preparing || rideViewModel.state.phase == .ready {
                     CyclingComputerContainerView()
                 } else {
                     switch model.state {

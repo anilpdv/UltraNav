@@ -2,9 +2,13 @@ import SwiftUI
 
 /// Chronological Turn Cue Sheet / Waypoint list with live distance countdowns.
 public struct CueSheetListView: View {
-    @Environment(CyclingRideEngine.self) private var engine
+    @Environment(NavigationViewModel.self) private var navViewModel
+
+    public init() {}
 
     public var body: some View {
+        let state = navViewModel.state
+
         VStack(alignment: .leading, spacing: 3) {
             HStack {
                 Image(systemName: "signpost.right.and.left.fill")
@@ -14,76 +18,57 @@ public struct CueSheetListView: View {
                     .font(.system(size: 9, weight: .heavy, design: .rounded))
                     .foregroundStyle(.secondary)
                 Spacer()
-                Text("\(upcomingCues.count) upcoming")
-                    .font(.system(size: 8, weight: .semibold))
-                    .foregroundStyle(.cyan)
+                if let dist = state.distanceRemaining {
+                    Text("\(dist.primaryText) \(dist.unitText) left")
+                        .font(.system(size: 8, weight: .semibold))
+                        .foregroundStyle(.cyan)
+                }
             }
             .padding(.horizontal, 6)
             .padding(.vertical, 3)
             .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
 
-            if upcomingCues.isEmpty {
-                VStack(spacing: 4) {
-                    Image(systemName: "flag.checkered")
-                        .font(.title3)
-                        .foregroundStyle(.secondary)
-                    Text("No upcoming turns")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
-                List(upcomingCues) { cue in
+            if let cue = state.nextCue {
+                VStack(spacing: 8) {
                     HStack(spacing: 8) {
-                        Image(systemName: cue.type.iconName)
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundStyle(iconColor(cue.type))
-                            .frame(width: 20)
+                        Image(systemName: cue.maneuver.iconName)
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundStyle(.green)
+                            .frame(width: 28)
 
-                        VStack(alignment: .leading, spacing: 1) {
+                        VStack(alignment: .leading, spacing: 2) {
                             Text(cue.instruction)
-                                .font(.system(size: 11, weight: .bold))
-                                .lineLimit(2)
+                                .font(.system(size: 13, weight: .bold))
+                                .lineLimit(3)
                                 .foregroundStyle(.white)
 
-                            let dist = max(0, cue.distanceFromStart - engine.totalDistanceMeters)
-                            Text(formattedDistance(dist))
-                                .font(.system(size: 9, weight: .semibold, design: .rounded))
-                                .foregroundStyle(.secondary)
+                            if let dist = cue.distance {
+                                Text("in \(dist.primaryText) \(dist.unitText)")
+                                    .font(.system(size: 11, weight: .semibold, design: .rounded))
+                                    .foregroundStyle(.yellow)
+                            }
                         }
 
                         Spacer()
                     }
-                    .listRowInsets(EdgeInsets(top: 4, leading: 6, bottom: 4, trailing: 6))
-                    .listRowBackground(Color.black.opacity(0.6))
+                    .padding(8)
+                    .background(Color.black.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
+
+                    Spacer()
                 }
-                .listStyle(.plain)
+                .padding(.top, 4)
+            } else {
+                VStack(spacing: 4) {
+                    Image(systemName: "flag.checkered")
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                    Text("No active turn cues")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .padding(.horizontal, 4)
-    }
-
-    private var upcomingCues: [RouteCue] {
-        guard let route = engine.activeRoute else { return [] }
-        return route.cues.filter { $0.distanceFromStart >= (engine.totalDistanceMeters - 20) }
-    }
-
-    private func iconColor(_ type: CueType) -> Color {
-        switch type {
-        case .summit: return .orange
-        case .water: return .cyan
-        case .food: return .yellow
-        case .hazard: return .red
-        case .start: return .green
-        case .end: return .purple
-        default: return .white
-        }
-    }
-
-    private func formattedDistance(_ meters: Double) -> String {
-        if meters >= 1000 {
-            return String(format: "in %.1f km", meters / 1000.0)
-        }
-        return "in \(Int(meters)) m"
     }
 }

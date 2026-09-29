@@ -2,141 +2,150 @@ import SwiftUI
 
 /// Wahoo & Garmin style high-contrast sunlight-readable cycling computer metrics matrix.
 public struct MetricsGridView: View {
-    @Environment(CyclingRideEngine.self) private var engine
+    @Environment(MetricsViewModel.self) private var metricsViewModel
+
+    public init() {}
 
     public var body: some View {
+        let state = metricsViewModel.state
+
         VStack(spacing: 4) {
-            // Row 1: Primary Speed (Big Numbers)
+            // Row 1: Primary Speed (Big Numbers) & Average Speed
+            let speedTile = state.tile(for: .speed)
+            let avgSpeedTile = state.tile(for: .averageSpeed)
+
             HStack(alignment: .firstTextBaseline, spacing: 2) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("SPEED")
+                    Text(speedTile?.title ?? "SPEED")
                         .font(.system(size: 9, weight: .bold, design: .rounded))
                         .foregroundStyle(.secondary)
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(String(format: "%.1f", engine.currentSpeedKmh))
+                        Text(speedTile?.value.primaryText ?? "--.-")
                             .font(.system(size: 40, weight: .heavy, design: .rounded))
                             .monospacedDigit()
-                            .foregroundStyle(.white)
-
-                        // Speed Pace Arrow
-                        if engine.speedComparison > 0 {
-                            Image(systemName: "triangle.fill")
-                                .font(.system(size: 10))
-                                .foregroundStyle(.green)
-                        } else if engine.speedComparison < 0 {
-                            Image(systemName: "triangle.fill")
-                                .font(.system(size: 10))
-                                .rotationEffect(.degrees(180))
-                                .foregroundStyle(.orange)
-                        }
+                            .foregroundStyle(speedTile?.value.availability == .stale ? .gray : .white)
                     }
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(speedTile?.value.accessibilityLabel ?? "Speed")
+                .accessibilityValue(speedTile?.value.accessibilityValue ?? "Unavailable")
 
                 Spacer(minLength: 4)
 
                 VStack(alignment: .trailing, spacing: 0) {
-                    Text("AVG")
+                    Text(avgSpeedTile?.title ?? "AVG")
                         .font(.system(size: 9, weight: .bold, design: .rounded))
                         .foregroundStyle(.secondary)
-                    Text(String(format: "%.1f", engine.averageSpeedKmh))
+                    Text(avgSpeedTile?.value.primaryText ?? "--.-")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.cyan)
-                    Text("km/h")
+                    Text(avgSpeedTile?.value.unitText ?? "km/h")
                         .font(.system(size: 8, weight: .semibold))
                         .foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(avgSpeedTile?.value.accessibilityLabel ?? "Average Speed")
+                .accessibilityValue(avgSpeedTile?.value.accessibilityValue ?? "Unavailable")
             }
             .padding(.horizontal, 6)
             .padding(.vertical, 3)
             .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
 
             // Row 2: Heart Rate + Zone & Power / Cadence
+            let hrTile = state.tile(for: .heartRate)
+            let powerTile = state.tile(for: .power)
+            let cadenceTile = state.tile(for: .cadence)
+
             HStack(spacing: 4) {
                 // Heart Rate Box
                 VStack(alignment: .leading, spacing: 1) {
                     HStack {
                         Image(systemName: "heart.fill")
                             .font(.system(size: 8))
-                            .foregroundStyle(engine.heartRateZone.color)
-                        Text("HEART RATE")
+                            .foregroundStyle(.red)
+                        Text(hrTile?.title ?? "HEART RATE")
                             .font(.system(size: 8, weight: .bold, design: .rounded))
                             .foregroundStyle(.secondary)
                     }
                     HStack(alignment: .firstTextBaseline, spacing: 2) {
-                        Text(engine.heartRate > 0 ? "\(engine.heartRate)" : "--")
+                        Text(hrTile?.value.primaryText ?? "--")
                             .font(.system(size: 20, weight: .heavy, design: .rounded))
                             .monospacedDigit()
-                            .foregroundStyle(engine.heartRateZone.color)
-                        Text("bpm")
+                            .foregroundStyle(hrTile?.value.availability == .available ? .red : .gray)
+                        Text(hrTile?.value.unitText ?? "bpm")
                             .font(.system(size: 7))
                             .foregroundStyle(.secondary)
                     }
-                    // HR Zone Bar
-                    ZStack(alignment: .leading) {
-                        Capsule().fill(Color.gray.opacity(0.3)).frame(height: 3)
-                        Capsule()
-                            .fill(engine.heartRateZone.color)
-                            .frame(width: max(4, CGFloat(engine.heartRateZone.rawValue) * 12), height: 3)
-                    }
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(hrTile?.value.accessibilityLabel ?? "Heart Rate")
+                .accessibilityValue(hrTile?.value.accessibilityValue ?? "Unavailable")
                 .padding(5)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
 
                 // Power or Cadence Box
+                let activePowerOrCadence = (powerTile?.value.availability == .available) ? powerTile : cadenceTile
                 VStack(alignment: .leading, spacing: 1) {
                     HStack {
                         Image(systemName: "bolt.fill")
                             .font(.system(size: 8))
                             .foregroundStyle(.yellow)
-                        Text("POWER")
+                        Text(activePowerOrCadence?.title ?? "POWER")
                             .font(.system(size: 8, weight: .bold, design: .rounded))
                             .foregroundStyle(.secondary)
                     }
                     HStack(alignment: .firstTextBaseline, spacing: 2) {
-                        Text(engine.powerWatts > 0 ? "\(engine.powerWatts)" : (engine.cadenceRPM > 0 ? "\(engine.cadenceRPM)" : "--"))
+                        Text(activePowerOrCadence?.value.primaryText ?? "--")
                             .font(.system(size: 20, weight: .heavy, design: .rounded))
                             .monospacedDigit()
                             .foregroundStyle(.yellow)
-                        Text(engine.powerWatts > 0 ? "W" : "rpm")
+                        Text(activePowerOrCadence?.value.unitText ?? "W")
                             .font(.system(size: 7))
                             .foregroundStyle(.secondary)
                     }
-                    Text(engine.cadenceRPM > 0 ? "\(engine.cadenceRPM) rpm" : "CADENCE")
-                        .font(.system(size: 7, weight: .medium))
-                        .foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(activePowerOrCadence?.value.accessibilityLabel ?? "Power")
+                .accessibilityValue(activePowerOrCadence?.value.accessibilityValue ?? "Unavailable")
                 .padding(5)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
             }
 
-            // Row 3: Distance & Time & Grade %
+            // Row 3: Distance & Time & Altitude
+            let distTile = state.tile(for: .distance)
+            let timeTile = state.tile(for: .movingTime) ?? state.tile(for: .elapsedTime)
+            let altTile = state.tile(for: .altitude)
+
             HStack(spacing: 4) {
                 // Distance
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("DISTANCE")
+                    Text(distTile?.title ?? "DISTANCE")
                         .font(.system(size: 8, weight: .bold, design: .rounded))
                         .foregroundStyle(.secondary)
-                    Text(String(format: "%.2f", engine.totalDistanceMeters / 1000.0))
+                    Text(distTile?.value.primaryText ?? "--")
                         .font(.system(size: 15, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
-                    Text("km")
+                    Text(distTile?.value.unitText ?? "km")
                         .font(.system(size: 7))
                         .foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(distTile?.value.accessibilityLabel ?? "Distance")
+                .accessibilityValue(distTile?.value.accessibilityValue ?? "Unavailable")
                 .padding(4)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
 
                 // Moving Time
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("TIME")
+                    Text(timeTile?.title ?? "TIME")
                         .font(.system(size: 8, weight: .bold, design: .rounded))
                         .foregroundStyle(.secondary)
-                    Text(formattedTime(engine.movingTime))
+                    Text(timeTile?.value.primaryText ?? "00:00")
                         .font(.system(size: 15, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
@@ -144,46 +153,34 @@ public struct MetricsGridView: View {
                         .font(.system(size: 7))
                         .foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(timeTile?.value.accessibilityLabel ?? "Time")
+                .accessibilityValue(timeTile?.value.accessibilityValue ?? "0 minutes")
                 .padding(4)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
 
-                // Grade %
+                // Altitude
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("GRADE")
+                    Text(altTile?.title ?? "ALTITUDE")
                         .font(.system(size: 8, weight: .bold, design: .rounded))
                         .foregroundStyle(.secondary)
-                    Text(String(format: "%+.1f%%", engine.currentGradePercent))
+                    Text(altTile?.value.primaryText ?? "--")
                         .font(.system(size: 15, weight: .bold, design: .rounded))
                         .monospacedDigit()
-                        .foregroundStyle(gradeColor(engine.currentGradePercent))
-                    Text("+\(Int(engine.elevationGainedMeters))m")
+                        .foregroundStyle(.cyan)
+                    Text(altTile?.value.unitText ?? "m")
                         .font(.system(size: 7))
                         .foregroundStyle(.secondary)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(altTile?.value.accessibilityLabel ?? "Altitude")
+                .accessibilityValue(altTile?.value.accessibilityValue ?? "Unavailable")
                 .padding(4)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 8))
             }
         }
         .padding(.horizontal, 4)
-    }
-
-    private func formattedTime(_ interval: TimeInterval) -> String {
-        let hrs = Int(interval) / 3600
-        let mins = (Int(interval) % 3600) / 60
-        let secs = Int(interval) % 60
-        if hrs > 0 {
-            return String(format: "%d:%02d:%02d", hrs, mins, secs)
-        }
-        return String(format: "%02d:%02d", mins, secs)
-    }
-
-    private func gradeColor(_ grade: Double) -> Color {
-        if grade >= 10 { return .red }
-        if grade >= 7 { return .orange }
-        if grade >= 4 { return .yellow }
-        if grade > 0 { return .green }
-        return .cyan
     }
 }
