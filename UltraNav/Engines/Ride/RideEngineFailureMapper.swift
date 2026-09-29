@@ -1,6 +1,6 @@
 import Foundation
 
-struct RideFailureMapper: Sendable {
+struct RideEngineFailureMapper: Sendable {
     func map(_ failure: LocationServiceFailure) -> RideFailure {
         switch failure {
         case .authorizationDenied:

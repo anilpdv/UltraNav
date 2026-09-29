@@ -1,6 +1,6 @@
 import Foundation
 
-struct NavigationFailureMapper: Sendable {
+struct NavigationEngineFailureMapper: Sendable {
     func map(_ error: Error) -> NavigationFailure {
         if let failure = error as? NavigationFailure {
             return failure

@@ -263,7 +263,7 @@
 		E1B000000000000000001D0912 /* NavigationEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0912 /* NavigationEngineProviding.swift */; };
 		E1B000000000000000001D0913 /* NavigationProgressState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0913 /* NavigationProgressState.swift */; };
 		E1B000000000000000001D0914 /* NavigationRouteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0914 /* NavigationRouteState.swift */; };
-		E1B000000000000000001D0915 /* NavigationFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0915 /* NavigationFailureMapper.swift */; };
+		E1B000000000000000001D0915 /* NavigationEngineFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0915 /* NavigationEngineFailureMapper.swift */; };
 		E1B000000000000000001D0916 /* NavigationSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */; };
 		E1B000000000000000001D0917 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0917 /* NavigationEngine.swift */; };
 		E1B000000000000000001D0918 /* RideLocationConsuming.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0918 /* RideLocationConsuming.swift */; };
@@ -296,7 +296,7 @@
 		E1B000000000000000001D077 /* RideEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D077 /* RideEngineEvent.swift */; };
 		E1B000000000000000001D078 /* RideTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D078 /* RideTimingState.swift */; };
 		E1B000000000000000001D079 /* RideMetricState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D079 /* RideMetricState.swift */; };
-		E1B000000000000000001D07A /* RideFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07A /* RideFailureMapper.swift */; };
+		E1B000000000000000001D07A /* RideEngineFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07A /* RideEngineFailureMapper.swift */; };
 		E1B000000000000000001D07B /* RideSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07B /* RideSnapshotBuilder.swift */; };
 		E1B000000000000000001D07C /* RideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07C /* RideEngine.swift */; };
 		E1B000000000000000001D07D /* LegacyRideEngineAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */; };
@@ -522,6 +522,49 @@
 		5F177C1D239745B0A62E93B0 /* WorkoutConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A389D1E1742340F8BF4D4A96 /* WorkoutConcurrencyTests.swift */; };
 		CC57248ACC01446A83328C28 /* BluetoothConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008EB5570404BF4AB9BE579 /* BluetoothConcurrencyTests.swift */; };
 		96CE12B4DDC5498BAC69CAB4 /* CoordinatorConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E93D03D7740E589ED3A35 /* CoordinatorConcurrencyTests.swift */; };
+		P1P33B7FC88616750959CFEB /* FailureID.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P22356754C34E56E98F2A1 /* FailureID.swift */; };
+		P1PCC15D56F8BEF585999BB0 /* FailureSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P1ADDC2371F055B20BFBDA /* FailureSeverity.swift */; };
+		P1P01B68ACDF9D052D98B21D /* FailureImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P9819530B2E475D9C8B57A /* FailureImpact.swift */; };
+		P1P54114DD108A8561C9EDE2 /* FailureRecoverability.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PFBEE69DAA4985FE990D15 /* FailureRecoverability.swift */; };
+		P1P42D46206E8065A4D8D1E2 /* RecoveryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P20B8550184D255438BD73 /* RecoveryAction.swift */; };
+		P1P75790F1269DA573181B50 /* FailureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P7ED79A994F005FECBA52C /* FailureContext.swift */; };
+		P1P456740E2882653C0A5D49 /* AppFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P0F1E4EEE6C6B526F98ACD /* AppFailure.swift */; };
+		P1PA74783C7EEB25328893DC /* UltraNavFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P3920FF9B29FB50D7B42FF /* UltraNavFailure.swift */; };
+		P1PD2292A520F2D5B46AE0FA /* FailureRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PD6231EB6B67950E2BA16F /* FailureRecord.swift */; };
+		P1P5A8B9F0AD8B852EFA8E5B /* Degradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PD50968DB9D9F56A397778 /* Degradation.swift */; };
+		P1PF0EB9C9D6027544F97570 /* OperationRejection.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P13E1358EBC2D54179AB50 /* OperationRejection.swift */; };
+		P1P17B322029730529196BC7 /* MetricsFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PFDCAA5F15F2F52649A91B /* MetricsFailure.swift */; };
+		P1P034F9F99F674578E9E389 /* ServiceFailureMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P22809551E1875C1597CEA /* ServiceFailureMapping.swift */; };
+		P1P734D6389C2B158CFBD7EE /* RideFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P309730303FC653AE88E1B /* RideFailureMapper.swift */; };
+		P1P59D62C76BAB359A98BA11 /* NavigationFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P15A0D1A0988D57A0B5021 /* NavigationFailureMapper.swift */; };
+		P1PDCDFFCD5CE015EBDA2EB0 /* RouteFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PF896AE874286584E9E6A2 /* RouteFailureMapper.swift */; };
+		P1P4B12BB9E78155EA89492A /* MetricsFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P7661B0EAF94A5C7DA0506 /* MetricsFailureMapper.swift */; };
+		P1PA1FDAD78E19E5CB3B1887 /* ClimbFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PA691516C31615DE0BB184 /* ClimbFailureMapper.swift */; };
+		P1PE559DDC60B8E553E8D64C /* ServiceFailureMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P83E6E5B9EE445BF2904FC /* ServiceFailureMappers.swift */; };
+		P1PA342CA23113757648605D /* UltraNavFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P921622FACA425227ACE89 /* UltraNavFailureMapper.swift */; };
+		P1PDF2ADBD03D1C51438677B /* RecoveryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P2C305B5315C853D3B963B /* RecoveryResult.swift */; };
+		P1PEF0E8A07FD715FA59963B /* RetryPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PC5592844CFF05511B6EEE /* RetryPolicy.swift */; };
+		P1PBE45018E64AC51D9BCE64 /* RecoveryPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PA3F1CBFE30365C37B0F99 /* RecoveryPolicy.swift */; };
+		P1P3557D7BD9B2F5243AF737 /* FailureRecovering.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P4C7EF0386EA45AF9885DE /* FailureRecovering.swift */; };
+		P1P5EF65EAC921A5E25AEDD2 /* RecoveryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P3297956953795F7AAA15E /* RecoveryCoordinator.swift */; };
+		P1PEB461B3064195CE19F230 /* FailureRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PC1E4EA94DBD6546B8B8EF /* FailureRecording.swift */; };
+		P1P93BD9A5222C7590787C25 /* FailureHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P8A5816A6A83B5389A8625 /* FailureHistory.swift */; };
+		P1PCEDE008AD9195C6689430 /* FailureRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PC46B3A1576475BFD872AF /* FailureRecorder.swift */; };
+		P1PF8D2386298F4525697148 /* FailureDiagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P65308AF0EC345C22A90C0 /* FailureDiagnostics.swift */; };
+		P1PD5D48F97A7AB58FC8D9C0 /* FailureViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P58D0F4CE0CAD5507A06C9 /* FailureViewState.swift */; };
+		P1PE77A014C3CFF5122BC88A /* RecoveryActionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P65D193C41C4B54B8966AA /* RecoveryActionViewState.swift */; };
+		P1PC840ED137FDA53998ACA3 /* DegradationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PC482CDDFDC5454D09E531 /* DegradationViewState.swift */; };
+		P1PC54EFFCEC5C6597FBFB95 /* FailurePresentationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PE609ACDA6E6B5A7291229 /* FailurePresentationMapper.swift */; };
+		P1P02FBC841805051DCAB11E /* FakeFailureRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P8B2E107B4BD654E19C051 /* FakeFailureRecorder.swift */; };
+		P1P35F636C9033E5EF7AF376 /* FailureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PEA8F1FA0568E5D2984794 /* FailureFactory.swift */; };
+		P1PEAD84849497C564EAFFCD /* FailureClassificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PE9EC94E5E29652FBA81A0 /* FailureClassificationTests.swift */; };
+		P1PFFBD7DBFC7DB543A97F52 /* FailureMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PE29C28738E415D4EB6EC4 /* FailureMappingTests.swift */; };
+		P1PCD92E69BDED7528FAA397 /* FailureSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PC82D7DBAD7D457E58F098 /* FailureSeverityTests.swift */; };
+		P1P342A48579C7A52BA8AFAF /* FailureDeduplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P9E2C9FF8BF0252D3B1E35 /* FailureDeduplicationTests.swift */; };
+		P1P67FE655470265672A1DE7 /* FailureRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P7D52DFB73E5D52E687D0D /* FailureRecorderTests.swift */; };
+		P1PAF40C4961A575661823C6 /* RecoveryPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PEAE4B3EA93B257549512D /* RecoveryPolicyTests.swift */; };
+		P1PECD0291FE0655DAB87C1F /* RecoveryCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1PF926DC0D09A3567A922A9 /* RecoveryCoordinatorTests.swift */; };
+		P1PFBC5DC9F09F1501480E7B /* FailurePresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1P29204FAA1F32507B86322 /* FailurePresentationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -819,7 +862,7 @@
 		E1F000000000000000001D0912 /* NavigationEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngineProviding.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0913 /* NavigationProgressState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationProgressState.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0914 /* NavigationRouteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationRouteState.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0915 /* NavigationFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationFailureMapper.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0915 /* NavigationEngineFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngineFailureMapper.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationSnapshotBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0917 /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngine.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0918 /* RideLocationConsuming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideLocationConsuming.swift; sourceTree = "<group>"; };
@@ -852,7 +895,7 @@
 		E1F000000000000000001D077 /* RideEngineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideEngineEvent.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D078 /* RideTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideTimingState.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D079 /* RideMetricState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideMetricState.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D07A /* RideFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideFailureMapper.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D07A /* RideEngineFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideEngineFailureMapper.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D07B /* RideSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideSnapshotBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D07C /* RideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideEngine.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Ride/LegacyRideEngineAdapter.swift; sourceTree = "<group>"; };
@@ -1106,6 +1149,49 @@
 		A389D1E1742340F8BF4D4A96 /* WorkoutConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/WorkoutConcurrencyTests.swift"; sourceTree = "<group>"; };
 		8008EB5570404BF4AB9BE579 /* BluetoothConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/BluetoothConcurrencyTests.swift"; sourceTree = "<group>"; };
 		5A0E93D03D7740E589ED3A35 /* CoordinatorConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Concurrency/CoordinatorConcurrencyTests.swift"; sourceTree = "<group>"; };
+		P1P22356754C34E56E98F2A1 /* FailureID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureID.swift"; sourceTree = "<group>"; };
+		P1P1ADDC2371F055B20BFBDA /* FailureSeverity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureSeverity.swift"; sourceTree = "<group>"; };
+		P1P9819530B2E475D9C8B57A /* FailureImpact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureImpact.swift"; sourceTree = "<group>"; };
+		P1PFBEE69DAA4985FE990D15 /* FailureRecoverability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureRecoverability.swift"; sourceTree = "<group>"; };
+		P1P20B8550184D255438BD73 /* RecoveryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/RecoveryAction.swift"; sourceTree = "<group>"; };
+		P1P7ED79A994F005FECBA52C /* FailureContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureContext.swift"; sourceTree = "<group>"; };
+		P1P0F1E4EEE6C6B526F98ACD /* AppFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/AppFailure.swift"; sourceTree = "<group>"; };
+		P1P3920FF9B29FB50D7B42FF /* UltraNavFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/UltraNavFailure.swift"; sourceTree = "<group>"; };
+		P1PD6231EB6B67950E2BA16F /* FailureRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/FailureRecord.swift"; sourceTree = "<group>"; };
+		P1PD50968DB9D9F56A397778 /* Degradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/Degradation.swift"; sourceTree = "<group>"; };
+		P1P13E1358EBC2D54179AB50 /* OperationRejection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Errors/OperationRejection.swift"; sourceTree = "<group>"; };
+		P1PFDCAA5F15F2F52649A91B /* MetricsFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Domain/Metrics/MetricsFailure.swift"; sourceTree = "<group>"; };
+		P1P22809551E1875C1597CEA /* ServiceFailureMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/ServiceFailureMapping.swift"; sourceTree = "<group>"; };
+		P1P309730303FC653AE88E1B /* RideFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/RideFailureMapper.swift"; sourceTree = "<group>"; };
+		P1P15A0D1A0988D57A0B5021 /* NavigationFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/NavigationFailureMapper.swift"; sourceTree = "<group>"; };
+		P1PF896AE874286584E9E6A2 /* RouteFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/RouteFailureMapper.swift"; sourceTree = "<group>"; };
+		P1P7661B0EAF94A5C7DA0506 /* MetricsFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/MetricsFailureMapper.swift"; sourceTree = "<group>"; };
+		P1PA691516C31615DE0BB184 /* ClimbFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/ClimbFailureMapper.swift"; sourceTree = "<group>"; };
+		P1P83E6E5B9EE445BF2904FC /* ServiceFailureMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/ServiceFailureMappers.swift"; sourceTree = "<group>"; };
+		P1P921622FACA425227ACE89 /* UltraNavFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Mapping/UltraNavFailureMapper.swift"; sourceTree = "<group>"; };
+		P1P2C305B5315C853D3B963B /* RecoveryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Recovery/RecoveryResult.swift"; sourceTree = "<group>"; };
+		P1PC5592844CFF05511B6EEE /* RetryPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Recovery/RetryPolicy.swift"; sourceTree = "<group>"; };
+		P1PA3F1CBFE30365C37B0F99 /* RecoveryPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Recovery/RecoveryPolicy.swift"; sourceTree = "<group>"; };
+		P1P4C7EF0386EA45AF9885DE /* FailureRecovering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Recovery/FailureRecovering.swift"; sourceTree = "<group>"; };
+		P1P3297956953795F7AAA15E /* RecoveryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Coordinators/RecoveryCoordinator.swift"; sourceTree = "<group>"; };
+		P1PC1E4EA94DBD6546B8B8EF /* FailureRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Diagnostics/FailureRecording.swift"; sourceTree = "<group>"; };
+		P1P8A5816A6A83B5389A8625 /* FailureHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Diagnostics/FailureHistory.swift"; sourceTree = "<group>"; };
+		P1PC46B3A1576475BFD872AF /* FailureRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Diagnostics/FailureRecorder.swift"; sourceTree = "<group>"; };
+		P1P65308AF0EC345C22A90C0 /* FailureDiagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Diagnostics/FailureDiagnostics.swift"; sourceTree = "<group>"; };
+		P1P58D0F4CE0CAD5507A06C9 /* FailureViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Errors/FailureViewState.swift"; sourceTree = "<group>"; };
+		P1P65D193C41C4B54B8966AA /* RecoveryActionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Errors/RecoveryActionViewState.swift"; sourceTree = "<group>"; };
+		P1PC482CDDFDC5454D09E531 /* DegradationViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Presentation/Errors/DegradationViewState.swift"; sourceTree = "<group>"; };
+		P1PE609ACDA6E6B5A7291229 /* FailurePresentationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNav/Errors/Presentation/FailurePresentationMapper.swift"; sourceTree = "<group>"; };
+		P1P8B2E107B4BD654E19C051 /* FakeFailureRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/FakeFailureRecorder.swift"; sourceTree = "<group>"; };
+		P1PEA8F1FA0568E5D2984794 /* FailureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/TestDoubles/FailureFactory.swift"; sourceTree = "<group>"; };
+		P1PE9EC94E5E29652FBA81A0 /* FailureClassificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailureClassificationTests.swift"; sourceTree = "<group>"; };
+		P1PE29C28738E415D4EB6EC4 /* FailureMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailureMappingTests.swift"; sourceTree = "<group>"; };
+		P1PC82D7DBAD7D457E58F098 /* FailureSeverityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailureSeverityTests.swift"; sourceTree = "<group>"; };
+		P1P9E2C9FF8BF0252D3B1E35 /* FailureDeduplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailureDeduplicationTests.swift"; sourceTree = "<group>"; };
+		P1P7D52DFB73E5D52E687D0D /* FailureRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailureRecorderTests.swift"; sourceTree = "<group>"; };
+		P1PEAE4B3EA93B257549512D /* RecoveryPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/RecoveryPolicyTests.swift"; sourceTree = "<group>"; };
+		P1PF926DC0D09A3567A922A9 /* RecoveryCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/RecoveryCoordinatorTests.swift"; sourceTree = "<group>"; };
+		P1P29204FAA1F32507B86322 /* FailurePresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Errors/FailurePresentationTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1560,7 +1646,7 @@
 				E1F000000000000000001D0912 /* NavigationEngineProviding.swift */,
 				E1F000000000000000001D0913 /* NavigationProgressState.swift */,
 				E1F000000000000000001D0914 /* NavigationRouteState.swift */,
-				E1F000000000000000001D0915 /* NavigationFailureMapper.swift */,
+				E1F000000000000000001D0915 /* NavigationEngineFailureMapper.swift */,
 				E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */,
 				E1F000000000000000001D0917 /* NavigationEngine.swift */,
 				E1F000000000000000001D0918 /* RideLocationConsuming.swift */,
@@ -1575,7 +1661,7 @@
 				E1F000000000000000001D077 /* RideEngineEvent.swift */,
 				E1F000000000000000001D078 /* RideTimingState.swift */,
 				E1F000000000000000001D079 /* RideMetricState.swift */,
-				E1F000000000000000001D07A /* RideFailureMapper.swift */,
+				E1F000000000000000001D07A /* RideEngineFailureMapper.swift */,
 				E1F000000000000000001D07B /* RideSnapshotBuilder.swift */,
 				E1F000000000000000001D07C /* RideEngine.swift */,
 				E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */,
@@ -1896,6 +1982,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P1P02FBC841805051DCAB11E /* FakeFailureRecorder.swift in Sources */,
+				P1P35F636C9033E5EF7AF376 /* FailureFactory.swift in Sources */,
+				P1PEAD84849497C564EAFFCD /* FailureClassificationTests.swift in Sources */,
+				P1PFFBD7DBFC7DB543A97F52 /* FailureMappingTests.swift in Sources */,
+				P1PCD92E69BDED7528FAA397 /* FailureSeverityTests.swift in Sources */,
+				P1P342A48579C7A52BA8AFAF /* FailureDeduplicationTests.swift in Sources */,
+				P1P67FE655470265672A1DE7 /* FailureRecorderTests.swift in Sources */,
+				P1PAF40C4961A575661823C6 /* RecoveryPolicyTests.swift in Sources */,
+				P1PECD0291FE0655DAB87C1F /* RecoveryCoordinatorTests.swift in Sources */,
+				P1PFBC5DC9F09F1501480E7B /* FailurePresentationTests.swift in Sources */,
 				0A2892EDF4AA4DFC99C07722 /* AsyncEventChannelTests.swift in Sources */,
 				704D7F23723E414E9F58826E /* TaskRegistryTests.swift in Sources */,
 				573E217163FB48E18A2A5FBB /* StreamCancellationTests.swift in Sources */,
@@ -2075,6 +2171,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				P1P33B7FC88616750959CFEB /* FailureID.swift in Sources */,
+				P1PCC15D56F8BEF585999BB0 /* FailureSeverity.swift in Sources */,
+				P1P01B68ACDF9D052D98B21D /* FailureImpact.swift in Sources */,
+				P1P54114DD108A8561C9EDE2 /* FailureRecoverability.swift in Sources */,
+				P1P42D46206E8065A4D8D1E2 /* RecoveryAction.swift in Sources */,
+				P1P75790F1269DA573181B50 /* FailureContext.swift in Sources */,
+				P1P456740E2882653C0A5D49 /* AppFailure.swift in Sources */,
+				P1PA74783C7EEB25328893DC /* UltraNavFailure.swift in Sources */,
+				P1PD2292A520F2D5B46AE0FA /* FailureRecord.swift in Sources */,
+				P1P5A8B9F0AD8B852EFA8E5B /* Degradation.swift in Sources */,
+				P1PF0EB9C9D6027544F97570 /* OperationRejection.swift in Sources */,
+				P1P17B322029730529196BC7 /* MetricsFailure.swift in Sources */,
+				P1P034F9F99F674578E9E389 /* ServiceFailureMapping.swift in Sources */,
+				P1P734D6389C2B158CFBD7EE /* RideFailureMapper.swift in Sources */,
+				P1P59D62C76BAB359A98BA11 /* NavigationFailureMapper.swift in Sources */,
+				P1PDCDFFCD5CE015EBDA2EB0 /* RouteFailureMapper.swift in Sources */,
+				P1P4B12BB9E78155EA89492A /* MetricsFailureMapper.swift in Sources */,
+				P1PA1FDAD78E19E5CB3B1887 /* ClimbFailureMapper.swift in Sources */,
+				P1PE559DDC60B8E553E8D64C /* ServiceFailureMappers.swift in Sources */,
+				P1PA342CA23113757648605D /* UltraNavFailureMapper.swift in Sources */,
+				P1PDF2ADBD03D1C51438677B /* RecoveryResult.swift in Sources */,
+				P1PEF0E8A07FD715FA59963B /* RetryPolicy.swift in Sources */,
+				P1PBE45018E64AC51D9BCE64 /* RecoveryPolicy.swift in Sources */,
+				P1P3557D7BD9B2F5243AF737 /* FailureRecovering.swift in Sources */,
+				P1P5EF65EAC921A5E25AEDD2 /* RecoveryCoordinator.swift in Sources */,
+				P1PEB461B3064195CE19F230 /* FailureRecording.swift in Sources */,
+				P1P93BD9A5222C7590787C25 /* FailureHistory.swift in Sources */,
+				P1PCEDE008AD9195C6689430 /* FailureRecorder.swift in Sources */,
+				P1PF8D2386298F4525697148 /* FailureDiagnostics.swift in Sources */,
+				P1PD5D48F97A7AB58FC8D9C0 /* FailureViewState.swift in Sources */,
+				P1PE77A014C3CFF5122BC88A /* RecoveryActionViewState.swift in Sources */,
+				P1PC840ED137FDA53998ACA3 /* DegradationViewState.swift in Sources */,
+				P1PC54EFFCEC5C6597FBFB95 /* FailurePresentationMapper.swift in Sources */,
 				D5E5E52F01374493A82E147D /* AsyncEventChannel.swift in Sources */,
 				9D1364A42CF141BDAB7C9176 /* EventStreamOwner.swift in Sources */,
 				FE84A471276A4FB7A70788BB /* TaskRegistry.swift in Sources */,

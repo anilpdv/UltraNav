@@ -22,7 +22,7 @@ final class NavigationEngine: NavigationEngineProviding {
     private let offRouteEvaluator: any OffRouteEvaluating
     private let completionEvaluator: any RouteCompletionEvaluating
     private let snapshotBuilder: NavigationSnapshotBuilder
-    private let failureMapper: NavigationFailureMapper
+    private let failureMapper: NavigationEngineFailureMapper
 
     private(set) var stateMachine: NavigationStateMachine
     private(set) var routeState: NavigationRouteState
@@ -44,7 +44,7 @@ final class NavigationEngine: NavigationEngineProviding {
         offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator(),
         completionEvaluator: any RouteCompletionEvaluating = LegacyRouteCompletionEvaluator(),
         snapshotBuilder: NavigationSnapshotBuilder = NavigationSnapshotBuilder(),
-        failureMapper: NavigationFailureMapper = NavigationFailureMapper()
+        failureMapper: NavigationEngineFailureMapper = NavigationEngineFailureMapper()
     ) {
         self.routeStore = routeStore
         self.routeValidator = routeValidator

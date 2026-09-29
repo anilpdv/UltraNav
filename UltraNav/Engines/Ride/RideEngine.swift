@@ -44,7 +44,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
     private var pendingCommandDate: Date?
 
     private let snapshotBuilder: RideSnapshotBuilder
-    private let failureMapper: RideFailureMapper
+    private let failureMapper: RideEngineFailureMapper
 
     init(
         location: any LocationProviding,
@@ -53,7 +53,7 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming, RideLocation
         clock: any ClockProviding,
         dependencyPolicy: RideDependencyPolicy = .outdoorCycling,
         snapshotBuilder: RideSnapshotBuilder = RideSnapshotBuilder(),
-        failureMapper: RideFailureMapper = RideFailureMapper()
+        failureMapper: RideEngineFailureMapper = RideEngineFailureMapper()
     ) {
         self.location = location
         self.workout = workout
