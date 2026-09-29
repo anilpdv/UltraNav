@@ -17,10 +17,30 @@ struct MetricsSnapshot: Equatable, Sendable {
     let averagePowerWatts: Int?
     let maxPowerWatts: Int?
     let normalizedPowerWatts: Int?
+    let intensityFactor: Double?
+    let trainingStressScore: Double?
     let totalKilocalories: Double?
 
-    let availability: MetricAvailability
+    let elapsedTimeSeconds: TimeInterval
+    let activeTimeSeconds: TimeInterval
+    let movingTimeSeconds: TimeInterval
+
+    let powerMetrics: PowerMetricsSnapshot
+    let laps: [LapRecord]
+    let summary: RideMetricsSummary?
     let timestamp: Date
+
+    var availability: MetricGroupAvailability {
+        MetricGroupAvailability(
+            hasSpeed: speed != nil && speed?.freshness != .expired,
+            hasHeartRate: heartRate != nil && heartRate?.freshness != .expired,
+            hasCadence: cadence != nil && cadence?.freshness != .expired,
+            hasPower: power != nil && power?.freshness != .expired,
+            hasDistance: distance != nil && distance?.freshness != .expired,
+            hasAltitude: altitude != nil && altitude?.freshness != .expired,
+            hasEnergy: energy != nil && energy?.freshness != .expired
+        )
+    }
 
     init(
         speed: CurrentMetric<Double>? = nil,
@@ -38,8 +58,15 @@ struct MetricsSnapshot: Equatable, Sendable {
         averagePowerWatts: Int? = nil,
         maxPowerWatts: Int? = nil,
         normalizedPowerWatts: Int? = nil,
+        intensityFactor: Double? = nil,
+        trainingStressScore: Double? = nil,
         totalKilocalories: Double? = nil,
-        availability: MetricAvailability = .empty,
+        elapsedTimeSeconds: TimeInterval = 0,
+        activeTimeSeconds: TimeInterval = 0,
+        movingTimeSeconds: TimeInterval = 0,
+        powerMetrics: PowerMetricsSnapshot = .empty,
+        laps: [LapRecord] = [],
+        summary: RideMetricsSummary? = nil,
         timestamp: Date = Date()
     ) {
         self.speed = speed
@@ -57,8 +84,15 @@ struct MetricsSnapshot: Equatable, Sendable {
         self.averagePowerWatts = averagePowerWatts
         self.maxPowerWatts = maxPowerWatts
         self.normalizedPowerWatts = normalizedPowerWatts
+        self.intensityFactor = intensityFactor
+        self.trainingStressScore = trainingStressScore
         self.totalKilocalories = totalKilocalories
-        self.availability = availability
+        self.elapsedTimeSeconds = elapsedTimeSeconds
+        self.activeTimeSeconds = activeTimeSeconds
+        self.movingTimeSeconds = movingTimeSeconds
+        self.powerMetrics = powerMetrics
+        self.laps = laps
+        self.summary = summary
         self.timestamp = timestamp
     }
 
@@ -78,8 +112,15 @@ struct MetricsSnapshot: Equatable, Sendable {
         averagePowerWatts: nil,
         maxPowerWatts: nil,
         normalizedPowerWatts: nil,
+        intensityFactor: nil,
+        trainingStressScore: nil,
         totalKilocalories: nil,
-        availability: .empty,
+        elapsedTimeSeconds: 0,
+        activeTimeSeconds: 0,
+        movingTimeSeconds: 0,
+        powerMetrics: .empty,
+        laps: [],
+        summary: nil,
         timestamp: Date()
     )
 }

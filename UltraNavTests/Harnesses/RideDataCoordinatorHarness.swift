@@ -35,9 +35,6 @@ final class RideDataCoordinatorHarness {
         )
 
         self.metrics = MetricsEngine(
-            validator: StandardMetricValidator(),
-            sourceSelector: TemporaryLatestSourceSelector(),
-            summaryBuilder: MetricsSummaryBuilder(),
             clock: clock
         )
 

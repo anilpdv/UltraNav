@@ -133,9 +133,6 @@ final class AppContainer {
 
         // 4. Domain Engines
         let metricsEngine = MetricsEngine(
-            validator: StandardMetricValidator(),
-            sourceSelector: TemporaryLatestSourceSelector(),
-            summaryBuilder: MetricsSummaryBuilder(),
             clock: clock
         )
 

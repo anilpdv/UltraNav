@@ -14,25 +14,26 @@ struct MetricsEngineLocationTests {
 
         let snap = harness.engine.currentSnapshot
         #expect(snap.speed?.value == 15.5)
-        #expect(snap.speed?.source == .coreLocation)
+        #expect(snap.speed?.source == .gps)
         #expect(snap.altitude?.value == 420.0)
-        #expect(snap.altitude?.source == .coreLocation)
+        #expect(snap.altitude?.source == .gps)
         #expect(snap.availability.hasSpeed == true)
         #expect(snap.availability.hasAltitude == true)
     }
 
     @Test
-    func testIdleEngineIgnoresLocation() {
+    func testIdleEngineDoesNotAccumulateAverages() {
         let harness = MetricsEngineHarness()
         let sample = LocationSampleFactory.makeSample(speed: 15.5, altitude: 420.0, timestamp: harness.clock.now)
         harness.engine.consume(location: sample)
 
-        #expect(harness.engine.currentSnapshot.speed == nil)
-        #expect(harness.engine.currentSnapshot.altitude == nil)
+        #expect(harness.engine.currentSnapshot.speed?.value == 15.5)
+        #expect(harness.engine.currentSnapshot.averageSpeedMetersPerSecond == nil)
+        #expect(harness.engine.currentSnapshot.elapsedTimeSeconds == 0)
     }
 
     @Test
-    func testPausedEngineIgnoresLocation() async {
+    func testPausedEngineDoesNotAccumulateAverages() async {
         let harness = MetricsEngineHarness()
         await harness.engine.send(.start)
         await harness.engine.send(.pause)
@@ -40,6 +41,7 @@ struct MetricsEngineLocationTests {
         let sample = LocationSampleFactory.makeSample(speed: 15.5, altitude: 420.0, timestamp: harness.clock.now)
         harness.engine.consume(location: sample)
 
-        #expect(harness.engine.currentSnapshot.speed == nil)
+        #expect(harness.engine.currentSnapshot.speed?.value == 15.5)
+        #expect(harness.engine.currentSnapshot.averageSpeedMetersPerSecond == nil)
     }
 }

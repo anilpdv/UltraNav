@@ -6,28 +6,30 @@ final class MetricsEngineHarness {
     let engine: MetricsEngine
     let clock: TestClock
     let validator: FakeMetricValidator
-    let sourceSelector: FakeMetricSourceSelector
+    let arbitrator: MetricArbitrator
     let snapshotRecorder: MetricsSnapshotRecorder
 
     init(
-        now: Date = Date(timeIntervalSince1970: 1_000_000)
+        now: Date = Date(timeIntervalSince1970: 1_000_000),
+        configuration: MetricsConfiguration = .outdoorCycling
     ) {
         let clock = TestClock(now: now)
         let validator = FakeMetricValidator()
-        let sourceSelector = FakeMetricSourceSelector()
-        let summaryBuilder = MetricsSummaryBuilder()
+        let arbitrator = MetricArbitrator()
+        let summaryBuilder = RideSummaryBuilder()
 
         let engine = MetricsEngine(
             validator: validator,
-            sourceSelector: sourceSelector,
-            summaryBuilder: summaryBuilder,
-            clock: clock
+            arbitrator: arbitrator,
+            configuration: configuration,
+            clock: clock,
+            summaryBuilder: summaryBuilder
         )
 
         self.engine = engine
         self.clock = clock
         self.validator = validator
-        self.sourceSelector = sourceSelector
+        self.arbitrator = arbitrator
         self.snapshotRecorder = MetricsSnapshotRecorder(stream: engine.snapshots)
     }
 }

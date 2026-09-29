@@ -5,21 +5,7 @@ enum MetricsInput: Equatable, Sendable {
     case gps(GPSAcceptedSample)
     case workout(WorkoutMetric)
     case sensor(sensor: SensorIdentifier, sample: SensorSample)
-}
-
-enum MetricsEngineCommand: Equatable, Sendable {
-    case start(at: Date? = nil)
-    case pause(at: Date? = nil)
-    case resume(at: Date? = nil)
-    case stop(at: Date? = nil)
-    case finish(at: Date? = nil)
-    case reset
-
-    static let start: MetricsEngineCommand = .start(at: nil)
-    static let pause: MetricsEngineCommand = .pause(at: nil)
-    static let resume: MetricsEngineCommand = .resume(at: nil)
-    static let stop: MetricsEngineCommand = .stop(at: nil)
-    static let finish: MetricsEngineCommand = .finish(at: nil)
+    case tick(Date)
 }
 
 @MainActor

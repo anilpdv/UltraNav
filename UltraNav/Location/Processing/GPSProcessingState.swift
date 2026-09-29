@@ -73,7 +73,7 @@ struct GPSProcessingSnapshot: Equatable, Sendable {
     let mode: GPSProcessorMode
     let totalDistanceMeters: Double
     let currentSpeedMetersPerSecond: Double?
-    let speedFreshness: MetricFreshness?
+    let speedFreshness: MetricAvailability?
     let movementState: MovementState
     let lastAcceptedSample: LocationSample?
     let acceptedSampleCount: Int
@@ -83,7 +83,7 @@ struct GPSProcessingSnapshot: Equatable, Sendable {
         mode: GPSProcessorMode,
         totalDistanceMeters: Double,
         currentSpeedMetersPerSecond: Double?,
-        speedFreshness: MetricFreshness?,
+        speedFreshness: MetricAvailability?,
         movementState: MovementState,
         lastAcceptedSample: LocationSample?,
         acceptedSampleCount: Int,

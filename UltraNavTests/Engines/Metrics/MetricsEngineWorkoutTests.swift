@@ -28,11 +28,13 @@ struct MetricsEngineWorkoutTests {
     }
 
     @Test
-    func testIdleEngineIgnoresWorkoutMetrics() {
+    func testIdleEngineDoesNotAccumulateWorkoutAverages() {
         let harness = MetricsEngineHarness()
         let now = harness.clock.now
         harness.engine.consume(workout: .heartRate(beatsPerMinute: 148.0, timestamp: now))
 
-        #expect(harness.engine.currentSnapshot.heartRate == nil)
+        #expect(harness.engine.currentSnapshot.heartRate?.value == 148)
+        #expect(harness.engine.currentSnapshot.averageHeartRateBeatsPerMinute == nil)
+        #expect(harness.engine.currentSnapshot.activeTimeSeconds == 0)
     }
 }

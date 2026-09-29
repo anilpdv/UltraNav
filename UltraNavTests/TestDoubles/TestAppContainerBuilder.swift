@@ -46,9 +46,6 @@ struct TestAppContainerBuilder {
         )
 
         let metrics = metricsEngine ?? MetricsEngine(
-            validator: StandardMetricValidator(),
-            sourceSelector: TemporaryLatestSourceSelector(),
-            summaryBuilder: MetricsSummaryBuilder(),
             clock: clock
         )
 

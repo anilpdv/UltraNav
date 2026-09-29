@@ -1,6 +1,6 @@
 import Foundation
 
-struct MetricAvailability: Equatable, Sendable {
+struct MetricGroupAvailability: Equatable, Sendable {
     let hasSpeed: Bool
     let hasHeartRate: Bool
     let hasCadence: Bool
@@ -27,5 +27,5 @@ struct MetricAvailability: Equatable, Sendable {
         self.hasEnergy = hasEnergy
     }
 
-    static let empty = MetricAvailability()
+    static let empty = MetricGroupAvailability()
 }

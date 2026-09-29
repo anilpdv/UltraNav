@@ -334,16 +334,18 @@ actor GPSProcessor: GPSProcessing {
     }
 
     func snapshot() async -> GPSProcessingSnapshot {
-        let speedFreshness: MetricFreshness?
+        let speedFreshness: MetricAvailability?
         if let lastMeasurement = state.currentSpeedMeasuredAt,
            let now = state.lastReceivedTimestamp,
            state.currentSpeedMetersPerSecond != nil {
-            speedFreshness = MetricFreshness.freshness(
-                for: lastMeasurement,
-                now: now,
-                staleThresholdSeconds: configuration.speedFreshnessSeconds,
-                expiredThresholdSeconds: configuration.maximumSampleAgeSeconds
-            )
+            let age = max(0, now.timeIntervalSince(lastMeasurement))
+            if age <= configuration.speedFreshnessSeconds {
+                speedFreshness = .available
+            } else if age <= configuration.maximumSampleAgeSeconds {
+                speedFreshness = .stale
+            } else {
+                speedFreshness = .unavailable
+            }
         } else {
             speedFreshness = nil
         }

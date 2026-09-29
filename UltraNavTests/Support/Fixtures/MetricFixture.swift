@@ -7,7 +7,7 @@ enum MetricFixture {
         value: Double = 8.5,
         source: MetricSource = .coreLocation,
         timestamp: Date = TestDates.rideStart,
-        freshness: MetricFreshness = .fresh
+        freshness: MetricFreshnessState = .fresh
     ) -> CurrentMetric<Double> {
         CurrentMetric(value: value, source: source, timestamp: timestamp, freshness: freshness)
     }
@@ -16,7 +16,7 @@ enum MetricFixture {
         value: Int = 150,
         source: MetricSource = .bluetooth(sensorID: TestIDs.heartRateSensor),
         timestamp: Date = TestDates.rideStart,
-        freshness: MetricFreshness = .fresh
+        freshness: MetricFreshnessState = .fresh
     ) -> CurrentMetric<Int> {
         CurrentMetric(value: value, source: source, timestamp: timestamp, freshness: freshness)
     }
@@ -25,7 +25,7 @@ enum MetricFixture {
         value: Int = 260,
         source: MetricSource = .bluetooth(sensorID: TestIDs.powerSensor),
         timestamp: Date = TestDates.rideStart,
-        freshness: MetricFreshness = .fresh
+        freshness: MetricFreshnessState = .fresh
     ) -> CurrentMetric<Int> {
         CurrentMetric(value: value, source: source, timestamp: timestamp, freshness: freshness)
     }
@@ -34,7 +34,7 @@ enum MetricFixture {
         value: Double = 92.0,
         source: MetricSource = .bluetooth(sensorID: TestIDs.speedCadenceSensor),
         timestamp: Date = TestDates.rideStart,
-        freshness: MetricFreshness = .fresh
+        freshness: MetricFreshnessState = .fresh
     ) -> CurrentMetric<Double> {
         CurrentMetric(value: value, source: source, timestamp: timestamp, freshness: freshness)
     }
@@ -63,7 +63,6 @@ enum MetricFixture {
             maxPowerWatts: power?.value,
             normalizedPowerWatts: power?.value,
             totalKilocalories: 250.0,
-            availability: .empty,
             timestamp: timestamp
         )
     }

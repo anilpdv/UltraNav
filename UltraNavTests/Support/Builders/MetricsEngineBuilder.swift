@@ -4,8 +4,9 @@ import Foundation
 @MainActor
 final class MetricsEngineBuilder {
     var validator: any MetricValidating = StandardMetricValidator()
-    var sourceSelector: any MetricSourceSelecting = TemporaryLatestSourceSelector()
-    var summaryBuilder: MetricsSummaryBuilder = MetricsSummaryBuilder()
+    var arbitrator: any MetricArbitrating = MetricArbitrator()
+    var freshnessEvaluator: any MetricFreshnessEvaluating = MetricFreshnessEvaluator()
+    var configuration: MetricsConfiguration = .outdoorCycling
     var clock: any ClockProviding = TestClock()
 
     func withValidator(_ validator: any MetricValidating) -> Self {
@@ -13,8 +14,13 @@ final class MetricsEngineBuilder {
         return self
     }
 
-    func withSourceSelector(_ selector: any MetricSourceSelecting) -> Self {
-        self.sourceSelector = selector
+    func withArbitrator(_ arbitrator: any MetricArbitrating) -> Self {
+        self.arbitrator = arbitrator
+        return self
+    }
+
+    func withConfiguration(_ config: MetricsConfiguration) -> Self {
+        self.configuration = config
         return self
     }
 
@@ -26,8 +32,9 @@ final class MetricsEngineBuilder {
     func build() -> MetricsEngine {
         MetricsEngine(
             validator: validator,
-            sourceSelector: sourceSelector,
-            summaryBuilder: summaryBuilder,
+            arbitrator: arbitrator,
+            freshnessEvaluator: freshnessEvaluator,
+            configuration: configuration,
             clock: clock
         )
     }

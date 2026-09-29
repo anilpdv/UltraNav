@@ -1,26 +1,47 @@
 import Foundation
 
-protocol MetricValidating: Sendable {
-    func validate(observation: MetricObservation) -> Bool
-}
-
 struct StandardMetricValidator: MetricValidating, Sendable {
-    func validate(observation: MetricObservation) -> Bool {
-        switch observation.value {
-        case .speed(let mps):
-            return mps.isFinite && mps >= 0 && mps <= 70.0 // up to 250 km/h
-        case .heartRate(let bpm):
-            return bpm >= 30 && bpm <= 260
-        case .cadence(let rpm):
-            return rpm.isFinite && rpm >= 0 && rpm <= 250.0
-        case .power(let watts):
-            return watts >= 0 && watts <= 3000
-        case .distance(let meters):
-            return meters.isFinite && meters >= 0
-        case .altitude(let meters):
-            return meters.isFinite && meters >= -500 && meters <= 9000
-        case .energy(let kcal):
-            return kcal.isFinite && kcal >= 0
+    func validate(
+        _ observation: MetricObservation,
+        policy: MetricValidationPolicy = .standard
+    ) -> MetricValidationResult {
+        guard observation.value.kind == observation.kind else {
+            return .rejected(.typeMismatch)
         }
+
+        let val = observation.value.doubleValue
+        guard val.isFinite else {
+            return .rejected(.nonFiniteValue)
+        }
+
+        switch observation.value {
+        case .speedMetersPerSecond(let speed):
+            if speed < 0 { return .rejected(.belowMinimum) }
+            if speed > policy.maximumSpeedMetersPerSecond { return .rejected(.aboveMaximum) }
+
+        case .cumulativeDistanceMeters(let dist):
+            if dist < 0 { return .rejected(.belowMinimum) }
+
+        case .heartRateBeatsPerMinute(let hr):
+            if hr <= 0 { return .rejected(.belowMinimum) }
+            if hr > policy.maximumHeartRateBPM { return .rejected(.aboveMaximum) }
+
+        case .cadenceRevolutionsPerMinute(let cad):
+            if cad < 0 { return .rejected(.belowMinimum) }
+            if cad > policy.maximumCadenceRPM { return .rejected(.aboveMaximum) }
+
+        case .powerWatts(let pwr):
+            if pwr < policy.minimumPowerWatts { return .rejected(.belowMinimum) }
+            if pwr > policy.maximumPowerWatts { return .rejected(.aboveMaximum) }
+
+        case .cumulativeActiveEnergyKilocalories(let kcal):
+            if kcal < 0 { return .rejected(.belowMinimum) }
+
+        case .altitudeMeters(let alt):
+            if alt < policy.minimumAltitudeMeters { return .rejected(.belowMinimum) }
+            if alt > policy.maximumAltitudeMeters { return .rejected(.aboveMaximum) }
+        }
+
+        return .accepted(observation)
     }
 }

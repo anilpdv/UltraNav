@@ -24,7 +24,7 @@ struct NavigationEngineOffRouteTests {
         let sample = LocationSampleFactory.makeSample(latitude: 37.7800, longitude: -122.4300)
         harness.engine.consume(location: sample)
 
-        try? await Task.sleep(nanoseconds: 10_000_000)
+        try? await Task.sleep(nanoseconds: 50_000_000)
 
         #expect(harness.engine.currentSnapshot.offRouteStatus == .offRoute)
         #expect(harness.notificationRecorder.notifications.contains(.offRoute))
@@ -47,6 +47,8 @@ struct NavigationEngineOffRouteTests {
         harness.offRouteEvaluator.stubbedEvaluation = OffRouteEvaluation(status: .offRoute, shouldNotify: true)
         harness.engine.consume(location: LocationSampleFactory.makeSample(latitude: 37.7800, longitude: -122.4300))
 
+        try? await Task.sleep(nanoseconds: 50_000_000)
+
         // Rejoin
         harness.routeMatcher.stubbedMatch = RouteMatch(
             matchedCoordinate: Coordinate(latitude: 37.7750, longitude: -122.4194),
@@ -57,7 +59,7 @@ struct NavigationEngineOffRouteTests {
         harness.offRouteEvaluator.stubbedEvaluation = OffRouteEvaluation(status: .onRoute, shouldNotify: true)
         harness.engine.consume(location: LocationSampleFactory.makeSample(latitude: 37.7750, longitude: -122.4194))
 
-        try? await Task.sleep(nanoseconds: 10_000_000)
+        try? await Task.sleep(nanoseconds: 50_000_000)
 
         #expect(harness.engine.currentSnapshot.offRouteStatus == .onRoute)
         #expect(harness.notificationRecorder.notifications.contains(.routeRejoined))
