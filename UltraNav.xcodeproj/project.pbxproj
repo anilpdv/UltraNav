@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0900 /* OffRouteStatus.swift */; };
+		E1B000000000000000001D0901 /* RouteMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0901 /* RouteMatch.swift */; };
+		E1B000000000000000001D0902 /* RouteMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0902 /* RouteMatching.swift */; };
+		E1B000000000000000001D0903 /* LegacyRouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */; };
+		E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0904 /* NavigationCueProviding.swift */; };
+		E1B000000000000000001D0905 /* CueProgressing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0905 /* CueProgressing.swift */; };
+		E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0906 /* LegacyCueAdapter.swift */; };
+		E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0907 /* OffRouteEvaluation.swift */; };
+		E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0908 /* OffRouteEvaluating.swift */; };
+		E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */; };
+		E1B000000000000000001D090A /* RouteCompletionEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */; };
+		E1B000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */; };
+		E1B000000000000000001D090C /* RideNavigationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090C /* RideNavigationPolicy.swift */; };
+		E1B000000000000000001D090D /* RideNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090D /* RideNavigationCoordinator.swift */; };
+		E1B000000000000000001D090E /* NavigationRouteValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090E /* NavigationRouteValidating.swift */; };
+		E1B000000000000000001D090F /* NavigationEngineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D090F /* NavigationEngineCommand.swift */; };
+		E1B000000000000000001D0910 /* NavigationEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0910 /* NavigationEngineEvent.swift */; };
+		E1B000000000000000001D0911 /* NavigationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0911 /* NavigationNotification.swift */; };
+		E1B000000000000000001D0912 /* NavigationEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0912 /* NavigationEngineProviding.swift */; };
+		E1B000000000000000001D0913 /* NavigationProgressState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0913 /* NavigationProgressState.swift */; };
+		E1B000000000000000001D0914 /* NavigationRouteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0914 /* NavigationRouteState.swift */; };
+		E1B000000000000000001D0915 /* NavigationFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0915 /* NavigationFailureMapper.swift */; };
+		E1B000000000000000001D0916 /* NavigationSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */; };
+		E1B000000000000000001D0917 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0917 /* NavigationEngine.swift */; };
+		E1B000000000000000001D0918 /* RideLocationConsuming.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0918 /* RideLocationConsuming.swift */; };
+		E1B000000000000000001D0919 /* LegacyNavigationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */; };
+		E2B000000000000000001D0A00 /* FakeRouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */; };
+		E2B000000000000000001D0A01 /* FakeCueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A01 /* FakeCueProvider.swift */; };
+		E2B000000000000000001D0A02 /* FakeCueProgressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A02 /* FakeCueProgressor.swift */; };
+		E2B000000000000000001D0A03 /* FakeOffRouteEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A03 /* FakeOffRouteEvaluator.swift */; };
+		E2B000000000000000001D0A04 /* FakeRouteCompletionEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A04 /* FakeRouteCompletionEvaluator.swift */; };
+		E2B000000000000000001D0A05 /* NavigationSnapshotRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A05 /* NavigationSnapshotRecorder.swift */; };
+		E2B000000000000000001D0A06 /* NavigationNotificationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A06 /* NavigationNotificationRecorder.swift */; };
+		E2B000000000000000001D0A07 /* NavigationRouteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A07 /* NavigationRouteFactory.swift */; };
+		E2B000000000000000001D0A08 /* NavigationEngineHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A08 /* NavigationEngineHarness.swift */; };
+		E2B000000000000000001D0A09 /* NavigationEngineRouteLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A09 /* NavigationEngineRouteLoadingTests.swift */; };
+		E2B000000000000000001D0A0A /* NavigationEngineLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0A /* NavigationEngineLifecycleTests.swift */; };
+		E2B000000000000000001D0A0B /* NavigationEngineLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0B /* NavigationEngineLocationTests.swift */; };
+		E2B000000000000000001D0A0C /* NavigationEngineProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0C /* NavigationEngineProgressTests.swift */; };
+		E2B000000000000000001D0A0D /* NavigationEngineCueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0D /* NavigationEngineCueTests.swift */; };
+		E2B000000000000000001D0A0E /* NavigationEngineOffRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0E /* NavigationEngineOffRouteTests.swift */; };
+		E2B000000000000000001D0A0F /* NavigationEngineFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A0F /* NavigationEngineFailureTests.swift */; };
+		E2B000000000000000001D0A10 /* NavigationEngineResetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A10 /* NavigationEngineResetTests.swift */; };
+		E2B000000000000000001D0A11 /* NavigationEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A11 /* NavigationEngineIntegrationTests.swift */; };
 		E1B000000000000000001D070 /* RideLocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D070 /* RideLocationStatus.swift */; };
 		E1B000000000000000001D071 /* RideWorkoutStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D071 /* RideWorkoutStatus.swift */; };
 		E1B000000000000000001D072 /* RideSensorStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D072 /* RideSensorStatus.swift */; };
@@ -165,7 +209,6 @@
 		E1B6642E7050D299FCC2E16B /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F75FE79D3030E7F2871E55 /* NavigationState.swift */; };
 		E1B6A92292A115D07DCF081C /* SensorConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBEFCDB8D596EDE60A8984 /* SensorConnectionState.swift */; };
 		E1B6AF37758B992965CCD672 /* RouteMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6782A658F61C8594186ED /* RouteMetadata.swift */; };
-		E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6382A9E473671928AE21A /* NavigationEngine.swift */; };
 		E1B75BC291A8FA7B05E65ED0 /* RideFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1A680783B754F54FB90AB /* RideFailure.swift */; };
 		E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F574182C51AA527079AE9F /* LocationAdapters.swift */; };
 		E1B84D0A6BB889EDEFB7F52D /* SensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FADFE8F797A0EACE481BE7 /* SensorType.swift */; };
@@ -266,6 +309,50 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1F000000000000000001D0900 /* OffRouteStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/OffRouteStatus.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0901 /* RouteMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatch.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0902 /* RouteMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatching.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/LegacyRouteMatcher.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0904 /* NavigationCueProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/NavigationCueProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0905 /* CueProgressing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/CueProgressing.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0906 /* LegacyCueAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/LegacyCueAdapter.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0907 /* OffRouteEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluation.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0908 /* OffRouteEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluating.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/LegacyOffRouteEvaluator.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Completion/RouteCompletionEvaluating.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Completion/LegacyRouteCompletionEvaluator.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090C /* RideNavigationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Coordinator/RideNavigationPolicy.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090D /* RideNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Coordinator/RideNavigationCoordinator.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090E /* NavigationRouteValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationRouteValidating.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D090F /* NavigationEngineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngineCommand.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0910 /* NavigationEngineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngineEvent.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0911 /* NavigationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationNotification.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0912 /* NavigationEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngineProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0913 /* NavigationProgressState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationProgressState.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0914 /* NavigationRouteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationRouteState.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0915 /* NavigationFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationFailureMapper.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationSnapshotBuilder.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0917 /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngine.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0918 /* RideLocationConsuming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideLocationConsuming.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Navigation/LegacyNavigationAdapter.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteMatcher.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A01 /* FakeCueProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeCueProvider.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A02 /* FakeCueProgressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeCueProgressor.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A03 /* FakeOffRouteEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeOffRouteEvaluator.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A04 /* FakeRouteCompletionEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteCompletionEvaluator.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A05 /* NavigationSnapshotRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/NavigationSnapshotRecorder.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A06 /* NavigationNotificationRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/NavigationNotificationRecorder.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A07 /* NavigationRouteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/NavigationRouteFactory.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A08 /* NavigationEngineHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/NavigationEngineHarness.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A09 /* NavigationEngineRouteLoadingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineRouteLoadingTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0A /* NavigationEngineLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineLifecycleTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0B /* NavigationEngineLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineLocationTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0C /* NavigationEngineProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineProgressTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0D /* NavigationEngineCueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineCueTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0E /* NavigationEngineOffRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineOffRouteTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A0F /* NavigationEngineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineFailureTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A10 /* NavigationEngineResetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineResetTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0A11 /* NavigationEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Navigation/NavigationEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D070 /* RideLocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideLocationStatus.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D071 /* RideWorkoutStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideWorkoutStatus.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D072 /* RideSensorStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Ride/RideSensorStatus.swift; sourceTree = "<group>"; };
@@ -447,7 +534,6 @@
 		E1F50FCA694C3B244193BACE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Location/LocationService.swift; sourceTree = "<group>"; };
 		E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Location/LocationSample.swift; sourceTree = "<group>"; };
 		E1F574182C51AA527079AE9F /* LocationAdapters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/Adapters/LocationAdapters.swift; sourceTree = "<group>"; };
-		E1F6382A9E473671928AE21A /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/NavigationEngine.swift; sourceTree = "<group>"; };
 		E1F6782A658F61C8594186ED /* RouteMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteMetadata.swift; sourceTree = "<group>"; };
 		E1F75FE79D3030E7F2871E55 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationState.swift; sourceTree = "<group>"; };
 		E1F76A6E6E75F0076D98C6F4 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/Route.swift; sourceTree = "<group>"; };
@@ -559,6 +645,24 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */,
+				E2F000000000000000001D0A01 /* FakeCueProvider.swift */,
+				E2F000000000000000001D0A02 /* FakeCueProgressor.swift */,
+				E2F000000000000000001D0A03 /* FakeOffRouteEvaluator.swift */,
+				E2F000000000000000001D0A04 /* FakeRouteCompletionEvaluator.swift */,
+				E2F000000000000000001D0A05 /* NavigationSnapshotRecorder.swift */,
+				E2F000000000000000001D0A06 /* NavigationNotificationRecorder.swift */,
+				E2F000000000000000001D0A07 /* NavigationRouteFactory.swift */,
+				E2F000000000000000001D0A08 /* NavigationEngineHarness.swift */,
+				E2F000000000000000001D0A09 /* NavigationEngineRouteLoadingTests.swift */,
+				E2F000000000000000001D0A0A /* NavigationEngineLifecycleTests.swift */,
+				E2F000000000000000001D0A0B /* NavigationEngineLocationTests.swift */,
+				E2F000000000000000001D0A0C /* NavigationEngineProgressTests.swift */,
+				E2F000000000000000001D0A0D /* NavigationEngineCueTests.swift */,
+				E2F000000000000000001D0A0E /* NavigationEngineOffRouteTests.swift */,
+				E2F000000000000000001D0A0F /* NavigationEngineFailureTests.swift */,
+				E2F000000000000000001D0A10 /* NavigationEngineResetTests.swift */,
+				E2F000000000000000001D0A11 /* NavigationEngineIntegrationTests.swift */,
 				E2F000000000000000001D080 /* RideSnapshotRecorder.swift */,
 				E2F000000000000000001D081 /* RideEngineHarness.swift */,
 				E2F000000000000000001D082 /* RideEnginePreparationTests.swift */,
@@ -703,6 +807,32 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				E1F000000000000000001D0900 /* OffRouteStatus.swift */,
+				E1F000000000000000001D0901 /* RouteMatch.swift */,
+				E1F000000000000000001D0902 /* RouteMatching.swift */,
+				E1F000000000000000001D0903 /* LegacyRouteMatcher.swift */,
+				E1F000000000000000001D0904 /* NavigationCueProviding.swift */,
+				E1F000000000000000001D0905 /* CueProgressing.swift */,
+				E1F000000000000000001D0906 /* LegacyCueAdapter.swift */,
+				E1F000000000000000001D0907 /* OffRouteEvaluation.swift */,
+				E1F000000000000000001D0908 /* OffRouteEvaluating.swift */,
+				E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */,
+				E1F000000000000000001D090A /* RouteCompletionEvaluating.swift */,
+				E1F000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift */,
+				E1F000000000000000001D090C /* RideNavigationPolicy.swift */,
+				E1F000000000000000001D090D /* RideNavigationCoordinator.swift */,
+				E1F000000000000000001D090E /* NavigationRouteValidating.swift */,
+				E1F000000000000000001D090F /* NavigationEngineCommand.swift */,
+				E1F000000000000000001D0910 /* NavigationEngineEvent.swift */,
+				E1F000000000000000001D0911 /* NavigationNotification.swift */,
+				E1F000000000000000001D0912 /* NavigationEngineProviding.swift */,
+				E1F000000000000000001D0913 /* NavigationProgressState.swift */,
+				E1F000000000000000001D0914 /* NavigationRouteState.swift */,
+				E1F000000000000000001D0915 /* NavigationFailureMapper.swift */,
+				E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */,
+				E1F000000000000000001D0917 /* NavigationEngine.swift */,
+				E1F000000000000000001D0918 /* RideLocationConsuming.swift */,
+				E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */,
 				E1F000000000000000001D070 /* RideLocationStatus.swift */,
 				E1F000000000000000001D071 /* RideWorkoutStatus.swift */,
 				E1F000000000000000001D072 /* RideSensorStatus.swift */,
@@ -738,7 +868,6 @@
 				E1F574182C51AA527079AE9F /* LocationAdapters.swift */,
 				E1FCD6CBB650672532816ADF /* AppContainer.swift */,
 				E1F50FCA694C3B244193BACE /* LocationService.swift */,
-				E1F6382A9E473671928AE21A /* NavigationEngine.swift */,
 				E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */,
 				E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */,
 				E1F0000000000000000001C1 /* RideEvent.swift */,
@@ -1036,6 +1165,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B000000000000000001D0A00 /* FakeRouteMatcher.swift in Sources */,
+				E2B000000000000000001D0A01 /* FakeCueProvider.swift in Sources */,
+				E2B000000000000000001D0A02 /* FakeCueProgressor.swift in Sources */,
+				E2B000000000000000001D0A03 /* FakeOffRouteEvaluator.swift in Sources */,
+				E2B000000000000000001D0A04 /* FakeRouteCompletionEvaluator.swift in Sources */,
+				E2B000000000000000001D0A05 /* NavigationSnapshotRecorder.swift in Sources */,
+				E2B000000000000000001D0A06 /* NavigationNotificationRecorder.swift in Sources */,
+				E2B000000000000000001D0A07 /* NavigationRouteFactory.swift in Sources */,
+				E2B000000000000000001D0A08 /* NavigationEngineHarness.swift in Sources */,
+				E2B000000000000000001D0A09 /* NavigationEngineRouteLoadingTests.swift in Sources */,
+				E2B000000000000000001D0A0A /* NavigationEngineLifecycleTests.swift in Sources */,
+				E2B000000000000000001D0A0B /* NavigationEngineLocationTests.swift in Sources */,
+				E2B000000000000000001D0A0C /* NavigationEngineProgressTests.swift in Sources */,
+				E2B000000000000000001D0A0D /* NavigationEngineCueTests.swift in Sources */,
+				E2B000000000000000001D0A0E /* NavigationEngineOffRouteTests.swift in Sources */,
+				E2B000000000000000001D0A0F /* NavigationEngineFailureTests.swift in Sources */,
+				E2B000000000000000001D0A10 /* NavigationEngineResetTests.swift in Sources */,
+				E2B000000000000000001D0A11 /* NavigationEngineIntegrationTests.swift in Sources */,
 				E2B000000000000000001D080 /* RideSnapshotRecorder.swift in Sources */,
 				E2B000000000000000001D081 /* RideEngineHarness.swift in Sources */,
 				E2B000000000000000001D082 /* RideEnginePreparationTests.swift in Sources */,
@@ -1121,6 +1268,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */,
+				E1B000000000000000001D0901 /* RouteMatch.swift in Sources */,
+				E1B000000000000000001D0902 /* RouteMatching.swift in Sources */,
+				E1B000000000000000001D0903 /* LegacyRouteMatcher.swift in Sources */,
+				E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */,
+				E1B000000000000000001D0905 /* CueProgressing.swift in Sources */,
+				E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */,
+				E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */,
+				E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */,
+				E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */,
+				E1B000000000000000001D090A /* RouteCompletionEvaluating.swift in Sources */,
+				E1B000000000000000001D090B /* LegacyRouteCompletionEvaluator.swift in Sources */,
+				E1B000000000000000001D090C /* RideNavigationPolicy.swift in Sources */,
+				E1B000000000000000001D090D /* RideNavigationCoordinator.swift in Sources */,
+				E1B000000000000000001D090E /* NavigationRouteValidating.swift in Sources */,
+				E1B000000000000000001D090F /* NavigationEngineCommand.swift in Sources */,
+				E1B000000000000000001D0910 /* NavigationEngineEvent.swift in Sources */,
+				E1B000000000000000001D0911 /* NavigationNotification.swift in Sources */,
+				E1B000000000000000001D0912 /* NavigationEngineProviding.swift in Sources */,
+				E1B000000000000000001D0913 /* NavigationProgressState.swift in Sources */,
+				E1B000000000000000001D0914 /* NavigationRouteState.swift in Sources */,
+				E1B000000000000000001D0915 /* NavigationFailureMapper.swift in Sources */,
+				E1B000000000000000001D0916 /* NavigationSnapshotBuilder.swift in Sources */,
+				E1B000000000000000001D0917 /* NavigationEngine.swift in Sources */,
+				E1B000000000000000001D0918 /* RideLocationConsuming.swift in Sources */,
+				E1B000000000000000001D0919 /* LegacyNavigationAdapter.swift in Sources */,
 				E1B000000000000000001D070 /* RideLocationStatus.swift in Sources */,
 				E1B000000000000000001D071 /* RideWorkoutStatus.swift in Sources */,
 				E1B000000000000000001D072 /* RideSensorStatus.swift in Sources */,
@@ -1156,7 +1329,6 @@
 				E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */,
 				E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */,
 				E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */,
-				E1B72B2BB28A56BBFEF9D898 /* NavigationEngine.swift in Sources */,
 				E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */,
 				E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */,
 				E1B0000000000000000001C1 /* RideEvent.swift in Sources */,

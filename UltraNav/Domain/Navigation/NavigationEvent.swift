@@ -18,6 +18,8 @@ enum NavigationEvent: Equatable, Sendable {
     case finishSucceeded
     case finishFailed(NavigationFailure)
 
+    case navigationStopRequested
+    case routeClearRequested
     case stopRequested
     case resetRequested
     case recoveryRequested
@@ -41,6 +43,8 @@ enum NavigationEventName: String, Equatable, Sendable {
     case finishSucceeded
     case finishFailed
 
+    case navigationStopRequested
+    case routeClearRequested
     case stopRequested
     case resetRequested
     case recoveryRequested
@@ -79,6 +83,10 @@ extension NavigationEvent {
         case .finishFailed:
             return .finishFailed
 
+        case .navigationStopRequested:
+            return .navigationStopRequested
+        case .routeClearRequested:
+            return .routeClearRequested
         case .stopRequested:
             return .stopRequested
         case .resetRequested:

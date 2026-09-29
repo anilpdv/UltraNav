@@ -274,4 +274,22 @@ public struct GPXRoute: Identifiable, Codable, Equatable, Sendable {
         }
         return (minLat, maxLat, minLon, maxLon)
     }
+
+    func toDomainRoute() -> Route {
+        let domainPoints = points.map { pt in
+            RoutePoint(
+                coordinate: Coordinate(latitude: pt.coordinate.latitude, longitude: pt.coordinate.longitude),
+                elevationMeters: pt.elevation,
+                timestamp: pt.timestamp,
+                cumulativeDistanceMeters: pt.distanceFromStart
+            )
+        }
+        return Route(
+            id: id,
+            metadata: RouteMetadata(name: name, sourceFileName: nil, createdAt: nil),
+            points: domainPoints,
+            totalDistanceMeters: totalDistance
+        )
+    }
 }
+

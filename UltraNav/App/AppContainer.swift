@@ -11,6 +11,7 @@ final class AppContainer {
     let clock: any ClockProviding
 
     let navigationEngine: NavigationEngine
+    let coordinator: RideNavigationCoordinator
     let metricsEngine: MetricsEngine
     let climbEngine: ClimbEngine
     let rideEngine: RideEngine
@@ -30,20 +31,29 @@ final class AppContainer {
         let met = MetricsEngine()
         let clm = ClimbEngine()
 
+        let ride = RideEngine(
+            location: loc,
+            workout: work,
+            sensors: sens,
+            clock: clk
+        )
+
+        let coord = RideNavigationCoordinator(
+            locationProvider: loc,
+            rideConsumer: ride,
+            navigationEngine: nav
+        )
+
         self.locationService = loc
         self.workoutService = work
         self.sensorService = sens
         self.clock = clk
 
         self.navigationEngine = nav
+        self.coordinator = coord
         self.metricsEngine = met
         self.climbEngine = clm
-
-        self.rideEngine = RideEngine(
-            location: loc,
-            workout: work,
-            sensors: sens,
-            clock: clk
-        )
+        self.rideEngine = ride
     }
 }
+

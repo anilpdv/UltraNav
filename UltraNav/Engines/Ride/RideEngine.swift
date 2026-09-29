@@ -2,7 +2,7 @@ import Foundation
 import OSLog
 
 @MainActor
-final class RideEngine: RideEngineProviding {
+final class RideEngine: RideEngineProviding, RideLocationConsuming {
     var currentSnapshot: RideSnapshot {
         snapshotBuilder.makeSnapshot(
             state: stateMachine.state,
@@ -506,7 +506,7 @@ final class RideEngine: RideEngineProviding {
         consumerTasks.append(task)
     }
 
-    private func handle(locationEvent: LocationServiceEvent) {
+    func handle(locationEvent: LocationServiceEvent) {
         switch locationEvent {
         case .authorizationChanged(let status):
             if status == .denied || status == .restricted {

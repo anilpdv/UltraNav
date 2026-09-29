@@ -29,8 +29,9 @@ final class UltraNavJourneyUITests: XCTestCase {
         app.launchArguments += ["-completed-onboarding"]
         app.launch()
 
-        if app.buttons["settingsButton"].waitForExistence(timeout: 5) {
-            app.buttons["settingsButton"].tap()
+        let settingsButton = app.buttons.matching(identifier: "settingsButton").firstMatch
+        if settingsButton.waitForExistence(timeout: 5) {
+            settingsButton.tap()
             XCTAssertTrue(app.staticTexts["Settings"].waitForExistence(timeout: 5))
         }
     }

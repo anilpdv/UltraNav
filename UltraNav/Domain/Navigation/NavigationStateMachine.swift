@@ -81,7 +81,7 @@ private extension NavigationStateMachine {
         case (.navigating, .possibleDeviationDetected):
             return Result(
                 state: .suspectedOffRoute,
-                effects: [.notifyPossibleDeviation]
+                effects: []
             )
 
         case (.suspectedOffRoute, .deviationConfirmed):
@@ -131,12 +131,38 @@ private extension NavigationStateMachine {
                 effects: []
             )
 
+        case (.navigating, .navigationStopRequested),
+             (.suspectedOffRoute, .navigationStopRequested),
+             (.offRoute, .navigationStopRequested),
+             (.rejoining, .navigationStopRequested),
+             (.starting, .navigationStopRequested):
+            return Result(
+                state: .ready,
+                effects: [.stopNavigation]
+            )
+
+        case (.ready, .routeClearRequested),
+             (.finished, .routeClearRequested),
+             (.failed, .routeClearRequested):
+            return Result(
+                state: .inactive,
+                effects: [.clearNavigation]
+            )
+
         case (.ready, .stopRequested),
              (.starting, .stopRequested),
              (.navigating, .stopRequested),
              (.suspectedOffRoute, .stopRequested),
              (.offRoute, .stopRequested),
              (.rejoining, .stopRequested),
+             (.finished, .stopRequested),
+             (.failed, .stopRequested),
+             (.ready, .resetRequested),
+             (.starting, .resetRequested),
+             (.navigating, .resetRequested),
+             (.suspectedOffRoute, .resetRequested),
+             (.offRoute, .resetRequested),
+             (.rejoining, .resetRequested),
              (.finished, .resetRequested),
              (.failed, .resetRequested):
             return Result(

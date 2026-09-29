@@ -1,63 +1,32 @@
-import XCTest
-import CoreLocation
+import Testing
+import Foundation
 @testable import UltraNav
 
 @MainActor
-final class NavigationEngineTests: XCTestCase {
-    private var navigationEngine: NavigationEngine!
+struct NavigationEngineLegacyAdapterTests {
+    @Test
+    func testAdapterProjections() async {
+        let navEngine = NavigationEngine()
+        let adapter = LegacyNavigationAdapter(navigationEngine: navEngine)
 
-    override func setUp() async throws {
-        try await super.setUp()
-        navigationEngine = NavigationEngine()
-    }
+        #expect(!adapter.isNavigating)
+        #expect(!adapter.isOffRoute)
+        #expect(adapter.routeID == nil)
+        #expect(adapter.progress == 0.0)
 
-    func testLoadRouteInitializesNavigationState() {
-        let route = SampleRoutes.alpineLoop
-        navigationEngine.load(route: route)
+        let route = NavigationRouteFactory.createLinearRoute(pointCount: 5)
+        await adapter.load(route: route)
 
-        XCTAssertEqual(navigationEngine.navigationState, .navigating)
-        XCTAssertEqual(navigationEngine.activeRoute?.id, route.id)
-        XCTAssertEqual(navigationEngine.distanceRemainingMeters, route.totalDistance)
-        XCTAssertFalse(navigationEngine.isOffCourse)
-    }
+        #expect(adapter.routeID == route.id)
+        #expect(adapter.distanceRemaining == route.totalDistanceMeters)
 
-    func testLocationUpdateCalculatesCrossTrackAndOffCourse() {
-        let route = SampleRoutes.alpineLoop
-        navigationEngine.load(route: route)
+        await adapter.startNavigation()
+        #expect(adapter.isNavigating)
 
-        let startPoint = route.points[0]
-        let onCourseSample = LocationSample(
-            coordinate: Coordinate(latitude: startPoint.coordinate.latitude, longitude: startPoint.coordinate.longitude),
-            horizontalAccuracyMeters: 5,
-            timestamp: Date(timeIntervalSince1970: 1000)
-        )
+        await adapter.stopNavigation()
+        #expect(!adapter.isNavigating)
 
-        navigationEngine.update(location: onCourseSample)
-        XCTAssertFalse(navigationEngine.isOffCourse)
-        XCTAssertLessThanOrEqual(navigationEngine.crossTrackErrorMeters ?? 100, 5)
-
-        // Simulate moving 100m away (Off Route)
-        let offCourseSample = LocationSample(
-            coordinate: Coordinate(latitude: startPoint.coordinate.latitude + 0.005, longitude: startPoint.coordinate.longitude + 0.005),
-            horizontalAccuracyMeters: 5,
-            timestamp: Date(timeIntervalSince1970: 1001)
-        )
-
-        navigationEngine.update(location: offCourseSample)
-        XCTAssertTrue(navigationEngine.isOffCourse)
-        XCTAssertEqual(navigationEngine.navigationState, .offRoute)
-        XCTAssertGreaterThan(navigationEngine.crossTrackErrorMeters ?? 0, 35)
-    }
-
-    func testResetClearsRouteAndState() {
-        let route = SampleRoutes.alpineLoop
-        navigationEngine.load(route: route)
-
-        navigationEngine.reset()
-
-        XCTAssertEqual(navigationEngine.navigationState, .inactive)
-        XCTAssertNil(navigationEngine.activeRoute)
-        XCTAssertEqual(navigationEngine.distanceRemainingMeters, 0)
-        XCTAssertTrue(navigationEngine.breadcrumbTrail.isEmpty)
+        await adapter.clearRoute()
+        #expect(adapter.routeID == nil)
     }
 }

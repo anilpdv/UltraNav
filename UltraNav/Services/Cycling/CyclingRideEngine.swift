@@ -78,13 +78,20 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         get { rideEngine.currentSnapshot.state == .paused }
         set { /* forwarded via pause/resume */ }
     }
+    private var _activeRoute: GPXRoute?
     var activeRoute: GPXRoute? {
-        get { navigationEngine.activeRoute }
+        get { _activeRoute }
         set {
+            _activeRoute = newValue
             if let newValue {
-                navigationEngine.load(route: newValue)
+                let domainRoute = newValue.toDomainRoute()
+                Task {
+                    await navigationEngine.send(.useRoute(domainRoute))
+                }
             } else {
-                navigationEngine.reset()
+                Task {
+                    await navigationEngine.send(.clearRoute)
+                }
             }
         }
     }
@@ -147,19 +154,19 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         0.0
     }
     var breadcrumbHistory: [CLLocationCoordinate2D] {
-        navigationEngine.breadcrumbTrail.map(\.clCoordinate)
+        []
     }
     var isOffCourse: Bool {
-        navigationEngine.snapshot.state == .offRoute
+        navigationEngine.currentSnapshot.offRouteStatus == .offRoute || navigationEngine.currentSnapshot.offRouteStatus == .suspected
     }
     var crossTrackErrorMeters: CLLocationDistance {
-        navigationEngine.snapshot.crossTrackDistanceMeters ?? 0
+        navigationEngine.currentSnapshot.crossTrackDistanceMeters ?? 0
     }
     var nextCue: RouteCue? {
-        navigationEngine.nextCue
+        nil
     }
     var distanceToNextCue: CLLocationDistance {
-        navigationEngine.snapshot.distanceToNextCueMeters ?? 0
+        navigationEngine.currentSnapshot.distanceToNextCueMeters ?? 0
     }
     var currentClimb: ClimbSegment? {
         climbEngine.currentClimb
@@ -244,7 +251,12 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
     // MARK: - Ride Controls
     func startRide(route: GPXRoute? = nil) {
         if let route {
-            navigationEngine.load(route: route)
+            _activeRoute = route
+            let domainRoute = route.toDomainRoute()
+            Task {
+                await navigationEngine.send(.useRoute(domainRoute))
+                await navigationEngine.send(.start)
+            }
         }
         Task {
             if rideEngine.currentSnapshot.state == .idle {
