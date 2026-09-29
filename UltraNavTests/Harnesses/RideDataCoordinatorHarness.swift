@@ -45,8 +45,8 @@ final class RideDataCoordinatorHarness {
             routeStore: FakeRouteStore(),
             routeValidator: NavigationRouteValidator(),
             routeMatcher: RouteMatcher(),
-            cueProvider: LegacyCueAdapter(),
-            cueProgressor: LegacyCueAdapter(),
+            cueProvider: NavigationCueBuilder(),
+            cueProgressor: CueProgressor(),
             offRouteEvaluator: LegacyOffRouteEvaluator()
         )
 

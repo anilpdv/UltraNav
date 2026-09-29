@@ -6,8 +6,8 @@ final class NavigationEngineBuilder {
     var routeStore: (any RouteStoring)? = FakeRouteStore()
     var routeValidator: any NavigationRouteValidating = NavigationRouteValidator()
     var routeMatcher: any RouteMatching = RouteMatcher()
-    var cueProvider: any NavigationCueProviding = LegacyCueAdapter()
-    var cueProgressor: any CueProgressing = LegacyCueAdapter()
+    var cueProvider: any NavigationCueProviding = NavigationCueBuilder()
+    var cueProgressor: any CueProgressing = CueProgressor()
     var offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator()
     var completionEvaluator: any RouteCompletionEvaluating = LegacyRouteCompletionEvaluator()
 

@@ -419,7 +419,18 @@
 		E1B000000000000000001D0903 /* RouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0903 /* RouteMatcher.swift */; };
 		E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0904 /* NavigationCueProviding.swift */; };
 		E1B000000000000000001D0905 /* CueProgressing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0905 /* CueProgressing.swift */; };
-		E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0906 /* LegacyCueAdapter.swift */; };
+		E6B011010000000000000001 /* ManeuverClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011010000000000000001 /* ManeuverClassifier.swift */; };
+		E6B011020000000000000002 /* RouteBearingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011020000000000000002 /* RouteBearingProfile.swift */; };
+		E6B011030000000000000003 /* TurnCandidateDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011030000000000000003 /* TurnCandidateDetector.swift */; };
+		E6B011040000000000000004 /* TurnCandidateMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011040000000000000004 /* TurnCandidateMerger.swift */; };
+		E6B011050000000000000005 /* NavigationCueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011050000000000000005 /* NavigationCueBuilder.swift */; };
+		E6B011060000000000000006 /* CueProgressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011060000000000000006 /* CueProgressor.swift */; };
+		E6B011070000000000000007 /* ManeuverClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011070000000000000007 /* ManeuverClassifierTests.swift */; };
+		E6B011080000000000000008 /* RouteBearingProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011080000000000000008 /* RouteBearingProfileTests.swift */; };
+		E6B011090000000000000009 /* TurnCandidateDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F011090000000000000009 /* TurnCandidateDetectorTests.swift */; };
+		E6B0110A000000000000000A /* TurnCandidateMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0110A000000000000000A /* TurnCandidateMergerTests.swift */; };
+		E6B0110B000000000000000B /* NavigationCueBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0110B000000000000000B /* NavigationCueBuilderTests.swift */; };
+		E6B0110C000000000000000C /* CueProgressorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F0110C000000000000000C /* CueProgressorTests.swift */; };
 		E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0907 /* OffRouteEvaluation.swift */; };
 		E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0908 /* OffRouteEvaluating.swift */; };
 		E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */; };
@@ -1179,7 +1190,18 @@
 		E1F000000000000000001D0903 /* RouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatcher.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0904 /* NavigationCueProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/NavigationCueProviding.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0905 /* CueProgressing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/CueProgressing.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0906 /* LegacyCueAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/LegacyCueAdapter.swift; sourceTree = "<group>"; };
+		E6F011010000000000000001 /* ManeuverClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/TurnDetection/ManeuverClassifier.swift; sourceTree = "<group>"; };
+		E6F011020000000000000002 /* RouteBearingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/TurnDetection/RouteBearingProfile.swift; sourceTree = "<group>"; };
+		E6F011030000000000000003 /* TurnCandidateDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/TurnDetection/TurnCandidateDetector.swift; sourceTree = "<group>"; };
+		E6F011040000000000000004 /* TurnCandidateMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/TurnDetection/TurnCandidateMerger.swift; sourceTree = "<group>"; };
+		E6F011050000000000000005 /* NavigationCueBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/TurnDetection/NavigationCueBuilder.swift; sourceTree = "<group>"; };
+		E6F011060000000000000006 /* CueProgressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Cues/Progression/CueProgressor.swift; sourceTree = "<group>"; };
+		E6F011070000000000000007 /* ManeuverClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/ManeuverClassifierTests.swift"; sourceTree = "<group>"; };
+		E6F011080000000000000008 /* RouteBearingProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/RouteBearingProfileTests.swift"; sourceTree = "<group>"; };
+		E6F011090000000000000009 /* TurnCandidateDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/TurnCandidateDetectorTests.swift"; sourceTree = "<group>"; };
+		E6F0110A000000000000000A /* TurnCandidateMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/TurnCandidateMergerTests.swift"; sourceTree = "<group>"; };
+		E6F0110B000000000000000B /* NavigationCueBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/NavigationCueBuilderTests.swift"; sourceTree = "<group>"; };
+		E6F0110C000000000000000C /* CueProgressorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UltraNavTests/Navigation/CueProgressorTests.swift"; sourceTree = "<group>"; };
 		E1F000000000000000001D0907 /* OffRouteEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluation.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0908 /* OffRouteEvaluating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/OffRouteEvaluating.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/OffRoute/LegacyOffRouteEvaluator.swift; sourceTree = "<group>"; };
@@ -1564,6 +1586,12 @@
 				E582A6FF26C7BF7C195A452B /* RouteSegmentProjectorTests.swift */,
 				E54A34D8D4A4D85564DCFAF1 /* RouteGeometryIndexTests.swift */,
 				E5513D1959FA847710B9323E /* RouteMatcherTests.swift */,
+				E6F011070000000000000007 /* ManeuverClassifierTests.swift */,
+				E6F011080000000000000008 /* RouteBearingProfileTests.swift */,
+				E6F011090000000000000009 /* TurnCandidateDetectorTests.swift */,
+				E6F0110A000000000000000A /* TurnCandidateMergerTests.swift */,
+				E6F0110B000000000000000B /* NavigationCueBuilderTests.swift */,
+				E6F0110C000000000000000C /* CueProgressorTests.swift */,
 
 				P3TF497A78649A5CC13C46ECC /* GPSTimestampValidatorTests.swift */,
 				P3TF1D8E1FF932B960D53164E /* GPSAccuracyValidatorTests.swift */,
@@ -2073,7 +2101,12 @@
 				E1F000000000000000001D0903 /* RouteMatcher.swift */,
 				E1F000000000000000001D0904 /* NavigationCueProviding.swift */,
 				E1F000000000000000001D0905 /* CueProgressing.swift */,
-				E1F000000000000000001D0906 /* LegacyCueAdapter.swift */,
+				E6F011010000000000000001 /* ManeuverClassifier.swift */,
+				E6F011020000000000000002 /* RouteBearingProfile.swift */,
+				E6F011030000000000000003 /* TurnCandidateDetector.swift */,
+				E6F011040000000000000004 /* TurnCandidateMerger.swift */,
+				E6F011050000000000000005 /* NavigationCueBuilder.swift */,
+				E6F011060000000000000006 /* CueProgressor.swift */,
 				E1F000000000000000001D0907 /* OffRouteEvaluation.swift */,
 				E1F000000000000000001D0908 /* OffRouteEvaluating.swift */,
 				E1F000000000000000001D0909 /* LegacyOffRouteEvaluator.swift */,
@@ -2686,6 +2719,12 @@
 				E57E01897E46DE42AB43E8A5 /* RouteSegmentProjectorTests.swift in Sources */,
 				E5CC8EC25A24BC8A6DA8EA89 /* RouteGeometryIndexTests.swift in Sources */,
 				E55D96E24D633DCA34615423 /* RouteMatcherTests.swift in Sources */,
+				E6B011070000000000000007 /* ManeuverClassifierTests.swift in Sources */,
+				E6B011080000000000000008 /* RouteBearingProfileTests.swift in Sources */,
+				E6B011090000000000000009 /* TurnCandidateDetectorTests.swift in Sources */,
+				E6B0110A000000000000000A /* TurnCandidateMergerTests.swift in Sources */,
+				E6B0110B000000000000000B /* NavigationCueBuilderTests.swift in Sources */,
+				E6B0110C000000000000000C /* CueProgressorTests.swift in Sources */,
 
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2978,7 +3017,12 @@
 				E1B000000000000000001D0903 /* RouteMatcher.swift in Sources */,
 				E1B000000000000000001D0904 /* NavigationCueProviding.swift in Sources */,
 				E1B000000000000000001D0905 /* CueProgressing.swift in Sources */,
-				E1B000000000000000001D0906 /* LegacyCueAdapter.swift in Sources */,
+				E6B011010000000000000001 /* ManeuverClassifier.swift in Sources */,
+				E6B011020000000000000002 /* RouteBearingProfile.swift in Sources */,
+				E6B011030000000000000003 /* TurnCandidateDetector.swift in Sources */,
+				E6B011040000000000000004 /* TurnCandidateMerger.swift in Sources */,
+				E6B011050000000000000005 /* NavigationCueBuilder.swift in Sources */,
+				E6B011060000000000000006 /* CueProgressor.swift in Sources */,
 				E1B000000000000000001D0907 /* OffRouteEvaluation.swift in Sources */,
 				E1B000000000000000001D0908 /* OffRouteEvaluating.swift in Sources */,
 				E1B000000000000000001D0909 /* LegacyOffRouteEvaluator.swift in Sources */,

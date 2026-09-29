@@ -39,8 +39,8 @@ final class NavigationEngine: NavigationEngineProviding {
         routeStore: (any RouteStoring)? = nil,
         routeValidator: any NavigationRouteValidating = NavigationRouteValidator(),
         routeMatcher: any RouteMatching = RouteMatcher(),
-        cueProvider: any NavigationCueProviding = LegacyCueAdapter(),
-        cueProgressor: any CueProgressing = LegacyCueAdapter(),
+        cueProvider: any NavigationCueProviding = NavigationCueBuilder(),
+        cueProgressor: any CueProgressing = CueProgressor(),
         offRouteEvaluator: any OffRouteEvaluating = LegacyOffRouteEvaluator(),
         completionEvaluator: any RouteCompletionEvaluating = LegacyRouteCompletionEvaluator(),
         snapshotBuilder: NavigationSnapshotBuilder = NavigationSnapshotBuilder(),
@@ -314,10 +314,10 @@ final class NavigationEngine: NavigationEngineProviding {
             self.cueProgress = newCueProgress
 
             // Emit cue notifications on progression
-            if let nextCue = newCueProgress.nextCue {
-                if previousCueProgress?.nextCue?.id != nextCue.id {
-                    notificationChannel.send(.approachingCue(nextCue))
-                }
+            if let pending = newCueProgress.pendingNotification {
+                notificationChannel.send(pending)
+            } else if let nextCue = newCueProgress.nextCue, previousCueProgress?.nextCue?.id != nextCue.id {
+                notificationChannel.send(.approachingCue(nextCue))
             }
 
             let evaluation = offRouteEvaluator.evaluate(

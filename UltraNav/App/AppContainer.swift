@@ -143,8 +143,8 @@ final class AppContainer {
             routeStore: routeStore,
             routeValidator: NavigationRouteValidator(),
             routeMatcher: RouteMatcher(),
-            cueProvider: LegacyCueAdapter(),
-            cueProgressor: LegacyCueAdapter(),
+            cueProvider: NavigationCueBuilder(),
+            cueProgressor: CueProgressor(),
             offRouteEvaluator: LegacyOffRouteEvaluator()
         )
 
