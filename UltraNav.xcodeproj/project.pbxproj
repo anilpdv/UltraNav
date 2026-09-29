@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B0D9A8DA0BFECD1E8E0B673 /* LegacySymbolAbsenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */; };
+		E1B99E2505439D1617F6C6EB5 /* SingleOwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */; };
+		E1B86ED188D36D452D142A29F /* FrameworkBoundaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */; };
+		E1BF98A7BB430797E4EA9BA28 /* LayerDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F640E6DB1B21907BA45EFE8 /* LayerDirectionTests.swift */; };
+		E1B41A7052486F5F7A2E322F4 /* SourceOwnershipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE3E5D3D528B949E630DA7C /* SourceOwnershipTests.swift */; };
+		E1B859D7A086D1F507C1C4180 /* ProductionPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F19B8E31BA50DAFE2254AAE /* ProductionPathTests.swift */; };
+		E1B8FBF51BE2C4AA9379DCBA1 /* RideLifecycleRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8D0246970664EA5650E7D7 /* RideLifecycleRegressionTests.swift */; };
+		E1B7F7D74D69B49C58B95BD6E /* NavigationRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDEB3C83A09B899AFEB4D51 /* NavigationRegressionTests.swift */; };
+		E1BF5CAE17B3C13A202890C08 /* MetricsRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F30322C701386FBFE0F1D24 /* MetricsRegressionTests.swift */; };
+		E1BE57AF49115FF993A099C1E /* ClimbRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0C1773B81F8E7832B60896 /* ClimbRegressionTests.swift */; };
+		E1BEE23420BD144D2DC4260BB /* RoutePipelineRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F04B292E6CEBD58D865DDD3 /* RoutePipelineRegressionTests.swift */; };
+		E1B4182FD783D7E291FD45793 /* PresentationRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F463ACB0DE4205156B70F97 /* PresentationRegressionTests.swift */; };
+		E1B8DC7C0E0E9539A9D8C5B45 /* Phase1EndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE86722DCFF9D936AB10008 /* Phase1EndToEndTests.swift */; };
 		P1RB00007890ABCDEF123456 /* OperationGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1RF00007890ABCDEF123456 /* OperationGate.swift */; };
 		P1RB00017890ABCDEF123456 /* ControlledAsyncStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1RF00017890ABCDEF123456 /* ControlledAsyncStream.swift */; };
 		P1RB00027890ABCDEF123456 /* AsyncTestWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = P1RF00027890ABCDEF123456 /* AsyncTestWaiter.swift */; };
@@ -173,7 +186,6 @@
 		E1B7F63C39CF633FCB838E91 /* RouteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7F63C39CF633FCB838E91 /* RouteSource.swift */; };
 		E1BF32133494777598E06BF9 /* RouteID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF32133494777598E06BF9 /* RouteID.swift */; };
 		E1B326FC56D2E1864E877D38 /* RouteBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F326FC56D2E1864E877D38 /* RouteBounds.swift */; };
-		E1B3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */; };
 		E1BE284E164F819C17488BED /* RouteIdentityCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */; };
 		E1BC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */; };
 		E1BDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */; };
@@ -264,11 +276,9 @@
 		E1B6AF4406782598F1D2DDFCE /* HealthKitMetricConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */; };
 		E1B10F8586B4F553F1B39B889 /* HealthKitSessionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */; };
 		E1B3C5B742B697234478C665F /* HealthKitWorkoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */; };
-		E1B68C07790675A069F2AD156 /* LegacyClimbAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */; };
 		E1B76552D35D446F4823AAD2D /* LegacyClimbClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */; };
 		E1B9E68ECB3913904C5F60BE5 /* LegacyClimbDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */; };
 		E1B1D424744EB1AC2063F5E87 /* LegacyElevationProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */; };
-		E1BB7F8BBB58BFCB3171063DD /* LegacyMetricsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */; };
 		E1BAE2C0A7DEC115B8A0549EF /* LegacyPowerSmoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */; };
 		E1B14A44C0906A741BDA42590 /* MaximumCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */; };
 		E1B4587ED8D037BE891138D8D /* MetricAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */; };
@@ -326,7 +336,6 @@
 		E1B000000000000000001D0B10 /* MetricsSummaryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B10 /* MetricsSummaryBuilder.swift */; };
 		E1B000000000000000001D0B11 /* RollingSampleBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B11 /* RollingSampleBuffer.swift */; };
 		E1B000000000000000001D0B12 /* MetricsEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B12 /* MetricsEngineProviding.swift */; };
-		E1B000000000000000001D0B13 /* LegacyMetricsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B13 /* LegacyMetricsAdapter.swift */; };
 		E2B000000000000000001D0C00 /* MetricsEngineResetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C00 /* MetricsEngineResetTests.swift */; };
 		E2B000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift */; };
 		E2B000000000000000001D0C02 /* MetricsEngineLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C02 /* MetricsEngineLocationTests.swift */; };
@@ -364,7 +373,6 @@
 		E1B000000000000000001D0916 /* NavigationSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */; };
 		E1B000000000000000001D0917 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0917 /* NavigationEngine.swift */; };
 		E1B000000000000000001D0918 /* RideLocationConsuming.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0918 /* RideLocationConsuming.swift */; };
-		E1B000000000000000001D0919 /* LegacyNavigationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */; };
 		E2B000000000000000001D0A00 /* FakeRouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */; };
 		E2B000000000000000001D0A01 /* FakeCueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A01 /* FakeCueProvider.swift */; };
 		E2B000000000000000001D0A02 /* FakeCueProgressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0A02 /* FakeCueProgressor.swift */; };
@@ -396,7 +404,6 @@
 		E1B000000000000000001D07A /* RideEngineFailureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07A /* RideEngineFailureMapper.swift */; };
 		E1B000000000000000001D07B /* RideSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07B /* RideSnapshotBuilder.swift */; };
 		E1B000000000000000001D07C /* RideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07C /* RideEngine.swift */; };
-		E1B000000000000000001D07D /* LegacyRideEngineAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */; };
 		E2B000000000000000001D080 /* RideSnapshotRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D080 /* RideSnapshotRecorder.swift */; };
 		E2B000000000000000001D081 /* RideEngineHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D081 /* RideEngineHarness.swift */; };
 		E2B000000000000000001D082 /* RideEnginePreparationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D082 /* RideEnginePreparationTests.swift */; };
@@ -581,12 +588,6 @@
 		E2BDA51CE5E233E3D9FE3AB3 /* RideModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC4033DF79302AFA35749E /* RideModelTests.swift */; };
 		E2BFDCCAE3DFEF11BE95CA79 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */; };
 		EDC2ADB5A7A03D8E2B64CD9A /* HealthKitAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2254713225671CCA7F4D5BB /* HealthKitAuthorizing.swift */; };
-		F00000000000000000000001 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000001 /* GPXRoute.swift */; };
-		F00000000000000000000002 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000002 /* GPXParser.swift */; };
-		F00000000000000000000003 /* RouteLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000003 /* RouteLibraryManager.swift */; };
-		F00000000000000000000004 /* BluetoothSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000004 /* BluetoothSensorManager.swift */; };
-		F00000000000000000000005 /* WorkoutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000005 /* WorkoutSessionManager.swift */; };
-		F00000000000000000000006 /* CyclingRideEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000006 /* CyclingRideEngine.swift */; };
 		F00000000000000000000007 /* MetricsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000007 /* MetricsGridView.swift */; };
 		F00000000000000000000008 /* OfflineBreadcrumbMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */; };
 		F00000000000000000000009 /* ClimbProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01000000000000000000009 /* ClimbProView.swift */; };
@@ -594,8 +595,6 @@
 		F0000000000000000000000B /* LapMetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000B /* LapMetricsView.swift */; };
 		F0000000000000000000000C /* RoutePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000C /* RoutePickerView.swift */; };
 		F0000000000000000000000D /* CyclingComputerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000D /* CyclingComputerContainerView.swift */; };
-		F0000000000000000000000E /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000E /* GPXParserTests.swift */; };
-		F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0100000000000000000000F /* CyclingRideEngineTests.swift */; };
 		F100000000000000000001 /* MKDirectionsTransportType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */; };
 		D5E5E52F01374493A82E147D /* AsyncEventChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA955D152E144070AC46DFC2 /* AsyncEventChannel.swift */; };
 		9D1364A42CF141BDAB7C9176 /* EventStreamOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A1B9CA7844AFDAFF19C9F /* EventStreamOwner.swift */; };
@@ -703,6 +702,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/LegacySymbolAbsenceTests.swift; sourceTree = "<group>"; };
+		E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/SingleOwnerTests.swift; sourceTree = "<group>"; };
+		E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/FrameworkBoundaryTests.swift; sourceTree = "<group>"; };
+		E1F640E6DB1B21907BA45EFE8 /* LayerDirectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/LayerDirectionTests.swift; sourceTree = "<group>"; };
+		E1FE3E5D3D528B949E630DA7C /* SourceOwnershipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/SourceOwnershipTests.swift; sourceTree = "<group>"; };
+		E1F19B8E31BA50DAFE2254AAE /* ProductionPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Architecture/ProductionPathTests.swift; sourceTree = "<group>"; };
+		E1F8D0246970664EA5650E7D7 /* RideLifecycleRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/RideLifecycleRegressionTests.swift; sourceTree = "<group>"; };
+		E1FDEB3C83A09B899AFEB4D51 /* NavigationRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/NavigationRegressionTests.swift; sourceTree = "<group>"; };
+		E1F30322C701386FBFE0F1D24 /* MetricsRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/MetricsRegressionTests.swift; sourceTree = "<group>"; };
+		E1F0C1773B81F8E7832B60896 /* ClimbRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/ClimbRegressionTests.swift; sourceTree = "<group>"; };
+		E1F04B292E6CEBD58D865DDD3 /* RoutePipelineRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/RoutePipelineRegressionTests.swift; sourceTree = "<group>"; };
+		E1F463ACB0DE4205156B70F97 /* PresentationRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Regression/PresentationRegressionTests.swift; sourceTree = "<group>"; };
+		E1FE86722DCFF9D936AB10008 /* Phase1EndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Integration/Phase1EndToEndTests.swift; sourceTree = "<group>"; };
 		P1RF00007890ABCDEF123456 /* OperationGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Support/Async/OperationGate.swift; sourceTree = "<group>"; };
 		P1RF00017890ABCDEF123456 /* ControlledAsyncStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Support/Async/ControlledAsyncStream.swift; sourceTree = "<group>"; };
 		P1RF00027890ABCDEF123456 /* AsyncTestWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Support/Async/AsyncTestWaiter.swift; sourceTree = "<group>"; };
@@ -869,7 +881,6 @@
 		E1F7F63C39CF633FCB838E91 /* RouteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteSource.swift; sourceTree = "<group>"; };
 		E1FF32133494777598E06BF9 /* RouteID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteID.swift; sourceTree = "<group>"; };
 		E1F326FC56D2E1864E877D38 /* RouteBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteBounds.swift; sourceTree = "<group>"; };
-		E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Routes/LegacyRouteLibraryAdapter.swift; sourceTree = "<group>"; };
 		E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteIdentityCreating.swift; sourceTree = "<group>"; };
 		E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizationFailure.swift; sourceTree = "<group>"; };
 		E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/CoordinateDistanceCalculating.swift; sourceTree = "<group>"; };
@@ -960,11 +971,9 @@
 		E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitMetricConverter.swift; sourceTree = "<group>"; };
 		E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitSessionManaging.swift; sourceTree = "<group>"; };
 		E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitWorkoutFactory.swift; sourceTree = "<group>"; };
-		E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Climb/LegacyClimbAdapter.swift; sourceTree = "<group>"; };
 		E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Classification/LegacyClimbClassifier.swift; sourceTree = "<group>"; };
 		E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Detection/LegacyClimbDetector.swift; sourceTree = "<group>"; };
 		E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Profile/LegacyElevationProfileBuilder.swift; sourceTree = "<group>"; };
-		E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Metrics/LegacyMetricsAdapter.swift; sourceTree = "<group>"; };
 		E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/LegacyPowerSmoothing.swift; sourceTree = "<group>"; };
 		E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/MaximumCalculating.swift; sourceTree = "<group>"; };
 		E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricAvailability.swift; sourceTree = "<group>"; };
@@ -1022,7 +1031,6 @@
 		E1F000000000000000001D0B10 /* MetricsSummaryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricsSummaryBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0B11 /* RollingSampleBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/RollingSampleBuffer.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0B12 /* MetricsEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricsEngineProviding.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0B13 /* LegacyMetricsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Presentation/Metrics/LegacyMetricsAdapter.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0C00 /* MetricsEngineResetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineResetTests.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineIntegrationTests.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0C02 /* MetricsEngineLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineLocationTests.swift; sourceTree = "<group>"; };
@@ -1060,7 +1068,6 @@
 		E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationSnapshotBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0917 /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Navigation/NavigationEngine.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0918 /* RideLocationConsuming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideLocationConsuming.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Navigation/LegacyNavigationAdapter.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteMatcher.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0A01 /* FakeCueProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeCueProvider.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D0A02 /* FakeCueProgressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeCueProgressor.swift; sourceTree = "<group>"; };
@@ -1092,7 +1099,6 @@
 		E1F000000000000000001D07A /* RideEngineFailureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideEngineFailureMapper.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D07B /* RideSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideSnapshotBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D07C /* RideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Ride/RideEngine.swift; sourceTree = "<group>"; };
-		E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Ride/LegacyRideEngineAdapter.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D080 /* RideSnapshotRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/RideSnapshotRecorder.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D081 /* RideEngineHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/RideEngineHarness.swift; sourceTree = "<group>"; };
 		E2F000000000000000001D082 /* RideEnginePreparationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Ride/RideEnginePreparationTests.swift; sourceTree = "<group>"; };
@@ -1301,12 +1307,6 @@
 		EC9FC6B24D3132AC896D3D6B /* LocationServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceTests.swift; path = Services/LocationServiceTests.swift; sourceTree = "<group>"; };
 		EFBAAAB0AFAAB5219B7B7BC9 /* LocationServiceState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationServiceState.swift; sourceTree = "<group>"; };
 		EFF4027E46C2956B8762173A /* WorkoutMetric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkoutMetric.swift; path = UltraNav/Services/Workout/WorkoutMetric.swift; sourceTree = "<group>"; };
-		F01000000000000000000001 /* GPXRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/GPXRoute.swift; sourceTree = "<group>"; };
-		F01000000000000000000002 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/GPXParser.swift; sourceTree = "<group>"; };
-		F01000000000000000000003 /* RouteLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/GPX/RouteLibraryManager.swift; sourceTree = "<group>"; };
-		F01000000000000000000004 /* BluetoothSensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/BluetoothSensorManager.swift; sourceTree = "<group>"; };
-		F01000000000000000000005 /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/WorkoutSessionManager.swift; sourceTree = "<group>"; };
-		F01000000000000000000006 /* CyclingRideEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Cycling/CyclingRideEngine.swift; sourceTree = "<group>"; };
 		F01000000000000000000007 /* MetricsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/MetricsGridView.swift; sourceTree = "<group>"; };
 		F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/OfflineBreadcrumbMapView.swift; sourceTree = "<group>"; };
 		F01000000000000000000009 /* ClimbProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/ClimbProView.swift; sourceTree = "<group>"; };
@@ -1314,8 +1314,6 @@
 		F0100000000000000000000B /* LapMetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/LapMetricsView.swift; sourceTree = "<group>"; };
 		F0100000000000000000000C /* RoutePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/RoutePickerView.swift; sourceTree = "<group>"; };
 		F0100000000000000000000D /* CyclingComputerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cycling/CyclingComputerContainerView.swift; sourceTree = "<group>"; };
-		F0100000000000000000000E /* GPXParserTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParserTests.swift; path = UltraNavTests/GPXParserTests.swift; sourceTree = "<group>"; };
-		F0100000000000000000000F /* CyclingRideEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CyclingRideEngineTests.swift; path = UltraNavTests/CyclingRideEngineTests.swift; sourceTree = "<group>"; };
 		F0C1F8ED6696F062C5BD09F8 /* HealthKitServiceLifecycleTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthKitServiceLifecycleTests.swift; path = UltraNavTests/Services/HealthKitServiceLifecycleTests.swift; sourceTree = "<group>"; };
 		F200000000000000000001 /* MKDirectionsTransportType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions/MKDirectionsTransportType+Extensions.swift"; sourceTree = "<group>"; };
 		F41C06CBDB66BB5016238EA3 /* LocationConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationConfiguration.swift; path = Services/Location/LocationConfiguration.swift; sourceTree = "<group>"; };
@@ -1433,6 +1431,19 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E1FF936C3FEF76AB2235F92F3 /* LegacySymbolAbsenceTests.swift */,
+				E1F3750E2FD5FB7D3FC464351 /* SingleOwnerTests.swift */,
+				E1F536264D30809EF4DE8B953 /* FrameworkBoundaryTests.swift */,
+				E1F640E6DB1B21907BA45EFE8 /* LayerDirectionTests.swift */,
+				E1FE3E5D3D528B949E630DA7C /* SourceOwnershipTests.swift */,
+				E1F19B8E31BA50DAFE2254AAE /* ProductionPathTests.swift */,
+				E1F8D0246970664EA5650E7D7 /* RideLifecycleRegressionTests.swift */,
+				E1FDEB3C83A09B899AFEB4D51 /* NavigationRegressionTests.swift */,
+				E1F30322C701386FBFE0F1D24 /* MetricsRegressionTests.swift */,
+				E1F0C1773B81F8E7832B60896 /* ClimbRegressionTests.swift */,
+				E1F04B292E6CEBD58D865DDD3 /* RoutePipelineRegressionTests.swift */,
+				E1F463ACB0DE4205156B70F97 /* PresentationRegressionTests.swift */,
+				E1FE86722DCFF9D936AB10008 /* Phase1EndToEndTests.swift */,
 				P1RF00007890ABCDEF123456 /* OperationGate.swift */,
 				P1RF00017890ABCDEF123456 /* ControlledAsyncStream.swift */,
 				P1RF00027890ABCDEF123456 /* AsyncTestWaiter.swift */,
@@ -1590,8 +1601,6 @@
 				E2F000000000000000001D00B /* DeterministicClockTests.swift */,
 				1E19CA98276129A4BA998343 /* UltraNavCoreTests.swift */,
 				6B21D3238B68374776B6AD4B /* WidgetTimelineTests.swift */,
-				F0100000000000000000000E /* GPXParserTests.swift */,
-				F0100000000000000000000F /* CyclingRideEngineTests.swift */,
 				65FEB53F86841AFD44DEA43B /* Services */,
 				F62D46F69467480069CE838D /* TestDoubles */,
 			);
@@ -1761,7 +1770,6 @@
 				E1F7F63C39CF633FCB838E91 /* RouteSource.swift */,
 				E1FF32133494777598E06BF9 /* RouteID.swift */,
 				E1F326FC56D2E1864E877D38 /* RouteBounds.swift */,
-				E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */,
 				E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */,
 				E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */,
 				E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */,
@@ -1837,11 +1845,9 @@
 				E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */,
 				E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */,
 				E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */,
-				E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */,
 				E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */,
 				E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */,
 				E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */,
-				E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */,
 				E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */,
 				E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */,
 				E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */,
@@ -1889,7 +1895,6 @@
 				E1F000000000000000001D0916 /* NavigationSnapshotBuilder.swift */,
 				E1F000000000000000001D0917 /* NavigationEngine.swift */,
 				E1F000000000000000001D0918 /* RideLocationConsuming.swift */,
-				E1F000000000000000001D0919 /* LegacyNavigationAdapter.swift */,
 				E1F000000000000000001D070 /* RideLocationStatus.swift */,
 				E1F000000000000000001D071 /* RideWorkoutStatus.swift */,
 				E1F000000000000000001D072 /* RideSensorStatus.swift */,
@@ -1903,7 +1908,6 @@
 				E1F000000000000000001D07A /* RideEngineFailureMapper.swift */,
 				E1F000000000000000001D07B /* RideSnapshotBuilder.swift */,
 				E1F000000000000000001D07C /* RideEngine.swift */,
-				E1F000000000000000001D07D /* LegacyRideEngineAdapter.swift */,
 				E1FE58D83618BED000E8D091 /* Coordinate.swift */,
 				E1FB12AE7DA2ACAF1FDAEA88 /* MeasurementUnits.swift */,
 				E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */,
@@ -1996,12 +2000,6 @@
 				A2000000000000000000000D /* SyncCoordinator.swift */,
 				A2000000000000000000000E /* AppLaunchView.swift */,
 				A2000000000000000000000F /* OnboardingView.swift */,
-				F01000000000000000000001 /* GPXRoute.swift */,
-				F01000000000000000000002 /* GPXParser.swift */,
-				F01000000000000000000003 /* RouteLibraryManager.swift */,
-				F01000000000000000000004 /* BluetoothSensorManager.swift */,
-				F01000000000000000000005 /* WorkoutSessionManager.swift */,
-				F01000000000000000000006 /* CyclingRideEngine.swift */,
 				F01000000000000000000007 /* MetricsGridView.swift */,
 				F01000000000000000000008 /* OfflineBreadcrumbMapView.swift */,
 				F01000000000000000000009 /* ClimbProView.swift */,
@@ -2221,6 +2219,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B0D9A8DA0BFECD1E8E0B673 /* LegacySymbolAbsenceTests.swift in Sources */,
+				E1B99E2505439D1617F6C6EB5 /* SingleOwnerTests.swift in Sources */,
+				E1B86ED188D36D452D142A29F /* FrameworkBoundaryTests.swift in Sources */,
+				E1BF98A7BB430797E4EA9BA28 /* LayerDirectionTests.swift in Sources */,
+				E1B41A7052486F5F7A2E322F4 /* SourceOwnershipTests.swift in Sources */,
+				E1B859D7A086D1F507C1C4180 /* ProductionPathTests.swift in Sources */,
+				E1B8FBF51BE2C4AA9379DCBA1 /* RideLifecycleRegressionTests.swift in Sources */,
+				E1B7F7D74D69B49C58B95BD6E /* NavigationRegressionTests.swift in Sources */,
+				E1BF5CAE17B3C13A202890C08 /* MetricsRegressionTests.swift in Sources */,
+				E1BE57AF49115FF993A099C1E /* ClimbRegressionTests.swift in Sources */,
+				E1BEE23420BD144D2DC4260BB /* RoutePipelineRegressionTests.swift in Sources */,
+				E1B4182FD783D7E291FD45793 /* PresentationRegressionTests.swift in Sources */,
+				E1B8DC7C0E0E9539A9D8C5B45 /* Phase1EndToEndTests.swift in Sources */,
 				P1RB00007890ABCDEF123456 /* OperationGate.swift in Sources */,
 				P1RB00017890ABCDEF123456 /* ControlledAsyncStream.swift in Sources */,
 				P1RB00027890ABCDEF123456 /* AsyncTestWaiter.swift in Sources */,
@@ -2430,8 +2441,6 @@
 				9B7B405CB23100E73CBB7C27 /* UltraNavCoreTests.swift in Sources */,
 				30EFB30435DCE7C71ECE490F /* WidgetTimelineTests.swift in Sources */,
 				B6F7E42E73CBD42B2FC9C19C /* TimelineProvider.swift in Sources */,
-				F0000000000000000000000E /* GPXParserTests.swift in Sources */,
-				F0000000000000000000000F /* CyclingRideEngineTests.swift in Sources */,
 				3A472795122BD0421B53FFA1 /* CoreLocationSampleConverterTests.swift in Sources */,
 				0B1B1AF63565A28F12098B1F /* LocationAuthorizationMappingTests.swift in Sources */,
 				6D6D5A4C1DAEFB3604A8A737 /* LocationConfigurationTests.swift in Sources */,
@@ -2597,7 +2606,6 @@
 				E1B7F63C39CF633FCB838E91 /* RouteSource.swift in Sources */,
 				E1BF32133494777598E06BF9 /* RouteID.swift in Sources */,
 				E1B326FC56D2E1864E877D38 /* RouteBounds.swift in Sources */,
-				E1B3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift in Sources */,
 				E1BE284E164F819C17488BED /* RouteIdentityCreating.swift in Sources */,
 				E1BC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift in Sources */,
 				E1BDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift in Sources */,
@@ -2673,11 +2681,9 @@
 				E1B6AF4406782598F1D2DDFCE /* HealthKitMetricConverter.swift in Sources */,
 				E1B10F8586B4F553F1B39B889 /* HealthKitSessionManaging.swift in Sources */,
 				E1B3C5B742B697234478C665F /* HealthKitWorkoutFactory.swift in Sources */,
-				E1B68C07790675A069F2AD156 /* LegacyClimbAdapter.swift in Sources */,
 				E1B76552D35D446F4823AAD2D /* LegacyClimbClassifier.swift in Sources */,
 				E1B9E68ECB3913904C5F60BE5 /* LegacyClimbDetector.swift in Sources */,
 				E1B1D424744EB1AC2063F5E87 /* LegacyElevationProfileBuilder.swift in Sources */,
-				E1BB7F8BBB58BFCB3171063DD /* LegacyMetricsAdapter.swift in Sources */,
 				E1BAE2C0A7DEC115B8A0549EF /* LegacyPowerSmoothing.swift in Sources */,
 				E1B14A44C0906A741BDA42590 /* MaximumCalculating.swift in Sources */,
 				E1B4587ED8D037BE891138D8D /* MetricAvailability.swift in Sources */,
@@ -2725,7 +2731,6 @@
 				E1B000000000000000001D0916 /* NavigationSnapshotBuilder.swift in Sources */,
 				E1B000000000000000001D0917 /* NavigationEngine.swift in Sources */,
 				E1B000000000000000001D0918 /* RideLocationConsuming.swift in Sources */,
-				E1B000000000000000001D0919 /* LegacyNavigationAdapter.swift in Sources */,
 				E1B000000000000000001D070 /* RideLocationStatus.swift in Sources */,
 				E1B000000000000000001D071 /* RideWorkoutStatus.swift in Sources */,
 				E1B000000000000000001D072 /* RideSensorStatus.swift in Sources */,
@@ -2739,7 +2744,6 @@
 				E1B000000000000000001D07A /* RideFailureMapper.swift in Sources */,
 				E1B000000000000000001D07B /* RideSnapshotBuilder.swift in Sources */,
 				E1B000000000000000001D07C /* RideEngine.swift in Sources */,
-				E1B000000000000000001D07D /* LegacyRideEngineAdapter.swift in Sources */,
 				E1BF4BD94A5BDF1A6D57C70F /* Coordinate.swift in Sources */,
 				E1BFDC7E3C02FC554F7E393F /* MeasurementUnits.swift in Sources */,
 				E1B51EFA7D6DA5ECE2F19673 /* LocationSample.swift in Sources */,
@@ -2833,12 +2837,6 @@
 				A1000000000000000000000A /* SyncCoordinator.swift in Sources */,
 				A1000000000000000000000B /* AppLaunchView.swift in Sources */,
 				A1000000000000000000000C /* OnboardingView.swift in Sources */,
-				F00000000000000000000001 /* GPXRoute.swift in Sources */,
-				F00000000000000000000002 /* GPXParser.swift in Sources */,
-				F00000000000000000000003 /* RouteLibraryManager.swift in Sources */,
-				F00000000000000000000004 /* BluetoothSensorManager.swift in Sources */,
-				F00000000000000000000005 /* WorkoutSessionManager.swift in Sources */,
-				F00000000000000000000006 /* CyclingRideEngine.swift in Sources */,
 				F00000000000000000000007 /* MetricsGridView.swift in Sources */,
 				F00000000000000000000008 /* OfflineBreadcrumbMapView.swift in Sources */,
 				F00000000000000000000009 /* ClimbProView.swift in Sources */,

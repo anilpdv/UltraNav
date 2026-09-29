@@ -8,7 +8,6 @@ struct UltraNavApp: App {
 
     @State private var container: AppContainer
     @State private var navigationModel = NavigationModel()
-    @State private var cyclingEngine = CyclingRideEngine.shared
 
     init() {
         if NSClassFromString("XCTestCase") != nil || ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
@@ -35,7 +34,6 @@ struct UltraNavApp: App {
                 .environment(container.presentation.routes)
                 .environment(container.presentation.map)
                 .environment(navigationModel)
-                .environment(cyclingEngine)
                 .task {
                     await container.start()
                 }

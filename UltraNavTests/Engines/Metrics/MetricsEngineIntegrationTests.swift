@@ -5,7 +5,7 @@ import Foundation
 @MainActor
 struct MetricsEngineIntegrationTests {
     @Test
-    func testRideEngineAndLegacyAdapterIntegration() async {
+    func testRideEngineMetricsIntegration() async {
         let harness = MetricsEngineHarness()
         await harness.engine.send(.start)
 
@@ -17,13 +17,12 @@ struct MetricsEngineIntegrationTests {
         harness.engine.consume(location: LocationSampleFactory.makeSample(speed: 8.5, altitude: 150.0, timestamp: now))
         harness.engine.consume(workout: .cyclingDistance(meters: 1200, timestamp: now))
 
-        let adapter = LegacyMetricsAdapter(engine: harness.engine)
-        let rideMetrics = adapter.currentRideMetrics
+        let snapshot = harness.engine.currentSnapshot
 
-        #expect(rideMetrics.powerWatts == 250)
-        #expect(rideMetrics.heartRateBeatsPerMinute == 145)
-        #expect(rideMetrics.currentSpeedMetersPerSecond == 8.5)
-        #expect(rideMetrics.altitudeMeters == 150.0)
-        #expect(rideMetrics.distanceMeters == 1200.0)
+        #expect(snapshot.power?.value == 250)
+        #expect(snapshot.heartRate?.value == 145)
+        #expect(snapshot.speed?.value == 8.5)
+        #expect(snapshot.altitude?.value == 150.0)
+        #expect(snapshot.distance?.value == 1200.0)
     }
 }

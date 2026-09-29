@@ -3,30 +3,30 @@ import Foundation
 @testable import UltraNav
 
 @MainActor
-struct NavigationEngineLegacyAdapterTests {
+struct NavigationEngineDirectLifecycleTests {
     @Test
-    func testAdapterProjections() async {
+    func testNavigationEngineProjections() async {
         let navEngine = NavigationEngine()
-        let adapter = LegacyNavigationAdapter(navigationEngine: navEngine)
 
-        #expect(!adapter.isNavigating)
-        #expect(!adapter.isOffRoute)
-        #expect(adapter.routeID == nil)
-        #expect(adapter.progress == 0.0)
+        #expect(navEngine.currentSnapshot.state == .inactive)
+        #expect(navEngine.currentSnapshot.offRouteStatus == .unknown)
+        #expect(navEngine.currentSnapshot.routeID == nil)
+        #expect(navEngine.currentSnapshot.routeProgress == 0.0)
 
         let route = NavigationRouteFactory.createLinearRoute(pointCount: 5)
-        await adapter.load(route: route)
+        await navEngine.send(.useRoute(route))
 
-        #expect(adapter.routeID == route.id)
-        #expect(adapter.distanceRemaining == route.totalDistanceMeters)
+        #expect(navEngine.currentSnapshot.routeID == route.id)
+        #expect(navEngine.currentSnapshot.distanceRemainingMeters == route.totalDistanceMeters)
 
-        await adapter.startNavigation()
-        #expect(adapter.isNavigating)
+        await navEngine.send(.start)
+        #expect(navEngine.currentSnapshot.state == .navigating)
 
-        await adapter.stopNavigation()
-        #expect(!adapter.isNavigating)
+        await navEngine.send(.stop)
+        #expect(navEngine.currentSnapshot.state == .ready)
 
-        await adapter.clearRoute()
-        #expect(adapter.routeID == nil)
+        await navEngine.send(.clearRoute)
+        #expect(navEngine.currentSnapshot.state == .inactive)
+        #expect(navEngine.currentSnapshot.routeID == nil)
     }
 }
