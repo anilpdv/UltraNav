@@ -6,7 +6,7 @@ struct ClimbSnapshotBuilder: Sendable {
 
     func buildSnapshot(
         state: ClimbEngineState,
-        routeID: UUID?,
+        routeID: Route.ID?,
         climbs: [Climb],
         activeClimb: Climb?,
         activeClimbProgress: ClimbProgress?,

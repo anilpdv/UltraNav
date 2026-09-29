@@ -7,6 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B93F7EF5136E90E8F0365A /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F93F7EF5136E90E8F0365A /* RouteStore.swift */; };
+		E1B7878A36F786F4D90A548E /* RouteValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7878A36F786F4D90A548E /* RouteValidating.swift */; };
+		E2B30EB8897485FD3949B2B2 /* RouteStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */; };
+		E1B1673D1F73B83C62E82BAF /* RouteWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1673D1F73B83C62E82BAF /* RouteWaypoint.swift */; };
+		E1B2A7CC12DAC640E0BA71B7 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2A7CC12DAC640E0BA71B7 /* RouteSegment.swift */; };
+		E1B7F63C39CF633FCB838E91 /* RouteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7F63C39CF633FCB838E91 /* RouteSource.swift */; };
+		E1BF32133494777598E06BF9 /* RouteID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF32133494777598E06BF9 /* RouteID.swift */; };
+		E1B326FC56D2E1864E877D38 /* RouteBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F326FC56D2E1864E877D38 /* RouteBounds.swift */; };
+		E1B3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */; };
+		E1BE284E164F819C17488BED /* RouteIdentityCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */; };
+		E1BC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */; };
+		E1BDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */; };
+		E1BFDD2F19026EF33A266EDD /* SHA256RouteIdentityCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFDD2F19026EF33A266EDD /* SHA256RouteIdentityCreator.swift */; };
+		E1B4B419BC3ED5B3247609EA /* RouteNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F4B419BC3ED5B3247609EA /* RouteNormalizer.swift */; };
+		E1B2C7323EB2EB104E74A863 /* CoreLocationDistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2C7323EB2EB104E74A863 /* CoreLocationDistanceCalculator.swift */; };
+		E1B8B828B04EB5043BEAB511 /* RouteNormalizationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8B828B04EB5043BEAB511 /* RouteNormalizationPolicy.swift */; };
+		E1B74AE5547A08F029EB8413 /* RouteNormalizationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F74AE5547A08F029EB8413 /* RouteNormalizationResult.swift */; };
+		E1BEC672926E5C80B72D81B7 /* RouteNormalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC672926E5C80B72D81B7 /* RouteNormalizing.swift */; };
+		E1B753C19A7C7C318F44CEF0 /* RouteNormalizationWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F753C19A7C7C318F44CEF0 /* RouteNormalizationWarning.swift */; };
+		E1BAFA8C7DDC047D0D85AC78 /* RouteLibraryFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAFA8C7DDC047D0D85AC78 /* RouteLibraryFailure.swift */; };
+		E1BE33B4D64FBA6AC642307F /* RouteLibraryCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE33B4D64FBA6AC642307F /* RouteLibraryCommand.swift */; };
+		E1BC645C8BB777D21D993F81 /* RouteLibraryEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC645C8BB777D21D993F81 /* RouteLibraryEngine.swift */; };
+		E1B1F5755EDFD3756AF3A90D /* RouteLibraryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1F5755EDFD3756AF3A90D /* RouteLibraryState.swift */; };
+		E1B64AA4019C04876C260A2A /* RouteLibrarySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F64AA4019C04876C260A2A /* RouteLibrarySnapshot.swift */; };
+		E1B41775362DAB839E2FE2E5 /* RouteStorageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F41775362DAB839E2FE2E5 /* RouteStorageRecord.swift */; };
+		E1B1CDB85324D631C3D7A5E3 /* RouteSaveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1CDB85324D631C3D7A5E3 /* RouteSaveBehavior.swift */; };
+		E1B163555C9F653947D1468E /* RouteFileSystemProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F163555C9F653947D1468E /* RouteFileSystemProviding.swift */; };
+		E1BA1D087D4BE54CFEBBDDB9 /* RouteStorageCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA1D087D4BE54CFEBBDDB9 /* RouteStorageCodec.swift */; };
+		E1B6A0D70DB159B1536B0476 /* RouteStoreIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A0D70DB159B1536B0476 /* RouteStoreIndex.swift */; };
+		E1BC39329DEF70CFA6122FD8 /* GPXParsedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC39329DEF70CFA6122FD8 /* GPXParsedTrack.swift */; };
+		E1BB4BF1860100EC35DC08D0 /* GPXParsedWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB4BF1860100EC35DC08D0 /* GPXParsedWaypoint.swift */; };
+		E1BA484905E5412F63CEDA87 /* GPXParsedSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA484905E5412F63CEDA87 /* GPXParsedSegment.swift */; };
+		E1B2B7C5EF175E185C3D5F6E /* GPXParserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B7C5EF175E185C3D5F6E /* GPXParserAdapter.swift */; };
+		E1B7CE2AD7DDADDBA9726848 /* GPXParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7CE2AD7DDADDBA9726848 /* GPXParsing.swift */; };
+		E1B3D7C88226187D1EAD720B /* GPXParserFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3D7C88226187D1EAD720B /* GPXParserFailure.swift */; };
+		E1B32E52EDE65E08024A70AB /* GPXParsedDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F32E52EDE65E08024A70AB /* GPXParsedDocument.swift */; };
+		E1BD78984870CDCB6B5BB430 /* GPXParsedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD78984870CDCB6B5BB430 /* GPXParsedPoint.swift */; };
+		E1BA65CF57117EDFDACA296D /* GPXParsedRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA65CF57117EDFDACA296D /* GPXParsedRoute.swift */; };
+		E1B950DE1A0D7BC35C3D3BF7 /* GPXSourceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F950DE1A0D7BC35C3D3BF7 /* GPXSourceMetadata.swift */; };
+		E1B5A23E00C4D8C2C6CC8279 /* RouteSourceReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5A23E00C4D8C2C6CC8279 /* RouteSourceReading.swift */; };
+		E1B62CD45A524328259F9C93 /* RouteImporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F62CD45A524328259F9C93 /* RouteImporting.swift */; };
+		E1BE46B134602E2DE1C76AD1 /* RouteImportFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE46B134602E2DE1C76AD1 /* RouteImportFailure.swift */; };
+		E1B68271C2D37F064AE76BE5 /* RouteImportSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F68271C2D37F064AE76BE5 /* RouteImportSource.swift */; };
+		E1B199D6CC187A8E1263FEB9 /* RouteImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F199D6CC187A8E1263FEB9 /* RouteImporter.swift */; };
+		E1BF83A9C403523E83BB9750 /* RouteImportLimits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF83A9C403523E83BB9750 /* RouteImportLimits.swift */; };
+		E1BF8FEFD9207F1936490DB2 /* RouteImportResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF8FEFD9207F1936490DB2 /* RouteImportResult.swift */; };
+		E1B2093D2D33399E2D6F65E0 /* RouteSourceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2093D2D33399E2D6F65E0 /* RouteSourceContent.swift */; };
+		E1B954B55A9C2DF0B54F69DA /* ParsedRouteValidationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F954B55A9C2DF0B54F69DA /* ParsedRouteValidationPolicy.swift */; };
+		E1B1367775FD6C5CDA53392C /* ParsedRouteValidationFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1367775FD6C5CDA53392C /* ParsedRouteValidationFailure.swift */; };
+		E1B9DADC3076F0D7BEA7E0B1 /* ParsedRouteValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9DADC3076F0D7BEA7E0B1 /* ParsedRouteValidator.swift */; };
+		E1B6D167616D185A67641250 /* ParsedRouteValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6D167616D185A67641250 /* ParsedRouteValidating.swift */; };
+		E1B2028C59472EFCDB1DA467 /* StoredRouteValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2028C59472EFCDB1DA467 /* StoredRouteValidator.swift */; };
+		E2BEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift */; };
+		E2BCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift */; };
+		E2B626F077AD655BC2A47B8E /* FakeRouteImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F626F077AD655BC2A47B8E /* FakeRouteImporter.swift */; };
+		E2BB5C308253B9842D97D1B0 /* FakeGPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB5C308253B9842D97D1B0 /* FakeGPXParser.swift */; };
+		E2BB8F61AD84128CC4339975 /* RouteNormalizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB8F61AD84128CC4339975 /* RouteNormalizerTests.swift */; };
+		E2B997F1D95E6D4F404FF1B8 /* RouteIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F997F1D95E6D4F404FF1B8 /* RouteIdentityTests.swift */; };
+		E2BBE76C5B18D7802C330550 /* RouteNavigationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FBE76C5B18D7802C330550 /* RouteNavigationIntegrationTests.swift */; };
+		E2B33837ECCB28DC0DA6021D /* RouteLibraryEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F33837ECCB28DC0DA6021D /* RouteLibraryEngineTests.swift */; };
+		E2B694F9045C0A266415A48C /* RouteStoreRecoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F694F9045C0A266415A48C /* RouteStoreRecoveryTests.swift */; };
+		E2BA4A820FF203223304F0B0 /* RouteStorageCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA4A820FF203223304F0B0 /* RouteStorageCodecTests.swift */; };
+		E2B26382DB5DAC91C21A8820 /* GPXParsedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F26382DB5DAC91C21A8820 /* GPXParsedModelTests.swift */; };
+		E2B32F62B71A68035EC1546F /* GPXParserAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F32F62B71A68035EC1546F /* GPXParserAdapterTests.swift */; };
+		E2B28CDFFA1198BBC4AD6699 /* RouteImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F28CDFFA1198BBC4AD6699 /* RouteImporterTests.swift */; };
+		E2B6C52782D2BA39330213E2 /* ParsedRouteValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6C52782D2BA39330213E2 /* ParsedRouteValidatorTests.swift */; };
+		E2BFCBC15ACC1FA745DDD24A /* StoredRouteValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFCBC15ACC1FA745DDD24A /* StoredRouteValidatorTests.swift */; };
 		E1B544BC0BB4185EE88C96A08 /* ActiveClimbSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */; };
 		E1B0A854DAF20C0C1DB4D1844 /* AverageCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */; };
 		E1BC792CD496A7CA8AA38E1F6 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */; };
@@ -413,6 +480,73 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1F93F7EF5136E90E8F0365A /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteStore.swift; sourceTree = "<group>"; };
+		E1F7878A36F786F4D90A548E /* RouteValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/RouteValidating.swift; sourceTree = "<group>"; };
+		E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Storage/RouteStoreTests.swift; sourceTree = "<group>"; };
+		E1F1673D1F73B83C62E82BAF /* RouteWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteWaypoint.swift; sourceTree = "<group>"; };
+		E1F2A7CC12DAC640E0BA71B7 /* RouteSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteSegment.swift; sourceTree = "<group>"; };
+		E1F7F63C39CF633FCB838E91 /* RouteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteSource.swift; sourceTree = "<group>"; };
+		E1FF32133494777598E06BF9 /* RouteID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteID.swift; sourceTree = "<group>"; };
+		E1F326FC56D2E1864E877D38 /* RouteBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RouteBounds.swift; sourceTree = "<group>"; };
+		E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Routes/LegacyRouteLibraryAdapter.swift; sourceTree = "<group>"; };
+		E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteIdentityCreating.swift; sourceTree = "<group>"; };
+		E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizationFailure.swift; sourceTree = "<group>"; };
+		E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/CoordinateDistanceCalculating.swift; sourceTree = "<group>"; };
+		E1FFDD2F19026EF33A266EDD /* SHA256RouteIdentityCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/SHA256RouteIdentityCreator.swift; sourceTree = "<group>"; };
+		E1F4B419BC3ED5B3247609EA /* RouteNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizer.swift; sourceTree = "<group>"; };
+		E1F2C7323EB2EB104E74A863 /* CoreLocationDistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/CoreLocationDistanceCalculator.swift; sourceTree = "<group>"; };
+		E1F8B828B04EB5043BEAB511 /* RouteNormalizationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizationPolicy.swift; sourceTree = "<group>"; };
+		E1F74AE5547A08F029EB8413 /* RouteNormalizationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizationResult.swift; sourceTree = "<group>"; };
+		E1FEC672926E5C80B72D81B7 /* RouteNormalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizing.swift; sourceTree = "<group>"; };
+		E1F753C19A7C7C318F44CEF0 /* RouteNormalizationWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Normalization/RouteNormalizationWarning.swift; sourceTree = "<group>"; };
+		E1FAFA8C7DDC047D0D85AC78 /* RouteLibraryFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Library/RouteLibraryFailure.swift; sourceTree = "<group>"; };
+		E1FE33B4D64FBA6AC642307F /* RouteLibraryCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Library/RouteLibraryCommand.swift; sourceTree = "<group>"; };
+		E1FC645C8BB777D21D993F81 /* RouteLibraryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Library/RouteLibraryEngine.swift; sourceTree = "<group>"; };
+		E1F1F5755EDFD3756AF3A90D /* RouteLibraryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Library/RouteLibraryState.swift; sourceTree = "<group>"; };
+		E1F64AA4019C04876C260A2A /* RouteLibrarySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Library/RouteLibrarySnapshot.swift; sourceTree = "<group>"; };
+		E1F41775362DAB839E2FE2E5 /* RouteStorageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteStorageRecord.swift; sourceTree = "<group>"; };
+		E1F1CDB85324D631C3D7A5E3 /* RouteSaveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteSaveBehavior.swift; sourceTree = "<group>"; };
+		E1F163555C9F653947D1468E /* RouteFileSystemProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteFileSystemProviding.swift; sourceTree = "<group>"; };
+		E1FA1D087D4BE54CFEBBDDB9 /* RouteStorageCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteStorageCodec.swift; sourceTree = "<group>"; };
+		E1F6A0D70DB159B1536B0476 /* RouteStoreIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Storage/RouteStoreIndex.swift; sourceTree = "<group>"; };
+		E1FC39329DEF70CFA6122FD8 /* GPXParsedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedTrack.swift; sourceTree = "<group>"; };
+		E1FB4BF1860100EC35DC08D0 /* GPXParsedWaypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedWaypoint.swift; sourceTree = "<group>"; };
+		E1FA484905E5412F63CEDA87 /* GPXParsedSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedSegment.swift; sourceTree = "<group>"; };
+		E1F2B7C5EF175E185C3D5F6E /* GPXParserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParserAdapter.swift; sourceTree = "<group>"; };
+		E1F7CE2AD7DDADDBA9726848 /* GPXParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsing.swift; sourceTree = "<group>"; };
+		E1F3D7C88226187D1EAD720B /* GPXParserFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParserFailure.swift; sourceTree = "<group>"; };
+		E1F32E52EDE65E08024A70AB /* GPXParsedDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedDocument.swift; sourceTree = "<group>"; };
+		E1FD78984870CDCB6B5BB430 /* GPXParsedPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedPoint.swift; sourceTree = "<group>"; };
+		E1FA65CF57117EDFDACA296D /* GPXParsedRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXParsedRoute.swift; sourceTree = "<group>"; };
+		E1F950DE1A0D7BC35C3D3BF7 /* GPXSourceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/GPX/GPXSourceMetadata.swift; sourceTree = "<group>"; };
+		E1F5A23E00C4D8C2C6CC8279 /* RouteSourceReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteSourceReading.swift; sourceTree = "<group>"; };
+		E1F62CD45A524328259F9C93 /* RouteImporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImporting.swift; sourceTree = "<group>"; };
+		E1FE46B134602E2DE1C76AD1 /* RouteImportFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImportFailure.swift; sourceTree = "<group>"; };
+		E1F68271C2D37F064AE76BE5 /* RouteImportSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImportSource.swift; sourceTree = "<group>"; };
+		E1F199D6CC187A8E1263FEB9 /* RouteImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImporter.swift; sourceTree = "<group>"; };
+		E1FF83A9C403523E83BB9750 /* RouteImportLimits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImportLimits.swift; sourceTree = "<group>"; };
+		E1FF8FEFD9207F1936490DB2 /* RouteImportResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteImportResult.swift; sourceTree = "<group>"; };
+		E1F2093D2D33399E2D6F65E0 /* RouteSourceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Import/RouteSourceContent.swift; sourceTree = "<group>"; };
+		E1F954B55A9C2DF0B54F69DA /* ParsedRouteValidationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/ParsedRouteValidationPolicy.swift; sourceTree = "<group>"; };
+		E1F1367775FD6C5CDA53392C /* ParsedRouteValidationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/ParsedRouteValidationFailure.swift; sourceTree = "<group>"; };
+		E1F9DADC3076F0D7BEA7E0B1 /* ParsedRouteValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/ParsedRouteValidator.swift; sourceTree = "<group>"; };
+		E1F6D167616D185A67641250 /* ParsedRouteValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/ParsedRouteValidating.swift; sourceTree = "<group>"; };
+		E1F2028C59472EFCDB1DA467 /* StoredRouteValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes/Validation/StoredRouteValidator.swift; sourceTree = "<group>"; };
+		E2FEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteNormalizer.swift; sourceTree = "<group>"; };
+		E2FCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteFileSystem.swift; sourceTree = "<group>"; };
+		E2F626F077AD655BC2A47B8E /* FakeRouteImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeRouteImporter.swift; sourceTree = "<group>"; };
+		E2FB5C308253B9842D97D1B0 /* FakeGPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeGPXParser.swift; sourceTree = "<group>"; };
+		E2FB8F61AD84128CC4339975 /* RouteNormalizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Normalization/RouteNormalizerTests.swift; sourceTree = "<group>"; };
+		E2F997F1D95E6D4F404FF1B8 /* RouteIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Normalization/RouteIdentityTests.swift; sourceTree = "<group>"; };
+		E2FBE76C5B18D7802C330550 /* RouteNavigationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Library/RouteNavigationIntegrationTests.swift; sourceTree = "<group>"; };
+		E2F33837ECCB28DC0DA6021D /* RouteLibraryEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Library/RouteLibraryEngineTests.swift; sourceTree = "<group>"; };
+		E2F694F9045C0A266415A48C /* RouteStoreRecoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Storage/RouteStoreRecoveryTests.swift; sourceTree = "<group>"; };
+		E2FA4A820FF203223304F0B0 /* RouteStorageCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Storage/RouteStorageCodecTests.swift; sourceTree = "<group>"; };
+		E2F26382DB5DAC91C21A8820 /* GPXParsedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/GPX/GPXParsedModelTests.swift; sourceTree = "<group>"; };
+		E2F32F62B71A68035EC1546F /* GPXParserAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/GPX/GPXParserAdapterTests.swift; sourceTree = "<group>"; };
+		E2F28CDFFA1198BBC4AD6699 /* RouteImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Import/RouteImporterTests.swift; sourceTree = "<group>"; };
+		E2F6C52782D2BA39330213E2 /* ParsedRouteValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Validation/ParsedRouteValidatorTests.swift; sourceTree = "<group>"; };
+		E2FFCBC15ACC1FA745DDD24A /* StoredRouteValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Routes/Validation/StoredRouteValidatorTests.swift; sourceTree = "<group>"; };
 		E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Selection/ActiveClimbSelecting.swift; sourceTree = "<group>"; };
 		E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/AverageCalculating.swift; sourceTree = "<group>"; };
 		E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/Climb.swift; sourceTree = "<group>"; };
@@ -853,6 +987,22 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2F30EB8897485FD3949B2B2 /* RouteStoreTests.swift */,
+				E2FEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift */,
+				E2FCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift */,
+				E2F626F077AD655BC2A47B8E /* FakeRouteImporter.swift */,
+				E2FB5C308253B9842D97D1B0 /* FakeGPXParser.swift */,
+				E2FB8F61AD84128CC4339975 /* RouteNormalizerTests.swift */,
+				E2F997F1D95E6D4F404FF1B8 /* RouteIdentityTests.swift */,
+				E2FBE76C5B18D7802C330550 /* RouteNavigationIntegrationTests.swift */,
+				E2F33837ECCB28DC0DA6021D /* RouteLibraryEngineTests.swift */,
+				E2F694F9045C0A266415A48C /* RouteStoreRecoveryTests.swift */,
+				E2FA4A820FF203223304F0B0 /* RouteStorageCodecTests.swift */,
+				E2F26382DB5DAC91C21A8820 /* GPXParsedModelTests.swift */,
+				E2F32F62B71A68035EC1546F /* GPXParserAdapterTests.swift */,
+				E2F28CDFFA1198BBC4AD6699 /* RouteImporterTests.swift */,
+				E2F6C52782D2BA39330213E2 /* ParsedRouteValidatorTests.swift */,
+				E2FFCBC15ACC1FA745DDD24A /* StoredRouteValidatorTests.swift */,
 				E2FF8470B6C4C07EEC9940EC5 /* ClimbEngineCompletionTests.swift */,
 				E2F1C827C09BC1998300519E2 /* ClimbEngineFailureTests.swift */,
 				E2F1B6AF27855CEAB3D063517 /* ClimbEngineHarness.swift */,
@@ -1030,6 +1180,57 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				E1F93F7EF5136E90E8F0365A /* RouteStore.swift */,
+				E1F7878A36F786F4D90A548E /* RouteValidating.swift */,
+				E1F1673D1F73B83C62E82BAF /* RouteWaypoint.swift */,
+				E1F2A7CC12DAC640E0BA71B7 /* RouteSegment.swift */,
+				E1F7F63C39CF633FCB838E91 /* RouteSource.swift */,
+				E1FF32133494777598E06BF9 /* RouteID.swift */,
+				E1F326FC56D2E1864E877D38 /* RouteBounds.swift */,
+				E1F3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift */,
+				E1FE284E164F819C17488BED /* RouteIdentityCreating.swift */,
+				E1FC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift */,
+				E1FDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift */,
+				E1FFDD2F19026EF33A266EDD /* SHA256RouteIdentityCreator.swift */,
+				E1F4B419BC3ED5B3247609EA /* RouteNormalizer.swift */,
+				E1F2C7323EB2EB104E74A863 /* CoreLocationDistanceCalculator.swift */,
+				E1F8B828B04EB5043BEAB511 /* RouteNormalizationPolicy.swift */,
+				E1F74AE5547A08F029EB8413 /* RouteNormalizationResult.swift */,
+				E1FEC672926E5C80B72D81B7 /* RouteNormalizing.swift */,
+				E1F753C19A7C7C318F44CEF0 /* RouteNormalizationWarning.swift */,
+				E1FAFA8C7DDC047D0D85AC78 /* RouteLibraryFailure.swift */,
+				E1FE33B4D64FBA6AC642307F /* RouteLibraryCommand.swift */,
+				E1FC645C8BB777D21D993F81 /* RouteLibraryEngine.swift */,
+				E1F1F5755EDFD3756AF3A90D /* RouteLibraryState.swift */,
+				E1F64AA4019C04876C260A2A /* RouteLibrarySnapshot.swift */,
+				E1F41775362DAB839E2FE2E5 /* RouteStorageRecord.swift */,
+				E1F1CDB85324D631C3D7A5E3 /* RouteSaveBehavior.swift */,
+				E1F163555C9F653947D1468E /* RouteFileSystemProviding.swift */,
+				E1FA1D087D4BE54CFEBBDDB9 /* RouteStorageCodec.swift */,
+				E1F6A0D70DB159B1536B0476 /* RouteStoreIndex.swift */,
+				E1FC39329DEF70CFA6122FD8 /* GPXParsedTrack.swift */,
+				E1FB4BF1860100EC35DC08D0 /* GPXParsedWaypoint.swift */,
+				E1FA484905E5412F63CEDA87 /* GPXParsedSegment.swift */,
+				E1F2B7C5EF175E185C3D5F6E /* GPXParserAdapter.swift */,
+				E1F7CE2AD7DDADDBA9726848 /* GPXParsing.swift */,
+				E1F3D7C88226187D1EAD720B /* GPXParserFailure.swift */,
+				E1F32E52EDE65E08024A70AB /* GPXParsedDocument.swift */,
+				E1FD78984870CDCB6B5BB430 /* GPXParsedPoint.swift */,
+				E1FA65CF57117EDFDACA296D /* GPXParsedRoute.swift */,
+				E1F950DE1A0D7BC35C3D3BF7 /* GPXSourceMetadata.swift */,
+				E1F5A23E00C4D8C2C6CC8279 /* RouteSourceReading.swift */,
+				E1F62CD45A524328259F9C93 /* RouteImporting.swift */,
+				E1FE46B134602E2DE1C76AD1 /* RouteImportFailure.swift */,
+				E1F68271C2D37F064AE76BE5 /* RouteImportSource.swift */,
+				E1F199D6CC187A8E1263FEB9 /* RouteImporter.swift */,
+				E1FF83A9C403523E83BB9750 /* RouteImportLimits.swift */,
+				E1FF8FEFD9207F1936490DB2 /* RouteImportResult.swift */,
+				E1F2093D2D33399E2D6F65E0 /* RouteSourceContent.swift */,
+				E1F954B55A9C2DF0B54F69DA /* ParsedRouteValidationPolicy.swift */,
+				E1F1367775FD6C5CDA53392C /* ParsedRouteValidationFailure.swift */,
+				E1F9DADC3076F0D7BEA7E0B1 /* ParsedRouteValidator.swift */,
+				E1F6D167616D185A67641250 /* ParsedRouteValidating.swift */,
+				E1F2028C59472EFCDB1DA467 /* StoredRouteValidator.swift */,
 				E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */,
 				E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */,
 				E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */,
@@ -1446,6 +1647,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B30EB8897485FD3949B2B2 /* RouteStoreTests.swift in Sources */,
+				E2BEAFD3A8C713C837F71A1D /* FakeRouteNormalizer.swift in Sources */,
+				E2BCB353D9C9339E9EE777D0 /* FakeRouteFileSystem.swift in Sources */,
+				E2B626F077AD655BC2A47B8E /* FakeRouteImporter.swift in Sources */,
+				E2BB5C308253B9842D97D1B0 /* FakeGPXParser.swift in Sources */,
+				E2BB8F61AD84128CC4339975 /* RouteNormalizerTests.swift in Sources */,
+				E2B997F1D95E6D4F404FF1B8 /* RouteIdentityTests.swift in Sources */,
+				E2BBE76C5B18D7802C330550 /* RouteNavigationIntegrationTests.swift in Sources */,
+				E2B33837ECCB28DC0DA6021D /* RouteLibraryEngineTests.swift in Sources */,
+				E2B694F9045C0A266415A48C /* RouteStoreRecoveryTests.swift in Sources */,
+				E2BA4A820FF203223304F0B0 /* RouteStorageCodecTests.swift in Sources */,
+				E2B26382DB5DAC91C21A8820 /* GPXParsedModelTests.swift in Sources */,
+				E2B32F62B71A68035EC1546F /* GPXParserAdapterTests.swift in Sources */,
+				E2B28CDFFA1198BBC4AD6699 /* RouteImporterTests.swift in Sources */,
+				E2B6C52782D2BA39330213E2 /* ParsedRouteValidatorTests.swift in Sources */,
+				E2BFCBC15ACC1FA745DDD24A /* StoredRouteValidatorTests.swift in Sources */,
 				E2B09DB90EFF18E2460908E4E /* ClimbEngineCompletionTests.swift in Sources */,
 				E2B6E0CDA49F36A82C8DEB53E /* ClimbEngineFailureTests.swift in Sources */,
 				E2B4BFA279EC29736888C1E2D /* ClimbEngineHarness.swift in Sources */,
@@ -1576,6 +1793,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B93F7EF5136E90E8F0365A /* RouteStore.swift in Sources */,
+				E1B7878A36F786F4D90A548E /* RouteValidating.swift in Sources */,
+				E1B1673D1F73B83C62E82BAF /* RouteWaypoint.swift in Sources */,
+				E1B2A7CC12DAC640E0BA71B7 /* RouteSegment.swift in Sources */,
+				E1B7F63C39CF633FCB838E91 /* RouteSource.swift in Sources */,
+				E1BF32133494777598E06BF9 /* RouteID.swift in Sources */,
+				E1B326FC56D2E1864E877D38 /* RouteBounds.swift in Sources */,
+				E1B3EA5BC35974B6AEF81DCA /* LegacyRouteLibraryAdapter.swift in Sources */,
+				E1BE284E164F819C17488BED /* RouteIdentityCreating.swift in Sources */,
+				E1BC5BAB4106BCD833A2AF0F /* RouteNormalizationFailure.swift in Sources */,
+				E1BDB50C2BD7720BCD436DD8 /* CoordinateDistanceCalculating.swift in Sources */,
+				E1BFDD2F19026EF33A266EDD /* SHA256RouteIdentityCreator.swift in Sources */,
+				E1B4B419BC3ED5B3247609EA /* RouteNormalizer.swift in Sources */,
+				E1B2C7323EB2EB104E74A863 /* CoreLocationDistanceCalculator.swift in Sources */,
+				E1B8B828B04EB5043BEAB511 /* RouteNormalizationPolicy.swift in Sources */,
+				E1B74AE5547A08F029EB8413 /* RouteNormalizationResult.swift in Sources */,
+				E1BEC672926E5C80B72D81B7 /* RouteNormalizing.swift in Sources */,
+				E1B753C19A7C7C318F44CEF0 /* RouteNormalizationWarning.swift in Sources */,
+				E1BAFA8C7DDC047D0D85AC78 /* RouteLibraryFailure.swift in Sources */,
+				E1BE33B4D64FBA6AC642307F /* RouteLibraryCommand.swift in Sources */,
+				E1BC645C8BB777D21D993F81 /* RouteLibraryEngine.swift in Sources */,
+				E1B1F5755EDFD3756AF3A90D /* RouteLibraryState.swift in Sources */,
+				E1B64AA4019C04876C260A2A /* RouteLibrarySnapshot.swift in Sources */,
+				E1B41775362DAB839E2FE2E5 /* RouteStorageRecord.swift in Sources */,
+				E1B1CDB85324D631C3D7A5E3 /* RouteSaveBehavior.swift in Sources */,
+				E1B163555C9F653947D1468E /* RouteFileSystemProviding.swift in Sources */,
+				E1BA1D087D4BE54CFEBBDDB9 /* RouteStorageCodec.swift in Sources */,
+				E1B6A0D70DB159B1536B0476 /* RouteStoreIndex.swift in Sources */,
+				E1BC39329DEF70CFA6122FD8 /* GPXParsedTrack.swift in Sources */,
+				E1BB4BF1860100EC35DC08D0 /* GPXParsedWaypoint.swift in Sources */,
+				E1BA484905E5412F63CEDA87 /* GPXParsedSegment.swift in Sources */,
+				E1B2B7C5EF175E185C3D5F6E /* GPXParserAdapter.swift in Sources */,
+				E1B7CE2AD7DDADDBA9726848 /* GPXParsing.swift in Sources */,
+				E1B3D7C88226187D1EAD720B /* GPXParserFailure.swift in Sources */,
+				E1B32E52EDE65E08024A70AB /* GPXParsedDocument.swift in Sources */,
+				E1BD78984870CDCB6B5BB430 /* GPXParsedPoint.swift in Sources */,
+				E1BA65CF57117EDFDACA296D /* GPXParsedRoute.swift in Sources */,
+				E1B950DE1A0D7BC35C3D3BF7 /* GPXSourceMetadata.swift in Sources */,
+				E1B5A23E00C4D8C2C6CC8279 /* RouteSourceReading.swift in Sources */,
+				E1B62CD45A524328259F9C93 /* RouteImporting.swift in Sources */,
+				E1BE46B134602E2DE1C76AD1 /* RouteImportFailure.swift in Sources */,
+				E1B68271C2D37F064AE76BE5 /* RouteImportSource.swift in Sources */,
+				E1B199D6CC187A8E1263FEB9 /* RouteImporter.swift in Sources */,
+				E1BF83A9C403523E83BB9750 /* RouteImportLimits.swift in Sources */,
+				E1BF8FEFD9207F1936490DB2 /* RouteImportResult.swift in Sources */,
+				E1B2093D2D33399E2D6F65E0 /* RouteSourceContent.swift in Sources */,
+				E1B954B55A9C2DF0B54F69DA /* ParsedRouteValidationPolicy.swift in Sources */,
+				E1B1367775FD6C5CDA53392C /* ParsedRouteValidationFailure.swift in Sources */,
+				E1B9DADC3076F0D7BEA7E0B1 /* ParsedRouteValidator.swift in Sources */,
+				E1B6D167616D185A67641250 /* ParsedRouteValidating.swift in Sources */,
+				E1B2028C59472EFCDB1DA467 /* StoredRouteValidator.swift in Sources */,
 				E1B544BC0BB4185EE88C96A08 /* ActiveClimbSelecting.swift in Sources */,
 				E1B0A854DAF20C0C1DB4D1844 /* AverageCalculating.swift in Sources */,
 				E1BC792CD496A7CA8AA38E1F6 /* Climb.swift in Sources */,

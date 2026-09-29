@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="UltraNav Test">
+  <rte>
+    <name>Planned Highway Route</name>
+    <desc>Direct navigation route points</desc>
+    <rtept lat="37.3300" lon="-122.0000">
+      <ele>50.0</ele>
+    </rtept>
+    <rtept lat="37.3350" lon="-122.0050">
+      <ele>55.0</ele>
+    </rtept>
+    <rtept lat="37.3400" lon="-122.0100">
+      <ele>60.0</ele>
+    </rtept>
+  </rte>
+</gpx>

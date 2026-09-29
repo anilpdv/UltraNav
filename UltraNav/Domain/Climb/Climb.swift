@@ -9,6 +9,10 @@ struct Climb: Identifiable, Equatable, Sendable, Codable {
             self.rawValue = rawValue
         }
 
+        init(routeID: Route.ID, climbIndex: Int) {
+            self.rawValue = "\(routeID.rawValue.lowercased())-climb-\(climbIndex)"
+        }
+
         init(routeID: UUID, climbIndex: Int) {
             self.rawValue = "\(routeID.uuidString.lowercased())-climb-\(climbIndex)"
         }
@@ -17,7 +21,7 @@ struct Climb: Identifiable, Equatable, Sendable, Codable {
     }
 
     let id: ID
-    let routeID: UUID
+    let routeID: Route.ID
     let climbIndex: Int
     let totalClimbs: Int
     let startIndex: Int
@@ -46,7 +50,7 @@ struct Climb: Identifiable, Equatable, Sendable, Codable {
 
     init(
         id: ID,
-        routeID: UUID,
+        routeID: Route.ID,
         climbIndex: Int,
         totalClimbs: Int,
         startIndex: Int,
@@ -76,5 +80,41 @@ struct Climb: Identifiable, Equatable, Sendable, Codable {
         self.maximumGradientRatio = maximumGradientRatio
         self.category = category
         self.gradientSlices = gradientSlices
+    }
+
+    init(
+        id: ID,
+        routeID: UUID,
+        climbIndex: Int,
+        totalClimbs: Int,
+        startIndex: Int,
+        endIndex: Int,
+        startDistanceMeters: Double,
+        endDistanceMeters: Double,
+        startElevationMeters: Double,
+        summitElevationMeters: Double,
+        elevationGainMeters: Double,
+        averageGradientRatio: Double,
+        maximumGradientRatio: Double,
+        category: ClimbCategory,
+        gradientSlices: [ClimbGradientSlice] = []
+    ) {
+        self.init(
+            id: id,
+            routeID: RouteID(uuid: routeID),
+            climbIndex: climbIndex,
+            totalClimbs: totalClimbs,
+            startIndex: startIndex,
+            endIndex: endIndex,
+            startDistanceMeters: startDistanceMeters,
+            endDistanceMeters: endDistanceMeters,
+            startElevationMeters: startElevationMeters,
+            summitElevationMeters: summitElevationMeters,
+            elevationGainMeters: elevationGainMeters,
+            averageGradientRatio: averageGradientRatio,
+            maximumGradientRatio: maximumGradientRatio,
+            category: category,
+            gradientSlices: gradientSlices
+        )
     }
 }

@@ -11,7 +11,7 @@ struct NavigationFailureMapper: Sendable {
                 return .routeUnavailable
             case .invalidRoute:
                 return .invalidRoute
-            case .storageUnavailable, .readFailed, .writeFailed, .deleteFailed, .duplicateRoute, .unexpected:
+            case .storageUnavailable, .readFailed, .writeFailed, .deleteFailed, .duplicateRoute, .activeRouteProtected, .invalidStorageRecord, .corruptedIndexRebuilt, .unexpected:
                 return .routeUnavailable
             }
         }

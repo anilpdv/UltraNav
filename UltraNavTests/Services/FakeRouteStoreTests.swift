@@ -4,7 +4,7 @@ import XCTest
 final class FakeRouteStoreTests: XCTestCase {
     func testSaveAndLoadRoute() async throws {
         let store = FakeRouteStore()
-        let id = UUID(uuidString: "00000000-0000-0000-0000-000000000001")!
+        let id = RouteID(sha256Hex: "000000000000000000000001")
 
         let route = Route(
             id: id,
@@ -27,7 +27,7 @@ final class FakeRouteStoreTests: XCTestCase {
         let initialExists = await store.routeExists(id: id)
         XCTAssertFalse(initialExists)
 
-        try await store.saveRoute(route)
+        _ = try await store.saveRoute(route)
 
         let existsAfterSave = await store.routeExists(id: id)
         XCTAssertTrue(existsAfterSave)
@@ -48,20 +48,20 @@ final class FakeRouteStoreTests: XCTestCase {
 
     func testLoadMissingRouteThrows() async {
         let store = FakeRouteStore()
-        let id = UUID()
+        let id = RouteID(sha256Hex: "missing")
 
         do {
             _ = try await store.loadRoute(id: id)
             XCTFail("Expected loadRoute to throw")
         } catch {
-            XCTAssertEqual(error as? RouteStoreError, .routeNotFound)
+            XCTAssertEqual(error as? RouteStoreError, .routeNotFound(id))
         }
 
         do {
             try await store.deleteRoute(id: id)
             XCTFail("Expected deleteRoute to throw")
         } catch {
-            XCTAssertEqual(error as? RouteStoreError, .routeNotFound)
+            XCTAssertEqual(error as? RouteStoreError, .routeNotFound(id))
         }
     }
 }

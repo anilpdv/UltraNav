@@ -3,7 +3,7 @@ import Foundation
 
 enum NavigationRouteFactory {
     static func createRoute(
-        id: UUID = UUID(),
+        id: Route.ID = RouteID(uuid: UUID()),
         name: String = "Test Route",
         points: [RoutePoint] = [],
         totalDistanceMeters: Double = 1000.0

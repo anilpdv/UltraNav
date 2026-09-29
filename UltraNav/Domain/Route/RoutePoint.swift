@@ -1,14 +1,27 @@
 import Foundation
 
-struct RoutePoint: Equatable, Sendable {
-    let coordinate: Coordinate
+/// Canonical single point along a normalized route.
+public struct RoutePoint: Equatable, Hashable, Codable, Sendable {
+    public let coordinate: Coordinate
 
     /// Elevation in meters, when supplied by the route source.
-    let elevationMeters: Double?
+    public let elevationMeters: Double?
 
     /// Original timestamp from the route source.
-    let timestamp: Date?
+    public let timestamp: Date?
 
     /// Distance from the beginning of the normalized route, in meters.
-    let cumulativeDistanceMeters: Double
+    public let cumulativeDistanceMeters: Double
+
+    public init(
+        coordinate: Coordinate,
+        elevationMeters: Double? = nil,
+        timestamp: Date? = nil,
+        cumulativeDistanceMeters: Double
+    ) {
+        self.coordinate = coordinate
+        self.elevationMeters = elevationMeters
+        self.timestamp = timestamp
+        self.cumulativeDistanceMeters = cumulativeDistanceMeters
+    }
 }

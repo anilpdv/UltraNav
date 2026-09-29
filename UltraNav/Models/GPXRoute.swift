@@ -285,8 +285,14 @@ public struct GPXRoute: Identifiable, Codable, Equatable, Sendable {
             )
         }
         return Route(
-            id: id,
-            metadata: RouteMetadata(name: name, sourceFileName: nil, createdAt: nil),
+            id: RouteID(uuid: id),
+            metadata: RouteMetadata(
+                name: name,
+                description: summary.isEmpty ? nil : summary,
+                source: .bundled(resourceName: name),
+                importedAt: Date(),
+                originalCreatedAt: nil
+            ),
             points: domainPoints,
             totalDistanceMeters: totalDistance
         )

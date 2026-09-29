@@ -8,7 +8,7 @@ struct ClimbAssembler: Sendable {
         self.classifier = classifier
     }
 
-    func assemble(candidates: [ClimbCandidate], routeID: UUID) -> [Climb] {
+    func assemble(candidates: [ClimbCandidate], routeID: Route.ID) -> [Climb] {
         let total = candidates.count
         guard total > 0 else { return [] }
 
@@ -35,5 +35,9 @@ struct ClimbAssembler: Sendable {
                 gradientSlices: candidate.slices
             )
         }
+    }
+
+    func assemble(candidates: [ClimbCandidate], routeID: UUID) -> [Climb] {
+        assemble(candidates: candidates, routeID: RouteID(uuid: routeID))
     }
 }

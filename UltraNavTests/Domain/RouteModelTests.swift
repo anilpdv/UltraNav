@@ -3,21 +3,28 @@ import XCTest
 
 final class RouteModelTests: XCTestCase {
     func testRouteUsesInjectedIdentity() {
-        let id = UUID(
-            uuidString: "00000000-0000-0000-0000-000000000001"
-        )!
+        let routeID = RouteID(sha256Hex: "000000000000000000000001")
 
         let route = Route(
-            id: id,
+            id: routeID,
             metadata: RouteMetadata(
                 name: "Test Route",
-                sourceFileName: "test.gpx",
-                createdAt: nil
+                description: "Test description",
+                source: .importedGPX(originalFileName: "test.gpx"),
+                importedAt: Date(),
+                originalCreatedAt: nil
             ),
-            points: [],
-            totalDistanceMeters: 0
+            points: [
+                RoutePoint(coordinate: Coordinate(latitude: 37.33, longitude: -122.01), cumulativeDistanceMeters: 0),
+                RoutePoint(coordinate: Coordinate(latitude: 37.34, longitude: -122.02), cumulativeDistanceMeters: 100)
+            ],
+            totalDistanceMeters: 100
         )
 
-        XCTAssertEqual(route.id, id)
+        XCTAssertEqual(route.id, routeID)
+        XCTAssertEqual(route.metadata.name, "Test Route")
+        XCTAssertEqual(route.points.count, 2)
+        XCTAssertEqual(route.segments.count, 1)
+        XCTAssertEqual(route.totalDistanceMeters, 100)
     }
 }

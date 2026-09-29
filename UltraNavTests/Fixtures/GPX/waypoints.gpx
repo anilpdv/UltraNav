@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="UltraNav Test">
+  <wpt lat="37.3360" lon="-122.0100">
+    <ele>120.0</ele>
+    <name>Water Station</name>
+    <desc>Refill water bottles</desc>
+    <sym>Water</sym>
+  </wpt>
+  <wpt lat="37.3380" lon="-122.0120">
+    <ele>170.0</ele>
+    <name>Summit Viewpoint</name>
+    <desc>Scenic overlook</desc>
+    <sym>Summit</sym>
+  </wpt>
+  <trk>
+    <name>Trail with Waypoints</name>
+    <trkseg>
+      <trkpt lat="37.3349" lon="-122.0090"><ele>100.0</ele></trkpt>
+      <trkpt lat="37.3360" lon="-122.0100"><ele>120.0</ele></trkpt>
+      <trkpt lat="37.3380" lon="-122.0120"><ele>170.0</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

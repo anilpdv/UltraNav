@@ -3,7 +3,7 @@ import Foundation
 /// Unified immutable output snapshot from ClimbEngine for UI and metric consumers.
 struct ClimbSnapshot: Equatable, Sendable, Codable {
     let state: ClimbEngineState
-    let routeID: UUID?
+    let routeID: Route.ID?
     let climbs: [Climb]
     let activeClimb: Climb?
     let activeClimbProgress: ClimbProgress?
@@ -35,7 +35,7 @@ struct ClimbSnapshot: Equatable, Sendable, Codable {
 
     init(
         state: ClimbEngineState = .unloaded,
-        routeID: UUID? = nil,
+        routeID: Route.ID? = nil,
         climbs: [Climb] = [],
         activeClimb: Climb? = nil,
         activeClimbProgress: ClimbProgress? = nil,

@@ -1,16 +1,16 @@
 import Foundation
 
-struct Coordinate: Equatable, Hashable, Sendable {
-    let latitude: Double
-    let longitude: Double
+public struct Coordinate: Equatable, Hashable, Codable, Sendable {
+    public let latitude: Double
+    public let longitude: Double
 
-    init(latitude: Double, longitude: Double) {
+    public init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
     }
 }
 
-extension Coordinate {
+public extension Coordinate {
     var isGeographicallyValid: Bool {
         latitude.isFinite &&
         longitude.isFinite &&

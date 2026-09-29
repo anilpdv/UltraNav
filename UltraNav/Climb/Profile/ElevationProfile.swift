@@ -2,7 +2,7 @@ import Foundation
 
 /// Continuous elevation profile along a route with ascent/descent aggregates.
 struct ElevationProfile: Equatable, Sendable, Codable {
-    let routeID: UUID
+    let routeID: Route.ID
     let points: [ElevationProfilePoint]
     let totalAscentMeters: Double
     let totalDescentMeters: Double
@@ -18,7 +18,7 @@ struct ElevationProfile: Equatable, Sendable, Codable {
     }
 
     init(
-        routeID: UUID,
+        routeID: Route.ID,
         points: [ElevationProfilePoint],
         totalAscentMeters: Double,
         totalDescentMeters: Double,
@@ -31,5 +31,23 @@ struct ElevationProfile: Equatable, Sendable, Codable {
         self.totalDescentMeters = totalDescentMeters
         self.minElevationMeters = minElevationMeters
         self.maxElevationMeters = maxElevationMeters
+    }
+
+    init(
+        routeID: UUID,
+        points: [ElevationProfilePoint],
+        totalAscentMeters: Double,
+        totalDescentMeters: Double,
+        minElevationMeters: Double,
+        maxElevationMeters: Double
+    ) {
+        self.init(
+            routeID: RouteID(uuid: routeID),
+            points: points,
+            totalAscentMeters: totalAscentMeters,
+            totalDescentMeters: totalDescentMeters,
+            minElevationMeters: minElevationMeters,
+            maxElevationMeters: maxElevationMeters
+        )
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="UltraNav Test" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Alpine Climb Test Course</name>
+    <desc>Test GPX track with elevations and timestamps</desc>
+    <time>2026-06-01T08:00:00Z</time>
+  </metadata>
+  <trk>
+    <name>Alpine Track</name>
+    <trkseg>
+      <trkpt lat="37.3349" lon="-122.0090">
+        <ele>100.0</ele>
+        <time>2026-06-01T08:00:00Z</time>
+      </trkpt>
+      <trkpt lat="37.3355" lon="-122.0095">
+        <ele>110.0</ele>
+        <time>2026-06-01T08:01:00Z</time>
+      </trkpt>
+      <trkpt lat="37.3362" lon="-122.0102">
+        <ele>125.0</ele>
+        <time>2026-06-01T08:02:00Z</time>
+      </trkpt>
+      <trkpt lat="37.3370" lon="-122.0110">
+        <ele>145.0</ele>
+        <time>2026-06-01T08:03:00Z</time>
+      </trkpt>
+      <trkpt lat="37.3380" lon="-122.0120">
+        <ele>170.0</ele>
+        <time>2026-06-01T08:04:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

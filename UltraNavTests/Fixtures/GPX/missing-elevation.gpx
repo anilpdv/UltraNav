@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="UltraNav Test">
+  <trk>
+    <name>Flat 2D Track</name>
+    <trkseg>
+      <trkpt lat="37.3349" lon="-122.0090" />
+      <trkpt lat="37.3355" lon="-122.0095" />
+      <trkpt lat="37.3362" lon="-122.0102" />
+    </trkseg>
+  </trk>
+</gpx>
