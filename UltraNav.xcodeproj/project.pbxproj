@@ -7,6 +7,81 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B544BC0BB4185EE88C96A08 /* ActiveClimbSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */; };
+		E1B0A854DAF20C0C1DB4D1844 /* AverageCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */; };
+		E1BC792CD496A7CA8AA38E1F6 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */; };
+		E1BD72D6B064674C693C85E82 /* ClimbAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD82B70DD942E33C83CF526 /* ClimbAnalysisService.swift */; };
+		E1B34AB509E9D4CFBA5EA911A /* ClimbAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD2895728EED1E44AAE1573 /* ClimbAssembler.swift */; };
+		E1B1642BA3B350754608B56BF /* ClimbCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC4701C4D1216DFD184401A /* ClimbCandidate.swift */; };
+		E1B5B8ABA61788BBEB62C1B65 /* ClimbCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F592A9699585440921F1902 /* ClimbCategory.swift */; };
+		E1BB31B4AA3A0D30E52ABD1DC /* ClimbClassifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9807FC753E2175F442D3DB /* ClimbClassifying.swift */; };
+		E1BE16FFD3DBF51080D8F3AB9 /* ClimbDetecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FFA81A5D24225C6851AA987 /* ClimbDetecting.swift */; };
+		E1BB8F6B42F6DD96F41451740 /* ClimbEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F289A551BA9B5B1983069B5 /* ClimbEngine.swift */; };
+		E1B4937860FA2B62F65323692 /* ClimbEngineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC37E38672AB8387AF21E97 /* ClimbEngineCommand.swift */; };
+		E1BACFC7B47F7B3303A5CF32A /* ClimbEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCAD8426A04A1B7F77B3E30 /* ClimbEngineProviding.swift */; };
+		E1BD5F08B745A9317795C03E4 /* ClimbEngineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB92CFC74718C4B1FC1C48A /* ClimbEngineState.swift */; };
+		E1B8E5D23B69AC42187E00FBB /* ClimbFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F66298BBB1ABE146B061749 /* ClimbFailure.swift */; };
+		E1B621E4609FA8B65751F9B6D /* ClimbGradientSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF38FF5EA4F0D253058863D /* ClimbGradientSlice.swift */; };
+		E1B31E8B49975458BDD1924E2 /* ClimbNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9B872C10A897D3C530207A /* ClimbNotification.swift */; };
+		E1B26C5AD626FC9422CACF5A3 /* ClimbProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F61DA57B91B6A155F03119B /* ClimbProgress.swift */; };
+		E1B0B04EC7E9F7F8872D6382B /* ClimbProgressCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE39FD5396FFAE0ABD552D8 /* ClimbProgressCalculating.swift */; };
+		E1BD64D5CE3A0FAC7B10E5F85 /* ClimbProgressQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6FE307F3ECDE87858703C7 /* ClimbProgressQuality.swift */; };
+		E1BE5E6AA10DA051A14281293 /* ClimbSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF44077F82744E8E25EAD84 /* ClimbSnapshotBuilder.swift */; };
+		E1B23FAE362F74780062AC93C /* ClimbStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F92316EF6E9BBFD8B92B9F1 /* ClimbStatus.swift */; };
+		E1B41807AEAB1414C3BD5F5E4 /* CompletedWorkoutReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD5E64DC8AE9E6C9926D152 /* CompletedWorkoutReference.swift */; };
+		E1BE0A82A80BB1E232FE24DBB /* CurrentMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC4437828B8D6153F394BEF /* CurrentMetric.swift */; };
+		E1BDA6E5582F30B04805E0735 /* ElevationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F13632428D51045D764166B /* ElevationProfile.swift */; };
+		E1BCAD51FB73617515C217094 /* ElevationProfileBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE9606F3A59B698F31E6436 /* ElevationProfileBuilding.swift */; };
+		E1B618920269FEA3D953C4078 /* ElevationProfilePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6279AAE529571C91FBA5FE /* ElevationProfilePoint.swift */; };
+		E1BA817CD06C4E003ED6EBD54 /* HealthKitAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F07A62EB0A4897E1C0361B0 /* HealthKitAuthorizing.swift */; };
+		E1BA2DC9A50958C9E5056117A /* HealthKitDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB0A78D5F0A72A755866543 /* HealthKitDataTypes.swift */; };
+		E1B89265A1D0A5E365F7F2A2B /* HealthKitDelegateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1C63B30A9C3058177A801E /* HealthKitDelegateBridge.swift */; };
+		E1B6AF4406782598F1D2DDFCE /* HealthKitMetricConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */; };
+		E1B10F8586B4F553F1B39B889 /* HealthKitSessionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */; };
+		E1B3C5B742B697234478C665F /* HealthKitWorkoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */; };
+		E1B68C07790675A069F2AD156 /* LegacyClimbAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */; };
+		E1B76552D35D446F4823AAD2D /* LegacyClimbClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */; };
+		E1B9E68ECB3913904C5F60BE5 /* LegacyClimbDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */; };
+		E1B1D424744EB1AC2063F5E87 /* LegacyElevationProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */; };
+		E1BB7F8BBB58BFCB3171063DD /* LegacyMetricsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */; };
+		E1BAE2C0A7DEC115B8A0549EF /* LegacyPowerSmoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */; };
+		E1B14A44C0906A741BDA42590 /* MaximumCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */; };
+		E1B4587ED8D037BE891138D8D /* MetricAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */; };
+		E1B7471431A5DB8B85A5F30AB /* MetricFreshness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBE514610196117E78AD821 /* MetricFreshness.swift */; };
+		E1B4980F07FDE2F9C50B74ED2 /* MetricObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEAE4CD1E6924929F292DC9 /* MetricObservation.swift */; };
+		E1B684BA88698549229845E64 /* MetricSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F10835B8A228179A407D95E /* MetricSource.swift */; };
+		E1B816AE0C972BE6F59A94614 /* MetricSourceSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F189EDDFA85FAC0ADA17506 /* MetricSourceSelecting.swift */; };
+		E1BA493FAAFB44E978DAB8C80 /* MetricStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F24ADC8903D5F3DFDF9055F /* MetricStore.swift */; };
+		E1BE6D655EDD06000AA5A78B7 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F16EFDE70E0AEDA1A5DFB1A /* MetricValue.swift */; };
+		E1BEB8D1DEC585AA97A34740B /* MetricsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5CDFE6EDCAA973EB1B0664 /* MetricsEngine.swift */; };
+		E1B5BBC6328BDA78B4AED3C47 /* MetricsEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FADF1186570A559D8C274F7 /* MetricsEngineProviding.swift */; };
+		E1BA0309A9985E787D1724639 /* MetricsEngineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB32355EA641FE5318ED01F /* MetricsEngineState.swift */; };
+		E1B55F7040D0BB81B7BD135EA /* MetricsSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE37518ABBCC7922E6FE8AC /* MetricsSnapshot.swift */; };
+		E1B0BC4EAF00CA88A6D6156F8 /* MetricsSummaryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6AD4776CA8AEFFC7C19641 /* MetricsSummaryBuilder.swift */; };
+		E1BCE104A9D490735EC660851 /* RollingSampleBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F24F3972640BB46CACE5E00 /* RollingSampleBuffer.swift */; };
+		E1B9FC164D753043491E74AD2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F396E574E7EE1172CB7481F /* SettingsView.swift */; };
+		E1B4DF105E7431561FB3FC256 /* StandardActiveClimbSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBA08367F660784B0ECC28B /* StandardActiveClimbSelector.swift */; };
+		E1BCBF29E56500163E682CB5D /* StandardClimbProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F800715C21554B22D39610F /* StandardClimbProgressCalculator.swift */; };
+		E1B7EA2508CA98B15A0CF01B2 /* StandardMetricValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5541E02D2A3AF3C4288DD6 /* StandardMetricValidator.swift */; };
+		E1BF8438C02487CCA2D1EB95F /* TimeWeightedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1C7DDCAFEEEFD0E22F9F1F /* TimeWeightedAverage.swift */; };
+		E1B27BF247F45958976FC9CA5 /* WorkoutConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A9203189723E4541B0666 /* WorkoutConfiguration.swift */; };
+		E1B8F83C768B1B55B5BB70275 /* WorkoutMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F74C4E5EDD692F012DB60E3 /* WorkoutMetric.swift */; };
+		E2B09DB90EFF18E2460908E4E /* ClimbEngineCompletionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FF8470B6C4C07EEC9940EC5 /* ClimbEngineCompletionTests.swift */; };
+		E2B6E0CDA49F36A82C8DEB53E /* ClimbEngineFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1C827C09BC1998300519E2 /* ClimbEngineFailureTests.swift */; };
+		E2B4BFA279EC29736888C1E2D /* ClimbEngineHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1B6AF27855CEAB3D063517 /* ClimbEngineHarness.swift */; };
+		E2BCC6ECC1E274E3C1226AA80 /* ClimbEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7F4BA9CC16B4F218CD896B /* ClimbEngineIntegrationTests.swift */; };
+		E2BE803802926337868E1E77B /* ClimbEngineLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5BF945FB8BAE107F94B541 /* ClimbEngineLifecycleTests.swift */; };
+		E2B14FA1255A2918B0A85F9FB /* ClimbEngineProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEAFB0E947839C7787D3731 /* ClimbEngineProgressTests.swift */; };
+		E2BF1C2969CFAC959D0D0AF3B /* ClimbEngineResetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F510DB709A30000F3426413 /* ClimbEngineResetTests.swift */; };
+		E2B969B65EBDEA2BF93528764 /* ClimbEngineRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC0FC603CC1B70019892756 /* ClimbEngineRouteTests.swift */; };
+		E2BA23524DD66FF4E57B4963A /* ClimbEngineSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B737056B2C5DEC14B9597 /* ClimbEngineSelectionTests.swift */; };
+		E2B59AC6438AFD495386D3F6E /* ClimbFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD53E6DF7C6D707603EB956 /* ClimbFactory.swift */; };
+		E2B365F08B04E788A2C093A28 /* ClimbSnapshotRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1D6827EFFA3B014B3D5E8C /* ClimbSnapshotRecorder.swift */; };
+		E2B335CE8EA227E8E2BB9E826 /* ElevationProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCEC9F5C74A8C4573D67160 /* ElevationProfileFactory.swift */; };
+		E2BD90362B3B24EF72AF25A9B /* FakeClimbClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3D5127D79D114C55BCD347 /* FakeClimbClassifier.swift */; };
+		E2B57321F73F4EB5DB19F98D5 /* FakeClimbDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F956549025DDA7879567217 /* FakeClimbDetector.swift */; };
+		E2BA2C5F54A554B2AFBB771F0 /* FakeClimbProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4081A0572D5205002BC343 /* FakeClimbProgressCalculator.swift */; };
+		E2B8E3C685BEA222CDF159247 /* FakeElevationProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F07DA6F6D11939C452D0BC9 /* FakeElevationProfileBuilder.swift */; };
 		E1B000000000000000001D0B00 /* MetricSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B00 /* MetricSource.swift */; };
 		E1B000000000000000001D0B01 /* MetricAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B01 /* MetricAvailability.swift */; };
 		E1B000000000000000001D0B02 /* MetricObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B02 /* MetricObservation.swift */; };
@@ -246,7 +321,6 @@
 		E1B9341E5FBDBC2A86942EDE /* SensorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F289897033076A01B58DB7 /* SensorSample.swift */; };
 		E1BC0A49AC5E5D8E45816FA3 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F76A6E6E75F0076D98C6F4 /* Route.swift */; };
 		E1BC438204D2A4D7A14DD171 /* NavigationSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18A2D2B0725F5098952D9 /* NavigationSnapshot.swift */; };
-		E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */; };
 		E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F50FCA694C3B244193BACE /* LocationService.swift */; };
 		E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FCD6CBB650672532816ADF /* AppContainer.swift */; };
 		E1BF0B657851AFE0B528A730 /* ClimbSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */; };
@@ -339,6 +413,81 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Selection/ActiveClimbSelecting.swift; sourceTree = "<group>"; };
+		E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/AverageCalculating.swift; sourceTree = "<group>"; };
+		E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/Climb.swift; sourceTree = "<group>"; };
+		E1FD82B70DD942E33C83CF526 /* ClimbAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Climb/ClimbAnalysisService.swift; sourceTree = "<group>"; };
+		E1FD2895728EED1E44AAE1573 /* ClimbAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Classification/ClimbAssembler.swift; sourceTree = "<group>"; };
+		E1FC4701C4D1216DFD184401A /* ClimbCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Detection/ClimbCandidate.swift; sourceTree = "<group>"; };
+		E1F592A9699585440921F1902 /* ClimbCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbCategory.swift; sourceTree = "<group>"; };
+		E1F9807FC753E2175F442D3DB /* ClimbClassifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Classification/ClimbClassifying.swift; sourceTree = "<group>"; };
+		E1FFA81A5D24225C6851AA987 /* ClimbDetecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Detection/ClimbDetecting.swift; sourceTree = "<group>"; };
+		E1F289A551BA9B5B1983069B5 /* ClimbEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Climb/ClimbEngine.swift; sourceTree = "<group>"; };
+		E1FC37E38672AB8387AF21E97 /* ClimbEngineCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbEngineCommand.swift; sourceTree = "<group>"; };
+		E1FCAD8426A04A1B7F77B3E30 /* ClimbEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Climb/ClimbEngineProviding.swift; sourceTree = "<group>"; };
+		E1FB92CFC74718C4B1FC1C48A /* ClimbEngineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbEngineState.swift; sourceTree = "<group>"; };
+		E1F66298BBB1ABE146B061749 /* ClimbFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbFailure.swift; sourceTree = "<group>"; };
+		E1FF38FF5EA4F0D253058863D /* ClimbGradientSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbGradientSlice.swift; sourceTree = "<group>"; };
+		E1F9B872C10A897D3C530207A /* ClimbNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbNotification.swift; sourceTree = "<group>"; };
+		E1F61DA57B91B6A155F03119B /* ClimbProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbProgress.swift; sourceTree = "<group>"; };
+		E1FE39FD5396FFAE0ABD552D8 /* ClimbProgressCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Progress/ClimbProgressCalculating.swift; sourceTree = "<group>"; };
+		E1F6FE307F3ECDE87858703C7 /* ClimbProgressQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbProgressQuality.swift; sourceTree = "<group>"; };
+		E1FF44077F82744E8E25EAD84 /* ClimbSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Climb/ClimbSnapshotBuilder.swift; sourceTree = "<group>"; };
+		E1F92316EF6E9BBFD8B92B9F1 /* ClimbStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbStatus.swift; sourceTree = "<group>"; };
+		E1FD5E64DC8AE9E6C9926D152 /* CompletedWorkoutReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/CompletedWorkoutReference.swift; sourceTree = "<group>"; };
+		E1FC4437828B8D6153F394BEF /* CurrentMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/CurrentMetric.swift; sourceTree = "<group>"; };
+		E1F13632428D51045D764166B /* ElevationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Profile/ElevationProfile.swift; sourceTree = "<group>"; };
+		E1FE9606F3A59B698F31E6436 /* ElevationProfileBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Profile/ElevationProfileBuilding.swift; sourceTree = "<group>"; };
+		E1F6279AAE529571C91FBA5FE /* ElevationProfilePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Profile/ElevationProfilePoint.swift; sourceTree = "<group>"; };
+		E1F07A62EB0A4897E1C0361B0 /* HealthKitAuthorizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitAuthorizing.swift; sourceTree = "<group>"; };
+		E1FB0A78D5F0A72A755866543 /* HealthKitDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitDataTypes.swift; sourceTree = "<group>"; };
+		E1F1C63B30A9C3058177A801E /* HealthKitDelegateBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitDelegateBridge.swift; sourceTree = "<group>"; };
+		E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitMetricConverter.swift; sourceTree = "<group>"; };
+		E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitSessionManaging.swift; sourceTree = "<group>"; };
+		E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/HealthKitWorkoutFactory.swift; sourceTree = "<group>"; };
+		E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Climb/LegacyClimbAdapter.swift; sourceTree = "<group>"; };
+		E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Classification/LegacyClimbClassifier.swift; sourceTree = "<group>"; };
+		E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Detection/LegacyClimbDetector.swift; sourceTree = "<group>"; };
+		E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Profile/LegacyElevationProfileBuilder.swift; sourceTree = "<group>"; };
+		E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation/Metrics/LegacyMetricsAdapter.swift; sourceTree = "<group>"; };
+		E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/LegacyPowerSmoothing.swift; sourceTree = "<group>"; };
+		E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/MaximumCalculating.swift; sourceTree = "<group>"; };
+		E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricAvailability.swift; sourceTree = "<group>"; };
+		E1FBE514610196117E78AD821 /* MetricFreshness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricFreshness.swift; sourceTree = "<group>"; };
+		E1FEAE4CD1E6924929F292DC9 /* MetricObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricObservation.swift; sourceTree = "<group>"; };
+		E1F10835B8A228179A407D95E /* MetricSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricSource.swift; sourceTree = "<group>"; };
+		E1F189EDDFA85FAC0ADA17506 /* MetricSourceSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Selection/MetricSourceSelecting.swift; sourceTree = "<group>"; };
+		E1F24ADC8903D5F3DFDF9055F /* MetricStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Metrics/MetricStore.swift; sourceTree = "<group>"; };
+		E1F16EFDE70E0AEDA1A5DFB1A /* MetricValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricValue.swift; sourceTree = "<group>"; };
+		E1F5CDFE6EDCAA973EB1B0664 /* MetricsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Metrics/MetricsEngine.swift; sourceTree = "<group>"; };
+		E1FADF1186570A559D8C274F7 /* MetricsEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Metrics/MetricsEngineProviding.swift; sourceTree = "<group>"; };
+		E1FB32355EA641FE5318ED01F /* MetricsEngineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricsEngineState.swift; sourceTree = "<group>"; };
+		E1FE37518ABBCC7922E6FE8AC /* MetricsSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Metrics/MetricsSnapshot.swift; sourceTree = "<group>"; };
+		E1F6AD4776CA8AEFFC7C19641 /* MetricsSummaryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Metrics/MetricsSummaryBuilder.swift; sourceTree = "<group>"; };
+		E1F24F3972640BB46CACE5E00 /* RollingSampleBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/Metrics/RollingSampleBuffer.swift; sourceTree = "<group>"; };
+		E1F396E574E7EE1172CB7481F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		E1FBA08367F660784B0ECC28B /* StandardActiveClimbSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Selection/StandardActiveClimbSelector.swift; sourceTree = "<group>"; };
+		E1F800715C21554B22D39610F /* StandardClimbProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb/Progress/StandardClimbProgressCalculator.swift; sourceTree = "<group>"; };
+		E1F5541E02D2A3AF3C4288DD6 /* StandardMetricValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Validation/StandardMetricValidator.swift; sourceTree = "<group>"; };
+		E1F1C7DDCAFEEEFD0E22F9F1F /* TimeWeightedAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics/Aggregation/TimeWeightedAverage.swift; sourceTree = "<group>"; };
+		E1F6A9203189723E4541B0666 /* WorkoutConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutConfiguration.swift; sourceTree = "<group>"; };
+		E1F74C4E5EDD692F012DB60E3 /* WorkoutMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Workout/WorkoutMetric.swift; sourceTree = "<group>"; };
+		E2FF8470B6C4C07EEC9940EC5 /* ClimbEngineCompletionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineCompletionTests.swift; sourceTree = "<group>"; };
+		E2F1C827C09BC1998300519E2 /* ClimbEngineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineFailureTests.swift; sourceTree = "<group>"; };
+		E2F1B6AF27855CEAB3D063517 /* ClimbEngineHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineHarness.swift; sourceTree = "<group>"; };
+		E2F7F4BA9CC16B4F218CD896B /* ClimbEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineIntegrationTests.swift; sourceTree = "<group>"; };
+		E2F5BF945FB8BAE107F94B541 /* ClimbEngineLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineLifecycleTests.swift; sourceTree = "<group>"; };
+		E2FEAFB0E947839C7787D3731 /* ClimbEngineProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineProgressTests.swift; sourceTree = "<group>"; };
+		E2F510DB709A30000F3426413 /* ClimbEngineResetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineResetTests.swift; sourceTree = "<group>"; };
+		E2FC0FC603CC1B70019892756 /* ClimbEngineRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineRouteTests.swift; sourceTree = "<group>"; };
+		E2F7B737056B2C5DEC14B9597 /* ClimbEngineSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbEngineSelectionTests.swift; sourceTree = "<group>"; };
+		E2FD53E6DF7C6D707603EB956 /* ClimbFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbFactory.swift; sourceTree = "<group>"; };
+		E2F1D6827EFFA3B014B3D5E8C /* ClimbSnapshotRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ClimbSnapshotRecorder.swift; sourceTree = "<group>"; };
+		E2FCEC9F5C74A8C4573D67160 /* ElevationProfileFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Climb/ElevationProfileFactory.swift; sourceTree = "<group>"; };
+		E2F3D5127D79D114C55BCD347 /* FakeClimbClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Fakes/FakeClimbClassifier.swift; sourceTree = "<group>"; };
+		E2F956549025DDA7879567217 /* FakeClimbDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Fakes/FakeClimbDetector.swift; sourceTree = "<group>"; };
+		E2F4081A0572D5205002BC343 /* FakeClimbProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Fakes/FakeClimbProgressCalculator.swift; sourceTree = "<group>"; };
+		E2F07DA6F6D11939C452D0BC9 /* FakeElevationProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Fakes/FakeElevationProfileBuilder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0B00 /* MetricSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricSource.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0B01 /* MetricAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricAvailability.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0B02 /* MetricObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricObservation.swift; sourceTree = "<group>"; };
@@ -607,7 +756,6 @@
 		E1FC68A6EA6D07723766CB33 /* RoutePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Route/RoutePoint.swift; sourceTree = "<group>"; };
 		E1FCD6CBB650672532816ADF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppContainer.swift; sourceTree = "<group>"; };
 		E1FE58D83618BED000E8D091 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Common/Coordinate.swift; sourceTree = "<group>"; };
-		E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/ClimbEngine.swift; sourceTree = "<group>"; };
 		E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbSnapshot.swift; sourceTree = "<group>"; };
 		E1FF047511DE4B466D55F68A /* NavigationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationFailure.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C1 /* RideStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachineTests.swift; sourceTree = "<group>"; };
@@ -705,6 +853,22 @@
 		0E5EE99007A87DDC42679279 /* UltraNavTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2FF8470B6C4C07EEC9940EC5 /* ClimbEngineCompletionTests.swift */,
+				E2F1C827C09BC1998300519E2 /* ClimbEngineFailureTests.swift */,
+				E2F1B6AF27855CEAB3D063517 /* ClimbEngineHarness.swift */,
+				E2F7F4BA9CC16B4F218CD896B /* ClimbEngineIntegrationTests.swift */,
+				E2F5BF945FB8BAE107F94B541 /* ClimbEngineLifecycleTests.swift */,
+				E2FEAFB0E947839C7787D3731 /* ClimbEngineProgressTests.swift */,
+				E2F510DB709A30000F3426413 /* ClimbEngineResetTests.swift */,
+				E2FC0FC603CC1B70019892756 /* ClimbEngineRouteTests.swift */,
+				E2F7B737056B2C5DEC14B9597 /* ClimbEngineSelectionTests.swift */,
+				E2FD53E6DF7C6D707603EB956 /* ClimbFactory.swift */,
+				E2F1D6827EFFA3B014B3D5E8C /* ClimbSnapshotRecorder.swift */,
+				E2FCEC9F5C74A8C4573D67160 /* ElevationProfileFactory.swift */,
+				E2F3D5127D79D114C55BCD347 /* FakeClimbClassifier.swift */,
+				E2F956549025DDA7879567217 /* FakeClimbDetector.swift */,
+				E2F4081A0572D5205002BC343 /* FakeClimbProgressCalculator.swift */,
+				E2F07DA6F6D11939C452D0BC9 /* FakeElevationProfileBuilder.swift */,
 				E2F000000000000000001D0A00 /* FakeRouteMatcher.swift */,
 				E2F000000000000000001D0A01 /* FakeCueProvider.swift */,
 				E2F000000000000000001D0A02 /* FakeCueProgressor.swift */,
@@ -866,6 +1030,65 @@
 		A40000000000000000000002 /* UltraNav */ = {
 			isa = PBXGroup;
 			children = (
+				E1FF0D6E7EE00A08E0372BF4D /* ActiveClimbSelecting.swift */,
+				E1F1F223ED69AEF1900B5ADFE /* AverageCalculating.swift */,
+				E1FAFB913FF0F3082CF5D5B85 /* Climb.swift */,
+				E1FD82B70DD942E33C83CF526 /* ClimbAnalysisService.swift */,
+				E1FD2895728EED1E44AAE1573 /* ClimbAssembler.swift */,
+				E1FC4701C4D1216DFD184401A /* ClimbCandidate.swift */,
+				E1F592A9699585440921F1902 /* ClimbCategory.swift */,
+				E1F9807FC753E2175F442D3DB /* ClimbClassifying.swift */,
+				E1FFA81A5D24225C6851AA987 /* ClimbDetecting.swift */,
+				E1F289A551BA9B5B1983069B5 /* ClimbEngine.swift */,
+				E1FC37E38672AB8387AF21E97 /* ClimbEngineCommand.swift */,
+				E1FCAD8426A04A1B7F77B3E30 /* ClimbEngineProviding.swift */,
+				E1FB92CFC74718C4B1FC1C48A /* ClimbEngineState.swift */,
+				E1F66298BBB1ABE146B061749 /* ClimbFailure.swift */,
+				E1FF38FF5EA4F0D253058863D /* ClimbGradientSlice.swift */,
+				E1F9B872C10A897D3C530207A /* ClimbNotification.swift */,
+				E1F61DA57B91B6A155F03119B /* ClimbProgress.swift */,
+				E1FE39FD5396FFAE0ABD552D8 /* ClimbProgressCalculating.swift */,
+				E1F6FE307F3ECDE87858703C7 /* ClimbProgressQuality.swift */,
+				E1FF44077F82744E8E25EAD84 /* ClimbSnapshotBuilder.swift */,
+				E1F92316EF6E9BBFD8B92B9F1 /* ClimbStatus.swift */,
+				E1FD5E64DC8AE9E6C9926D152 /* CompletedWorkoutReference.swift */,
+				E1FC4437828B8D6153F394BEF /* CurrentMetric.swift */,
+				E1F13632428D51045D764166B /* ElevationProfile.swift */,
+				E1FE9606F3A59B698F31E6436 /* ElevationProfileBuilding.swift */,
+				E1F6279AAE529571C91FBA5FE /* ElevationProfilePoint.swift */,
+				E1F07A62EB0A4897E1C0361B0 /* HealthKitAuthorizing.swift */,
+				E1FB0A78D5F0A72A755866543 /* HealthKitDataTypes.swift */,
+				E1F1C63B30A9C3058177A801E /* HealthKitDelegateBridge.swift */,
+				E1FA67FA6A5A5076BC365DEC6 /* HealthKitMetricConverter.swift */,
+				E1F23321B4F064C90492CF91E /* HealthKitSessionManaging.swift */,
+				E1F6E648AC42A44C776BDC8FF /* HealthKitWorkoutFactory.swift */,
+				E1FEE8FDB0D3550A7167D924B /* LegacyClimbAdapter.swift */,
+				E1FA9586A257BEF939567575D /* LegacyClimbClassifier.swift */,
+				E1F7C85A49F973670C4B3D847 /* LegacyClimbDetector.swift */,
+				E1FA6132FC38A2836AEC06AC4 /* LegacyElevationProfileBuilder.swift */,
+				E1FC8408C28731A02112810CC /* LegacyMetricsAdapter.swift */,
+				E1F19A3E4531F0BA1C3F05918 /* LegacyPowerSmoothing.swift */,
+				E1F9948EA3DC3060681B21CEF /* MaximumCalculating.swift */,
+				E1F39537FD3F14C239B3A7B0F /* MetricAvailability.swift */,
+				E1FBE514610196117E78AD821 /* MetricFreshness.swift */,
+				E1FEAE4CD1E6924929F292DC9 /* MetricObservation.swift */,
+				E1F10835B8A228179A407D95E /* MetricSource.swift */,
+				E1F189EDDFA85FAC0ADA17506 /* MetricSourceSelecting.swift */,
+				E1F24ADC8903D5F3DFDF9055F /* MetricStore.swift */,
+				E1F16EFDE70E0AEDA1A5DFB1A /* MetricValue.swift */,
+				E1F5CDFE6EDCAA973EB1B0664 /* MetricsEngine.swift */,
+				E1FADF1186570A559D8C274F7 /* MetricsEngineProviding.swift */,
+				E1FB32355EA641FE5318ED01F /* MetricsEngineState.swift */,
+				E1FE37518ABBCC7922E6FE8AC /* MetricsSnapshot.swift */,
+				E1F6AD4776CA8AEFFC7C19641 /* MetricsSummaryBuilder.swift */,
+				E1F24F3972640BB46CACE5E00 /* RollingSampleBuffer.swift */,
+				E1F396E574E7EE1172CB7481F /* SettingsView.swift */,
+				E1FBA08367F660784B0ECC28B /* StandardActiveClimbSelector.swift */,
+				E1F800715C21554B22D39610F /* StandardClimbProgressCalculator.swift */,
+				E1F5541E02D2A3AF3C4288DD6 /* StandardMetricValidator.swift */,
+				E1F1C7DDCAFEEEFD0E22F9F1F /* TimeWeightedAverage.swift */,
+				E1F6A9203189723E4541B0666 /* WorkoutConfiguration.swift */,
+				E1F74C4E5EDD692F012DB60E3 /* WorkoutMetric.swift */,
 				E1F000000000000000001D0900 /* OffRouteStatus.swift */,
 				E1F000000000000000001D0901 /* RouteMatch.swift */,
 				E1F000000000000000001D0902 /* RouteMatching.swift */,
@@ -928,7 +1151,6 @@
 				E1FCD6CBB650672532816ADF /* AppContainer.swift */,
 				E1F50FCA694C3B244193BACE /* LocationService.swift */,
 				E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */,
-				E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */,
 				E1F0000000000000000001C1 /* RideEvent.swift */,
 				E1F0000000000000000001C2 /* RideEffect.swift */,
 				E1F0000000000000000001C3 /* RideTransition.swift */,
@@ -1224,6 +1446,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B09DB90EFF18E2460908E4E /* ClimbEngineCompletionTests.swift in Sources */,
+				E2B6E0CDA49F36A82C8DEB53E /* ClimbEngineFailureTests.swift in Sources */,
+				E2B4BFA279EC29736888C1E2D /* ClimbEngineHarness.swift in Sources */,
+				E2BCC6ECC1E274E3C1226AA80 /* ClimbEngineIntegrationTests.swift in Sources */,
+				E2BE803802926337868E1E77B /* ClimbEngineLifecycleTests.swift in Sources */,
+				E2B14FA1255A2918B0A85F9FB /* ClimbEngineProgressTests.swift in Sources */,
+				E2BF1C2969CFAC959D0D0AF3B /* ClimbEngineResetTests.swift in Sources */,
+				E2B969B65EBDEA2BF93528764 /* ClimbEngineRouteTests.swift in Sources */,
+				E2BA23524DD66FF4E57B4963A /* ClimbEngineSelectionTests.swift in Sources */,
+				E2B59AC6438AFD495386D3F6E /* ClimbFactory.swift in Sources */,
+				E2B365F08B04E788A2C093A28 /* ClimbSnapshotRecorder.swift in Sources */,
+				E2B335CE8EA227E8E2BB9E826 /* ElevationProfileFactory.swift in Sources */,
+				E2BD90362B3B24EF72AF25A9B /* FakeClimbClassifier.swift in Sources */,
+				E2B57321F73F4EB5DB19F98D5 /* FakeClimbDetector.swift in Sources */,
+				E2BA2C5F54A554B2AFBB771F0 /* FakeClimbProgressCalculator.swift in Sources */,
+				E2B8E3C685BEA222CDF159247 /* FakeElevationProfileBuilder.swift in Sources */,
 				E2B000000000000000001D0C00 /* MetricsEngineResetTests.swift in Sources */,
 				E2B000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift in Sources */,
 				E2B000000000000000001D0C02 /* MetricsEngineLocationTests.swift in Sources */,
@@ -1338,26 +1576,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1B000000000000000001D0B00 /* MetricSource.swift in Sources */,
-				E1B000000000000000001D0B01 /* MetricAvailability.swift in Sources */,
-				E1B000000000000000001D0B02 /* MetricObservation.swift in Sources */,
-				E1B000000000000000001D0B03 /* MetricValue.swift in Sources */,
-				E1B000000000000000001D0B04 /* MetricFreshness.swift in Sources */,
-				E1B000000000000000001D0B05 /* MetricsSnapshot.swift in Sources */,
-				E1B000000000000000001D0B06 /* MetricsEngineState.swift in Sources */,
-				E1B000000000000000001D0B07 /* CurrentMetric.swift in Sources */,
-				E1B000000000000000001D0B08 /* TimeWeightedAverage.swift in Sources */,
-				E1B000000000000000001D0B09 /* MaximumCalculating.swift in Sources */,
-				E1B000000000000000001D0B0A /* AverageCalculating.swift in Sources */,
-				E1B000000000000000001D0B0B /* LegacyPowerSmoothing.swift in Sources */,
-				E1B000000000000000001D0B0C /* MetricSourceSelecting.swift in Sources */,
-				E1B000000000000000001D0B0D /* StandardMetricValidator.swift in Sources */,
-				E1B000000000000000001D0B0E /* MetricsEngine.swift in Sources */,
-				E1B000000000000000001D0B0F /* MetricStore.swift in Sources */,
-				E1B000000000000000001D0B10 /* MetricsSummaryBuilder.swift in Sources */,
-				E1B000000000000000001D0B11 /* RollingSampleBuffer.swift in Sources */,
-				E1B000000000000000001D0B12 /* MetricsEngineProviding.swift in Sources */,
-				E1B000000000000000001D0B13 /* LegacyMetricsAdapter.swift in Sources */,
+				E1B544BC0BB4185EE88C96A08 /* ActiveClimbSelecting.swift in Sources */,
+				E1B0A854DAF20C0C1DB4D1844 /* AverageCalculating.swift in Sources */,
+				E1BC792CD496A7CA8AA38E1F6 /* Climb.swift in Sources */,
+				E1BD72D6B064674C693C85E82 /* ClimbAnalysisService.swift in Sources */,
+				E1B34AB509E9D4CFBA5EA911A /* ClimbAssembler.swift in Sources */,
+				E1B1642BA3B350754608B56BF /* ClimbCandidate.swift in Sources */,
+				E1B5B8ABA61788BBEB62C1B65 /* ClimbCategory.swift in Sources */,
+				E1BB31B4AA3A0D30E52ABD1DC /* ClimbClassifying.swift in Sources */,
+				E1BE16FFD3DBF51080D8F3AB9 /* ClimbDetecting.swift in Sources */,
+				E1BB8F6B42F6DD96F41451740 /* ClimbEngine.swift in Sources */,
+				E1B4937860FA2B62F65323692 /* ClimbEngineCommand.swift in Sources */,
+				E1BACFC7B47F7B3303A5CF32A /* ClimbEngineProviding.swift in Sources */,
+				E1BD5F08B745A9317795C03E4 /* ClimbEngineState.swift in Sources */,
+				E1B8E5D23B69AC42187E00FBB /* ClimbFailure.swift in Sources */,
+				E1B621E4609FA8B65751F9B6D /* ClimbGradientSlice.swift in Sources */,
+				E1B31E8B49975458BDD1924E2 /* ClimbNotification.swift in Sources */,
+				E1B26C5AD626FC9422CACF5A3 /* ClimbProgress.swift in Sources */,
+				E1B0B04EC7E9F7F8872D6382B /* ClimbProgressCalculating.swift in Sources */,
+				E1BD64D5CE3A0FAC7B10E5F85 /* ClimbProgressQuality.swift in Sources */,
+				E1BE5E6AA10DA051A14281293 /* ClimbSnapshotBuilder.swift in Sources */,
+				E1B23FAE362F74780062AC93C /* ClimbStatus.swift in Sources */,
+				E1B41807AEAB1414C3BD5F5E4 /* CompletedWorkoutReference.swift in Sources */,
+				E1BE0A82A80BB1E232FE24DBB /* CurrentMetric.swift in Sources */,
+				E1BDA6E5582F30B04805E0735 /* ElevationProfile.swift in Sources */,
+				E1BCAD51FB73617515C217094 /* ElevationProfileBuilding.swift in Sources */,
+				E1B618920269FEA3D953C4078 /* ElevationProfilePoint.swift in Sources */,
+				E1BA817CD06C4E003ED6EBD54 /* HealthKitAuthorizing.swift in Sources */,
+				E1BA2DC9A50958C9E5056117A /* HealthKitDataTypes.swift in Sources */,
+				E1B89265A1D0A5E365F7F2A2B /* HealthKitDelegateBridge.swift in Sources */,
+				E1B6AF4406782598F1D2DDFCE /* HealthKitMetricConverter.swift in Sources */,
+				E1B10F8586B4F553F1B39B889 /* HealthKitSessionManaging.swift in Sources */,
+				E1B3C5B742B697234478C665F /* HealthKitWorkoutFactory.swift in Sources */,
+				E1B68C07790675A069F2AD156 /* LegacyClimbAdapter.swift in Sources */,
+				E1B76552D35D446F4823AAD2D /* LegacyClimbClassifier.swift in Sources */,
+				E1B9E68ECB3913904C5F60BE5 /* LegacyClimbDetector.swift in Sources */,
+				E1B1D424744EB1AC2063F5E87 /* LegacyElevationProfileBuilder.swift in Sources */,
+				E1BB7F8BBB58BFCB3171063DD /* LegacyMetricsAdapter.swift in Sources */,
+				E1BAE2C0A7DEC115B8A0549EF /* LegacyPowerSmoothing.swift in Sources */,
+				E1B14A44C0906A741BDA42590 /* MaximumCalculating.swift in Sources */,
+				E1B4587ED8D037BE891138D8D /* MetricAvailability.swift in Sources */,
+				E1B7471431A5DB8B85A5F30AB /* MetricFreshness.swift in Sources */,
+				E1B4980F07FDE2F9C50B74ED2 /* MetricObservation.swift in Sources */,
+				E1B684BA88698549229845E64 /* MetricSource.swift in Sources */,
+				E1B816AE0C972BE6F59A94614 /* MetricSourceSelecting.swift in Sources */,
+				E1BA493FAAFB44E978DAB8C80 /* MetricStore.swift in Sources */,
+				E1BE6D655EDD06000AA5A78B7 /* MetricValue.swift in Sources */,
+				E1BEB8D1DEC585AA97A34740B /* MetricsEngine.swift in Sources */,
+				E1B5BBC6328BDA78B4AED3C47 /* MetricsEngineProviding.swift in Sources */,
+				E1BA0309A9985E787D1724639 /* MetricsEngineState.swift in Sources */,
+				E1B55F7040D0BB81B7BD135EA /* MetricsSnapshot.swift in Sources */,
+				E1B0BC4EAF00CA88A6D6156F8 /* MetricsSummaryBuilder.swift in Sources */,
+				E1BCE104A9D490735EC660851 /* RollingSampleBuffer.swift in Sources */,
+				E1B9FC164D753043491E74AD2 /* SettingsView.swift in Sources */,
+				E1B4DF105E7431561FB3FC256 /* StandardActiveClimbSelector.swift in Sources */,
+				E1BCBF29E56500163E682CB5D /* StandardClimbProgressCalculator.swift in Sources */,
+				E1B7EA2508CA98B15A0CF01B2 /* StandardMetricValidator.swift in Sources */,
+				E1BF8438C02487CCA2D1EB95F /* TimeWeightedAverage.swift in Sources */,
+				E1B27BF247F45958976FC9CA5 /* WorkoutConfiguration.swift in Sources */,
+				E1B8F83C768B1B55B5BB70275 /* WorkoutMetric.swift in Sources */,
 				E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */,
 				E1B000000000000000001D0901 /* RouteMatch.swift in Sources */,
 				E1B000000000000000001D0902 /* RouteMatching.swift in Sources */,
@@ -1419,7 +1696,6 @@
 				E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */,
 				E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */,
 				E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */,
-				E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */,
 				E1B0000000000000000001C1 /* RideEvent.swift in Sources */,
 				E1B0000000000000000001C2 /* RideEffect.swift in Sources */,
 				E1B0000000000000000001C3 /* RideTransition.swift in Sources */,
@@ -1492,7 +1768,6 @@
 				A1000000000000000000000A /* SyncCoordinator.swift in Sources */,
 				A1000000000000000000000B /* AppLaunchView.swift in Sources */,
 				A1000000000000000000000C /* OnboardingView.swift in Sources */,
-				A1000000000000000000000D /* SettingsView.swift in Sources */,
 				F00000000000000000000001 /* GPXRoute.swift in Sources */,
 				F00000000000000000000002 /* GPXParser.swift in Sources */,
 				F00000000000000000000003 /* RouteLibraryManager.swift in Sources */,
@@ -1512,15 +1787,6 @@
 				B83FBCAEFA96F29A01AA8870 /* CoreLocationManaging.swift in Sources */,
 				CA749B21ED46631305B82246 /* CoreLocationDelegateBridge.swift in Sources */,
 				3E0832E46D6A895D78B0EFAD /* LocationServiceState.swift in Sources */,
-				21C03F099AE9B707A71E4BDB /* WorkoutConfiguration.swift in Sources */,
-				165507CDE9E6FBA3E5116AF2 /* HealthKitDataTypes.swift in Sources */,
-				EDC2ADB5A7A03D8E2B64CD9A /* HealthKitAuthorizing.swift in Sources */,
-				1A31ADE6A4C1D1976E378C49 /* CompletedWorkoutReference.swift in Sources */,
-				DA1C43A2F67F4013706CCB10 /* WorkoutMetric.swift in Sources */,
-				87F8CD7141487153EEC6A3D1 /* HealthKitSessionManaging.swift in Sources */,
-				2BCC60A2B93DF898BDC0F5E2 /* HealthKitDelegateBridge.swift in Sources */,
-				918E4C712999F8F0AD542A67 /* HealthKitMetricConverter.swift in Sources */,
-				3BDEBC01FC491748A3E84ED9 /* HealthKitWorkoutFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

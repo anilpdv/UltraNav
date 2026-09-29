@@ -69,6 +69,8 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
     let metricsEngine: MetricsEngine
     let climbEngine: ClimbEngine
 
+    private var navSubscriptionTask: Task<Void, Never>?
+
     // MARK: - Ride Lifecycle
     var isRiding: Bool {
         get { rideEngine.currentSnapshot.state.hasActiveRideSession }
@@ -87,10 +89,12 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
                 let domainRoute = newValue.toDomainRoute()
                 Task {
                     await navigationEngine.send(.useRoute(domainRoute))
+                    await climbEngine.send(.loadRoute(domainRoute))
                 }
             } else {
                 Task {
                     await navigationEngine.send(.clearRoute)
+                    await climbEngine.send(.reset)
                 }
             }
         }
@@ -120,16 +124,16 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
 
     // Elevation & Grade
     var currentElevationMeters: Double {
-        rideEngine.currentSnapshot.metrics.altitudeMeters ?? climbEngine.currentElevationMeters ?? 0
+        rideEngine.currentSnapshot.metrics.altitudeMeters ?? climbEngine.currentSnapshot.currentElevationMeters ?? 0
     }
     var elevationGainedMeters: Double {
-        climbEngine.elevationGainedMeters
+        climbEngine.currentSnapshot.totalElevationGainMeters
     }
     var currentGradePercent: Double {
-        climbEngine.currentGradePercent
+        climbEngine.currentSnapshot.currentGradePercent
     }
     var vamMetersPerHour: Double {
-        climbEngine.vamMetersPerHour
+        climbEngine.currentSnapshot.vamMetersPerHour
     }
 
     // Sensor Metrics (BLE / HealthKit)
@@ -169,10 +173,28 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         navigationEngine.currentSnapshot.distanceToNextCueMeters ?? 0
     }
     var currentClimb: ClimbSegment? {
-        climbEngine.currentClimb
+        guard let active = climbEngine.currentSnapshot.activeClimb else { return nil }
+        let cat: GPXClimbCategory
+        switch active.category {
+        case .category4: cat = .cat4
+        case .category3: cat = .cat3
+        case .category2: cat = .cat2
+        case .category1: cat = .cat1
+        case .horsCategorie: cat = .hc
+        case .uncategorized: cat = .uncategorized
+        }
+        return ClimbSegment(
+            climbIndex: active.climbIndex,
+            totalClimbs: active.totalClimbs,
+            startDistance: active.startDistanceMeters,
+            endDistance: active.endDistanceMeters,
+            startElevation: active.startElevationMeters,
+            endElevation: active.summitElevationMeters,
+            category: cat
+        )
     }
     var distanceRemainingInClimb: CLLocationDistance {
-        climbEngine.distanceRemainingInClimb
+        climbEngine.currentSnapshot.distanceRemainingInActiveClimb ?? 0
     }
 
     // MARK: - Lap Engine
@@ -207,6 +229,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         self.metricsEngine = MetricsEngine()
         self.climbEngine = ClimbEngine()
         super.init()
+        setupInternalObservers()
     }
 
     init(
@@ -220,6 +243,16 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         self.metricsEngine = metricsEngine
         self.climbEngine = climbEngine
         super.init()
+        setupInternalObservers()
+    }
+
+    private func setupInternalObservers() {
+        navSubscriptionTask = Task { [weak self] in
+            guard let self else { return }
+            for await snap in self.navigationEngine.snapshots {
+                await self.climbEngine.send(.processNavigation(snap))
+            }
+        }
     }
 
     func heartRateZone(for hr: Int) -> HeartRateZone {
@@ -250,6 +283,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
             Task {
                 await navigationEngine.send(.useRoute(domainRoute))
                 await navigationEngine.send(.start)
+                await climbEngine.send(.loadRoute(domainRoute))
             }
         }
         Task {
@@ -279,6 +313,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
     func finishRide() {
         Task {
             await rideEngine.send(.finish)
+            await climbEngine.send(.reset)
         }
     }
 }

@@ -359,7 +359,7 @@ private final class GPXParserHelper: NSObject, XMLParserDelegate {
         }
     }
 
-    private func categorizeClimb(gain: Double, distance: Double) -> ClimbCategory {
+    private func categorizeClimb(gain: Double, distance: Double) -> GPXClimbCategory {
         let score = distance * (gain / max(1, distance) * 100.0)
         if score > 80000 || gain > 1000 { return .hc }
         if score > 64000 || gain > 600 { return .cat1 }

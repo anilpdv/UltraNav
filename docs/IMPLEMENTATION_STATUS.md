@@ -91,6 +91,16 @@
 - [x] `LegacyMetricsAdapter` for view projection.
 - [x] 100% unit test coverage across lifecycle, location/workout/sensor ingestion, freshness aging, aggregations, source tracking, and resets.
 
+### ClimbEngine Boundary (Phase 1K)
+- [x] `ClimbEngine` coordinates elevation profile parsing, climb detection, classification, active climb tracking, and live progress.
+- [x] Strongly typed `Climb`, `ClimbCategory`, `ClimbGradientSlice`, `ClimbStatus`, and `ClimbProgress` domain models.
+- [x] Background actor isolation (`ClimbAnalysisService`) for off-main-thread profile parsing and candidate scanning.
+- [x] Monotonic climb completion tracking (`ActiveClimbSelecting`, `StandardActiveClimbSelector`).
+- [x] Dynamic climb progress calculation (`ClimbProgressCalculating`, `StandardClimbProgressCalculator`).
+- [x] Bounded publication streams (`AsyncStream<ClimbSnapshot>` and `AsyncStream<ClimbNotification>`).
+- [x] `LegacyClimbAdapter` and `CyclingRideEngine` bridging.
+- [x] 100% unit test coverage across lifecycle, route analysis, active climb selection, live progress calculation, completions/skips, failures, resets, and end-to-end integration.
+
 ---
 
 ## Upcoming Phases Roadmap
@@ -107,7 +117,9 @@
 | **Phase 1H** | **RideEngine Extraction** | Unify Location, Workout, and Sensor into RideEngine. | **COMPLETED** |
 | **Phase 1I** | **NavigationEngine Boundary** | Isolate navigation lifecycle, route matching, cues. | **COMPLETED** |
 | **Phase 1J** | **MetricsEngine Boundary** | Isolate metric ingestion, provenance, freshness. | **COMPLETED** |
-| **Phase 1K** | **ClimbEngine Boundary** | Isolate climb analysis, grade calculation, and segments. | Next |
+| **Phase 1K** | **ClimbEngine Boundary** | Isolate climb analysis, grade calculation, and segments. | **COMPLETED** |
+| **Phase 1L** | **Route and GPX Boundary** | Isolate route import, parsing, validation, normalization, and storage. | In Progress |
+| **Phase 1M** | **Dependency Injection & AppContainer** | Single composition root and DI unification. | Pending |
 | **Phase 2** | **GPX Engine & Ingestion** | Robust XML streaming, waypoint normalization, route compression. | Pending |
 | **Phase 3** | **Location & Sensor Fusion** | Kalman GPS filtering, barometric altitude fusion, auto-pause hysteresis. | Pending |
 

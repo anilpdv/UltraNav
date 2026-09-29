@@ -151,8 +151,8 @@ public struct RouteCue: Identifiable, Codable, Equatable, Sendable {
     }
 }
 
-/// Climb category similar to Garmin ClimbPro & cycling conventions.
-public enum ClimbCategory: String, Codable, Sendable {
+/// Legacy GPX climb category similar to Garmin ClimbPro & cycling conventions.
+public enum GPXClimbCategory: String, Codable, Sendable {
     case cat4 = "Cat 4"
     case cat3 = "Cat 3"
     case cat2 = "Cat 2"
@@ -181,7 +181,7 @@ public struct ClimbSegment: Identifiable, Codable, Equatable, Sendable {
     public var endDistance: CLLocationDistance
     public var startElevation: Double // meters
     public var endElevation: Double
-    public var category: ClimbCategory
+    public var category: GPXClimbCategory
 
     public var length: CLLocationDistance {
         max(0, endDistance - startDistance)
@@ -204,7 +204,7 @@ public struct ClimbSegment: Identifiable, Codable, Equatable, Sendable {
         endDistance: CLLocationDistance,
         startElevation: Double,
         endElevation: Double,
-        category: ClimbCategory
+        category: GPXClimbCategory
     ) {
         self.id = id
         self.climbIndex = climbIndex
