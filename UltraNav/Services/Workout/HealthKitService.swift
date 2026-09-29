@@ -122,6 +122,9 @@ final class HealthKitService: NSObject, WorkoutProviding, HealthKitDelegateBridg
             continuation.yield(.stateChanged(.prepared))
             continuation.yield(.stateChanged(.ready))
         } catch {
+            session?.end()
+            self.session = nil
+            self.builder = nil
             state = .failed
             continuation.yield(.failed(.preparationFailed))
             throw WorkoutServiceFailure.preparationFailed
@@ -142,6 +145,9 @@ final class HealthKitService: NSObject, WorkoutProviding, HealthKitDelegateBridg
             state = .running
             continuation.yield(.stateChanged(.running))
         } catch {
+            session.end()
+            self.session = nil
+            self.builder = nil
             state = .failed
             continuation.yield(.failed(.startFailed))
             throw WorkoutServiceFailure.startFailed
@@ -188,11 +194,16 @@ final class HealthKitService: NSObject, WorkoutProviding, HealthKitDelegateBridg
             try await builder.endCollection(at: date)
             let completedWorkout = try await builder.finishWorkout()
             session.end()
+            self.session = nil
+            self.builder = nil
 
             state = .ended
             continuation.yield(.workoutSaved(completedWorkout))
             continuation.yield(.stateChanged(.ended))
         } catch {
+            session.end()
+            self.session = nil
+            self.builder = nil
             state = .failed
             continuation.yield(.failed(.finishFailed))
             throw WorkoutServiceFailure.finishFailed
