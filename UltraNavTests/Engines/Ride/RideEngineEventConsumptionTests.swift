@@ -152,12 +152,12 @@ final class RideEngineEventConsumptionTests: XCTestCase {
 
         let sensorID = SensorIdentifier(rawValue: "sensor-01")
         harness.sensors.send(.connectionStateChanged(sensor: sensorID, state: .ready))
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 10_000_000)
 
         XCTAssertEqual(harness.engine.sensorStatus.readySensorCount, 1)
 
         harness.sensors.send(.connectionStateChanged(sensor: sensorID, state: .disconnected))
-        await Task.yield()
+        try? await Task.sleep(nanoseconds: 10_000_000)
 
         XCTAssertEqual(harness.engine.sensorStatus.readySensorCount, 0)
     }

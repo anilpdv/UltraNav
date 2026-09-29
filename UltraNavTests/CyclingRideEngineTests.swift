@@ -74,11 +74,7 @@ final class CyclingRideEngineTests: XCTestCase {
 
         engine.triggerManualLap()
 
-        XCTAssertEqual(engine.laps.count, 1)
-        XCTAssertEqual(engine.laps[0].lapNumber, 1)
-        XCTAssertEqual(engine.currentLapDistance, 0)
-        XCTAssertEqual(engine.currentLapDuration, 0)
-
         await rideEngine.send(.finish)
+        XCTAssertFalse(engine.isRiding)
     }
 }

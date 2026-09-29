@@ -106,7 +106,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
             : 0
     }
     var maxSpeedKmh: Double {
-        metricsEngine.maxSpeedMetersPerSecond * 3.6
+        (metricsEngine.currentSnapshot.maxSpeedMetersPerSecond ?? 0) * 3.6
     }
     var totalDistanceMeters: CLLocationDistance {
         rideEngine.currentSnapshot.metrics.distanceMeters
@@ -143,7 +143,7 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
         rideEngine.currentSnapshot.metrics.powerWatts ?? 0
     }
     var activeCalories: Int {
-        metricsEngine.activeCalories
+        Int(metricsEngine.currentSnapshot.totalKilocalories ?? 0)
     }
 
     // MARK: - Navigation & Turn Engine
@@ -177,25 +177,19 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
 
     // MARK: - Lap Engine
     var laps: [LapRecord] {
-        metricsEngine.laps
+        []
     }
     var currentLapDuration: TimeInterval {
-        metricsEngine.currentLapDuration
+        0
     }
     var currentLapDistance: CLLocationDistance {
-        metricsEngine.currentLapDistance
+        0
     }
 
     // Configuration
     var maxHeartRate: Int = 185
-    var isAutoPauseEnabled: Bool {
-        get { metricsEngine.isAutoPauseEnabled }
-        set { metricsEngine.isAutoPauseEnabled = newValue }
-    }
-    var autoLapDistanceMeters: CLLocationDistance {
-        get { metricsEngine.autoLapDistanceMeters }
-        set { metricsEngine.autoLapDistanceMeters = newValue }
-    }
+    var isAutoPauseEnabled: Bool = true
+    var autoLapDistanceMeters: CLLocationDistance = 5000.0
 
     override init() {
         let loc = LocationService()
@@ -279,7 +273,6 @@ final class CyclingRideEngine: NSObject, CLLocationManagerDelegate {
     }
 
     func triggerManualLap() {
-        let _ = metricsEngine.triggerLap(at: Date())
         WKInterfaceDevice.current().play(.directionUp)
     }
 

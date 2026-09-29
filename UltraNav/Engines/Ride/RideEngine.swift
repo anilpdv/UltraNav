@@ -654,6 +654,31 @@ final class RideEngine: RideEngineProviding, RideLocationConsuming {
         )
     }
 
+    // MARK: - Metrics Processing
+
+    func consume(metrics: MetricsSnapshot) {
+        if let speed = metrics.speed?.value {
+            metricState.currentSpeedMetersPerSecond = speed
+        }
+        if let distance = metrics.distance?.value {
+            metricState.distanceMeters = distance
+        }
+        if let hr = metrics.heartRate?.value {
+            metricState.heartRateBeatsPerMinute = hr
+        }
+        if let cadence = metrics.cadence?.value {
+            metricState.cadenceRevolutionsPerMinute = cadence
+        }
+        if let power = metrics.power?.value {
+            metricState.powerWatts = power
+        }
+        if let altitude = metrics.altitude?.value {
+            metricState.altitudeMeters = altitude
+        }
+
+        publishSnapshot()
+    }
+
     // MARK: - Snapshot Publication
 
     func publishSnapshot() {

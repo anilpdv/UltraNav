@@ -7,6 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1B000000000000000001D0B00 /* MetricSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B00 /* MetricSource.swift */; };
+		E1B000000000000000001D0B01 /* MetricAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B01 /* MetricAvailability.swift */; };
+		E1B000000000000000001D0B02 /* MetricObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B02 /* MetricObservation.swift */; };
+		E1B000000000000000001D0B03 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B03 /* MetricValue.swift */; };
+		E1B000000000000000001D0B04 /* MetricFreshness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B04 /* MetricFreshness.swift */; };
+		E1B000000000000000001D0B05 /* MetricsSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B05 /* MetricsSnapshot.swift */; };
+		E1B000000000000000001D0B06 /* MetricsEngineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B06 /* MetricsEngineState.swift */; };
+		E1B000000000000000001D0B07 /* CurrentMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B07 /* CurrentMetric.swift */; };
+		E1B000000000000000001D0B08 /* TimeWeightedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B08 /* TimeWeightedAverage.swift */; };
+		E1B000000000000000001D0B09 /* MaximumCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B09 /* MaximumCalculating.swift */; };
+		E1B000000000000000001D0B0A /* AverageCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0A /* AverageCalculating.swift */; };
+		E1B000000000000000001D0B0B /* LegacyPowerSmoothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0B /* LegacyPowerSmoothing.swift */; };
+		E1B000000000000000001D0B0C /* MetricSourceSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0C /* MetricSourceSelecting.swift */; };
+		E1B000000000000000001D0B0D /* StandardMetricValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0D /* StandardMetricValidator.swift */; };
+		E1B000000000000000001D0B0E /* MetricsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0E /* MetricsEngine.swift */; };
+		E1B000000000000000001D0B0F /* MetricStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B0F /* MetricStore.swift */; };
+		E1B000000000000000001D0B10 /* MetricsSummaryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B10 /* MetricsSummaryBuilder.swift */; };
+		E1B000000000000000001D0B11 /* RollingSampleBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B11 /* RollingSampleBuffer.swift */; };
+		E1B000000000000000001D0B12 /* MetricsEngineProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B12 /* MetricsEngineProviding.swift */; };
+		E1B000000000000000001D0B13 /* LegacyMetricsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0B13 /* LegacyMetricsAdapter.swift */; };
+		E2B000000000000000001D0C00 /* MetricsEngineResetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C00 /* MetricsEngineResetTests.swift */; };
+		E2B000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift */; };
+		E2B000000000000000001D0C02 /* MetricsEngineLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C02 /* MetricsEngineLocationTests.swift */; };
+		E2B000000000000000001D0C03 /* MetricsEngineAggregationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C03 /* MetricsEngineAggregationTests.swift */; };
+		E2B000000000000000001D0C04 /* MetricsEngineSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C04 /* MetricsEngineSourceTests.swift */; };
+		E2B000000000000000001D0C05 /* MetricsEngineFreshnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C05 /* MetricsEngineFreshnessTests.swift */; };
+		E2B000000000000000001D0C06 /* MetricsEngineLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C06 /* MetricsEngineLifecycleTests.swift */; };
+		E2B000000000000000001D0C07 /* MetricsEngineWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C07 /* MetricsEngineWorkoutTests.swift */; };
+		E2B000000000000000001D0C08 /* MetricsEngineSensorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C08 /* MetricsEngineSensorTests.swift */; };
+		E2B000000000000000001D0C09 /* FakeMetricsCalculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C09 /* FakeMetricsCalculators.swift */; };
+		E2B000000000000000001D0C0A /* MetricsEngineHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C0A /* MetricsEngineHarness.swift */; };
+		E2B000000000000000001D0C0B /* MetricsSnapshotRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F000000000000000001D0C0B /* MetricsSnapshotRecorder.swift */; };
 		E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0900 /* OffRouteStatus.swift */; };
 		E1B000000000000000001D0901 /* RouteMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0901 /* RouteMatch.swift */; };
 		E1B000000000000000001D0902 /* RouteMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F000000000000000001D0902 /* RouteMatching.swift */; };
@@ -205,7 +237,6 @@
 		E1B41C8FA4925D538305F357 /* RideSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3298E904F3D091696FCD9 /* RideSnapshot.swift */; };
 		E1B4627E4FADB93D2B848CC2 /* RideState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F99BBE9A191CB446F2A549 /* RideState.swift */; };
 		E1B51EFA7D6DA5ECE2F19673 /* LocationSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F552ABF0D5646B34E47BC6 /* LocationSample.swift */; };
-		E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */; };
 		E1B6642E7050D299FCC2E16B /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F75FE79D3030E7F2871E55 /* NavigationState.swift */; };
 		E1B6A92292A115D07DCF081C /* SensorConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBEFCDB8D596EDE60A8984 /* SensorConnectionState.swift */; };
 		E1B6AF37758B992965CCD672 /* RouteMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6782A658F61C8594186ED /* RouteMetadata.swift */; };
@@ -248,7 +279,6 @@
 		E2B537C644BBC66810155334 /* NavigationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */; };
 		E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */; };
 		E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */; };
-		E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */; };
 		E2BDA51CE5E233E3D9FE3AB3 /* RideModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FC4033DF79302AFA35749E /* RideModelTests.swift */; };
 		E2BFDCCAE3DFEF11BE95CA79 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4A4931D287BAEA545CDF0 /* CoordinateTests.swift */; };
 		EDC2ADB5A7A03D8E2B64CD9A /* HealthKitAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2254713225671CCA7F4D5BB /* HealthKitAuthorizing.swift */; };
@@ -309,6 +339,38 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1F000000000000000001D0B00 /* MetricSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricSource.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B01 /* MetricAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricAvailability.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B02 /* MetricObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricObservation.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B03 /* MetricValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricValue.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B04 /* MetricFreshness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricFreshness.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B05 /* MetricsSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricsSnapshot.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B06 /* MetricsEngineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/MetricsEngineState.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B07 /* CurrentMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Domain/Metrics/CurrentMetric.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B08 /* TimeWeightedAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Aggregation/TimeWeightedAverage.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B09 /* MaximumCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Aggregation/MaximumCalculating.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0A /* AverageCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Aggregation/AverageCalculating.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0B /* LegacyPowerSmoothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Aggregation/LegacyPowerSmoothing.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0C /* MetricSourceSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Selection/MetricSourceSelecting.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0D /* StandardMetricValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Metrics/Validation/StandardMetricValidator.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0E /* MetricsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricsEngine.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B0F /* MetricStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricStore.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B10 /* MetricsSummaryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricsSummaryBuilder.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B11 /* RollingSampleBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/RollingSampleBuffer.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B12 /* MetricsEngineProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Engines/Metrics/MetricsEngineProviding.swift; sourceTree = "<group>"; };
+		E1F000000000000000001D0B13 /* LegacyMetricsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNav/Presentation/Metrics/LegacyMetricsAdapter.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C00 /* MetricsEngineResetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineResetTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineIntegrationTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C02 /* MetricsEngineLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineLocationTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C03 /* MetricsEngineAggregationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineAggregationTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C04 /* MetricsEngineSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineSourceTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C05 /* MetricsEngineFreshnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineFreshnessTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C06 /* MetricsEngineLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineLifecycleTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C07 /* MetricsEngineWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineWorkoutTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C08 /* MetricsEngineSensorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Engines/Metrics/MetricsEngineSensorTests.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C09 /* FakeMetricsCalculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/FakeMetricsCalculators.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C0A /* MetricsEngineHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/MetricsEngineHarness.swift; sourceTree = "<group>"; };
+		E2F000000000000000001D0C0B /* MetricsSnapshotRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/TestDoubles/MetricsSnapshotRecorder.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0900 /* OffRouteStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/OffRouteStatus.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0901 /* RouteMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatch.swift; sourceTree = "<group>"; };
 		E1F000000000000000001D0902 /* RouteMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/Matching/RouteMatching.swift; sourceTree = "<group>"; };
@@ -548,7 +610,6 @@
 		E1FEAA7AA9516F80723A2235 /* ClimbEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/ClimbEngine.swift; sourceTree = "<group>"; };
 		E1FED4586855787FA89D57AB /* ClimbSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Climb/ClimbSnapshot.swift; sourceTree = "<group>"; };
 		E1FF047511DE4B466D55F68A /* NavigationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Navigation/NavigationFailure.swift; sourceTree = "<group>"; };
-		E1FF581EF9DF222E38DE1C9A /* MetricsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines/MetricsEngine.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C1 /* RideStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachineTests.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C2 /* RideStateMachineFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachineFailureTests.swift; sourceTree = "<group>"; };
 		E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraNavTests/Domain/RideStateMachinePathTests.swift; sourceTree = "<group>"; };
@@ -572,7 +633,6 @@
 		E2F881189C84CA8682B55500 /* RouteModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RouteModelTests.swift; path = UltraNavTests/Domain/RouteModelTests.swift; sourceTree = "<group>"; };
 		E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SensorModelTests.swift; path = UltraNavTests/Domain/SensorModelTests.swift; sourceTree = "<group>"; };
 		E2FC4033DF79302AFA35749E /* RideModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideModelTests.swift; path = UltraNavTests/Domain/RideModelTests.swift; sourceTree = "<group>"; };
-		E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetricsEngineTests.swift; path = UltraNavTests/MetricsEngineTests.swift; sourceTree = "<group>"; };
 		E2FFCD068AA86245C151AF6D /* NavigationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationModelTests.swift; path = UltraNavTests/Domain/NavigationModelTests.swift; sourceTree = "<group>"; };
 		E4ED9F5641FF5C22EA22DD88 /* LocationServiceState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceState.swift; path = Services/Location/LocationServiceState.swift; sourceTree = "<group>"; };
 		EC9FC6B24D3132AC896D3D6B /* LocationServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationServiceTests.swift; path = Services/LocationServiceTests.swift; sourceTree = "<group>"; };
@@ -682,7 +742,6 @@
 				E2F9EA4D7FC48AFFB79292E5 /* SensorModelTests.swift */,
 				E2F2AF7F43F99B2BF3025372 /* TestClock.swift */,
 				E2F56065CAE2A3A6DE311643 /* NavigationEngineTests.swift */,
-				E2FCD9F43AF1458370191E64 /* MetricsEngineTests.swift */,
 				E2F0000000000000000001C1 /* RideStateMachineTests.swift */,
 				E2F0000000000000000001C2 /* RideStateMachineFailureTests.swift */,
 				E2F0000000000000000001C3 /* RideStateMachinePathTests.swift */,
@@ -1165,6 +1224,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B000000000000000001D0C00 /* MetricsEngineResetTests.swift in Sources */,
+				E2B000000000000000001D0C01 /* MetricsEngineIntegrationTests.swift in Sources */,
+				E2B000000000000000001D0C02 /* MetricsEngineLocationTests.swift in Sources */,
+				E2B000000000000000001D0C03 /* MetricsEngineAggregationTests.swift in Sources */,
+				E2B000000000000000001D0C04 /* MetricsEngineSourceTests.swift in Sources */,
+				E2B000000000000000001D0C05 /* MetricsEngineFreshnessTests.swift in Sources */,
+				E2B000000000000000001D0C06 /* MetricsEngineLifecycleTests.swift in Sources */,
+				E2B000000000000000001D0C07 /* MetricsEngineWorkoutTests.swift in Sources */,
+				E2B000000000000000001D0C08 /* MetricsEngineSensorTests.swift in Sources */,
+				E2B000000000000000001D0C09 /* FakeMetricsCalculators.swift in Sources */,
+				E2B000000000000000001D0C0A /* MetricsEngineHarness.swift in Sources */,
+				E2B000000000000000001D0C0B /* MetricsSnapshotRecorder.swift in Sources */,
 				E2B000000000000000001D0A00 /* FakeRouteMatcher.swift in Sources */,
 				E2B000000000000000001D0A01 /* FakeCueProvider.swift in Sources */,
 				E2B000000000000000001D0A02 /* FakeCueProgressor.swift in Sources */,
@@ -1202,7 +1273,6 @@
 				E2B5B90E8FFB83FFC8422776 /* SensorModelTests.swift in Sources */,
 				E2B414684A629EE4D2CB1987 /* TestClock.swift in Sources */,
 				E2B6C54ED14BA75FBDF9DC58 /* NavigationEngineTests.swift in Sources */,
-				E2B6D583C530A89371D30378 /* MetricsEngineTests.swift in Sources */,
 				E2B0000000000000000001C1 /* RideStateMachineTests.swift in Sources */,
 				E2B0000000000000000001C2 /* RideStateMachineFailureTests.swift in Sources */,
 				E2B0000000000000000001C3 /* RideStateMachinePathTests.swift in Sources */,
@@ -1268,6 +1338,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B000000000000000001D0B00 /* MetricSource.swift in Sources */,
+				E1B000000000000000001D0B01 /* MetricAvailability.swift in Sources */,
+				E1B000000000000000001D0B02 /* MetricObservation.swift in Sources */,
+				E1B000000000000000001D0B03 /* MetricValue.swift in Sources */,
+				E1B000000000000000001D0B04 /* MetricFreshness.swift in Sources */,
+				E1B000000000000000001D0B05 /* MetricsSnapshot.swift in Sources */,
+				E1B000000000000000001D0B06 /* MetricsEngineState.swift in Sources */,
+				E1B000000000000000001D0B07 /* CurrentMetric.swift in Sources */,
+				E1B000000000000000001D0B08 /* TimeWeightedAverage.swift in Sources */,
+				E1B000000000000000001D0B09 /* MaximumCalculating.swift in Sources */,
+				E1B000000000000000001D0B0A /* AverageCalculating.swift in Sources */,
+				E1B000000000000000001D0B0B /* LegacyPowerSmoothing.swift in Sources */,
+				E1B000000000000000001D0B0C /* MetricSourceSelecting.swift in Sources */,
+				E1B000000000000000001D0B0D /* StandardMetricValidator.swift in Sources */,
+				E1B000000000000000001D0B0E /* MetricsEngine.swift in Sources */,
+				E1B000000000000000001D0B0F /* MetricStore.swift in Sources */,
+				E1B000000000000000001D0B10 /* MetricsSummaryBuilder.swift in Sources */,
+				E1B000000000000000001D0B11 /* RollingSampleBuffer.swift in Sources */,
+				E1B000000000000000001D0B12 /* MetricsEngineProviding.swift in Sources */,
+				E1B000000000000000001D0B13 /* LegacyMetricsAdapter.swift in Sources */,
 				E1B000000000000000001D0900 /* OffRouteStatus.swift in Sources */,
 				E1B000000000000000001D0901 /* RouteMatch.swift in Sources */,
 				E1B000000000000000001D0902 /* RouteMatching.swift in Sources */,
@@ -1329,7 +1419,6 @@
 				E1B7608C24A742E27E34D6F3 /* LocationAdapters.swift in Sources */,
 				E1BF021DFCF8BC80F9B9118A /* AppContainer.swift in Sources */,
 				E1BE1625B3211765EED8CA90 /* LocationService.swift in Sources */,
-				E1B6028844C0E10DC4A3C01D /* MetricsEngine.swift in Sources */,
 				E1BE06072876B2D497668F55 /* ClimbEngine.swift in Sources */,
 				E1B0000000000000000001C1 /* RideEvent.swift in Sources */,
 				E1B0000000000000000001C2 /* RideEffect.swift in Sources */,
